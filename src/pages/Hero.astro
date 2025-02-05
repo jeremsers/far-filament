@@ -1,0 +1,59 @@
+---
+import Image from "astro/components/Image.astro";
+import heroBanner from "../images/hero3.jpg";
+---
+
+<div class="hero">
+	<h1>Retrouvez clarté et confiance grâce à la PNL</h1>
+	<p>
+		Découvrez comment le coaching PNL peut vous aider à dépasser vos blocages et
+		atteindre vos objectifs personnels et professionnels.lm
+	</p>
+	<a href="#contact" class="btn">Prenez votre premier rendez-vous gratuit</a>
+	<Image src={heroBanner} alt="Illustration Hero" class="img" />
+</div>
+
+<style>
+	.img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: -1;
+		object-fit: cover;
+	}
+	.hero {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		height: 60vh;
+		justify-content: center;
+		align-items: center;
+	}
+	.hero h1 {
+		color: #686a25;
+		font-size: 2.5em;
+		margin-bottom: 20px;
+	}
+	.hero p {
+		font-size: 1.2em;
+		max-width: 600px;
+		margin: 0 auto 30px;
+		color: #686a25;
+	}
+	.hero .btn {
+		display: flex;
+		background-color: #ffb347;
+		color: white;
+		padding: 15px 10px;
+		text-decoration: none;
+		border-radius: 5px;
+		font-weight: bold;
+		font-size: 1.1em;
+		height: 80px;
+		width: 400px;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		margin: 100px;
+	}
+</style>

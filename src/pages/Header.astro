@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import logo from "../images/logo.png";
+
+---
+
+
+<header>
+    <div class="logo">
+        <Image src={logo} alt="logo" class='logo-img' />
+        </div>
+    <nav>
+        <a href="#about">À propos</a>
+        <a href="#services">Services</a>
+        <a href="#pnl">PNL</a>
+        <a href="#blog">Blog</a>
+        <a
+          href="https://calendly.com/votre-lien"
+          target="_blank"
+          class="btn cta-btn">Réserver un rendez-vous gratuit</a
+        >
+      </nav>
+</header>
+
+
+<style lang="scss">
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #6b8e23;
+        height: 10vh;
+      }
+      .logo {
+        height: 100%;
+        &-img {
+      
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+nav {
+        padding: 15px;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row;
+        align-items: center;
+      }
+      nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 15px;
+        font-size: 16px;
+      }
+</style>

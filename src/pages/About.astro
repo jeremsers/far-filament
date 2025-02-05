@@ -1,0 +1,69 @@
+---
+import Image from "astro/components/Image.astro";
+import aboutPicture from "../images/about.jpg";
+---
+
+<section class="section about" id="about">
+	<div class="about-container">
+		<h2 class="about-title">À propos de moi</h2>
+		<p class="about-text">
+			Je suis convaincue que le changement est possible dès lors que l’on comprend
+			ses émotions et ses schémas de pensée. C’est pourquoi j’ai choisi de me
+			spécialiser en Programmation Neuro-Linguistique (PNL), une approche qui vous
+			aide à reprendre le contrôle sur votre vie en agissant sur vos croyances et
+			comportements.
+		</p>
+
+		<p class="about-text">✨ Ce que je vous propose :</p>
+		<ul>
+			<li>
+				✅ Un accompagnement bienveillant et personnalisé pour vous aider à
+				surmonter vos blocages.
+			</li>
+			<li>
+				✅ Des outils concrets issus de la PNL pour transformer vos pensées
+				limitantes en leviers de réussite.
+			</li>
+			<li>
+				✅ Un espace d’écoute et d’échange, où vous pourrez exprimer librement vos
+				émotions et vos aspirations.
+			</li>
+		</ul>
+	</div>
+	<Image src={aboutPicture} alt="about picture" class="about-img" />
+</section>
+
+<style lang="scss">
+	.about {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 50px 0;
+		background-color: #f8ede3;
+		&-container {
+			width: 50%;
+			padding: 20px;
+		}
+		&-title {
+			font-size: 2em;
+			color: #686a25;
+			margin-bottom: 20px;
+		}
+		&-text {
+			font-size: 1.5em;
+			color: #82852e;
+			margin-bottom: 20px;
+		}
+	}
+
+	ul {
+		padding: 10px 0;
+		list-style: none;
+		& li {
+			font-size: 1.2em;
+			margin-left: 30px;
+			margin-bottom: 10px;
+			color: #6a6025;
+		}
+	}
+</style>
