@@ -1,0 +1,226 @@
+<section class="section" id="faq">
+	<div class="section-header">
+		<h2>Questions fréquentes</h2>
+		<p class="section-subtitle">
+			Retrouvez les réponses aux questions les plus courantes sur le coaching PNL
+		</p>
+	</div>
+
+	<div class="faq-container">
+		<div class="faq-list">
+			<div class="faq-item">
+				<details>
+					<summary>Comment fonctionne la PNL ?</summary>
+					<div class="faq-answer">
+						<p>
+							La PNL est une approche qui utilise le langage et la psychologie
+							cognitive pour améliorer la communication et le développement
+							personnel. Elle permet de :
+						</p>
+						<ul>
+							<li>Comprendre vos schémas de pensée</li>
+							<li>Modifier des comportements limitants</li>
+							<li>Développer de nouvelles ressources</li>
+							<li>Atteindre vos objectifs plus efficacement</li>
+						</ul>
+					</div>
+				</details>
+			</div>
+
+			<div class="faq-item">
+				<details>
+					<summary>Combien de séances sont recommandées ?</summary>
+					<div class="faq-answer">
+						<p>
+							Tout dépend de votre situation et de vos objectifs. Une première
+							séance gratuite permet d'évaluer vos besoins et de définir un
+							parcours adapté. En général, un accompagnement peut varier de 3 à 10
+							séances.
+						</p>
+					</div>
+				</details>
+			</div>
+
+			<div class="faq-item">
+				<details>
+					<summary>Les séances peuvent-elles se faire à distance ?</summary>
+					<div class="faq-answer">
+						<p>
+							Oui, les séances peuvent se faire en visioconférence avec la même
+							efficacité qu'en présentiel. Je utilise des outils adaptés pour
+							garantir une qualité d'accompagnement optimale.
+						</p>
+					</div>
+				</details>
+			</div>
+
+			<div class="faq-item">
+				<details>
+					<summary>Comment se déroule la première séance gratuite ?</summary>
+					<div class="faq-answer">
+						<p>
+							La première séance est un moment d'échange qui permet de :
+						</p>
+						<ul>
+							<li>Faire connaissance et créer un lien de confiance</li>
+							<li>Comprendre vos attentes et vos objectifs</li>
+							<li>Expliquer ma méthode de travail</li>
+							<li>Définir ensemble un plan d'accompagnement adapté</li>
+						</ul>
+					</div>
+				</details>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.section {
+		display: flex;
+		flex-direction: column;
+		padding: 60px 20px;
+		background-color: #fff;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 50px;
+
+			h2 {
+				color: #2c3e50;
+				font-size: 2.5em;
+				margin-bottom: 15px;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 60px;
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
+			}
+
+			.section-subtitle {
+				color: #666;
+				font-size: 1.1em;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.faq-container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.faq-list {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.faq-item {
+		details {
+			background-color: #f8ede3;
+			border-radius: 15px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			transition: all 0.3s ease;
+
+			&[open] {
+				background-color: white;
+				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+
+				summary {
+					border-bottom: 1px solid #eee;
+					border-radius: 15px 15px 0 0;
+
+					&::before {
+						transform: rotate(90deg);
+					}
+				}
+			}
+
+			summary {
+				padding: 20px 25px;
+				cursor: pointer;
+				position: relative;
+				font-weight: 600;
+				list-style: none;
+				color: #2c3e50;
+				transition: all 0.3s ease;
+
+				&::-webkit-details-marker {
+					display: none;
+				}
+
+				&::before {
+					content: "›";
+					position: absolute;
+					right: 25px;
+					font-size: 1.5em;
+					transition: transform 0.3s ease;
+					color: #6b8e23;
+				}
+
+				&:hover {
+					background-color: rgba(107, 142, 35, 0.1);
+				}
+			}
+		}
+
+		.faq-answer {
+			padding: 20px 25px;
+			color: #666;
+			line-height: 1.6;
+
+			p {
+				margin: 0 0 15px 0;
+			}
+
+			ul {
+				margin: 0;
+				padding-left: 20px;
+
+				li {
+					margin: 8px 0;
+					position: relative;
+
+					&::before {
+						content: "•";
+						color: #6b8e23;
+						position: absolute;
+						left: -15px;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-header {
+			h2 {
+				font-size: 2em;
+			}
+		}
+
+		.faq-item {
+			details {
+				summary {
+					padding: 15px 20px;
+					padding-right: 40px;
+				}
+
+				.faq-answer {
+					padding: 15px 20px;
+				}
+			}
+		}
+	}
+</style> 

@@ -3,67 +3,166 @@ import Image from "astro/components/Image.astro";
 import aboutPicture from "../images/about.jpg";
 ---
 
-<section class="section about" id="about">
-	<div class="about-container">
-		<h2 class="about-title">À propos de moi</h2>
-		<p class="about-text">
-			Je suis convaincue que le changement est possible dès lors que l’on comprend
-			ses émotions et ses schémas de pensée. C’est pourquoi j’ai choisi de me
-			spécialiser en Programmation Neuro-Linguistique (PNL), une approche qui vous
-			aide à reprendre le contrôle sur votre vie en agissant sur vos croyances et
-			comportements.
+<section class="section" id="about">
+	<div class="section-header">
+		<h2>À propos de moi</h2>
+		<p class="section-subtitle">
+			Découvrez mon approche et ma philosophie d'accompagnement
 		</p>
-
-		<p class="about-text">✨ Ce que je vous propose :</p>
-		<ul>
-			<li>
-				✅ Un accompagnement bienveillant et personnalisé pour vous aider à
-				surmonter vos blocages.
-			</li>
-			<li>
-				✅ Des outils concrets issus de la PNL pour transformer vos pensées
-				limitantes en leviers de réussite.
-			</li>
-			<li>
-				✅ Un espace d’écoute et d’échange, où vous pourrez exprimer librement vos
-				émotions et vos aspirations.
-			</li>
-		</ul>
 	</div>
-	<Image src={aboutPicture} alt="about picture" class="about-img" />
+
+	<div class="about-container">
+		<div class="about-content">
+			<p class="about-text">
+				Je suis convaincue que le changement est possible dès lors que l'on comprend
+				ses émotions et ses schémas de pensée. C'est pourquoi j'ai choisi de me
+				spécialiser en Programmation Neuro-Linguistique (PNL), une approche qui vous
+				aide à reprendre le contrôle sur votre vie en agissant sur vos croyances et
+				comportements.
+			</p>
+
+			<div class="about-features">
+				<p class="features-title">✨ Ce que je vous propose :</p>
+				<ul>
+					<li>
+						Un accompagnement bienveillant et personnalisé pour vous aider à surmonter
+						vos blocages.
+					</li>
+					<li>
+						Des outils concrets issus de la PNL pour transformer vos pensées
+						limitantes en leviers de réussite.
+					</li>
+					<li>
+						Un espace d'écoute et d'échange, où vous pourrez exprimer librement vos
+						émotions et vos aspirations.
+					</li>
+				</ul>
+			</div>
+		</div>
+		<Image src={aboutPicture} alt="about picture" class="about-img" />
+	</div>
 </section>
 
 <style lang="scss">
-	.about {
+	.section {
 		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 50px 0;
+		flex-direction: column;
+		padding: 60px 20px;
 		background-color: #f8ede3;
-		&-container {
-			width: 50%;
-			padding: 20px;
-		}
-		&-title {
-			font-size: 2em;
-			color: #686a25;
-			margin-bottom: 20px;
-		}
-		&-text {
-			font-size: 1.5em;
-			color: #82852e;
-			margin-bottom: 20px;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 50px;
+
+			h2 {
+				color: #2c3e50;
+				font-size: 2.5em;
+				margin-bottom: 15px;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 60px;
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
+			}
+
+			.section-subtitle {
+				color: #666;
+				font-size: 1.1em;
+				max-width: 600px;
+				margin: 0 auto;
+			}
 		}
 	}
 
-	ul {
-		padding: 10px 0;
-		list-style: none;
-		& li {
-			font-size: 1.2em;
-			margin-left: 30px;
-			margin-bottom: 10px;
-			color: #6a6025;
+	.about-container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 40px;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.about-content {
+		flex: 1;
+
+		.about-text {
+			font-size: 1.1em;
+			line-height: 1.6;
+			color: #2c3e50;
+			margin-bottom: 30px;
+		}
+
+		.about-features {
+			.features-title {
+				font-size: 1.2em;
+				color: #2c3e50;
+				margin-bottom: 20px;
+				font-weight: 600;
+			}
+
+			ul {
+				list-style: none;
+				padding: 0;
+
+				li {
+					margin: 15px 0;
+					padding-left: 25px;
+					position: relative;
+					color: #2c3e50;
+					font-size: 1.1em;
+
+					&:before {
+						content: "✅";
+						position: absolute;
+						left: 0;
+						color: #6b8e23;
+					}
+				}
+			}
+		}
+	}
+
+	.about-img {
+		width: 400px;
+		height: auto;
+		border-radius: 15px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		transition: transform 0.3s ease;
+
+		&:hover {
+			transform: scale(1.02);
+		}
+	}
+
+	@media (max-width: 768px) {
+		.about-container {
+			flex-direction: column-reverse;
+			text-align: center;
+		}
+
+		.about-img {
+			width: 100%;
+			max-width: 300px;
+			margin-bottom: 30px;
+		}
+
+		.about-content {
+			.about-features {
+				ul li {
+					text-align: left;
+				}
+			}
 		}
 	}
 </style>

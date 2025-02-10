@@ -2,6 +2,12 @@
 import Hero from "../pages/Hero.astro";
 import About from "../pages/About.astro";
 import Header from "./Header.astro";
+import Services from "./Services.astro";
+import Testimony from "./Testimony.astro";
+import Method from "./Method.astro";
+import FAQ from "./FAQ.astro";
+import Contact from "./Contact.astro";
+import Footer from "./Footer.astro";
 ---
 
 <!doctype html>
@@ -14,7 +20,7 @@ import Header from "./Header.astro";
 			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap"
 			rel="stylesheet"
 		/>
-		<style is:global>
+		<style is:global lang="scss">
 			body {
 				font-family: "Poppins", sans-serif;
 				background-color: #f8ede3;
@@ -22,73 +28,97 @@ import Header from "./Header.astro";
 				margin: 0;
 				padding: 0;
 			}
+
 			h1,
 			h2,
 			h3 {
 				font-family: "Montserrat", sans-serif;
 			}
+
 			.container {
 				width: 80%;
+				max-width: 1200px;
 				margin: 0 auto;
+				padding: 0 20px;
 			}
 
 			.section {
 				padding: 60px 20px;
 				display: flex;
+				flex-direction: column;
 				align-items: center;
-				justify-content: space-between;
-				flex-wrap: wrap;
-			}
-			.text-block {
-				width: 50%;
-				padding: 20px;
-			}
-			.image-block {
-				width: 40%;
-				height: 250px;
-				background-color: #eee;
-				border-radius: 10px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.testimonials {
-				flex-direction: row;
-				justify-content: center;
-			}
-			.testimonial-card {
-				background-color: #faf3e0;
-				padding: 20px;
-				margin: 10px;
-				border-radius: 10px;
-				box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-				text-align: left;
-				width: 45%;
-			}
-			.faq {
-				flex-direction: row;
-				justify-content: space-between;
-			}
-			.faq-questions {
-				width: 40%;
-			}
-			.faq-answers {
-				width: 50%;
-				background-color: #fff;
-				padding: 20px;
-				border-radius: 10px;
-				box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
+				.section-header {
+					text-align: center;
+					margin-bottom: 50px;
+					width: 100%;
+
+					h2 {
+						color: #2c3e50;
+						font-size: 2.5em;
+						margin-bottom: 15px;
+						position: relative;
+						display: inline-block;
+
+						&:after {
+							content: "";
+							position: absolute;
+							bottom: -10px;
+							left: 50%;
+							transform: translateX(-50%);
+							width: 60px;
+							height: 3px;
+							background-color: #6b8e23;
+							border-radius: 2px;
+						}
+					}
+
+					.section-subtitle {
+						color: #666;
+						font-size: 1.1em;
+						max-width: 600px;
+						margin: 0 auto;
+					}
+				}
 			}
 
 			.cta-btn {
+				display: inline-block;
 				background-color: #ffb347;
 				color: white;
-				padding: 10px 10px;
+				padding: 15px 30px;
 				text-decoration: none;
-				border-radius: 5px;
+				border-radius: 8px;
 				font-weight: bold;
 				font-size: 1.1em;
-				margin: 20px 0;
+				transition:
+					transform 0.3s ease,
+					background-color 0.3s ease,
+					box-shadow 0.3s ease;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+				&:hover {
+					transform: translateY(-2px);
+					background-color: darken(#ffb347, 10%);
+					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+				}
+			}
+
+			@media (max-width: 768px) {
+				.section {
+					padding: 40px 20px;
+
+					.section-header {
+						h2 {
+							font-size: 2em;
+						}
+					}
+				}
+
+				.container {
+					width: 100%;
+					padding: 0 15px;
+				}
 			}
 		</style>
 	</head>
@@ -99,92 +129,15 @@ import Header from "./Header.astro";
 
 		<About />
 
-		<section class="section" id="services">
-			<div class="image-block">Illustration Service</div>
-			<div class="text-block">
-				<h2>Mes Services</h2>
-				<p>
-					Découvrez les différentes façons dont je peux vous accompagner vers un
-					bien-être personnel et professionnel.
-				</p>
-			</div>
-		</section>
+		<Services />
 
-		<section class="section testimonials" id="testimonials">
-			<h2>Ce qu'en disent mes clients</h2>
-			<div class="testimonial-card">
-				<p>
-					"Grâce au coaching PNL, j'ai enfin pu dépasser mes blocages émotionnels.
-					Une expérience transformante !"
-				</p>
-				<strong>- Sophie D.</strong>
-			</div>
-			<div class="testimonial-card">
-				<p>
-					"Une approche bienveillante et efficace qui m'a énormément aidé à gagner en
-					confiance."
-				</p>
-				<strong>- Marc L.</strong>
-			</div>
-		</section>
+		<Testimony />
 
-		<section class="section" id="methodology">
-			<div class="text-block">
-				<h2>Comment se déroule une séance ?</h2>
-				<p>
-					Chaque séance est un moment d’échange où nous travaillons ensemble sur vos
-					objectifs. Voici les grandes étapes :
-				</p>
-				<ul>
-					<li>
-						<strong>Phase d'écoute :</strong> Identification de vos besoins et objectifs.
-					</li>
-					<li>
-						<strong>Techniques PNL :</strong> Exercices pratiques et mise en situation.
-					</li>
-					<li>
-						<strong>Plan d'action :</strong> Mise en place d'outils concrets pour avancer.
-					</li>
-				</ul>
-			</div>
-			<div class="image-block">Illustration Méthodologie</div>
-		</section>
+		<Method />
 
-		<section class="section faq" id="faq">
-			<div class="faq-questions">
-				<h2>Questions fréquentes</h2>
-				<details>
-					<summary>Comment fonctionne la PNL ?</summary>
-					<p>
-						La PNL est une approche qui utilise le langage et la psychologie cognitive
-						pour améliorer la communication et le développement personnel.
-					</p>
-				</details>
-				<details>
-					<summary>Combien de séances sont recommandées ?</summary>
-					<p>
-						Tout dépend de votre situation. Une première séance gratuite permet
-						d’évaluer vos besoins et de définir un parcours adapté.
-					</p>
-				</details>
-			</div>
-			<div class="faq-answers">
-				Réponses dynamiques aux questions sélectionnées
-			</div>
-		</section>
+		<FAQ />
 
-		<section class="section" id="contact">
-			<div class="image-block">Illustration Contact</div>
-			<div class="text-block">
-				<h2>Contactez-moi</h2>
-				<p>
-					Remplissez ce formulaire pour me contacter et réserver votre première
-					séance gratuite. Je vous répondrai dans les plus brefs délais.
-				</p>
-				<a href="https://calendly.com/votre-lien" target="_blank" class="btn"
-					>Réserver sur Calendly</a
-				>
-			</div>
-		</section>
+		<Contact />
+		<Footer />
 	</body>
 </html>

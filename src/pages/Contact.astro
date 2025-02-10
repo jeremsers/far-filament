@@ -1,0 +1,238 @@
+---
+import Image from "astro/components/Image.astro";
+import contactImage from "../images/contact.jpg"; // Assurez-vous d'avoir cette image
+---
+
+<section class="section" id="contact">
+	<div class="section-header">
+		<h2>Contactez-moi</h2>
+		<p class="section-subtitle">
+			Prenez rendez-vous pour votre première séance gratuite ou posez-moi vos
+			questions
+		</p>
+	</div>
+
+	<div class="contact-container">
+		<div class="contact-content">
+			<div class="contact-info">
+				<h3>Commençons l'aventure ensemble</h3>
+				<p>
+					Faites le premier pas vers le changement. Je vous accompagne dans la
+					réalisation de vos objectifs avec bienveillance et professionnalisme.
+				</p>
+				<ul class="contact-features">
+					<li>
+						<span class="icon">🎯</span>
+						<div class="feature-text">
+							<strong>Premier RDV gratuit</strong>
+							<p>30 minutes pour faire connaissance</p>
+						</div>
+					</li>
+					<li>
+						<span class="icon">💻</span>
+						<div class="feature-text">
+							<strong>En présentiel ou à distance</strong>
+							<p>Séances adaptées à vos besoins</p>
+						</div>
+					</li>
+					<li>
+						<span class="icon">📅</span>
+						<div class="feature-text">
+							<strong>Horaires flexibles</strong>
+							<p>Du lundi au samedi, de 9h à 20h</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="contact-image">
+			<Image src={contactImage} alt="Illustration contact" />
+		</div>
+	</div>
+	<div class="contact-cta">
+		<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn">
+			Réserver ma séance découverte
+		</a>
+		<p class="cta-note">
+			Ou contactez-moi par email : <a href="mailto:contact@votre-email.com"
+				>contact@votre-email.com</a
+			>
+		</p>
+	</div>
+</section>
+
+<style lang="scss">
+	.section {
+		display: flex;
+		flex-direction: column;
+		padding: 60px 20px;
+		background-color: #fff;
+	}
+
+	.contact {
+		&-container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 40px;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
+
+		&-content {
+			flex: 1;
+		}
+
+		&-info {
+			h3 {
+				color: #2c3e50;
+				font-size: 1.8em;
+				margin-bottom: 20px;
+			}
+
+			p {
+				color: #666;
+				font-size: 1.1em;
+				line-height: 1.6;
+				margin-bottom: 30px;
+			}
+		}
+
+		&-features {
+			list-style: none;
+			padding: 0;
+			margin: 30px 0;
+
+			li {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				margin-bottom: 20px;
+				padding: 15px;
+				background-color: #f8ede3;
+				border-radius: 10px;
+				transition: transform 0.3s ease;
+
+				&:hover {
+					transform: translateX(10px);
+				}
+
+				.icon {
+					font-size: 1.5em;
+					background-color: white;
+					width: 50px;
+					height: 50px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: 50%;
+					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+				}
+
+				.feature-text {
+					strong {
+						display: block;
+						color: #2c3e50;
+						margin-bottom: 5px;
+					}
+
+					p {
+						margin: 0;
+						font-size: 0.9em;
+						color: #666;
+					}
+				}
+			}
+		}
+
+		&-image {
+			flex: 1;
+			max-width: 500px;
+
+			img {
+				width: 100%;
+				height: auto;
+				border-radius: 15px;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease;
+
+				&:hover {
+					transform: scale(1.02);
+				}
+			}
+		}
+
+		&-cta {
+			text-align: center;
+			margin-top: 40px;
+
+			.cta-btn {
+				display: inline-block;
+				background-color: #ffb347;
+				color: white;
+				padding: 15px 30px;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: bold;
+				font-size: 1.1em;
+				transition:
+					transform 0.3s ease,
+					background-color 0.3s ease,
+					box-shadow 0.3s ease;
+				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+				&:hover {
+					transform: translateY(-2px);
+					background-color: darken(#ffb347, 10%);
+					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+				}
+			}
+
+			.cta-note {
+				margin-top: 20px;
+				color: #666;
+				font-size: 0.9em;
+
+				a {
+					color: #6b8e23;
+					text-decoration: none;
+					font-weight: 600;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.contact {
+			&-container {
+				flex-direction: column-reverse;
+			}
+
+			&-image {
+				max-width: 100%;
+			}
+
+			&-features {
+				li {
+					&:hover {
+						transform: translateX(0);
+						transform: translateY(-5px);
+					}
+				}
+			}
+
+			&-cta {
+				.cta-btn {
+					width: 100%;
+					max-width: 300px;
+				}
+			}
+		}
+	}
+</style>
+

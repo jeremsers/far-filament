@@ -1,0 +1,154 @@
+<section class="section" id="testimonials">
+	<div class="section-header">
+		<h2>Ce qu'en disent mes clients</h2>
+		<p class="section-subtitle">
+			Découvrez les retours d'expérience de personnes que j'ai accompagnées
+		</p>
+	</div>
+
+	<div class="testimonials-container">
+		<div class="testimonial-card">
+			<div class="quote-icon">❝</div>
+			<p class="testimonial-text">
+				"Grâce au coaching PNL, j'ai enfin pu dépasser mes blocages émotionnels.
+				Une expérience transformante !"
+			</p>
+			<div class="testimonial-author">
+				<div class="author-info">
+					<strong>Sophie D.</strong>
+					<span class="author-title">Cliente accompagnée</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="testimonial-card">
+			<div class="quote-icon">❝</div>
+			<p class="testimonial-text">
+				"Une approche bienveillante et efficace qui m'a énormément aidé à gagner en
+				confiance."
+			</p>
+			<div class="testimonial-author">
+				<div class="author-info">
+					<strong>Marc L.</strong>
+					<span class="author-title">Client accompagné</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.section {
+		display: flex;
+		flex-direction: column;
+		padding: 60px 20px;
+		background-color: #fff;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 50px;
+
+			h2 {
+				color: #2c3e50;
+				font-size: 2.5em;
+				margin-bottom: 15px;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 60px;
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
+			}
+
+			.section-subtitle {
+				color: #666;
+				font-size: 1.1em;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.testimonials-container {
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 20px;
+		flex-wrap: wrap;
+	}
+
+	.testimonial-card {
+		background-color: #f8ede3;
+		padding: 30px;
+		border-radius: 15px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		width: 400px;
+		position: relative;
+		transition: transform 0.3s ease;
+
+		&:hover {
+			transform: translateY(-5px);
+		}
+
+		.quote-icon {
+			color: #6b8e23;
+			font-size: 3em;
+			position: absolute;
+			top: -10px;
+			left: 20px;
+			opacity: 0.2;
+		}
+
+		.testimonial-text {
+			font-size: 1.1em;
+			line-height: 1.6;
+			color: #2c3e50;
+			margin-bottom: 20px;
+			position: relative;
+			z-index: 1;
+		}
+
+		.testimonial-author {
+			display: flex;
+			align-items: center;
+			gap: 15px;
+			margin-top: 20px;
+
+			.author-info {
+				strong {
+					display: block;
+					color: #2c3e50;
+					font-size: 1.1em;
+				}
+
+				.author-title {
+					color: #666;
+					font-size: 0.9em;
+				}
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.testimonial-card {
+			width: 100%;
+			max-width: 350px;
+		}
+
+		.section-header {
+			h2 {
+				font-size: 2em;
+			}
+		}
+	}
+</style> 

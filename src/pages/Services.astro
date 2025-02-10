@@ -1,0 +1,171 @@
+---
+
+---
+
+<section class="section" id="services">
+	<div class="section-header">
+		<h2>Mes Services</h2>
+		<p class="section-subtitle">
+			Découvrez mes offres d'accompagnement personnalisé
+		</p>
+	</div>
+	<div class="services-container">
+		<div class="service-card">
+			<h3>Appel Découverte Gratuit</h3>
+			<p class="duration">30 minutes</p>
+			<p class="price">Gratuit</p>
+			<ul>
+				<li>Présentation de votre situation</li>
+				<li>Identification de vos objectifs</li>
+				<li>Explication de ma méthode</li>
+				<li>Questions/réponses</li>
+			</ul>
+			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
+				>Réserver mon appel</a
+			>
+		</div>
+
+		<div class="service-card">
+			<h3>Séance de Coaching</h3>
+			<p class="duration">1 heure</p>
+			<p class="price">80€ / séance</p>
+			<ul>
+				<li>Accompagnement personnalisé</li>
+				<li>Techniques de PNL adaptées</li>
+				<li>Plan d'action concret</li>
+				<li>Suivi des progrès</li>
+			</ul>
+			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
+				>Réserver une séance</a
+			>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.section {
+        display: flex;
+        flex-direction: column;
+		padding: 60px 20px;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 50px;
+
+			h2 {
+				color: #2c3e50;
+				font-size: 2.5em;
+				margin-bottom: 15px;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 60px;
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
+			}
+
+			.section-subtitle {
+				color: #666;
+				font-size: 1.1em;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.services-container {
+		display: flex;
+		justify-content: center;
+		gap: 40px;
+		margin-top: 30px;
+		flex-wrap: wrap;
+	}
+
+	.service-card {
+		background-color: white;
+		padding: 30px;
+		border-radius: 15px;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		width: 300px;
+		text-align: center;
+		transition:
+			transform 0.3s ease,
+			box-shadow 0.3s ease;
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+		}
+
+		h3 {
+			color: #6b8e23;
+			margin-bottom: 15px;
+			font-size: 1.4em;
+		}
+
+		.duration {
+			font-style: italic;
+			color: #666;
+			margin-bottom: 10px;
+		}
+
+		.price {
+			font-size: 1.2em;
+			font-weight: bold;
+			color: #333;
+			margin-bottom: 20px;
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin-bottom: 25px;
+			text-align: left;
+
+			li {
+				margin: 10px 0;
+				padding-left: 20px;
+				position: relative;
+
+				&:before {
+					content: "✓";
+					color: #6b8e23;
+					position: absolute;
+					left: 0;
+				}
+			}
+		}
+
+		.cta-btn {
+			display: inline-block;
+			padding: 12px 25px;
+			transition: background-color 0.3s ease;
+
+			&:hover {
+				background-color: darken(#ffb347, 10%);
+				transform: scale(1.05);
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section-header {
+			h2 {
+				font-size: 2em;
+			}
+		}
+
+		.service-card {
+			width: 100%;
+			max-width: 350px;
+		}
+	}
+</style>
