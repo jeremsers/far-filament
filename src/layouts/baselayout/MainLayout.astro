@@ -1,0 +1,118 @@
+---
+import Header from "../Header.astro";
+import Footer from "../Footer.astro";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const {
+	title = "Coach PNL - Accompagnement et Développement Personnel",
+	description = "Découvrez comment la PNL peut vous aider à atteindre vos objectifs et à transformer votre vie avec un accompagnement personnalisé.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+
+		<style is:global lang="scss">
+			:root {
+				--primary-color: #6b8e23;
+				--secondary-color: #ffb347;
+				--text-color: #2c3e50;
+				--bg-color: #f8ede3;
+				--light-bg: #fff;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: "Poppins", sans-serif;
+				background-color: var(--bg-color);
+				color: var(--text-color);
+				line-height: 1.6;
+			}
+
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6 {
+				font-family: "Montserrat", sans-serif;
+				color: var(--text-color);
+			}
+
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+			}
+
+			.container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			.section {
+				padding: 60px 0;
+			}
+
+			.cta-btn {
+				display: inline-block;
+				background-color: var(--secondary-color);
+				color: white;
+				padding: 12px 25px;
+				border-radius: 8px;
+				font-weight: 600;
+				transition: all 0.3s ease;
+
+				&:hover {
+					transform: translateY(-2px);
+					box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+				}
+			}
+
+			@media (max-width: 768px) {
+				.container {
+					width: 100%;
+					padding: 0 15px;
+				}
+
+				.section {
+					padding: 40px 0;
+				}
+			}
+		</style>
+	</body>
+</html>
+

@@ -1,143 +1,20 @@
 ---
-import Hero from "../pages/Hero.astro";
-import About from "../pages/About.astro";
-import Header from "./Header.astro";
-import Services from "./Services.astro";
-import Testimony from "./Testimony.astro";
-import Method from "./Method.astro";
-import FAQ from "./FAQ.astro";
-import Contact from "./Contact.astro";
-import Footer from "./Footer.astro";
+import Hero from "../layouts/Hero.astro";
+import About from "../layouts/About.astro";
+import Services from "../layouts/Services.astro";
+import Testimony from "../layouts/Testimony.astro";
+import Method from "../layouts/Method.astro";
+import FAQ from "../layouts/FAQ.astro";
+import Contact from "../layouts/Contact.astro";
+import MainLayout from "../layouts/baselayout/MainLayout.astro";
 ---
 
-<!doctype html>
-<html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Coach de Vie - Landing Page</title>
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap"
-			rel="stylesheet"
-		/>
-		<style is:global lang="scss">
-			body {
-				font-family: "Poppins", sans-serif;
-				background-color: #f8ede3;
-				color: #222;
-				margin: 0;
-				padding: 0;
-			}
-
-			h1,
-			h2,
-			h3 {
-				font-family: "Montserrat", sans-serif;
-			}
-
-			.container {
-				width: 80%;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 0 20px;
-			}
-
-			.section {
-				padding: 60px 20px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-
-				.section-header {
-					text-align: center;
-					margin-bottom: 50px;
-					width: 100%;
-
-					h2 {
-						color: #2c3e50;
-						font-size: 2.5em;
-						margin-bottom: 15px;
-						position: relative;
-						display: inline-block;
-
-						&:after {
-							content: "";
-							position: absolute;
-							bottom: -10px;
-							left: 50%;
-							transform: translateX(-50%);
-							width: 60px;
-							height: 3px;
-							background-color: #6b8e23;
-							border-radius: 2px;
-						}
-					}
-
-					.section-subtitle {
-						color: #666;
-						font-size: 1.1em;
-						max-width: 600px;
-						margin: 0 auto;
-					}
-				}
-			}
-
-			.cta-btn {
-				display: inline-block;
-				background-color: #ffb347;
-				color: white;
-				padding: 15px 30px;
-				text-decoration: none;
-				border-radius: 8px;
-				font-weight: bold;
-				font-size: 1.1em;
-				transition:
-					transform 0.3s ease,
-					background-color 0.3s ease,
-					box-shadow 0.3s ease;
-				box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
-				&:hover {
-					transform: translateY(-2px);
-					background-color: darken(#ffb347, 10%);
-					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-				}
-			}
-
-			@media (max-width: 768px) {
-				.section {
-					padding: 40px 20px;
-
-					.section-header {
-						h2 {
-							font-size: 2em;
-						}
-					}
-				}
-
-				.container {
-					width: 100%;
-					padding: 0 15px;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-
-		<Hero />
-
-		<About />
-
-		<Services />
-
-		<Testimony />
-
-		<Method />
-
-		<FAQ />
-
-		<Contact />
-		<Footer />
-	</body>
-</html>
+<MainLayout title="Coach PNL - Accompagnement et Développement Personnel">
+	<Hero />
+	<About />
+	<Services />
+	<Testimony />
+	<Method />
+	<FAQ />
+	<Contact />
+</MainLayout>
