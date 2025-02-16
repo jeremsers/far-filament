@@ -2,9 +2,11 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../layouts/baselayout/MainLayout.astro";
 
-const allPosts = await getCollection('blog');
-console.log(allPosts)
-// Trier les articles par date de publication (du plus récent au plus ancien)
+const allPosts = await getCollection("blog");
+// Récupérer toutes les catégories uniques
+const categories = [...new Set(allPosts.map((post) => post.data.category))];
+
+// Trier les articles par date de publication
 const sortedPosts = allPosts.sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
@@ -28,10 +30,23 @@ const formatDate = (date: Date) => {
 			</p>
 		</div>
 
+		<div class="categories-filter">
+			<button class="filter-btn active" data-category="all"
+				>Tous les articles</button
+			>
+			{
+				categories.map((category) => (
+					<button class="filter-btn" data-category={category}>
+						{category}
+					</button>
+				))
+			}
+		</div>
+
 		<div class="blog-grid">
 			{
 				sortedPosts.map((post) => (
-					<article class="blog-card">
+					<article class="blog-card" data-category={post.data.category}>
 						<a href={`/blog/${post.slug}`} class="card-link">
 							{post.data.image && (
 								<div class="card-image">
@@ -66,7 +81,35 @@ const formatDate = (date: Date) => {
 	</section>
 </MainLayout>
 
+<script>
+	// Logique de filtrage
+	const filterButtons = document.querySelectorAll(".filter-btn");
+	const blogCards = document.querySelectorAll(".blog-card");
+
+	filterButtons.forEach((button) => {
+		button.addEventListener("click", () => {
+			// Retirer la classe active de tous les boutons
+			filterButtons.forEach((btn) => btn.classList.remove("active"));
+			// Ajouter la classe active au bouton cliqué
+			button.classList.add("active");
+
+			const category = button.getAttribute("data-category");
+
+			blogCards.forEach((card) => {
+				if (category === "all" || card.getAttribute("data-category") === category) {
+					card.style.display = "block";
+					card.classList.add('fade-in');
+				} else {
+					card.style.display = "none";
+				}
+			});
+		});
+	});
+</script>
+
 <style lang="scss">
+
+	
 	.blog-section {
 		padding: 60px 20px;
 		max-width: 1200px;
@@ -121,7 +164,7 @@ const formatDate = (date: Date) => {
 				box-shadow 0.3s ease;
 
 			&:hover {
-				transform: translateY(-5px);
+				transform: translateY(-10px);
 				box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 			}
 
@@ -214,6 +257,40 @@ const formatDate = (date: Date) => {
 		}
 	}
 
+	.categories-filter {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 15px;
+		margin: 30px 0;
+		padding: 0 20px;
+
+		.filter-btn {
+			padding: 8px 16px;
+			border: 2px solid var(--primary-color);
+			border-radius: 25px;
+			background: transparent;
+			color: var(--primary-color);
+			font-size: 1em;
+			cursor: pointer;
+			transition: all 0.3s ease;
+
+			&:hover {
+				background-color: var(--primary-color);
+				color: white;
+			}
+
+			&.active {
+				background-color: var(--primary-color);
+				color: white;
+			}
+		}
+	}
+
+	.blog-card {
+		transition: opacity 0.3s ease;
+	}
+
 	@media (max-width: 768px) {
 		.blog-section {
 			padding: 40px 15px;
@@ -242,6 +319,14 @@ const formatDate = (date: Date) => {
 				}
 			}
 		}
+
+		.categories-filter {
+			gap: 10px;
+
+			.filter-btn {
+				padding: 6px 12px;
+				font-size: 0.9em;
+			}
+		}
 	}
 </style>
-
