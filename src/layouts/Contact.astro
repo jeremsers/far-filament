@@ -61,14 +61,14 @@ import contactImage from "../images/contact.jpg";
 		display: flex;
 		flex-direction: column;
 		padding: 60px 20px;
-		background-color: #f8ede3;
+		background-color: $bg-color;
 
 		.section-header {
 			text-align: center;
 			margin-bottom: 50px;
 
 			h2 {
-				color: #2c3e50;
+				color: $text-color;
 				font-size: 2.5em;
 				margin-bottom: 15px;
 				position: relative;
@@ -82,13 +82,13 @@ import contactImage from "../images/contact.jpg";
 					transform: translateX(-50%);
 					width: 60px;
 					height: 3px;
-					background-color: #6b8e23;
+					background-color: $primary-color;
 					border-radius: 2px;
 				}
 			}
 
 			.section-subtitle {
-				color: #666;
+				color: $text-light;
 				font-size: 1.1em;
 				max-width: 600px;
 				margin: 0 auto;
@@ -113,13 +113,13 @@ import contactImage from "../images/contact.jpg";
 
 		&-info {
 			h3 {
-				color: #2c3e50;
+				color: $text-color;
 				font-size: 1.8em;
 				margin-bottom: 20px;
 			}
 
 			p {
-				color: #666;
+				color: $text-light;
 				font-size: 1.1em;
 				line-height: 1.6;
 				margin-bottom: 30px;
@@ -137,7 +137,7 @@ import contactImage from "../images/contact.jpg";
 				gap: 15px;
 				margin-bottom: 20px;
 				padding: 15px;
-				background-color: #fff;
+				background-color: $bg-light;
 				border-radius: 10px;
 				transition: transform 0.3s ease;
 
@@ -147,7 +147,7 @@ import contactImage from "../images/contact.jpg";
 
 				.icon {
 					font-size: 1.5em;
-					background-color: white;
+					background-color: $bg-light;
 					width: 50px;
 					height: 50px;
 					display: flex;
@@ -155,19 +155,20 @@ import contactImage from "../images/contact.jpg";
 					justify-content: center;
 					border-radius: 50%;
 					box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+					
 				}
 
 				.feature-text {
 					strong {
 						display: block;
-						color: #2c3e50;
+						color: $text-color;
 						margin-bottom: 5px;
 					}
 
 					p {
 						margin: 0;
 						font-size: 0.9em;
-						color: #666;
+						color: $text-light;
 					}
 				}
 			}
@@ -196,7 +197,7 @@ import contactImage from "../images/contact.jpg";
 
 			.cta-btn {
 				display: inline-block;
-				background-color: #ffb347;
+				background-color: $secondary-color;
 				color: white;
 				padding: 15px 30px;
 				text-decoration: none;
@@ -211,18 +212,18 @@ import contactImage from "../images/contact.jpg";
 
 				&:hover {
 					transform: translateY(-2px);
-					background-color: darken(#ffb347, 10%);
+					background-color: $hover-color-alt;
 					box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 				}
 			}
 
 			.cta-note {
 				margin-top: 20px;
-				color: #666;
+				color: $text-light;
 				font-size: 0.9em;
 
 				a {
-					color: #6b8e23;
+					color: $primary-color;
 					text-decoration: none;
 					font-weight: 600;
 
@@ -234,7 +235,7 @@ import contactImage from "../images/contact.jpg";
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: $mobile) {
 		.contact {
 			&-container {
 				flex-direction: column-reverse;

@@ -53,7 +53,7 @@
 			margin-bottom: 50px;
 
 			h2 {
-				color: #2c3e50;
+				color: $text-color;
 				font-size: 2.5em;
 				margin-bottom: 15px;
 				position: relative;
@@ -67,13 +67,13 @@
 					transform: translateX(-50%);
 					width: 60px;
 					height: 3px;
-					background-color: #6b8e23;
+					background-color: $primary-color;
 					border-radius: 2px;
 				}
 			}
 
 			.section-subtitle {
-				color: #666;
+				color: $text-light;
 				font-size: 1.1em;
 				max-width: 600px;
 				margin: 0 auto;
@@ -90,10 +90,10 @@
 	}
 
 	.service-card {
-		background-color: white;
+		background-color: $bg-light;
 		padding: 30px;
-		border-radius: 15px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border-radius: $border-radius-lg;
+		box-shadow: $shadow-md;
 		width: 300px;
 		text-align: center;
 		transition:
@@ -106,21 +106,21 @@
 		}
 
 		h3 {
-			color: #6b8e23;
+			color: $primary-color;
 			margin-bottom: 15px;
 			font-size: 1.4em;
 		}
 
 		.duration {
 			font-style: italic;
-			color: #666;
+			color: $text-light;
 			margin-bottom: 10px;
 		}
 
 		.price {
 			font-size: 1.2em;
 			font-weight: bold;
-			color: #333;
+			color: $text-color;
 			margin-bottom: 20px;
 		}
 
@@ -137,7 +137,7 @@
 
 				&:before {
 					content: "✓";
-					color: #6b8e23;
+					color: $primary-color;
 					position: absolute;
 					left: 0;
 				}
@@ -150,13 +150,13 @@
 			transition: background-color 0.3s ease;
 
 			&:hover {
-				background-color: darken(#ffb347, 10%);
+				background-color: $hover-color-alt;
 				transform: scale(1.05);
 			}
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: $mobile) {
 		.section-header {
 			h2 {
 				font-size: 2em;

@@ -41,7 +41,7 @@ import heroBanner from "../images/hero3.jpg";
 			margin-bottom: 40px;
 
 			h1 {
-				color: #2c3e50;
+				color: $text-color;
 				font-size: 3.5em;
 				margin-bottom: 20px;
 				position: relative;
@@ -55,7 +55,7 @@ import heroBanner from "../images/hero3.jpg";
 					transform: translateX(-50%);
 					width: 80px;
 					height: 4px;
-					background-color: #6b8e23;
+					background-color: $primary-color;
 					border-radius: 2px;
 				}
 			}
@@ -64,15 +64,15 @@ import heroBanner from "../images/hero3.jpg";
 				font-size: 1.4em;
 				max-width: 800px;
 				margin: 30px auto;
-				color: #2c3e50;
+				color: $text-color;
 				line-height: 1.6;
 			}
 		}
 
 		.cta-btn {
 			display: inline-block;
-			background-color: #ffb347;
-			color: white;
+			background-color: $secondary-color;
+			color: $text-white;
 			padding: 20px 40px;
 			text-decoration: none;
 			border-radius: 8px;
@@ -82,12 +82,12 @@ import heroBanner from "../images/hero3.jpg";
 				transform 0.3s ease,
 				background-color 0.3s ease,
 				box-shadow 0.3s ease;
-			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			box-shadow: $shadow-md;
 
 			&:hover {
 				transform: translateY(-2px);
-				background-color: darken(#ffb347, 10%);
-				box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+				background-color: $hover-color-alt;
+				box-shadow: $shadow-lg;
 			}
 		}
 
@@ -103,7 +103,7 @@ import heroBanner from "../images/hero3.jpg";
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: $mobile) {
 		.hero {
 			height: 100vh;
 

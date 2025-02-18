@@ -1,6 +1,7 @@
 ---
 import Header from "../Header.astro";
 import Footer from "../Footer.astro";
+import Headeralt from "../Headeralt.astro";
 
 interface Props {
 	title: string;
@@ -28,14 +29,13 @@ const {
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
-		<Header />
+		<Headeralt />
 		<main>
 			<slot />
 		</main>
 		<Footer />
 
 		<style is:global lang="scss">
-			
 
 			* {
 				margin: 0;
@@ -81,20 +81,6 @@ const {
 				padding: 60px 0;
 			}
 
-			.cta-btn {
-				display: inline-block;
-				background-color: $secondary-color;
-				color: white;
-				padding: 12px 25px;
-				border-radius: 8px;
-				font-weight: 600;
-				transition: all 0.3s ease;
-
-				&:hover {
-					transform: translateY(-2px);
-					box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-				}
-			}
 
 			@media (max-width: 768px) {
 				.container {
