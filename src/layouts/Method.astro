@@ -1,4 +1,3 @@
-
 ---
 
 import Image from "astro/components/Image.astro";
@@ -57,14 +56,14 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		display: flex;
 		flex-direction: column;
 		padding: 60px 20px;
-		background-color: #f8ede3;
+		background-color: $bg-color;
 
 		.section-header {
 			text-align: center;
 			margin-bottom: 50px;
 
 			h2 {
-				color: #2c3e50;
+				color: $text-color;
 				font-size: 2.5em;
 				margin-bottom: 15px;
 				position: relative;
@@ -78,13 +77,13 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 					transform: translateX(-50%);
 					width: 60px;
 					height: 3px;
-					background-color: #6b8e23;
+					background-color: $primary-color;
 					border-radius: 2px;
 				}
 			}
 
 			.section-subtitle {
-				color: #666;
+				color: $text-light;
 				font-size: 1.1em;
 				max-width: 600px;
 				margin: 0 auto;
@@ -108,7 +107,7 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		.method-intro {
 			font-size: 1.1em;
 			line-height: 1.6;
-			color: #2c3e50;
+			color: $text-color;
 			margin-bottom: 30px;
 		}
 	}
@@ -123,10 +122,10 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		display: flex;
 		align-items: center;
 		gap: 20px;
-		background-color: white;
+		background-color: $bg-light;
 		padding: 20px;
-		border-radius: 15px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		border-radius: $border-radius-lg;
+		box-shadow: $shadow-md;
 		transition: transform 0.3s ease;
 
 		&:hover {
@@ -134,8 +133,8 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		}
 
 		.step-number {
-			background-color: #6b8e23;
-			color: white;
+			background-color: $primary-color;
+			color: $text-white;
 			width: 40px;
 			height: 40px;
 			border-radius: 50%;
@@ -148,13 +147,13 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 
 		.step-content {
 			h3 {
-				color: #2c3e50;
+				color: $text-color;
 				margin-bottom: 5px;
 				font-size: 1.2em;
 			}
 
 			p {
-				color: #666;
+				color: $text-light;
 				font-size: 1em;
 				margin: 0;
 			}
@@ -178,7 +177,7 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: $mobile) {
 		.method-container {
 			flex-direction: column-reverse;
 		}

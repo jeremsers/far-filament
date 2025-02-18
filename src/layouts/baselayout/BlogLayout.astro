@@ -58,13 +58,6 @@ const ogImage = image || '/images/default-blog-image.jpg';
         <Footer />
 
         <style is:global lang="scss">
-            :root {
-                --primary-color: #6b8e23;
-                --secondary-color: #ffb347;
-                --text-color: #2c3e50;
-                --bg-color: #f8ede3;
-                --light-bg: #fff;
-            }
 
             * {
                 margin: 0;
@@ -74,8 +67,8 @@ const ogImage = image || '/images/default-blog-image.jpg';
 
             body {
                 font-family: "Poppins", sans-serif;
-                background-color: var(--light-bg);
-                color: var(--text-color);
+                background-color: $bg-light;
+                color: $text-color;
                 line-height: 1.6;
             }
 
@@ -88,7 +81,7 @@ const ogImage = image || '/images/default-blog-image.jpg';
             .markdown-content {
                 h1, h2, h3, h4, h5, h6 {
                     font-family: "Montserrat", sans-serif;
-                    color: var(--text-color);
+                    color: $text-color;
                     margin: 1.5em 0 0.5em;
                 }
 
@@ -97,11 +90,11 @@ const ogImage = image || '/images/default-blog-image.jpg';
                 }
 
                 a {
-                    color: var(--primary-color);
+                    color: $primary-color;
                     text-decoration: underline;
                     
                     &:hover {
-                        color: darken(#6b8e23, 10%);
+                        color: $hover-color;
                     }
                 }
 
@@ -111,11 +104,11 @@ const ogImage = image || '/images/default-blog-image.jpg';
                 }
 
                 blockquote {
-                    border-left: 4px solid var(--primary-color);
+                    border-left: 4px solid $primary-color;
                     padding-left: 1em;
                     margin: 1em 0;
                     font-style: italic;
-                    background-color: var(--bg-color);
+                    background-color: $bg-color;
                     padding: 1em;
                 }
 
