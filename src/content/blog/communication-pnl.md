@@ -3,7 +3,7 @@ title: "Les secrets d'une communication efficace selon la PNL"
 description: "Découvrez les techniques de PNL pour améliorer votre communication et créer des relations plus harmonieuses"
 pubDate: 2025-01-01
 author: "Laurence Blondeau"
-image: "src/images/hero3.jpg"
+image: "./img/hero3.jpg"
 category: "Communication"
 tags: ["PNL", "communication", "relations", "rapport"]
 ---

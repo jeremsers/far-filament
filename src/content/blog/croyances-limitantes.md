@@ -3,7 +3,7 @@ title: "Dépasser ses croyances limitantes grâce à la PNL"
 description: "Comment identifier et transformer les croyances qui vous empêchent d'avancer"
 pubDate: 2025-01-01
 author: "Laurence Blondeau"
-image: "src/images/hero3.jpg"
+image: "./img/hero3.jpg"
 category: "Développement personnel"
 tags: ["PNL", "croyances", "transformation", "développement personnel"]
 ---

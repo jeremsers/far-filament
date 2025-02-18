@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/baselayout/BlogLayout.astro";
+import { Image } from "astro:assets";
 
 // Génère les routes statiques pour tous les articles
 export async function getStaticPaths() {
@@ -34,7 +35,7 @@ const formattedDate = new Date(entry.data.pubDate).toLocaleDateString("fr-FR", {
 			{
 				entry.data.image && (
 					<div class="post-image">
-						<img src={entry.data.image} alt={entry.data.title} />
+						<Image src={entry.data.image} alt={entry.data.title} />
 					</div>
 				)
 			}

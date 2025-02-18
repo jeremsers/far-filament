@@ -3,7 +3,7 @@ title: "Comprendre la PNL : Les fondamentaux"
 description: "Découvrez les principes de base de la Programmation Neuro-Linguistique et comment elle peut transformer votre vie"
 pubDate: 2025-01-01
 author: "Laurence Blondeau"
-image: "src/images/hero3.jpg"
+image: "./img/hero3.jpg"
 category: "Fondamentaux"
 tags: ["PNL", "développement personnel", "communication"]
 ---

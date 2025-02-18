@@ -3,7 +3,7 @@ title: "Définir et atteindre ses objectifs avec la PNL"
 description: "Apprenez à utiliser les techniques de PNL pour formuler et réaliser vos objectifs de manière efficace"
 pubDate: 2025-01-01
 author: "Laurence Blondeau"
-image: "src/images/hero3.jpg"
+image: "./img/hero3.jpg"
 category: "Développement personnel"
 tags: ["PNL", "objectifs", "réussite", "motivation"]
 ---

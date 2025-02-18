@@ -3,7 +3,7 @@ title: "L'ancrage en PNL : Une technique puissante pour le changement"
 description: "Explorez comment la technique d'ancrage peut vous aider à gérer vos émotions et à accéder à des états ressources"
 pubDate: 2025-01-01
 author: "Laurence Blondeau"
-image: "src/images/hero3.jpg"
+image: "./img/hero3.jpg"
 category: "Techniques"
 tags: ["PNL", "ancrage", "émotions", "ressources"]
 ---

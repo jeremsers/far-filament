@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layoutalt from "../layouts/baselayout/Layoutalt.astro";
+import { Image } from "astro:assets";
 
 const allPosts = await getCollection("blog");
 // Récupérer toutes les catégories uniques
@@ -50,7 +51,7 @@ const formatDate = (date: Date) => {
 						<a href={`/blog/${post.slug}`} class="card-link">
 							{post.data.image && (
 								<div class="card-image">
-									<img src={post.data.image} alt={post.data.title} />
+									<Image src={post.data.image} alt={post.data.title} />
 								</div>
 							)}
 							<div class="card-content">
