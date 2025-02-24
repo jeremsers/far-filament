@@ -1,22 +1,59 @@
 ---
 import { getCollection } from "astro:content";
-import Layoutalt from "../../layouts/baselayout/Layoutalt.astro";
+import Layoutalt from "../../../layouts/baselayout/Layoutalt.astro";
 import { Image } from "astro:assets";
-export async function getStaticPaths({ paginate }) {
-	const allPosts = await getCollection("blog");
-	const sortedPosts = allPosts.sort(
-		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-	);
 
-	// Paginer avec 9 articles par page
-	return paginate(sortedPosts, { pageSize: 9 });
+interface Post {
+	slug: string;
+	data: {
+		title: string;
+		pubDate: Date;
+		description: string;
+		author: string;
+		image?: any;
+		category: string;
+		tags: string[];
+	};
 }
 
-// Récupérer les données de pagination
-const { page } = Astro.props;
-const categories = [...new Set(page.data.map((post) => post.data.category))];
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+	const allPosts = await getCollection("blog");
+	const sortedPosts = allPosts.sort(
+		(a: Post, b: Post) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	);
 
-// Formatage de la date
+	// Get all unique categories
+	const allCategories = [
+		...new Set(sortedPosts.map((post: Post) => post.data.category)),
+	] as string[];
+
+	// Create paths for "all" posts
+	const allPostsPaths = paginate(sortedPosts, {
+		params: { tag: "all" },
+		pageSize: 9,
+		props: { category: "all", allCategories },
+	});
+
+	// For every category, create paginated paths
+	const categoryPaths = allCategories.flatMap((category) => {
+		const filteredPosts = sortedPosts.filter(
+			(post: Post) => post.data.category === category
+		);
+
+		return paginate(filteredPosts, {
+			params: { tag: category.toLowerCase() },
+			pageSize: 9,
+			props: { category, allCategories },
+		});
+	});
+
+	return [...allPostsPaths, ...categoryPaths];
+}
+
+// Get pagination data and props
+const { page, category, allCategories } = Astro.props;
+
+// Date formatting
 const formatDate = (date: Date) => {
 	return new Date(date).toLocaleDateString("fr-FR", {
 		year: "numeric",
@@ -26,32 +63,46 @@ const formatDate = (date: Date) => {
 };
 ---
 
-<Layoutalt title="Blog PNL - Articles et Ressources">
+<Layoutalt
+	title={`Blog PNL - ${category !== "all" ? category + " - " : ""}Articles et Ressources`}
+>
 	<section class="blog-section">
 		<div class="section-header">
-			<h1>Blog PNL</h1>
+			<h1>Blog PNL {category !== "all" && `- ${category}`}</h1>
 			<p class="section-subtitle">
-				Découvrez nos articles sur la PNL et le développement personnel
+				{
+					category === "all"
+						? "Découvrez nos articles sur la PNL et le développement personnel"
+						: `Explorez nos articles dans la catégorie ${category}`
+				}
 			</p>
 		</div>
 
-		<div class="categories-filter">
-			<button class="filter-btn active" data-category="all"
-				>Tous les articles</button
+		<nav class="categories-filter" aria-label="Catégories d'articles">
+			<a
+				href="/blog/all/1"
+				class:list={["filter-btn", { active: category === "all" }]}
+				aria-current={category === "all" ? "page" : undefined}
 			>
+				Tous les articles
+			</a>
 			{
-				categories.map((category) => (
-					<button class="filter-btn" data-category={category}>
-						{category}
-					</button>
+				allCategories.map((cat: string) => (
+					<a
+						href={`/blog/${cat.toLowerCase()}/1`}
+						class:list={["filter-btn", { active: category === cat }]}
+						aria-current={category === cat ? "page" : undefined}
+					>
+						{cat}
+					</a>
 				))
 			}
-		</div>
+		</nav>
 
 		<div class="blog-grid">
 			{
-				page.data.map((post) => (
-					<article class="blog-card" data-category={post.data.category}>
+				page.data.map((post: Post) => (
+					<article class="blog-card">
 						<a href={`/blog/${post.slug}`} class="card-link">
 							{post.data.image && (
 								<div class="card-image">
@@ -73,7 +124,7 @@ const formatDate = (date: Date) => {
 									</span>
 								</div>
 								<div class="card-tags">
-									{post.data.tags.map((tag) => (
+									{post.data.tags.map((tag: string) => (
 										<span class="tag">#{tag}</span>
 									))}
 								</div>
@@ -84,11 +135,11 @@ const formatDate = (date: Date) => {
 			}
 		</div>
 
-		<div class="pagination">
+		<nav class="pagination" aria-label="Pagination des articles">
 			<div class="pagination-links">
 				{
 					page.url.prev && (
-						<a href={page.url.prev} class="pagination-btn prev">
+						<a href={page.url.prev} class="pagination-btn prev" rel="prev">
 							<span class="icon">←</span> Articles précédents
 						</a>
 					)
@@ -98,7 +149,7 @@ const formatDate = (date: Date) => {
 					{
 						Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
 							<a
-								href={`/blog/${num}`}
+								href={`/blog/${category.toLowerCase()}/${num}`}
 								class:list={["pagination-number", { active: num === page.currentPage }]}
 								aria-current={num === page.currentPage ? "page" : undefined}
 							>
@@ -110,43 +161,17 @@ const formatDate = (date: Date) => {
 
 				{
 					page.url.next && (
-						<a href={page.url.next} class="pagination-btn next">
+						<a href={page.url.next} class="pagination-btn next" rel="next">
 							Articles suivants <span class="icon">→</span>
 						</a>
 					)
 				}
 			</div>
-		</div>
+		</nav>
 	</section>
 </Layoutalt>
 
-<script>
-	// Logique de filtrage
-	const filterButtons =
-		document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-	const blogCards = document.querySelectorAll<HTMLElement>(".blog-card");
-
-	filterButtons.forEach((button) => {
-		button.addEventListener("click", () => {
-			filterButtons.forEach((btn) => btn.classList.remove("active"));
-			button.classList.add("active");
-
-			const category = button.getAttribute("data-category");
-
-			blogCards.forEach((card) => {
-				if (category === "all" || card.getAttribute("data-category") === category) {
-					card.style.display = "block";
-					card.classList.add("fade-in");
-				} else {
-					card.style.display = "none";
-				}
-			});
-		});
-	});
-</script>
-
 <style lang="scss">
-	// ... Styles existants ...
 	.blog-section {
 		padding: 60px 20px;
 		max-width: 1200px;
