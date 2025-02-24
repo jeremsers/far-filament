@@ -5,163 +5,277 @@ import aboutPicture from "../images/about.jpg";
 
 <section class="section" id="about">
 	<div class="section-header">
-		<h2>À propos de moi</h2>
+		<h2>Transformez votre vie</h2>
 		<p class="section-subtitle">
-			Découvrez mon approche et ma philosophie d'accompagnement
+			grâce au coaching PNL et à l'hypnose thérapeutique
 		</p>
 	</div>
 
 	<div class="about-container">
 		<div class="about-content">
-			<p class="about-text">
-				Je suis convaincue que le changement est possible dès lors que l'on comprend
-				ses émotions et ses schémas de pensée. C'est pourquoi j'ai choisi de me
-				spécialiser en Programmation Neuro-Linguistique (PNL), une approche qui vous
-				aide à reprendre le contrôle sur votre vie en agissant sur vos croyances et
-				comportements.
-			</p>
+			<div class="text-content">
+				<p class="about-text">
+					<strong>20 ans d'expérience en direction d'entreprise</strong> m'ont menée à
+					la découverte de la PNL et de l'hypnose, des méthodes qui ont révolutionné ma
+					vision de la vie et du potentiel humain.
+				</p>
 
-			<div class="about-features">
-				<p class="features-title">✨ Ce que je vous propose :</p>
-				<ul>
-					<li>
-						Un accompagnement bienveillant et personnalisé pour vous aider à surmonter
-						vos blocages.
-					</li>
-					<li>
-						Des outils concrets issus de la PNL pour transformer vos pensées
-						limitantes en leviers de réussite.
-					</li>
-					<li>
-						Un espace d'écoute et d'échange, où vous pourrez exprimer librement vos
-						émotions et vos aspirations.
-					</li>
-				</ul>
+				<p class="about-question">
+					« Suis-je à ma place ? Quel est le sens de ma vie ? »
+				</p>
+
+				<div class="about-features">
+					<p class="features-title">Je vous accompagne pour :</p>
+					<ul>
+						<li>Clarifier vos objectifs et créer des stratégies</li>
+						<li>Surmonter les blocages personnels et professionnels</li>
+						<li>Améliorer vos relations et votre communication</li>
+						<li>Gérer le stress et l'équilibre émotionnel</li>
+						<li>Renforcer votre confiance en vous</li>
+					</ul>
+				</div>
+
+				<p class="about-conclusion">
+					En tant que <strong>coach certifiée PNL et praticienne en hypnose</strong>,
+					je vous guide vers une vie alignée avec vos aspirations profondes.
+				</p>
 			</div>
 		</div>
-		<Image src={aboutPicture} alt="about picture" class="about-img" />
+		<Image
+			src={aboutPicture}
+			alt="Coach PNL et praticienne en hypnose"
+			class="about-img"
+		/>
 	</div>
+	<a href="#contact" class="contact-btn"> Commencez votre transformation </a>
 </section>
 
 <style lang="scss">
 	.section {
+		padding: 40px 20px;
+		background-color: $bg-light;
 		display: flex;
 		flex-direction: column;
-		padding: 60px 20px;
-		background-color: $bg-light;
+		justify-content: center;
+		box-sizing: border-box;
+	}
 
-		.section-header {
-			text-align: center;
-			margin-bottom: 50px;
+	.section-header {
+		text-align: center;
+		margin-bottom: 40px;
 
-			h2 {
-				color: $text-color;
-				font-size: 2.5em;
-				margin-bottom: 15px;
-				position: relative;
-				display: inline-block;
+		h2 {
+			color: $text-color;
+			font-size: 2.5em;
+			margin-bottom: 15px;
+			position: relative;
+			display: inline-block;
 
-				&:after {
-					content: "";
-					position: absolute;
-					bottom: -10px;
-					left: 50%;
-					transform: translateX(-50%);
-					width: 60px;
-					height: 3px;
-					background-color: $primary-color;
-					border-radius: 2px;
-				}
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 3px;
+				background-color: $primary-color;
+				border-radius: 2px;
 			}
+		}
 
-			.section-subtitle {
-				color: $text-light;
-				font-size: 1.1em;
-				max-width: 600px;
-				margin: 0 auto;
-			}
+		.section-subtitle {
+			color: $text-light;
+			font-size: 1.1em;
+			max-width: 600px;
+			margin: 0 auto;
 		}
 	}
 
 	.about-container {
 		display: flex;
-		justify-content: space-between;
 		align-items: center;
-		gap: 40px;
+		justify-content: space-between;
+		gap: 50px;
 		max-width: 1200px;
 		margin: 0 auto;
-		padding: 0 20px;
+		flex: 0 1 auto;
+		padding: 20px 0;
 	}
 
 	.about-content {
 		flex: 1;
+		max-width: 600px;
+	}
 
-		.about-text {
-			font-size: 1.1em;
-			line-height: 1.6;
-			color: $text-color;
-			margin-bottom: 30px;
+	.text-content {
+		display: flex;
+		flex-direction: column;
+		gap: 15px;
+	}
+
+	.about-text {
+		font-size: 1.1em;
+		line-height: 1.5;
+
+		strong {
+			color: $primary-color;
+			display: block;
+			margin-bottom: 8px;
+		}
+	}
+
+	.about-question {
+		font-size: 1.15em;
+		color: $secondary-color;
+		font-style: italic;
+		padding: 12px 20px;
+		border-left: 3px solid $primary-color;
+		background: linear-gradient(90deg, rgba($primary-color, 0.1), transparent);
+		border-radius: 0 8px 8px 0;
+	}
+
+	.about-features {
+		.features-title {
+			color: $secondary-color;
+			font-weight: 600;
+			margin-bottom: 12px;
 		}
 
-		.about-features {
-			.features-title {
-				font-size: 1.2em;
-				color: $text-color;
-				margin-bottom: 20px;
-				font-weight: 600;
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		ul li {
+			margin: 8px 0;
+			padding-left: 25px;
+			position: relative;
+			font-size: 1.05em;
+			line-height: 1.4;
+
+			&:before {
+				content: "✦";
+				color: $primary-color;
+				position: absolute;
+				left: 0;
+				top: 1px;
+				font-size: 0.9em;
 			}
 
-			ul {
-				list-style: none;
-				padding: 0;
-
-				li {
-					margin: 15px 0;
-					padding-left: 25px;
-					position: relative;
-					color: $text-color;
-					font-size: 1.1em;
-
-					&:before {
-						content: "✅";
-						position: absolute;
-						left: 0;
-						color: $primary-color;
-					}
-				}
+			&:hover {
+				color: $primary-color;
+				transform: translateX(5px);
+				transition: all 0.3s ease;
 			}
+		}
+	}
+
+	.about-conclusion {
+		font-size: 1.1em;
+		line-height: 1.5;
+		padding: 15px 0;
+		border-top: 2px solid rgba($primary-color, 0.1);
+
+		strong {
+			color: $secondary-color;
+		}
+	}
+
+	.contact-btn {
+		display: inline-block;
+		background: $secondary-color;
+		color: white;
+		padding: 12px 25px;
+		margin-top: 50px;
+		border-radius: 25px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		align-self: center;
+
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+			background: linear-gradient(135deg, $secondary-color, $primary-color);
 		}
 	}
 
 	.about-img {
 		width: 400px;
-		height: auto;
-		border-radius: 15px;
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
+		height: 500px;
+		object-fit: cover;
+		border-radius: 20px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		border: 3px solid rgba($primary-color, 0.1);
+		transition: all 0.3s ease;
 
 		&:hover {
 			transform: scale(1.02);
+			border-color: rgba($primary-color, 0.3);
+			box-shadow: 0 12px 25px rgba($primary-color, 0.2);
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 1024px) {
+		.section {
+			padding: 20px;
+		}
+
 		.about-container {
 			flex-direction: column-reverse;
+			gap: 30px;
+		}
+
+		.about-content {
+			max-width: 100%;
+		}
+
+		.text-content {
+			align-items: center;
 			text-align: center;
 		}
 
 		.about-img {
-			width: 100%;
-			max-width: 300px;
-			margin-bottom: 30px;
+			width: 300px;
+			height: 400px;
 		}
 
-		.about-content {
-			.about-features {
-				ul li {
-					text-align: left;
-				}
+		.about-features {
+			width: 100%;
+
+			ul li {
+				text-align: left;
+			}
+		}
+
+		.contact-btn {
+			align-self: center;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.section {
+			padding: 40px 20px;
+		}
+
+		.about-img {
+			width: 100%;
+			max-width: 280px;
+			height: 350px;
+		}
+
+		.contact-btn {
+			width: 100%;
+		}
+
+		.section-header {
+			h2 {
+				font-size: 2em;
+			}
+
+			.section-subtitle {
+				font-size: 1em;
+				padding: 0 20px;
 			}
 		}
 	}

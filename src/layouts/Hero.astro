@@ -6,15 +6,24 @@ import heroBanner from "../images/hero3.jpg";
 <section class="hero" id="hero">
 	<div class="hero-content">
 		<div class="section-header">
-			<h1>Retrouvez clarté et confiance grâce à la PNL</h1>
+			<h1>De l'incertitude à l'action</h1>
+			<p class="quote">
+				"Il ne dépend que de vous de suivre la route qui monte et d'éviter celle qui
+				descend." – Platon
+			</p>
 			<p class="section-subtitle">
-				Découvrez comment le coaching PNL peut vous aider à dépasser vos blocages et
-				atteindre vos objectifs personnels et professionnels.
+				Transformez votre vie dès aujourd'hui. Êtes-vous prêt à vous libérer de ce
+				qui vous retient, à vous dépasser et à vivre en harmonie avec vos
+				aspirations les plus profondes ?
 			</p>
 		</div>
-		<a href="#contact" class="cta-btn">
-			Prenez votre premier rendez-vous gratuit
-		</a>
+		<p class="hero-description">
+			Il arrive un moment où l'on ne peut plus ignorer les doutes et les schémas
+			qui freinent votre épanouissement. Grâce au coaching PNL, je vous accompagne
+			pour reprendre le contrôle, transcender vos limites et bâtir la vie que vous
+			méritez.
+		</p>
+		<a href="#contact" class="cta-btn">Le changement commence ici</a>
 	</div>
 	<Image src={heroBanner} alt="Illustration Hero" class="hero-img" />
 </section>
@@ -22,7 +31,7 @@ import heroBanner from "../images/hero3.jpg";
 <style lang="scss">
 	.hero {
 		position: relative;
-		height: 80vh;
+		height: 90vh;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
@@ -31,63 +40,132 @@ import heroBanner from "../images/hero3.jpg";
 			position: relative;
 			z-index: 2;
 			width: 100%;
-			max-width: 1200px;
 			margin: 0 auto;
-			padding: 0 20px;
+			padding: 40px;
 			text-align: center;
+			text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+			animation: fadeIn 1s ease-out;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 130%;
+				height: 150%;
+				transform: translate(-50%, -50%);
+				background: radial-gradient(
+					circle,
+					rgba(0, 0, 0, 0.4) 0%,
+					rgba(0, 0, 0, 0) 70%
+				);
+				z-index: -1;
+			}
 		}
 
 		.section-header {
-			margin-bottom: 40px;
+			margin-bottom: 30px;
 
 			h1 {
-				color: $text-color;
-				font-size: 3.5em;
-				margin-bottom: 20px;
+				color: $text-white;
+				font-size: 4em;
+				margin-bottom: 25px;
+				font-weight: 800;
+				line-height: 1.1;
 				position: relative;
 				display: inline-block;
+				text-shadow:
+					2px 2px 8px rgba(0, 0, 0, 0.3),
+					0 0 60px rgba(0, 0, 0, 0.3);
+				letter-spacing: -0.02em;
+				animation: slideDown 0.8s ease-out;
 
 				&:after {
 					content: "";
 					position: absolute;
-					bottom: -15px;
+					bottom: -12px;
 					left: 50%;
 					transform: translateX(-50%);
-					width: 80px;
+					width: 120px;
 					height: 4px;
-					background-color: $primary-color;
+					background: linear-gradient(
+						90deg,
+						rgba(255, 255, 255, 0.8) 0%,
+						rgba(255, 255, 255, 1) 50%,
+						rgba(255, 255, 255, 0.8) 100%
+					);
 					border-radius: 2px;
+					animation: expandWidth 1s ease-out;
 				}
 			}
 
 			.section-subtitle {
-				font-size: 1.4em;
+				font-size: 1.5em;
 				max-width: 800px;
-				margin: 30px auto;
-				color: $text-color;
+				margin: 35px auto;
+				color: $text-white;
 				line-height: 1.6;
+				text-shadow:
+					1px 1px 3px rgba(0, 0, 0, 0.3),
+					0 0 40px rgba(0, 0, 0, 0.2);
+				font-weight: 500;
+				animation: fadeIn 1s ease-out 0.3s both;
 			}
+		}
+
+		.quote {
+			font-style: italic;
+			font-size: 1.4em;
+			color: $text-white;
+			margin: 25px 0;
+			font-weight: 500;
+			opacity: 0.95;
+			text-shadow:
+				1px 1px 3px rgba(0, 0, 0, 0.3),
+				0 0 40px rgba(0, 0, 0, 0.2);
+			animation: fadeIn 1s ease-out 0.6s both;
+		}
+
+		.hero-description {
+			font-size: 1.3em;
+			line-height: 1.7;
+			margin: 0 auto 45px;
+			color: $text-white;
+			max-width: 900px;
+			font-weight: 500;
+			text-shadow:
+				1px 1px 3px rgba(0, 0, 0, 0.3),
+				0 0 40px rgba(0, 0, 0, 0.2);
+			animation: fadeIn 1s ease-out 0.9s both;
 		}
 
 		.cta-btn {
 			display: inline-block;
-			background-color: $secondary-color;
+			background: linear-gradient(
+				45deg,
+				$secondary-color 0%,
+				adjust-hue($secondary-color, 15deg) 100%
+			);
 			color: $text-white;
-			padding: 20px 40px;
+			padding: 20px 48px;
 			text-decoration: none;
-			border-radius: 8px;
+			border-radius: 50px;
 			font-weight: bold;
-			font-size: 1.2em;
-			transition:
-				transform 0.3s ease,
-				background-color 0.3s ease,
-				box-shadow 0.3s ease;
-			box-shadow: $shadow-md;
+			font-size: 1.3em;
+			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+			letter-spacing: 0.5px;
+			animation: fadeIn 1s ease-out 1.2s both;
+			border: 2px solid rgba(255, 255, 255, 0.1);
 
 			&:hover {
-				transform: translateY(-2px);
-				background-color: $hover-color-alt;
-				box-shadow: $shadow-lg;
+				transform: translateY(-3px) scale(1.02);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+				border-color: rgba(255, 255, 255, 0.2);
+			}
+
+			&:active {
+				transform: translateY(-1px);
 			}
 		}
 
@@ -99,17 +177,97 @@ import heroBanner from "../images/hero3.jpg";
 			height: 100%;
 			object-fit: cover;
 			z-index: 1;
-			opacity: 0.8;
+			opacity: 0.7;
+			animation: zoomIn 20s ease-out infinite alternate;
+		}
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				180deg,
+				rgba(0, 0, 0, 0.7) 0%,
+				rgba(0, 0, 0, 0.4) 25%,
+				rgba(0, 0, 0, 0.4) 75%,
+				rgba(0, 0, 0, 0.7) 100%
+			);
+			z-index: 1;
+		}
+
+		// Add a top gradient for better text contrast at the top
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 30vh;
+			background: linear-gradient(
+				to bottom,
+				rgba(0, 0, 0, 0.6) 0%,
+				rgba(0, 0, 0, 0) 100%
+			);
+			z-index: 1;
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes slideDown {
+		from {
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@keyframes expandWidth {
+		from {
+			width: 0;
+		}
+		to {
+			width: 120px;
+		}
+	}
+
+	@keyframes zoomIn {
+		from {
+			transform: scale(1);
+		}
+		to {
+			transform: scale(1.1);
 		}
 	}
 
 	@media (max-width: $mobile) {
 		.hero {
 			height: 100vh;
+			min-height: 100vh;
+
+			.hero-content {
+				padding: 25px;
+				margin: 0 15px;
+			}
 
 			.section-header {
 				h1 {
-					font-size: 2.5em;
+					font-size: 2.8em;
 				}
 
 				.section-subtitle {
@@ -119,10 +277,10 @@ import heroBanner from "../images/hero3.jpg";
 			}
 
 			.cta-btn {
-				padding: 15px 30px;
+				padding: 16px 32px;
 				font-size: 1.1em;
-				width: 90%;
-				max-width: 350px;
+				width: auto;
+				min-width: 250px;
 			}
 		}
 	}

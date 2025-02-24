@@ -2,17 +2,18 @@
 import { getCollection } from "astro:content";
 import BlogLayout from "../../layouts/baselayout/BlogLayout.astro";
 import { Image } from "astro:assets";
+import PreviewArticle from "../../components/PreviewArticle.astro";
 
 // Génère les routes statiques pour tous les articles
 export async function getStaticPaths() {
 	const blogEntries = await getCollection("blog");
 	return blogEntries.map((entry) => ({
 		params: { slug: entry.slug },
-		props: { entry },
+		props: { entry, allPosts: blogEntries },
 	}));
 }
 
-const { entry } = Astro.props;
+const { entry, allPosts } = Astro.props;
 const { Content } = await entry.render();
 
 // Formatage de la date
@@ -21,6 +22,14 @@ const formattedDate = new Date(entry.data.pubDate).toLocaleDateString("fr-FR", {
 	month: "long",
 	day: "numeric",
 });
+
+// Récupérer les articles similaires (même catégorie, exclure l'article actuel)
+const similarPosts = allPosts
+	.filter(
+		(post) =>
+			post.slug !== entry.slug && post.data.category === entry.data.category
+	)
+	.slice(0, 2);
 ---
 
 <BlogLayout
@@ -30,76 +39,135 @@ const formattedDate = new Date(entry.data.pubDate).toLocaleDateString("fr-FR", {
 	pubDate={entry.data.pubDate}
 	author={entry.data.author}
 >
-	<article class="blog-post">
-		<div class="post-header">
-			{
-				entry.data.image && (
-					<div class="post-image">
-						<Image src={entry.data.image} alt={entry.data.title} />
+	<div class="article-layout">
+		
+		<article class="blog-post">
+			<div class="post-header">
+				{
+					entry.data.image && (
+						<div class="post-image">
+							<Image src={entry.data.image} alt={entry.data.title} />
+						</div>
+					)
+				}
+				<div class="post-meta">
+					<h1>{entry.data.title}</h1>
+					<div class="post-info">
+						<span class="date">
+							<span class="icon">📅</span>
+							{formattedDate}
+						</span>
+						<span class="author">
+							<span class="icon">✍️</span>
+							{entry.data.author}
+						</span>
+						<span class="category">
+							<span class="icon">📂</span>
+							{entry.data.category}
+						</span>
 					</div>
-				)
-			}
-			<div class="post-meta">
-				<h1>{entry.data.title}</h1>
-				<div class="post-info">
-					<span class="date">
-						<span class="icon">📅</span>
-						{formattedDate}
-					</span>
-					<span class="author">
-						<span class="icon">✍️</span>
-						{entry.data.author}
-					</span>
-					<span class="category">
-						<span class="icon">📂</span>
-						{entry.data.category}
-					</span>
-				</div>
-				<div class="tags">
-					{entry.data.tags.map((tag: string) => <span class="tag">#{tag}</span>)}
+					<div class="tags">
+						{entry.data.tags.map((tag: string) => <span class="tag">#{tag}</span>)}
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="post-content">
-			<Content />
-		</div>
-
-		<div class="post-footer">
-			<div class="share-buttons">
-				<h3>Partager cet article</h3>
-				<div class="social-share">
-					<a
+			<div class="post-content">
+				<Content />
+			</div>
+			
+			<div class="post-footer">
+				<div class="share-buttons">
+					<h3>Partager cet article</h3>
+					<div class="social-share">
+						<a
 						href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=${Astro.url}`}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="share-button twitter"
-					>
+						>
 						Twitter
 					</a>
-					<a
-						href={`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url}&title=${entry.data.title}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="share-button linkedin"
-					>
-						LinkedIn
-					</a>
-					<a
+						<a
+							href={`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url}&title=${entry.data.title}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="share-button linkedin"
+							>
+							LinkedIn
+						</a>
+						<a
 						href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
 						target="_blank"
 						rel="noopener noreferrer"
 						class="share-button facebook"
-					>
+						>
 						Facebook
-					</a>
+						</a>
+					</div>
 				</div>
 			</div>
-		</div>
-	</article>
+		</article>
+		<aside class="article-sidebar">
+			<div class="similar-articles">
+				<h3>Articles similaires</h3>
+				{
+					similarPosts.map((post) => (
+						<PreviewArticle
+							title={post.data.title}
+							image={post.data.image}
+							url={`/blog/${post.slug}`}
+							date={post.data.pubDate}
+							category={post.data.category}
+						/>
+					))
+				}
+			</div>
+		</aside>
+	</div>
 </BlogLayout>
 
 <style lang="scss">
+	.article-layout {
+		display: flex;
+		gap: $spacing-xl;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: $spacing-xl $spacing-md;
+	}
+
+	.article-sidebar {
+		.similar-articles {
+			position: sticky;
+			top: $spacing-xl;
+			width: 300px;
+
+			h3 {
+				color: $text-color;
+				font-size: 1.3em;
+				margin-bottom: $spacing-lg;
+				padding-bottom: $spacing-sm;
+				border-bottom: 2px solid $primary-color;
+			}
+		}
+	}
+
+	@media (max-width: $tablet) {
+		.article-layout {
+			grid-template-columns: 1fr;
+		}
+
+		.article-sidebar {
+			order: 2;
+			margin-top: $spacing-xl;
+
+			.similar-articles {
+				position: relative;
+				top: 0;
+			}
+		}
+	}
+
 	.blog-post {
 		max-width: 800px;
 		margin: 0 auto;
@@ -277,4 +345,3 @@ const formattedDate = new Date(entry.data.pubDate).toLocaleDateString("fr-FR", {
 		}
 	}
 </style>
-

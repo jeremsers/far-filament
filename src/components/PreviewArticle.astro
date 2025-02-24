@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    title: string;
+    image: ImageMetadata;
+    url: string;
+    date: Date;
+    category: string;
+}
+
+const { title, image, url, date, category } = Astro.props;
+
+const formatDate = (date: Date) => {
+    return new Date(date).toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+    });
+};
+---
+
+<a href={url} class="preview-article">
+    <div class="preview-image">
+        <Image src={image} alt={title} />
+    </div>
+    <div class="preview-content">
+        <span class="preview-category">{category}</span>
+        <h4>{title}</h4>
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+    </div>
+</a>
+
+<style lang="scss">
+    .preview-article {
+        display: block;
+        padding: $spacing-md;
+        background-color: $bg-color;
+        border-radius: $border-radius-md;
+        text-decoration: none;
+        transition: all $transition-speed $transition-timing;
+        margin-bottom: $spacing-md;
+
+        &:hover {
+            transform: translateX($spacing-xs);
+            box-shadow: $shadow-md;
+
+            .preview-image img {
+                transform: scale(1.05);
+            }
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 150px;
+            border-radius: $border-radius-sm;
+            overflow: hidden;
+            margin-bottom: $spacing-sm;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform $transition-speed $transition-timing;
+            }
+        }
+
+        .preview-content {
+            h4 {
+                color: $text-color;
+                font-size: 1.1em;
+                margin: $spacing-xs 0;
+                line-height: 1.4;
+            }
+
+            time {
+                color: $text-light;
+                font-size: 0.9em;
+            }
+
+            .preview-category {
+                display: inline-block;
+                background-color: $primary-color;
+                color: $text-white;
+                font-size: 0.8em;
+                padding: 4px 8px;
+                border-radius: $border-radius-sm;
+                margin-bottom: $spacing-xs;
+            }
+        }
+    }
+
+    @media (max-width: $tablet) {
+        .preview-article {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: $spacing-md;
+            align-items: center;
+
+            .preview-image {
+                height: 100px;
+                margin-bottom: 0;
+            }
+        }
+    }
+</style> 

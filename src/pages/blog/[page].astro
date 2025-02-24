@@ -1,16 +1,20 @@
 ---
 import { getCollection } from "astro:content";
-import Layoutalt from "../layouts/baselayout/Layoutalt.astro";
+import Layoutalt from "../../layouts/baselayout/Layoutalt.astro";
 import { Image } from "astro:assets";
+export async function getStaticPaths({ paginate }) {
+	const allPosts = await getCollection("blog");
+	const sortedPosts = allPosts.sort(
+		(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+	);
 
-// Récupérer tous les articles
-const allPosts = await getCollection("blog");
-const categories = [...new Set(allPosts.map((post) => post.data.category))];
+	// Paginer avec 9 articles par page
+	return paginate(sortedPosts, { pageSize: 9 });
+}
 
-// Trier les articles par date de publication
-const sortedPosts = allPosts.sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+// Récupérer les données de pagination
+const { page } = Astro.props;
+const categories = [...new Set(page.data.map((post) => post.data.category))];
 
 // Formatage de la date
 const formatDate = (date: Date) => {
@@ -20,8 +24,6 @@ const formatDate = (date: Date) => {
 		day: "numeric",
 	});
 };
-
-return Astro.redirect("/blog/1");
 ---
 
 <Layoutalt title="Blog PNL - Articles et Ressources">
@@ -48,7 +50,7 @@ return Astro.redirect("/blog/1");
 
 		<div class="blog-grid">
 			{
-				sortedPosts.map((post) => (
+				page.data.map((post) => (
 					<article class="blog-card" data-category={post.data.category}>
 						<a href={`/blog/${post.slug}`} class="card-link">
 							{post.data.image && (
@@ -81,6 +83,40 @@ return Astro.redirect("/blog/1");
 				))
 			}
 		</div>
+
+		<div class="pagination">
+			<div class="pagination-links">
+				{
+					page.url.prev && (
+						<a href={page.url.prev} class="pagination-btn prev">
+							<span class="icon">←</span> Articles précédents
+						</a>
+					)
+				}
+
+				<div class="pagination-numbers">
+					{
+						Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
+							<a
+								href={`/blog/${num}`}
+								class:list={["pagination-number", { active: num === page.currentPage }]}
+								aria-current={num === page.currentPage ? "page" : undefined}
+							>
+								{num}
+							</a>
+						))
+					}
+				</div>
+
+				{
+					page.url.next && (
+						<a href={page.url.next} class="pagination-btn next">
+							Articles suivants <span class="icon">→</span>
+						</a>
+					)
+				}
+			</div>
+		</div>
 	</section>
 </Layoutalt>
 
@@ -110,6 +146,7 @@ return Astro.redirect("/blog/1");
 </script>
 
 <style lang="scss">
+	// ... Styles existants ...
 	.blog-section {
 		padding: 60px 20px;
 		max-width: 1200px;
@@ -326,6 +363,85 @@ return Astro.redirect("/blog/1");
 			.filter-btn {
 				padding: 6px 12px;
 				font-size: 0.9em;
+			}
+		}
+	}
+	.pagination {
+		display: flex;
+		justify-content: center;
+		margin-top: $spacing-xl;
+		padding: $spacing-md 0;
+
+		.pagination-links {
+			display: flex;
+			align-items: center;
+			gap: $spacing-md;
+		}
+
+		.pagination-numbers {
+			display: flex;
+			gap: $spacing-sm;
+		}
+
+		.pagination-number {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			border-radius: $border-radius-full;
+			background-color: $bg-light;
+			color: $text-color;
+			text-decoration: none;
+			transition: all $transition-speed $transition-timing;
+
+			&:hover {
+				background-color: $primary-color;
+				color: $text-white;
+			}
+
+			&.active {
+				background-color: $primary-color;
+				color: $text-white;
+				font-weight: bold;
+			}
+		}
+
+		.pagination-btn {
+			display: flex;
+			align-items: center;
+			gap: $spacing-sm;
+			padding: $spacing-sm $spacing-md;
+			border-radius: $border-radius-md;
+			background-color: $bg-light;
+			color: $text-color;
+			text-decoration: none;
+			transition: all $transition-speed $transition-timing;
+
+			&:hover {
+				background-color: $primary-color;
+				color: $text-white;
+			}
+
+			.icon {
+				font-size: 1.2em;
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		// ... Styles mobile existants ...
+
+		.pagination {
+			.pagination-links {
+				flex-direction: column;
+				gap: $spacing-sm;
+			}
+
+			.pagination-numbers {
+				order: -1;
+				flex-wrap: wrap;
+				justify-content: center;
 			}
 		}
 	}

@@ -12,6 +12,7 @@
 	<div class="services-container">
 		<div class="service-card">
 			<h3>Appel Découverte Gratuit</h3>
+			<p class="subtitle">Premier pas vers votre transformation</p>
 			<p class="duration">30 minutes</p>
 			<p class="price">Gratuit</p>
 			<ul>
@@ -26,17 +27,50 @@
 		</div>
 
 		<div class="service-card">
-			<h3>Séance de Coaching</h3>
+			<h3>Séance Immersive</h3>
+			<p class="subtitle">Votre première étape vers le changement</p>
 			<p class="duration">1 heure</p>
-			<p class="price">80€ / séance</p>
+			<p class="price">120 CHF</p>
 			<ul>
-				<li>Accompagnement personnalisé</li>
-				<li>Techniques de PNL adaptées</li>
-				<li>Plan d'action concret</li>
-				<li>Suivi des progrès</li>
+				<li>Séance individuelle sur-mesure</li>
+				<li>Combinaison PNL et hypnose</li>
+				<li>Outils concrets et applicables</li>
+				<li>Objectifs personnalisés</li>
 			</ul>
 			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
 				>Réserver une séance</a
+			>
+		</div>
+
+		<div class="service-card highlight">
+			<h3>Pack "Essence de Vie"</h3>
+			<p class="subtitle">Osez Incarner Votre Valeur</p>
+			<p class="duration">8 séances sur 3 mois</p>
+			<p class="price">960 CHF</p>
+			<ul>
+				<li>8 séances de coaching individuel personnalisées</li>
+				<li>Outils PNL et hypnose pour libérer vos blocages</li>
+				<li>Approche actionnable pour incarner vos valeurs</li>
+				<li>Transformation durable et profonde</li>
+			</ul>
+			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
+				>Réserver ce pack</a
+			>
+		</div>
+
+		<div class="service-card premium">
+			<h3>Pack Premium</h3>
+			<p class="subtitle">Accompagnement Intensif</p>
+			<p class="duration">8 séances + 5 sessions bonus sur 3 mois</p>
+			<p class="price">1'200 CHF</p>
+			<ul>
+				<li>8 séances de coaching individuel</li>
+				<li>5 sessions supplémentaires de 30 minutes</li>
+				<li>Suivi personnalisé renforcé</li>
+				<li>Flexibilité selon votre progression</li>
+			</ul>
+			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
+				>Réserver ce pack</a
 			>
 		</div>
 	</div>
@@ -44,8 +78,8 @@
 
 <style lang="scss">
 	.section {
-        display: flex;
-        flex-direction: column;
+		display: flex;
+		flex-direction: column;
 		padding: 60px 20px;
 
 		.section-header {
@@ -91,7 +125,7 @@
 
 	.service-card {
 		background-color: $bg-light;
-		padding: 30px;
+		padding: 25px;
 		border-radius: $border-radius-lg;
 		box-shadow: $shadow-md;
 		width: 300px;
@@ -99,39 +133,65 @@
 		transition:
 			transform 0.3s ease,
 			box-shadow 0.3s ease;
+		display: grid;
+		grid-template-rows: auto auto auto auto 1fr auto;
+		gap: 15px;
+		min-height: 520px;
 
 		&:hover {
-			transform: translateY(-5px);
+			transform: scale(1.05);
 			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 		}
 
 		h3 {
 			color: $primary-color;
-			margin-bottom: 15px;
 			font-size: 1.4em;
+			line-height: 1.3;
+			padding: 0 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+		}
+
+		.subtitle {
+			color: $text-light;
+			font-size: 1.1em;
+			font-style: italic;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
+			padding: 0 10px;
 		}
 
 		.duration {
 			font-style: italic;
 			color: $text-light;
-			margin-bottom: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
 		}
 
 		.price {
 			font-size: 1.2em;
 			font-weight: bold;
 			color: $text-color;
-			margin-bottom: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 0;
 		}
 
 		ul {
 			list-style: none;
 			padding: 0;
-			margin-bottom: 25px;
+			margin: 0;
 			text-align: left;
 
 			li {
-				margin: 10px 0;
+				margin: 12px 0;
 				padding-left: 20px;
 				position: relative;
 
@@ -148,11 +208,30 @@
 			display: inline-block;
 			padding: 12px 25px;
 			transition: background-color 0.3s ease;
+			width: 80%;
+			margin: 0 auto;
 
 			&:hover {
 				background-color: $hover-color-alt;
 				transform: scale(1.05);
 			}
+		}
+
+		&.highlight {
+			border: 2px solid $primary-color;
+			transform: none;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
+
+		&.premium {
+			background: linear-gradient(
+				to bottom right,
+				$bg-light,
+				rgba($primary-color, 0.1)
+			);
 		}
 	}
 
