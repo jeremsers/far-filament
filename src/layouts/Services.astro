@@ -1,5 +1,100 @@
 ---
+import ServiceModal from "../components/ServiceModal.astro";
 
+const calendlyLink = "https://calendly.com/votre-lien";
+
+const serviceModals = {
+	discovery: {
+		title: "Appel Découverte Gratuit",
+		subtitle: "Premier pas vers votre transformation",
+		duration: "30 minutes",
+		price: "Gratuit",
+		description:
+			"Un appel découverte pour faire connaissance, comprendre vos besoins et objectifs, et vous expliquer ma méthode d'accompagnement.",
+		features: [
+			"Présentation de votre situation",
+			"Identification de vos objectifs",
+			"Explication de ma méthode",
+			"Questions/réponses",
+		],
+		calendlyLink,
+	},
+	single: {
+		title: "Séance unique",
+		subtitle: "Votre première étape vers le changement",
+		duration: "1 heure",
+		price: "130 CHF",
+		description:
+			"Une séance individuelle sur-mesure combinant PNL et hypnose pour travailler sur un objectif spécifique.",
+		features: [
+			"Séance individuelle sur-mesure",
+			"Combinaison PNL et hypnose",
+			"Outils concrets et applicables",
+			"Objectifs personnalisés",
+		],
+		calendlyLink,
+	},
+	essence: {
+		title: 'Pack "Essence de Vie"',
+		subtitle: "Osez Incarner qui vous êtes vraiment",
+		duration: "8 séances sur 3 mois",
+		price: "960 CHF",
+		description:
+			"Vous sentez que quelque chose manque dans votre vie, que vous n'êtes pas pleinement aligné avec vos aspirations profondes ? Ce pack est là pour vous accompagner dans un voyage intérieur puissant. Grâce à des outils de PNL et d'hypnose, vous allez découvrir la force intérieure qui sommeille en vous, dépasser vos croyances limitantes et rétablir une connexion profonde avec vos valeurs authentiques.",
+		features: [
+			"8 séances de coaching individuel personnalisées",
+			"Outils puissants pour libérer vos blocages",
+			"Approche actionnable pour incarner vos valeurs",
+			"Révélation de vos valeurs profondes",
+			"Libération des schémas limitants",
+			"Création d'un plan d'action puissant",
+			"Transformation durable et profonde",
+		],
+		conditions: [
+			"Pack valable sur une période de 3 mois (Non remboursable)",
+			"8 séances de coaching individuel (120 CHF par séance au lieu de 130 CHF)",
+			"Engagement sur la durée du programme",
+			"Ajustable selon votre progression",
+
+		],
+		benefits: [
+			"Clarifiez ce qui compte vraiment pour vous",
+			"Alignez vos actions avec vos valeurs",
+			"Travaillez sur les croyances et les peurs qui vous empêchent d'avancer",
+			"Mettez en place des stratégies concrètes pour réaliser vos rêves",
+		],
+		calendlyLink,
+	},
+	premium: {
+		title: 'Pack Premium "Essence de Vie"',
+		subtitle: "Accompagnement Intensif et Personnalisé",
+		duration: "8 séances + 5 sessions bonus sur 3 mois",
+		price: "1'200 CHF",
+		description:
+			"Une version enrichie du pack Essence de Vie, offrant un accompagnement plus intensif et personnalisé. Bénéficiez de sessions bonus flexibles pour approfondir vos avancées, ajuster votre progression et maintenir votre dynamique de transformation. Un suivi premium pour ceux qui souhaitent maximiser leurs résultats.",
+		features: [
+			"Toutes les prestations du pack Essence de Vie",
+			"5 sessions bonus de 30 minutes pour approfondir",
+			"Suivi personnalisé entre les séances",
+			"Support par message entre les séances",
+		],
+		conditions: [
+			"Pack valable sur une période de 3 mois (Non remboursable)",
+			"Sessions bonus utilisables à votre convenance",
+			"Support par message disponible en semaine",
+			"Engagement sur la durée du programme",
+			"Ajustable selon votre progression",
+		],
+		benefits: [
+			"Progression accélérée vers vos objectifs",
+			"Accompagnement plus étroit et régulier",
+			"Flexibilité maximale dans le suivi",
+			"Soutien renforcé dans les moments clés",
+			"Maintien optimal de votre motivation",
+		],
+		calendlyLink,
+	},
+};
 ---
 
 <section class="section" id="services">
@@ -21,13 +116,11 @@
 				<li>Explication de ma méthode</li>
 				<li>Questions/réponses</li>
 			</ul>
-			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
-				>Réserver mon appel</a
-			>
+			<button class="cta-btn" data-modal="modal-discovery">En savoir plus</button>
 		</div>
 
 		<div class="service-card">
-			<h3>Séance unique</h3>
+			<h3>Séance unique &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h3>
 			<p class="subtitle">Votre première étape vers le changement</p>
 			<p class="duration">1 heure</p>
 			<p class="price">130 CHF</p>
@@ -37,14 +130,12 @@
 				<li>Outils concrets et applicables</li>
 				<li>Objectifs personnalisés</li>
 			</ul>
-			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
-				>Réserver une séance</a
-			>
+			<button class="cta-btn" data-modal="modal-single">En savoir plus</button>
 		</div>
 
 		<div class="service-card highlight">
 			<h3>Pack "Essence de Vie"</h3>
-			<p class="subtitle">Osez Incarner Votre Valeur</p>
+			<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
 			<p class="duration">8 séances sur 3 mois</p>
 			<p class="price">960 CHF</p>
 			<ul>
@@ -53,27 +144,29 @@
 				<li>Approche actionnable pour incarner vos valeurs</li>
 				<li>Transformation durable et profonde</li>
 			</ul>
-			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
-				>Réserver ce pack</a
-			>
+			<button class="cta-btn" data-modal="modal-essence">En savoir plus</button>
 		</div>
 
 		<div class="service-card premium">
-			<h3>Pack Premium</h3>
+			<h3>Pack Premium "Essence de Vie"</h3>
 			<p class="subtitle">Accompagnement Intensif</p>
 			<p class="duration">8 séances + 5 sessions bonus sur 3 mois</p>
 			<p class="price">1'200 CHF</p>
 			<ul>
 				<li>8 séances de coaching individuel</li>
 				<li>5 sessions supplémentaires de 30 minutes</li>
-				<li>Suivi personnalisé renforcé</li>
-				<li>Flexibilité selon votre progression</li>
+				<li>Progression accélérée vers vos objectifs</li>
+				<li>Accompagnement plus étroit et régulier</li>
 			</ul>
-			<a href="https://calendly.com/votre-lien" target="_blank" class="cta-btn"
-				>Réserver ce pack</a
-			>
+			<button class="cta-btn" data-modal="modal-premium">En savoir plus</button>
 		</div>
 	</div>
+
+	<!-- Service Modals -->
+	<ServiceModal modalId="modal-discovery" {...serviceModals.discovery} />
+	<ServiceModal modalId="modal-single" {...serviceModals.single} />
+	<ServiceModal modalId="modal-essence" {...serviceModals.essence} />
+	<ServiceModal modalId="modal-premium" {...serviceModals.premium} />
 </section>
 
 <style lang="scss">
@@ -172,12 +265,13 @@
 			align-items: center;
 			justify-content: center;
 			margin: 0;
+			height: 60px;
 		}
 
 		.price {
 			font-size: 1.2em;
 			font-weight: bold;
-			color: $text-color;
+			color: $secondary-color;
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -197,7 +291,7 @@
 
 				&:before {
 					content: "✓";
-					color: $primary-color;
+					color: $secondary-color;
 					position: absolute;
 					left: 0;
 				}
@@ -207,12 +301,18 @@
 		.cta-btn {
 			display: inline-block;
 			padding: 12px 25px;
+			background-color: $primary-color;
+			color: white;
+			border: none;
+			border-radius: $border-radius-md;
+			font-size: 1em;
+			cursor: pointer;
 			transition: background-color 0.3s ease;
 			width: 80%;
 			margin: 0 auto;
 
 			&:hover {
-				background-color: $hover-color-alt;
+				background-color: $hover-color;
 				transform: scale(1.05);
 			}
 		}
