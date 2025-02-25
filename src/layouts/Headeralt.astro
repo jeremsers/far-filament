@@ -1,73 +1,225 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../images/logo.png";
-
 ---
 
-
 <header>
-    <div class="logo">
-      <a href="/">
-        <Image src={logo} alt="logo" class='logo-img' />
-        </a>
-      </div>
-    <nav>
-        <a href="#about">À propos</a>
-        <a href="#services">Services</a>
-        <a href="/alt">PNL</a>
-        <a href="/blog/all/1">Blog</a>
-        <a
-          href="https://calendly.com/votre-lien"
-          target="_blank"
-          class="btn cta-btn">Réserver un rendez-vous gratuit</a
-        >
-      </nav>
+	<div class="logo">
+		<a href="/">
+			<Image src={logo} alt="logo" class="logo-img" />
+		</a>
+	</div>
+	<button
+		class="mobile-menu-toggle"
+		aria-label="Menu"
+		aria-expanded="false"
+		aria-controls="main-nav"
+	>
+		<span class="hamburger"></span>
+	</button>
+	<nav id="main-nav">
+		<a href="/#about">À propos</a>
+		<a href="/#services">Accompagnements</a>
+		<a href="/blog/all/1">Blog</a>
+		<a href="https://calendly.com/votre-lien" target="_blank" class="btn cta-btn"
+			>Réserver un rendez-vous gratuit</a
+		>
+	</nav>
 </header>
 
+<script>
+	const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+	const nav = document.querySelector("#main-nav");
+	const header = document.querySelector("header");
+
+	mobileMenuToggle?.addEventListener("click", () => {
+		const isExpanded = mobileMenuToggle.getAttribute("aria-expanded") === "true";
+		mobileMenuToggle.setAttribute(
+			"aria-expanded",
+			!isExpanded ? "true" : "false"
+		);
+		nav?.classList.toggle("active");
+		header?.classList.toggle("nav-open");
+	});
+
+	// Close menu when clicking outside
+	document.addEventListener("click", (e) => {
+		const target = e.target as HTMLElement;
+		if (!target.closest("header") && nav?.classList.contains("active")) {
+			nav.classList.remove("active");
+			mobileMenuToggle?.setAttribute("aria-expanded", "false");
+			header?.classList.remove("nav-open");
+		}
+	});
+
+	// Close menu when clicking on a link
+	nav?.addEventListener("click", (e) => {
+		const target = e.target as HTMLElement;
+		if (target.tagName === "A") {
+			nav.classList.remove("active");
+			mobileMenuToggle?.setAttribute("aria-expanded", "false");
+			header?.classList.remove("nav-open");
+		}
+	});
+</script>
 
 <style lang="scss">
-    header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 30px;
-        background-color: $primary-color-alt;
-        height: 10vh;
-      }
-      .logo {
-        height: 100%;
-        &-img {
-      
-        height: 100%;
-        object-fit: contain;
-      }
-    }
-nav {
-        padding: 15px;
-        display: flex;
-        justify-content: flex-end;
-        flex-direction: row;
-        align-items: center;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 16px;
-      }
-      .cta-btn {
-				display: inline-block;
-				background-color: $secondary-color-alt;
-				color: $text-white;
-				padding: 12px 25px;
-				border-radius: 8px;
-				font-weight: 600;
-				transition: all 0.3s ease;
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 30px);
+		background-color: $primary-color;
+		height: clamp(60px, 10vh, 80px);
+		position: relative;
+		z-index: 1000;
 
-				&:hover {
-					transform: translateY(-2px);
-					box-shadow: $shadow-md;
+		&.nav-open {
+			background-color: $primary-color;
+		}
+	}
+
+	.logo {
+		height: 100%;
+		z-index: 1001;
+
+		&-img {
+			height: 100%;
+			width: auto;
+			object-fit: contain;
+		}
+	}
+
+	.mobile-menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		padding: 10px;
+		cursor: pointer;
+		z-index: 1001;
+
+		.hamburger {
+			display: block;
+			width: 24px;
+			height: 2px;
+			background-color: $text-white;
+			position: relative;
+			transition: all 0.3s ease;
+			left: 0;
+			transform-origin: center;
+
+			&::before,
+			&::after {
+				content: "";
+				position: absolute;
+				width: 24px;
+				height: 2px;
+				background-color: $text-white;
+				transition: all 0.3s ease;
+				left: 0;
+				transform-origin: center;
+			}
+
+			&::before {
+				top: -8px;
+			}
+
+			&::after {
+				bottom: -8px;
+			}
+		}
+
+		&[aria-expanded="true"] {
+			.hamburger {
+				background-color: transparent;
+
+				&::before {
+					transform: rotate(45deg) translate(5.5px, 5.5px);
+				}
+
+				&::after {
+					transform: rotate(-45deg) translate(5.5px, -5.5px);
 				}
 			}
+		}
+	}
+
+	nav {
+		display: flex;
+		align-items: center;
+		gap: clamp(15px, 2vw, 30px);
+
+		a {
+			color: $text-white;
+			text-decoration: none;
+			font-size: clamp(0.9rem, 2vw, 1rem);
+			transition: color 0.3s ease;
+
+			&:hover {
+				color: rgba(255, 255, 255, 0.8);
+			}
+		}
+
+		.cta-btn {
+			display: inline-block;
+			background-color: $secondary-color;
+			color: $text-white;
+			padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 25px);
+			border-radius: 8px;
+			font-weight: 600;
+			transition: all 0.3s ease;
+			white-space: nowrap;
+
+			&:hover {
+				transform: translateY(-2px);
+				box-shadow: $shadow-md;
+				background-color: darken($secondary-color, 5%);
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.mobile-menu-toggle {
+			display: block;
+		}
+
+		nav {
+			position: fixed;
+			top: 0;
+			right: -100%;
+			width: 100%;
+			height: 100vh;
+			background-color: $primary-color;
+			flex-direction: column;
+			justify-content: center;
+			padding: 80px 20px 20px;
+			transition: all 0.3s ease;
+			opacity: 0;
+			visibility: hidden;
+
+			&.active {
+				right: 0;
+				opacity: 1;
+				visibility: visible;
+			}
+
+			a {
+				font-size: 1.2rem;
+				padding: 15px;
+				width: 100%;
+				text-align: center;
+
+				&:not(.cta-btn):hover {
+					background-color: rgba(255, 255, 255, 0.1);
+				}
+			}
+
+			.cta-btn {
+				margin-top: 20px;
+				width: 100%;
+				max-width: 300px;
+				font-size: 0.8rem;
+			}
+		}
+	}
 </style>

@@ -166,7 +166,7 @@ const {
 		border-radius: $border-radius-lg;
 		width: 90%;
 		max-width: 800px;
-		max-height: 800px;
+		max-height: 90vh;
 		display: flex;
 		flex-direction: column;
 		box-shadow: $shadow-xl;
@@ -179,11 +179,17 @@ const {
 		justify-content: space-between;
 		align-items: center;
 		flex-shrink: 0;
+		background: $bg-light;
+		border-radius: $border-radius-lg $border-radius-lg 0 0;
+		position: sticky;
+		top: 0;
+		z-index: 2;
 
 		h2 {
 			margin: 0;
 			color: $primary-color;
-			font-size: 1.8em;
+			font-size: clamp(1.5em, 4vw, 1.8em);
+			line-height: 1.2;
 		}
 
 		.close-button {
@@ -193,6 +199,8 @@ const {
 			cursor: pointer;
 			color: $text-light;
 			padding: 5px;
+			margin-left: 10px;
+			flex-shrink: 0;
 
 			&:hover {
 				color: $text-color;
@@ -201,9 +209,10 @@ const {
 	}
 
 	.modal-content {
-		padding-inline: 25px;
+		padding: 0 25px;
 		flex: 1;
 		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
 
 		.service-details {
 			display: flex;
@@ -214,12 +223,14 @@ const {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				padding: 30px 0;
+				flex-wrap: wrap;
+				gap: 15px;
+				padding: 20px 0;
 				border-bottom: 1px solid $border-color;
 
 				.duration,
 				.price {
-					font-size: 1.2em;
+					font-size: clamp(1em, 3vw, 1.2em);
 					font-weight: bold;
 					color: $secondary-color;
 				}
@@ -229,14 +240,15 @@ const {
 				font-size: 1.1em;
 				line-height: 1.6;
 				color: $text-color;
-                text-align: justify;
-                padding-block: 10px;
+				text-align: justify;
+				padding-block: 10px;
 			}
 
 			.features-grid {
 				display: grid;
-				grid-template-columns: 1fr 1fr;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 				gap: 30px;
+				margin-bottom: 20px;
 			}
 
 			.features,
@@ -245,7 +257,7 @@ const {
 				h3 {
 					color: $primary-color;
 					margin-bottom: 15px;
-					font-size: 1.2em;
+					font-size: clamp(1.1em, 3vw, 1.2em);
 				}
 
 				ul {
@@ -259,6 +271,7 @@ const {
 						padding-left: 25px;
 						position: relative;
 						line-height: 1.4;
+						font-size: clamp(0.9em, 2.5vw, 1em);
 
 						&:before {
 							content: "✓";
@@ -273,11 +286,8 @@ const {
 			.conditions {
 				border-top: 1px solid $border-color;
 				padding-top: 20px;
-                margin-bottom: 20px;
+				margin-bottom: 20px;
 			}
-            .features-grid {
-                margin-bottom: 20px;
-            }
 		}
 	}
 
@@ -286,16 +296,22 @@ const {
 		border-top: 1px solid $border-color;
 		text-align: center;
 		flex-shrink: 0;
+		background: $bg-light;
+		position: sticky;
+		bottom: 0;
+		z-index: 2;
+		border-radius: 0 0 $border-radius-lg $border-radius-lg;
 
 		.cta-btn {
 			display: inline-block;
-			padding: 15px 40px;
+			padding: clamp(12px, 3vw, 15px) clamp(25px, 5vw, 40px);
 			background-color: $secondary-color;
 			color: white;
 			text-decoration: none;
 			border-radius: $border-radius-md;
-			font-size: 1.1em;
+			font-size: clamp(1em, 2.5vw, 1.1em);
 			transition: all 0.3s ease;
+			width: min(100%, 300px);
 
 			&:hover {
 				background-color: $hover-color-alt;
@@ -308,15 +324,47 @@ const {
 		.modal-container {
 			width: 95%;
 			height: 95vh;
-			max-height: none;
+			border-radius: $border-radius-md;
+		}
+
+		.modal-header {
+			padding: 15px 20px;
 		}
 
 		.modal-content {
+			padding: 0 15px;
+
 			.service-details {
+				gap: 20px;
+
+				.meta {
+					padding: 15px 0;
+					justify-content: center;
+					text-align: center;
+
+					.duration,
+					.price {
+						width: 100%;
+					}
+				}
+
+				.description {
+					font-size: 1em;
+					text-align: left;
+				}
+
 				.features-grid {
 					grid-template-columns: 1fr;
 					gap: 20px;
 				}
+			}
+		}
+
+		.modal-actions {
+			padding: 15px 20px;
+
+			.cta-btn {
+				width: 100%;
 			}
 		}
 	}

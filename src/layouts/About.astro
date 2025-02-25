@@ -96,7 +96,7 @@ import aboutPicture from "../images/about.jpg";
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 50px;
+		gap: 150px;
 		max-width: 1200px;
 		margin: 0 auto;
 		flex: 0 1 auto;
@@ -184,19 +184,21 @@ import aboutPicture from "../images/about.jpg";
 
 	.contact-btn {
 		display: inline-block;
-		background: $secondary-color;
+		background-color: $secondary-color;
 		color: white;
 		padding: 12px 25px;
-		margin-top: 50px;
+		margin-top: clamp(20px, 5vw + 10px, 50px);
 		border-radius: 25px;
 		font-weight: 600;
-		transition: all 0.3s ease;
+		transition: all 0.3s ease-in-out;
 		align-self: center;
+		text-align: center;
 
 		&:hover {
 			transform: translateY(-2px);
 			box-shadow: 0 5px 15px rgba($primary-color, 0.3);
 			background: linear-gradient(135deg, $secondary-color, $primary-color);
+			background-color: $secondary-color;
 		}
 	}
 

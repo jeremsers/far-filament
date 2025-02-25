@@ -1,8 +1,6 @@
 ---
-
 import { Image } from "astro:assets";
 import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette image
-
 ---
 
 <section class="section" id="methodology">
@@ -135,26 +133,28 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 		.step-number {
 			background-color: $primary-color;
 			color: $text-white;
-			width: 40px;
-			height: 40px;
+			width: clamp(30px, 5vw, 40px);
+			height: clamp(30px, 5vw, 40px);
 			border-radius: 50%;
 			display: flex;
 			align-items: center;
 			justify-content: center;
 			font-weight: bold;
-			font-size: 1.2em;
+			font-size: clamp(0.8em, 1vw + 0.8em, 1.2em);
+			aspect-ratio: 1;
+			flex-shrink: 0;
 		}
 
 		.step-content {
 			h3 {
 				color: $text-color;
 				margin-bottom: 5px;
-				font-size: 1.2em;
+				font-size: clamp(0.8em, 1vw + 0.8em, 1.2em);
 			}
 
 			p {
 				color: $text-light;
-				font-size: 1em;
+				font-size: clamp(0.7em, 1vw + 0.7em, 1em);
 				margin: 0;
 			}
 		}
@@ -163,13 +163,15 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 	.method-image {
 		flex: 1;
 		max-width: 500px;
+		height: 100%;
 
 		img {
 			width: 100%;
-			height: auto;
+			height: 437px;
 			border-radius: 15px;
 			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 			transition: transform 0.3s ease;
+			object-fit: cover;
 
 			&:hover {
 				transform: scale(1.02);
@@ -199,4 +201,4 @@ import methodImage from "../images/method.jpg"; // Assurez-vous d'avoir cette im
 			}
 		}
 	}
-</style> 
+</style>

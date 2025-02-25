@@ -14,8 +14,8 @@
 					<div class="faq-answer">
 						<p>
 							La PNL est une approche qui utilise le langage et la psychologie
-							cognitive pour améliorer la communication et le développement
-							personnel. Elle permet de :
+							cognitive pour améliorer la communication et le développement personnel.
+							Elle permet de :
 						</p>
 						<ul>
 							<li>Comprendre vos schémas de pensée</li>
@@ -32,10 +32,9 @@
 					<summary>Combien de séances sont recommandées ?</summary>
 					<div class="faq-answer">
 						<p>
-							Tout dépend de votre situation et de vos objectifs. Une première
-							séance gratuite permet d'évaluer vos besoins et de définir un
-							parcours adapté. En général, un accompagnement peut varier de 3 à 10
-							séances.
+							Tout dépend de votre situation et de vos objectifs. Une première séance
+							gratuite permet d'évaluer vos besoins et de définir un parcours adapté.
+							En général, un accompagnement peut varier de 3 à 10 séances.
 						</p>
 					</div>
 				</details>
@@ -47,8 +46,8 @@
 					<div class="faq-answer">
 						<p>
 							Oui, les séances peuvent se faire en visioconférence avec la même
-							efficacité qu'en présentiel. Je utilise des outils adaptés pour
-							garantir une qualité d'accompagnement optimale.
+							efficacité qu'en présentiel. Je utilise des outils adaptés pour garantir
+							une qualité d'accompagnement optimale.
 						</p>
 					</div>
 				</details>
@@ -58,9 +57,7 @@
 				<details>
 					<summary>Comment se déroule la première séance gratuite ?</summary>
 					<div class="faq-answer">
-						<p>
-							La première séance est un moment d'échange qui permet de :
-						</p>
+						<p>La première séance est un moment d'échange qui permet de :</p>
 						<ul>
 							<li>Faire connaissance et créer un lien de confiance</li>
 							<li>Comprendre vos attentes et vos objectifs</li>
@@ -78,16 +75,16 @@
 	.section {
 		display: flex;
 		flex-direction: column;
-		padding: 60px 20px;
+		padding: clamp(30px, 5vw, 60px) clamp(15px, 3vw, 20px);
 		background-color: #fff;
 
 		.section-header {
 			text-align: center;
-			margin-bottom: 50px;
+			margin-bottom: clamp(30px, 5vw, 50px);
 
 			h2 {
 				color: #2c3e50;
-				font-size: 2.5em;
+				font-size: clamp(2em, 5vw, 2.5em);
 				margin-bottom: 15px;
 				position: relative;
 				display: inline-block;
@@ -98,7 +95,7 @@
 					bottom: -10px;
 					left: 50%;
 					transform: translateX(-50%);
-					width: 60px;
+					width: clamp(40px, 8vw, 60px);
 					height: 3px;
 					background-color: #6b8e23;
 					border-radius: 2px;
@@ -107,9 +104,10 @@
 
 			.section-subtitle {
 				color: #666;
-				font-size: 1.1em;
+				font-size: clamp(1em, 2.5vw, 1.1em);
 				max-width: 600px;
 				margin: 0 auto;
+				padding: 0 clamp(10px, 3vw, 20px);
 			}
 		}
 	}
@@ -117,22 +115,27 @@
 	.faq-container {
 		max-width: 800px;
 		margin: 0 auto;
-		padding: 0 20px;
+		padding: 0 clamp(10px, 3vw, 20px);
+		width: 100%;
 	}
 
 	.faq-list {
 		display: flex;
 		flex-direction: column;
-		gap: 20px;
+		gap: clamp(15px, 3vw, 20px);
 	}
 
 	.faq-item {
-		width: 700px;
+		width: 100%;
+		max-width: 700px;
+		margin: 0 auto;
+
 		details {
 			background-color: $bg-color;
 			border-radius: $border-radius-lg;
 			box-shadow: $shadow-md;
 			transition: all 0.3s ease;
+			width: 100%;
 
 			&[open] {
 				background-color: white;
@@ -149,13 +152,14 @@
 			}
 
 			summary {
-				padding: 20px 25px;
+				padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 25px);
 				cursor: pointer;
 				position: relative;
 				font-weight: 600;
 				list-style: none;
 				color: $text-color;
 				transition: all 0.3s ease;
+				font-size: clamp(0.95em, 2.5vw, 1em);
 
 				&::-webkit-details-marker {
 					display: none;
@@ -164,7 +168,7 @@
 				&::before {
 					content: "›";
 					position: absolute;
-					right: 25px;
+					right: clamp(15px, 3vw, 25px);
 					font-size: 1.5em;
 					transition: transform 0.3s ease;
 					color: $primary-color;
@@ -178,9 +182,10 @@
 		}
 
 		.faq-answer {
-			padding: 20px 25px;
+			padding: clamp(15px, 3vw, 20px) clamp(20px, 4vw, 25px);
 			color: $text-light;
 			line-height: 1.6;
+			font-size: clamp(0.9em, 2.5vw, 1em);
 
 			p {
 				margin: 0 0 15px 0;
@@ -188,11 +193,12 @@
 
 			ul {
 				margin: 0;
-				padding-left: 20px;
+				padding-left: clamp(15px, 3vw, 20px);
 
 				li {
-					margin: 8px 0;
+					margin: clamp(6px, 2vw, 8px) 0;
 					position: relative;
+					padding-left: 5px;
 
 					&::before {
 						content: "•";
@@ -206,23 +212,16 @@
 	}
 
 	@media (max-width: $mobile) {
-		.section-header {
-			h2 {
-				font-size: 2em;
-			}
+		.faq-container {
+			padding: 0 10px;
 		}
 
 		.faq-item {
 			details {
 				summary {
-					padding: 15px 20px;
 					padding-right: 40px;
-				}
-
-				.faq-answer {
-					padding: 15px 20px;
 				}
 			}
 		}
 	}
-</style> 
+</style>

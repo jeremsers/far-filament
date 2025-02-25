@@ -2,105 +2,147 @@
 import { Image } from "astro:assets";
 
 interface Props {
-    title: string;
-    image: ImageMetadata;
-    url: string;
-    date: Date;
-    category: string;
+	title: string;
+	image: ImageMetadata;
+	url: string;
+	date: Date;
+	category: string;
 }
 
 const { title, image, url, date, category } = Astro.props;
 
 const formatDate = (date: Date) => {
-    return new Date(date).toLocaleDateString("fr-FR", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-    });
+	return new Date(date).toLocaleDateString("fr-FR", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
 };
 ---
 
 <a href={url} class="preview-article">
-    <div class="preview-image">
-        <Image src={image} alt={title} />
-    </div>
-    <div class="preview-content">
-        <span class="preview-category">{category}</span>
-        <h4>{title}</h4>
-        <time datetime={date.toISOString()}>{formatDate(date)}</time>
-    </div>
+	<div class="preview-image">
+		<Image src={image} alt={title} />
+	</div>
+	<div class="preview-content">
+		<span class="preview-category">{category}</span>
+		<h4>{title}</h4>
+		<time datetime={date.toISOString()}>{formatDate(date)}</time>
+	</div>
 </a>
 
 <style lang="scss">
-    .preview-article {
-        display: block;
-        padding: $spacing-md;
-        background-color: $bg-color;
-        border-radius: $border-radius-md;
-        text-decoration: none;
-        transition: all $transition-speed $transition-timing;
-        margin-bottom: $spacing-md;
+	.preview-article {
+		display: block;
+		padding: $spacing-md;
+		background-color: $bg-color;
+		border-radius: $border-radius-md;
+		text-decoration: none;
+		transition: all $transition-speed $transition-timing;
+		margin-bottom: $spacing-md;
 
-        &:hover {
-            transform: translateX($spacing-xs);
-            box-shadow: $shadow-md;
+		&:hover {
+			transform: translateX($spacing-xs);
+			box-shadow: $shadow-md;
 
-            .preview-image img {
-                transform: scale(1.05);
-            }
-        }
+			.preview-image img {
+				transform: scale(1.05);
+			}
+		}
 
-        .preview-image {
-            width: 100%;
-            height: 150px;
-            border-radius: $border-radius-sm;
-            overflow: hidden;
-            margin-bottom: $spacing-sm;
+		.preview-image {
+			width: 100%;
+			height: 200px;
+			border-radius: $border-radius-sm;
+			overflow: hidden;
+			margin-bottom: $spacing-sm;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: transform $transition-speed $transition-timing;
-            }
-        }
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform $transition-speed $transition-timing;
+			}
+		}
 
-        .preview-content {
-            h4 {
-                color: $text-color;
-                font-size: 1.1em;
-                margin: $spacing-xs 0;
-                line-height: 1.4;
-            }
+		.preview-content {
+			h4 {
+				color: $text-color;
+				font-size: 1.1em;
+				margin: $spacing-xs 0;
+				line-height: 1.4;
+				display: -webkit-box;
+				-webkit-line-clamp: 2;
+				-webkit-box-orient: vertical;
+				overflow: hidden;
+			}
 
-            time {
-                color: $text-light;
-                font-size: 0.9em;
-            }
+			time {
+				color: $text-light;
+				font-size: 0.9em;
+				display: block;
+				margin-top: $spacing-xs;
+			}
 
-            .preview-category {
-                display: inline-block;
-                background-color: $primary-color;
-                color: $text-white;
-                font-size: 0.8em;
-                padding: 4px 8px;
-                border-radius: $border-radius-sm;
-                margin-bottom: $spacing-xs;
-            }
-        }
-    }
+			.preview-category {
+				display: inline-block;
+				background-color: $primary-color;
+				color: $text-white;
+				font-size: 0.8em;
+				padding: 4px 8px;
+				border-radius: $border-radius-sm;
+				margin-bottom: $spacing-xs;
+			}
+		}
+	}
 
-    @media (max-width: $tablet) {
-        .preview-article {
-            display: grid;
-            grid-template-columns: 120px 1fr;
-            gap: $spacing-md;
-            align-items: center;
+	@media (max-width: $tablet) {
+		.preview-article {
+			display: grid;
+			grid-template-columns: 140px 1fr;
+			gap: $spacing-md;
+			align-items: start;
+			padding: $spacing-sm;
 
-            .preview-image {
-                height: 100px;
-                margin-bottom: 0;
-            }
-        }
-    }
-</style> 
+			.preview-image {
+				height: 100px;
+				margin-bottom: 0;
+			}
+
+			.preview-content {
+				h4 {
+					font-size: 1em;
+					margin-top: 0;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.preview-article {
+			grid-template-columns: 100px 1fr;
+			gap: $spacing-sm;
+			padding: $spacing-xs;
+
+			.preview-image {
+				height: 80px;
+			}
+
+			.preview-content {
+				h4 {
+					font-size: 0.9em;
+					-webkit-line-clamp: 2;
+				}
+
+				time {
+					font-size: 0.8em;
+				}
+
+				.preview-category {
+					font-size: 0.7em;
+					padding: 2px 6px;
+				}
+			}
+		}
+	}
+</style>

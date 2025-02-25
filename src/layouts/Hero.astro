@@ -6,22 +6,22 @@ import heroBanner from "../images/hero3.jpg";
 <section class="hero" id="hero">
 	<div class="hero-content">
 		<div class="section-header">
-			<h1>De l'incertitude à l'action</h1>
+			<h1>Reprenez le pouvoir sur votre vie</h1>
 			<p class="quote">
-				"Il ne dépend que de vous de suivre la route qui monte et d'éviter celle qui
-				descend." – Platon
+				"Soyez maître de votre destin, le capitaine de votre âme." – William Ernest
+				Henley
 			</p>
 			<p class="section-subtitle">
-				Transformez votre vie dès aujourd'hui. Êtes-vous prêt à vous libérer de ce
-				qui vous retient, à vous dépasser et à vivre en harmonie avec vos
-				aspirations les plus profondes ?
+				Rien n'arrive par hasard. Si les mêmes schémas se répètent, c'est un signe
+				qu'il est temps d'évoluer. Vos blocages ne sont pas une fatalité, mais une
+				invitation à vous reconnecter à votre véritable essence. Grâce au coaching
+				et à la PNL, libérez-vous des limitations du passé et ouvrez la voie à votre
+				transformation intérieure.
 			</p>
 		</div>
 		<p class="hero-description">
-			Il arrive un moment où l'on ne peut plus ignorer les doutes et les schémas
-			qui freinent votre épanouissement. Grâce au coaching PNL, je vous accompagne
-			pour reprendre le contrôle, transcender vos limites et bâtir la vie que vous
-			méritez.
+			Écoutez cet appel du changement. Contactez-moi et entamez le voyage vers
+			votre pleine réalisation.
 		</p>
 		<a href="#contact" class="cta-btn">Le changement commence ici</a>
 	</div>
@@ -68,7 +68,7 @@ import heroBanner from "../images/hero3.jpg";
 
 			h1 {
 				color: $text-white;
-				font-size: 4em;
+				font-size: clamp(1.5rem, 5vw + 1rem, 4rem);
 				margin-bottom: 25px;
 				font-weight: 800;
 				line-height: 1.1;
@@ -100,7 +100,7 @@ import heroBanner from "../images/hero3.jpg";
 			}
 
 			.section-subtitle {
-				font-size: 1.5em;
+				font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
 				max-width: 800px;
 				margin: 35px auto;
 				color: $text-white;
@@ -116,7 +116,7 @@ import heroBanner from "../images/hero3.jpg";
 
 		.quote {
 			font-style: italic;
-			font-size: 1.4em;
+			font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.4rem);
 			color: darken($text-white, 5%);
 			margin: 25px 0;
 			font-weight: 500;
@@ -128,7 +128,7 @@ import heroBanner from "../images/hero3.jpg";
 		}
 
 		.hero-description {
-			font-size: 1.3em;
+			font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
 			line-height: 1.7;
 			margin: 0 auto 45px;
 			color: $text-white;
@@ -149,11 +149,11 @@ import heroBanner from "../images/hero3.jpg";
 				adjust-hue($secondary-color, 15deg) 100%
 			);
 			color: $text-white;
-			padding: 20px 48px;
+			padding: clamp(15px, 2vw + 10px, 20px) clamp(30px, 4vw + 20px, 48px);
 			text-decoration: none;
 			border-radius: 50px;
 			font-weight: bold;
-			font-size: 1.3em;
+			font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
 			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 			letter-spacing: 0.5px;
@@ -164,6 +164,7 @@ import heroBanner from "../images/hero3.jpg";
 				transform: translateY(-3px) scale(1.02);
 				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 				border-color: rgba(255, 255, 255, 0.2);
+				background: linear-gradient(135deg, $secondary-color, $primary-color);
 			}
 
 			&:active {
@@ -259,30 +260,12 @@ import heroBanner from "../images/hero3.jpg";
 
 	@media (max-width: $mobile) {
 		.hero {
-			height: 100vh;
+			height: 100%;
 			min-height: 100vh;
 
 			.hero-content {
 				padding: 25px;
 				margin: 0 15px;
-			}
-
-			.section-header {
-				h1 {
-					font-size: 2.8em;
-				}
-
-				.section-subtitle {
-					font-size: 1.2em;
-					padding: 0 20px;
-				}
-			}
-
-			.cta-btn {
-				padding: 16px 32px;
-				font-size: 1.1em;
-				width: auto;
-				min-width: 250px;
 			}
 		}
 	}

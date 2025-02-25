@@ -40,7 +40,6 @@ const similarPosts = allPosts
 	author={entry.data.author}
 >
 	<div class="article-layout">
-		
 		<article class="blog-post">
 			<div class="post-header">
 				{
@@ -75,34 +74,34 @@ const similarPosts = allPosts
 			<div class="post-content">
 				<Content />
 			</div>
-			
+
 			<div class="post-footer">
 				<div class="share-buttons">
 					<h3>Partager cet article</h3>
 					<div class="social-share">
 						<a
-						href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=${Astro.url}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="share-button twitter"
+							href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=${Astro.url}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="share-button twitter"
 						>
-						Twitter
-					</a>
+							Twitter
+						</a>
 						<a
 							href={`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url}&title=${entry.data.title}`}
 							target="_blank"
 							rel="noopener noreferrer"
 							class="share-button linkedin"
-							>
+						>
 							LinkedIn
 						</a>
 						<a
-						href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="share-button facebook"
+							href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="share-button facebook"
 						>
-						Facebook
+							Facebook
 						</a>
 					</div>
 				</div>
@@ -111,17 +110,19 @@ const similarPosts = allPosts
 		<aside class="article-sidebar">
 			<div class="similar-articles">
 				<h3>Articles similaires</h3>
-				{
-					similarPosts.map((post) => (
-						<PreviewArticle
-							title={post.data.title}
-							image={post.data.image}
-							url={`/blog/${post.slug}`}
-							date={post.data.pubDate}
-							category={post.data.category}
-						/>
-					))
-				}
+				<div class="similar-articles-container">
+					{
+						similarPosts.map((post) => (
+							<PreviewArticle
+								title={post.data.title}
+								image={post.data.image}
+								url={`/blog/${post.slug}`}
+								date={post.data.pubDate}
+								category={post.data.category}
+							/>
+						))
+					}
+				</div>
 			</div>
 		</aside>
 	</div>
@@ -137,7 +138,10 @@ const similarPosts = allPosts
 	}
 
 	.article-sidebar {
+		display: flex;
+		gap: $spacing-xl;
 		.similar-articles {
+			flex-direction: column;
 			position: sticky;
 			top: $spacing-xl;
 			width: 300px;
@@ -149,21 +153,56 @@ const similarPosts = allPosts
 				padding-bottom: $spacing-sm;
 				border-bottom: 2px solid $primary-color;
 			}
+			.similar-articles-container {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-md;
+			}
 		}
 	}
 
 	@media (max-width: $tablet) {
 		.article-layout {
-			grid-template-columns: 1fr;
+			flex-direction: column;
+			padding: $spacing-lg $spacing-sm;
 		}
 
 		.article-sidebar {
 			order: 2;
 			margin-top: $spacing-xl;
+			width: 100%;
 
 			.similar-articles {
 				position: relative;
 				top: 0;
+				width: 100%;
+
+				.similar-articles-container {
+					display: grid;
+					grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+					gap: $spacing-md;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.article-layout {
+			padding: $spacing-md $spacing-xs;
+		}
+
+		.article-sidebar {
+			margin-top: $spacing-lg;
+
+			.similar-articles {
+				h3 {
+					font-size: 1.2em;
+					margin-bottom: $spacing-md;
+				}
+
+				.similar-articles-container {
+					grid-template-columns: 1fr;
+				}
 			}
 		}
 	}
