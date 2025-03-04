@@ -1,0 +1,550 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/baselayout/Layoutalt.astro";
+import { Image } from "astro:assets";
+
+interface Event {
+	slug: string;
+	data: {
+		title: string;
+		date: Date;
+		prix: string;
+		lieu: string;
+		tailleGroupe: number;
+		image?: any;
+		type: string;
+	};
+	body: string;
+}
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+	const allEvents = await getCollection("events");
+	const sortedEvents = allEvents.sort(
+		(a: Event, b: Event) =>
+			new Date(a.data.date).valueOf() - new Date(b.data.date).valueOf()
+	);
+
+	// Récupérer tous les types d'événements uniques
+	const allTypes = [
+		...new Set(sortedEvents.map((event: Event) => event.data.type)),
+	] as string[];
+
+	// Créer les chemins pour "tous" les événements
+	const allEventsPaths = paginate(sortedEvents, {
+		params: { type: "all" },
+		pageSize: 9,
+		props: { eventType: "all", allTypes },
+	});
+
+	// Pour chaque type, créer des chemins paginés
+	const typePaths = allTypes.flatMap((type) => {
+		const filteredEvents = sortedEvents.filter(
+			(event: Event) => event.data.type === type
+		);
+
+		return paginate(filteredEvents, {
+			params: { type },
+			pageSize: 9,
+			props: { eventType: type, allTypes },
+		});
+	});
+
+	return [...allEventsPaths, ...typePaths];
+}
+
+// Récupérer les données de pagination et les props
+const { page, eventType, allTypes } = Astro.props;
+
+// Formatage de la date
+const formatDate = (date: Date) => {
+	return new Date(date).toLocaleDateString("fr-FR", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+		hour: "2-digit",
+		minute: "2-digit",
+	});
+};
+
+// Fonction pour obtenir le titre du type d'événement
+const getTypeTitle = (type: string) => {
+	switch (type) {
+		case "atelier":
+			return "Ateliers";
+		case "conference":
+			return "Conférences";
+		case "retraite":
+			return "Retraites";
+		default:
+			return "Tous les événements";
+	}
+};
+---
+
+<Layout
+	title={`Événements PNL - ${eventType !== "all" ? getTypeTitle(eventType) : "Tous les événements"}`}
+	description={`Découvrez nos ${eventType !== "all" ? getTypeTitle(eventType).toLowerCase() : "événements"} de Programmation Neuro-Linguistique`}
+>
+	<section class="events-section">
+		<div class="section-header">
+			<h1>
+				Événements PNL {eventType !== "all" && `- ${getTypeTitle(eventType)}`}
+			</h1>
+			<p class="section-subtitle">
+				{
+					eventType === "all"
+						? "Découvrez nos événements dédiés à la Programmation Neuro-Linguistique"
+						: `Explorez nos ${getTypeTitle(eventType).toLowerCase()} de PNL`
+				}
+			</p>
+		</div>
+
+		<nav class="types-filter" aria-label="Types d'événements">
+			<a
+				href="/events/all/1"
+				class:list={["filter-btn", { active: eventType === "all" }]}
+				aria-current={eventType === "all" ? "page" : undefined}
+			>
+				Tous les événements
+			</a>
+			{
+				allTypes.map((type: string) => (
+					<a
+						href={`/events/${type}/1`}
+						class:list={["filter-btn", { active: eventType === type }]}
+						aria-current={eventType === type ? "page" : undefined}
+					>
+						{getTypeTitle(type)}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="events-grid">
+			{
+				page.data.map((event: Event) => {
+					// Extraire un aperçu du contenu
+					const previewText =
+						event.body.length > 200
+							? `${event.body.substring(0, 200)}...`
+							: event.body;
+
+					return (
+						<article class="event-card">
+							<a href={`/events/${event.slug}`} class="card-link">
+								{event.data.image && (
+									<div class="card-image">
+										<Image
+											src={event.data.image}
+											alt={event.data.title}
+											width={500}
+											height={300}
+										/>
+									</div>
+								)}
+								<div class="card-content">
+									<div class="card-type">{getTypeTitle(event.data.type)}</div>
+									<h2>{event.data.title}</h2>
+									<p class="card-description">{previewText}</p>
+									<div class="card-meta">
+										<span class="date">
+											<span class="icon">📅</span>
+											<time datetime={event.data.date.toISOString()}>
+												{formatDate(event.data.date)}
+											</time>
+										</span>
+										<span class="location">
+											<span class="icon">📍</span>
+											{event.data.lieu}
+										</span>
+										<span class="price">
+											<span class="icon">💰</span>
+											{event.data.prix}
+										</span>
+										<span class="group-size">
+											<span class="icon">👥</span>
+											{event.data.tailleGroupe} participants max
+										</span>
+									</div>
+									<div class="card-actions">
+										<a href={`/events/${event.slug}`} class="btn-details">
+											Voir les détails
+										</a>
+										<button class="btn-register">S'inscrire</button>
+									</div>
+								</div>
+							</a>
+						</article>
+					);
+				})
+			}
+		</div>
+
+		<nav class="pagination" aria-label="Pagination des événements">
+			<div class="pagination-links">
+				{
+					page.url.prev && (
+						<a href={page.url.prev} class="pagination-btn prev" rel="prev">
+							<span class="icon">←</span> Événements précédents
+						</a>
+					)
+				}
+
+				<div class="pagination-numbers">
+					{
+						Array.from({ length: page.lastPage }, (_, i) => i + 1).map((num) => (
+							<a
+								href={`/events/${eventType}/${num}`}
+								class:list={["pagination-number", { active: num === page.currentPage }]}
+								aria-current={num === page.currentPage ? "page" : undefined}
+							>
+								{num}
+							</a>
+						))
+					}
+				</div>
+
+				{
+					page.url.next && (
+						<a href={page.url.next} class="pagination-btn next" rel="next">
+							Événements suivants <span class="icon">→</span>
+						</a>
+					)
+				}
+			</div>
+		</nav>
+	</section>
+</Layout>
+
+<style lang="scss">
+	.events-section {
+		padding: 60px 20px;
+		max-width: 1200px;
+		margin: 0 auto;
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 50px;
+
+			h1 {
+				color: $text-color;
+				font-size: 3em;
+				margin-bottom: 15px;
+				position: relative;
+				display: inline-block;
+
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 80px;
+					height: 4px;
+					background-color: $primary-color;
+					border-radius: 2px;
+				}
+			}
+
+			.section-subtitle {
+				color: $text-light;
+				font-size: 1.2em;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+		}
+
+		.types-filter {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 15px;
+			margin: 30px 0;
+			padding: 0 20px;
+
+			.filter-btn {
+				padding: 8px 16px;
+				border: 2px solid $primary-color;
+				border-radius: 25px;
+				background: transparent;
+				color: $primary-color;
+				font-size: 1em;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				text-decoration: none;
+
+				&:hover {
+					background-color: $primary-color;
+					color: $text-white;
+				}
+
+				&.active {
+					background-color: $primary-color;
+					color: $text-white;
+				}
+			}
+		}
+
+		.events-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 30px;
+			padding: 20px 0;
+		}
+
+		.event-card {
+			background: $bg-light;
+			border-radius: $border-radius-lg;
+			overflow: hidden;
+			box-shadow: $shadow-md;
+			transition:
+				transform 0.3s ease,
+				box-shadow 0.3s ease;
+
+			&:hover {
+				transform: translateY(-10px);
+				box-shadow: $shadow-xl;
+			}
+
+			.card-link {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			.card-image {
+				width: 100%;
+				height: 200px;
+				overflow: hidden;
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+					transition: transform 0.3s ease;
+
+					&:hover {
+						transform: scale(1.05);
+					}
+				}
+			}
+
+			.card-content {
+				padding: 20px;
+
+				.card-type {
+					display: inline-block;
+					background-color: $primary-color;
+					color: $text-white;
+					padding: 5px 10px;
+					border-radius: 5px;
+					font-size: 0.9em;
+					margin-bottom: 15px;
+				}
+
+				h2 {
+					font-size: 1.5em;
+					margin-bottom: 10px;
+					color: $text-color;
+					line-height: 1.3;
+				}
+
+				.card-description {
+					color: $text-light;
+					font-size: 1em;
+					margin-bottom: 20px;
+					line-height: 1.5;
+					display: -webkit-box;
+					-webkit-line-clamp: 3;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+				}
+
+				.card-meta {
+					display: grid;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 10px;
+					color: $text-light;
+					font-size: 0.9em;
+					margin-bottom: 20px;
+
+					span {
+						display: flex;
+						align-items: center;
+						gap: 5px;
+
+						.icon {
+							font-size: 1.2em;
+							color: $primary-color;
+						}
+					}
+				}
+
+				.card-actions {
+					display: flex;
+					gap: 10px;
+					margin-top: 15px;
+
+					.btn-details,
+					.btn-register {
+						padding: 8px 16px;
+						border-radius: 5px;
+						font-size: 0.9em;
+						text-align: center;
+						transition: background-color 0.3s ease;
+						flex: 1;
+						cursor: pointer;
+					}
+
+					.btn-details {
+						background-color: $bg-color;
+						color: $text-color;
+						text-decoration: none;
+
+						&:hover {
+							background-color: darken($bg-color, 5%);
+						}
+					}
+
+					.btn-register {
+						background-color: $primary-color;
+						color: $text-white;
+						border: none;
+
+						&:hover {
+							background-color: darken($primary-color, 10%);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.pagination {
+		margin-top: 50px;
+
+		.pagination-links {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 20px;
+		}
+
+		.pagination-btn {
+			display: inline-flex;
+			align-items: center;
+			padding: 8px 16px;
+			background-color: $bg-color;
+			color: $text-color;
+			text-decoration: none;
+			border-radius: 5px;
+			transition: all 0.3s ease;
+
+			&:hover {
+				background-color: $primary-color;
+				color: $text-white;
+			}
+
+			.icon {
+				font-size: 1.2em;
+			}
+
+			&.prev .icon {
+				margin-right: 8px;
+			}
+
+			&.next .icon {
+				margin-left: 8px;
+			}
+		}
+
+		.pagination-numbers {
+			display: flex;
+			gap: 10px;
+			flex-wrap: wrap;
+
+			.pagination-number {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background-color: $bg-color;
+				color: $text-color;
+				text-decoration: none;
+				transition: all 0.3s ease;
+
+				&:hover {
+					background-color: $primary-color;
+					color: $text-white;
+				}
+
+				&.active {
+					background-color: $primary-color;
+					color: $text-white;
+				}
+			}
+		}
+	}
+
+	@media (max-width: $tablet) {
+		.events-section {
+			padding: 40px 15px;
+
+			.events-grid {
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.events-section {
+			padding: 30px 10px;
+
+			.section-header {
+				h1 {
+					font-size: 2.5em;
+				}
+
+				.section-subtitle {
+					font-size: 1rem;
+				}
+			}
+
+			.events-grid {
+				grid-template-columns: 1fr;
+				gap: 20px;
+			}
+
+			.event-card {
+				.card-content {
+					.card-meta {
+						grid-template-columns: 1fr;
+					}
+				}
+			}
+
+			.types-filter {
+				gap: 10px;
+
+				.filter-btn {
+					padding: 6px 12px;
+					font-size: 0.9em;
+				}
+			}
+		}
+
+		.pagination {
+			.pagination-links {
+				flex-direction: column;
+				gap: 15px;
+			}
+
+			.pagination-numbers {
+				order: -1;
+				justify-content: center;
+			}
+		}
+	}
+</style>

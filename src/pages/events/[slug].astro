@@ -1,0 +1,349 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/baselayout/MainLayout.astro";
+import { Image } from "astro:assets";
+
+// Génère les routes statiques pour tous les événements
+export async function getStaticPaths() {
+	const eventsEntries = await getCollection("events");
+	return eventsEntries.map((entry) => ({
+		params: { slug: entry.slug },
+		props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Formatage de la date
+const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+	hour: "2-digit",
+	minute: "2-digit",
+});
+---
+
+<BaseLayout
+	title={`${entry.data.title} | Événement PNL`}
+	description={entry.data.title}
+>
+	<div class="event-detail-container">
+		<div class="event-header">
+			<h1>{entry.data.title}</h1>
+			{
+				entry.data.image && (
+					<div class="event-hero-image">
+						<Image
+							src={entry.data.image}
+							alt={entry.data.title}
+							width={1000}
+							height={500}
+							class="hero-img"
+						/>
+					</div>
+				)
+			}
+			<div class="event-meta">
+				<div class="event-date">
+					<span class="icon">📅</span>
+					<time datetime={entry.data.date.toISOString()}>{formattedDate}</time>
+				</div>
+				<div class="event-location">
+					<span class="icon">📍</span>
+					<span>{entry.data.lieu}</span>
+				</div>
+				<div class="event-price">
+					<span class="icon">💰</span>
+					<span>{entry.data.prix}</span>
+				</div>
+				<div class="event-group-size">
+					<span class="icon">👥</span>
+					<span>{entry.data.tailleGroupe} participants maximum</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="event-content">
+			<div class="event-description">
+				<h2>À propos de cet événement</h2>
+				<div class="markdown-content">
+					<Content />
+				</div>
+			</div>
+
+			<div class="event-additional-info">
+				<h2>Informations pratiques</h2>
+				<div class="info-card">
+					<h3>Ce qui est inclus</h3>
+					<ul>
+						<li>Formation complète en PNL</li>
+						<li>Matériel pédagogique</li>
+						<li>Certificat de participation</li>
+						<li>Pauses café et rafraîchissements</li>
+					</ul>
+				</div>
+
+				<div class="info-card">
+					<h3>Prérequis</h3>
+					<p>
+						Aucune connaissance préalable en PNL n'est requise pour cet événement.
+						Tous les niveaux sont bienvenus.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="event-registration">
+			<div class="registration-card">
+				<h2>Réservez votre place</h2>
+				<p class="price-highlight">{entry.data.prix}</p>
+				<p class="spots-left">Il reste <strong>8 places</strong> disponibles</p>
+				<button class="btn-register">S'inscrire maintenant</button>
+				<p class="registration-note">
+					L'inscription est confirmée après paiement. Annulation possible jusqu'à 7
+					jours avant l'événement.
+				</p>
+			</div>
+		</div>
+
+		<div class="back-link">
+			<a href="/events">← Retour à tous les événements</a>
+		</div>
+	</div>
+</BaseLayout>
+
+<style lang="scss">
+	.event-detail-container {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: $spacing-xl $spacing-md;
+	}
+
+	.event-header {
+		margin-bottom: $spacing-xl;
+
+		h1 {
+			font-size: 2.5rem;
+			color: $text-color;
+			margin-bottom: $spacing-lg;
+		}
+
+		.event-hero-image {
+			width: 100%;
+			height: auto;
+			border-radius: $border-radius-lg;
+			overflow: hidden;
+			margin-bottom: $spacing-lg;
+			box-shadow: $shadow-md;
+
+			.hero-img {
+				width: 100%;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+
+		.event-meta {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+			gap: $spacing-md;
+
+			.event-date,
+			.event-location,
+			.event-price,
+			.event-group-size {
+				display: flex;
+				align-items: center;
+				color: $text-light;
+
+				.icon {
+					font-size: 1.5rem;
+					margin-right: $spacing-sm;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+
+	.event-content {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: $spacing-xl;
+		margin-bottom: $spacing-xl;
+
+		.event-description {
+			h2 {
+				font-size: 1.8rem;
+				color: $text-color;
+				margin-bottom: $spacing-md;
+				padding-bottom: $spacing-sm;
+				border-bottom: 2px solid $primary-color;
+			}
+
+			.markdown-content {
+				line-height: 1.8;
+				color: $text-color;
+
+				:global(p) {
+					margin-bottom: $spacing-md;
+				}
+
+				:global(ul) {
+					padding-left: $spacing-md;
+					margin-bottom: $spacing-md;
+				}
+
+				:global(li) {
+					margin-bottom: $spacing-xs;
+				}
+
+				:global(strong) {
+					font-weight: bold;
+				}
+			}
+		}
+
+		.event-additional-info {
+			h2 {
+				font-size: 1.5rem;
+				color: $text-color;
+				margin-bottom: $spacing-md;
+				padding-bottom: $spacing-sm;
+				border-bottom: 2px solid $primary-color;
+			}
+
+			.info-card {
+				background-color: $bg-color;
+				border-radius: $border-radius-md;
+				padding: $spacing-md;
+				margin-bottom: $spacing-md;
+
+				h3 {
+					font-size: 1.2rem;
+					color: $text-color;
+					margin-bottom: $spacing-sm;
+				}
+
+				ul {
+					padding-left: $spacing-md;
+
+					li {
+						margin-bottom: $spacing-xs;
+						color: $text-light;
+					}
+				}
+
+				p {
+					color: $text-light;
+					line-height: 1.6;
+				}
+			}
+		}
+	}
+
+	.event-registration {
+		margin-bottom: $spacing-xl;
+
+		.registration-card {
+			background-color: $bg-light;
+			border-radius: $border-radius-lg;
+			padding: $spacing-lg;
+			text-align: center;
+			box-shadow: $shadow-md;
+
+			h2 {
+				font-size: 1.8rem;
+				color: $text-color;
+				margin-bottom: $spacing-md;
+			}
+
+			.price-highlight {
+				font-size: 2.5rem;
+				font-weight: bold;
+				color: $primary-color;
+				margin-bottom: $spacing-md;
+			}
+
+			.spots-left {
+				color: $text-light;
+				margin-bottom: $spacing-md;
+
+				strong {
+					color: $text-color;
+				}
+			}
+
+			.btn-register {
+				background-color: $primary-color;
+				color: $text-white;
+				border: none;
+				padding: $spacing-md $spacing-xl;
+				font-size: 1.2rem;
+				border-radius: $border-radius-md;
+				cursor: pointer;
+				transition: background-color $transition-speed $transition-timing;
+				margin-bottom: $spacing-md;
+
+				&:hover {
+					background-color: darken($primary-color, 10%);
+				}
+			}
+
+			.registration-note {
+				font-size: 0.9rem;
+				color: $text-light;
+			}
+		}
+	}
+
+	.back-link {
+		a {
+			display: inline-flex;
+			align-items: center;
+			color: $primary-color;
+			text-decoration: none;
+			font-weight: 500;
+			transition: color $transition-speed $transition-timing;
+
+			&:hover {
+				color: darken($primary-color, 10%);
+			}
+		}
+	}
+
+	@media (max-width: $tablet) {
+		.event-content {
+			grid-template-columns: 1fr;
+
+			.event-additional-info {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: $spacing-md;
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.event-detail-container {
+			padding: $spacing-lg $spacing-sm;
+		}
+
+		.event-header {
+			h1 {
+				font-size: 2rem;
+			}
+
+			.event-meta {
+				grid-template-columns: 1fr;
+			}
+		}
+
+		.event-content {
+			.event-additional-info {
+				grid-template-columns: 1fr;
+			}
+		}
+	}
+</style>

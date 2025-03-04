@@ -1,0 +1,260 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+
+// Récupérer tous les événements et les trier par date (du plus récent au plus ancien)
+const events = await getCollection("events");
+const recentEvents = events
+	.sort(
+		(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+	)
+	.slice(0, 3); // Prendre les 3 plus récents
+
+// Formatage de la date
+const formatDate = (date: Date) => {
+	return new Date(date).toLocaleDateString("fr-FR", {
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	});
+};
+---
+
+<section class="event-home section" id="events">
+	<div class="container">
+		<div class="section-header">
+			<h2>Événements à venir</h2>
+			<p class="section-subtitle">
+				Découvrez nos prochains ateliers, conférences et retraites
+			</p>
+		</div>
+
+		<div class="event-cards">
+			{
+				recentEvents.map((event) => (
+					<div class="event-card">
+						<div class="event-image">
+							{event.data.image && (
+								<Image
+									src={event.data.image}
+									alt={event.data.title}
+									width={400}
+									height={250}
+									class="card-img"
+								/>
+							)}
+						</div>
+						<div class="event-content">
+							<h3>{event.data.title}</h3>
+							<div class="event-meta">
+								<div class="event-date">
+									<span class="icon">📅</span>
+									<time datetime={event.data.date.toISOString()}>
+										{formatDate(event.data.date)}
+									</time>
+								</div>
+								<div class="event-location">
+									<span class="icon">📍</span>
+									<span>{event.data.lieu}</span>
+								</div>
+							</div>
+							<div class="event-footer">
+								<span class="event-price">{event.data.prix}</span>
+								<a href={`/events/${event.slug}`} class="btn-details">
+									En savoir plus
+								</a>
+							</div>
+						</div>
+					</div>
+				))
+			}
+		</div>
+
+		<div class="view-all">
+			<a href="/events/all/1" class="cta-btn">Voir tous les événements</a>
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.event-home {
+		background-color: $bg-color;
+		padding: $spacing-xxl 0;
+		position: relative;
+	}
+
+	.container {
+		width: 90%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 $spacing-md;
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: $spacing-xl;
+	}
+
+	h2 {
+		position: relative;
+		font-family: "Montserrat", sans-serif;
+		text-align: center;
+		font-size: 2.2rem;
+		color: $text-color;
+		margin-bottom: $spacing-sm;
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: -10px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 60px;
+			height: 3px;
+			background-color: $primary-color;
+			border-radius: 2px;
+		}
+	}
+
+	.section-subtitle {
+		text-align: center;
+		color: $text-light;
+		margin-bottom: $spacing-xl;
+		font-size: 1.1rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.event-cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: $spacing-lg;
+		margin-bottom: $spacing-xl;
+	}
+
+	.event-card {
+		background-color: $bg-light;
+		border-radius: $border-radius-lg;
+		overflow: hidden;
+		box-shadow: $shadow-sm;
+		transition:
+			transform $transition-speed $transition-timing,
+			box-shadow $transition-speed $transition-timing;
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: $shadow-md;
+		}
+	}
+
+	.event-image {
+		width: 100%;
+		height: 200px;
+		overflow: hidden;
+
+		.card-img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.3s ease;
+		}
+
+		&:hover .card-img {
+			transform: scale(1.05);
+		}
+	}
+
+	.event-content {
+		padding: $spacing-md;
+		height: 300px;
+		display: grid;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	h3 {
+		font-family: "Montserrat", sans-serif;
+		font-size: 1.3rem;
+		margin-bottom: $spacing-sm;
+		color: $text-color;
+		line-height: 1.4;
+	}
+
+	.event-meta {
+		margin-bottom: $spacing-md;
+
+		.event-date,
+		.event-location {
+			display: flex;
+			align-items: center;
+			margin-bottom: $spacing-xs;
+			color: $text-light;
+			font-size: 0.95rem;
+
+			.icon {
+				margin-right: $spacing-xs;
+			}
+		}
+	}
+
+	.event-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.event-price {
+			font-weight: bold;
+			color: $secondary-color;
+			font-size: 1.1rem;
+		}
+
+		.btn-details {
+			padding: $spacing-xs $spacing-sm;
+			background-color: $primary-color;
+			color: $text-white;
+			border-radius: $border-radius-md;
+			text-decoration: none;
+			font-size: 0.9rem;
+			transition: background-color $transition-speed $transition-timing;
+
+			&:hover {
+				background-color: $hover-color;
+			}
+		}
+	}
+
+	.view-all {
+		text-align: center;
+		margin-top: $spacing-lg;
+
+		.cta-btn {
+			display: inline-block;
+			background-color: $secondary-color;
+			color: $text-white;
+			padding: $spacing-sm $spacing-lg;
+			border-radius: $border-radius-md;
+			font-weight: 600;
+			text-decoration: none;
+			transition: all $transition-speed $transition-timing;
+
+			&:hover {
+				background-color: $hover-color-alt;
+				transform: translateY(-2px);
+				box-shadow: $shadow-md;
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.event-cards {
+			grid-template-columns: 1fr;
+		}
+
+		.section-header {
+			margin-bottom: $spacing-lg;
+		}
+
+		.event-home {
+			padding: $spacing-xl 0;
+		}
+	}
+</style>
