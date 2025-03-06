@@ -10,6 +10,8 @@ interface Props {
 	benefits?: string[];
 	calendlyLink: string;
 	modalId: string;
+	image?: any;
+	isPremium?: boolean;
 }
 
 const {
@@ -23,7 +25,11 @@ const {
 	benefits = [],
 	calendlyLink,
 	modalId,
+	image,
+	isPremium = false,
 } = Astro.props;
+
+import { Image } from "astro:assets";
 ---
 
 <div class="modal" id={modalId} aria-hidden="true">
@@ -33,6 +39,16 @@ const {
 		role="dialog"
 		aria-labelledby={`${modalId}-title`}
 	>
+		{
+			image && (
+				<div class="modal-image">
+					<Image src={image} alt={title} width={800} height={300} />
+					<div class={`image-overlay ${isPremium ? "premium-overlay" : ""}`} />
+					{isPremium && <div class="premium-badge">Premium</div>}
+				</div>
+			)
+		}
+
 		<div class="modal-header">
 			<h2 id={`${modalId}-title`}>{title}</h2>
 			<button class="close-button" data-close aria-label="Fermer">×</button>
@@ -170,6 +186,53 @@ const {
 		display: flex;
 		flex-direction: column;
 		box-shadow: $shadow-xl;
+		overflow: hidden;
+	}
+
+	.modal-image {
+		width: 100%;
+		height: 500px;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: top;
+		}
+
+		.image-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 50%;
+			background: linear-gradient(to top, rgba($bg-light, 0.9), transparent);
+			z-index: 1;
+		}
+
+		.premium-overlay {
+			background: linear-gradient(
+				to top,
+				rgba(mix($bg-light, $primary-color, 90%), 0.9),
+				transparent
+			);
+		}
+
+		.premium-badge {
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			background-color: $secondary-color;
+			color: white;
+			padding: 5px 12px;
+			border-radius: $border-radius-sm;
+			font-size: 0.9em;
+			font-weight: bold;
+			box-shadow: $shadow-sm;
+			z-index: 2;
+		}
 	}
 
 	.modal-header {
@@ -180,9 +243,7 @@ const {
 		align-items: center;
 		flex-shrink: 0;
 		background: $bg-light;
-		border-radius: $border-radius-lg $border-radius-lg 0 0;
-		position: sticky;
-		top: 0;
+		position: relative;
 		z-index: 2;
 
 		h2 {
@@ -327,6 +388,10 @@ const {
 			border-radius: $border-radius-md;
 		}
 
+		.modal-image {
+			height: 200px;
+		}
+
 		.modal-header {
 			padding: 15px 20px;
 		}
@@ -350,7 +415,6 @@ const {
 
 				.description {
 					font-size: 1em;
-					text-align: left;
 				}
 
 				.features-grid {

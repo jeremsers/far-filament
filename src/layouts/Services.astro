@@ -1,5 +1,15 @@
 ---
 import ServiceModal from "../components/ServiceModal.astro";
+import { Image } from "astro:assets";
+import discover from "../images/discover.jpg";
+import premium from "../images/premium.png";
+import single from "../images/indiv2.jpg";
+import essence from "../images/essence.jpg";
+// Vous pourrez remplacer ces images par des images spécifiques à chaque service
+const discoveryImage = discover;
+const singleImage = single;
+const essenceImage = essence;
+const premiumImage = premium;
 
 const calendlyLink = "https://calendly.com/votre-lien";
 
@@ -18,6 +28,7 @@ const serviceModals = {
 			"Questions/réponses",
 		],
 		calendlyLink,
+		image: discoveryImage,
 	},
 	single: {
 		title: "Séance unique",
@@ -33,6 +44,7 @@ const serviceModals = {
 			"Objectifs personnalisés",
 		],
 		calendlyLink,
+		image: singleImage,
 	},
 	essence: {
 		title: 'Pack "Essence de Vie"',
@@ -55,7 +67,6 @@ const serviceModals = {
 			"8 séances de coaching individuel (120 CHF par séance au lieu de 130 CHF)",
 			"Engagement sur la durée du programme",
 			"Ajustable selon votre progression",
-
 		],
 		benefits: [
 			"Clarifiez ce qui compte vraiment pour vous",
@@ -64,35 +75,35 @@ const serviceModals = {
 			"Mettez en place des stratégies concrètes pour réaliser vos rêves",
 		],
 		calendlyLink,
+		image: essenceImage,
 	},
 	premium: {
-		title: 'Pack Premium "Essence de Vie"',
-		subtitle: "Accompagnement Intensif et Personnalisé",
-		duration: "8 séances + 5 sessions bonus sur 3 mois",
-		price: "1'200 CHF",
+		title: "Reconnexion à ton âme",
+		subtitle: "Un voyage sacré vers toi-même",
+		duration: "2h30",
+		price: "333 CHF",
 		description:
-			"Une version enrichie du pack Essence de Vie, offrant un accompagnement plus intensif et personnalisé. Bénéficiez de sessions bonus flexibles pour approfondir vos avancées, ajuster votre progression et maintenir votre dynamique de transformation. Un suivi premium pour ceux qui souhaitent maximiser leurs résultats.",
+			"Il y a en toi une lumière, une vibration unique, une essence profonde qui ne demande qu'à être écoutée. Mais parfois, sous le poids des attentes, des doutes et des blessures, cette voix intérieure s'efface. Tu ressens alors un vide, un éloignement de toi-même, comme si quelque chose en toi appelait mais restait sans réponse. Et si tu t'accordais un moment pour te retrouver ?",
 		features: [
-			"Toutes les prestations du pack Essence de Vie",
-			"5 sessions bonus de 30 minutes pour approfondir",
-			"Suivi personnalisé entre les séances",
-			"Support par message entre les séances",
+			"Séance individuelle, uniquement en présentiel",
+			"Dialogue authentique et questionnements puissants",
+			"Outils de coaching PNL pour libérer vos blocages",
+			"Méditation guidée pour une reconnexion intérieure",
 		],
 		conditions: [
-			"Pack valable sur une période de 3 mois (Non remboursable)",
-			"Sessions bonus utilisables à votre convenance",
-			"Support par message disponible en semaine",
-			"Engagement sur la durée du programme",
-			"Ajustable selon votre progression",
+			"Format : Séance individuelle, uniquement en présentiel",
+			"Durée : 2h30",
 		],
 		benefits: [
-			"Progression accélérée vers vos objectifs",
-			"Accompagnement plus étroit et régulier",
-			"Flexibilité maximale dans le suivi",
-			"Soutien renforcé dans les moments clés",
-			"Maintien optimal de votre motivation",
+			"Retrouver ton essence profonde",
+			"Délester ce qui ne t'appartient plus",
+			"Méditation guidée : l'appel de ton âme",
+			"Sensation de clarté et de légèreté",
+			"Reconnexion à ta voie intérieure",
 		],
 		calendlyLink,
+		image: premiumImage,
+		isPremium: true,
 	},
 };
 ---
@@ -106,10 +117,18 @@ const serviceModals = {
 	</div>
 	<div class="services-container">
 		<div class="service-card">
+			<div class="service-image">
+				<Image
+					src={discoveryImage}
+					alt="Appel Découverte"
+					width={300}
+					height={200}
+				/>
+				<div class="image-overlay"></div>
+			</div>
 			<h3>Appel Découverte Gratuit</h3>
 			<p class="subtitle">Premier pas vers votre transformation</p>
 			<p class="duration">30 minutes</p>
-			<p class="price">Gratuit</p>
 			<ul>
 				<li>Présentation de votre situation</li>
 				<li>Identification de vos objectifs</li>
@@ -120,10 +139,13 @@ const serviceModals = {
 		</div>
 
 		<div class="service-card">
+			<div class="service-image">
+				<Image src={singleImage} alt="Séance unique" width={300} height={200} />
+				<div class="image-overlay"></div>
+			</div>
 			<h3>Séance unique</h3>
 			<p class="subtitle">Votre première étape vers le changement</p>
 			<p class="duration">1 heure</p>
-			<p class="price">130 CHF</p>
 			<ul>
 				<li>Séance individuelle sur-mesure</li>
 				<li>Combinaison PNL et hypnose</li>
@@ -134,10 +156,18 @@ const serviceModals = {
 		</div>
 
 		<div class="service-card highlight">
+			<div class="service-image">
+				<Image
+					src={essenceImage}
+					alt="Pack Essence de Vie"
+					width={300}
+					height={200}
+				/>
+				<div class="image-overlay highlight-overlay"></div>
+			</div>
 			<h3>Pack "Essence de Vie"</h3>
 			<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
 			<p class="duration">8 séances sur 3 mois</p>
-			<p class="price">960 CHF</p>
 			<ul>
 				<li>8 séances de coaching individuel personnalisées</li>
 				<li>Outils PNL et hypnose pour libérer vos blocages</li>
@@ -148,15 +178,24 @@ const serviceModals = {
 		</div>
 
 		<div class="service-card premium">
-			<h3>Pack Premium "Essence de Vie"</h3>
-			<p class="subtitle">Accompagnement Intensif</p>
-			<p class="duration">8 séances + 5 sessions bonus sur 3 mois</p>
-			<p class="price">1'200 CHF</p>
+			<div class="service-image">
+				<Image
+					src={premiumImage}
+					alt="Reconnexion à ton âme"
+					width={300}
+					height={200}
+				/>
+				<div class="image-overlay premium-overlay"></div>
+				<div class="premium-badge">Premium</div>
+			</div>
+			<h3>Reconnexion à ton âme</h3>
+			<p class="subtitle">Un voyage sacré vers toi-même</p>
+			<p class="duration">2 heures 30 minutes</p>
 			<ul>
-				<li>8 séances de coaching individuel</li>
-				<li>5 sessions supplémentaires de 30 minutes</li>
-				<li>Progression accélérée vers vos objectifs</li>
-				<li>Accompagnement plus étroit et régulier</li>
+				<li>Dialogue authentique et questionnements puissants</li>
+				<li>Libération des blocages avec la PNL</li>
+				<li>Méditation guidée pour une reconnexion intérieure</li>
+				<li>Uniquement en présentiel</li>
 			</ul>
 			<button class="cta-btn" data-modal="modal-premium">En savoir plus</button>
 		</div>
@@ -229,11 +268,75 @@ const serviceModals = {
 		display: grid;
 		grid-template-rows: auto auto auto auto 1fr auto;
 		gap: 15px;
-		min-height: 520px;
+		min-height: 600px;
 
+		
 		&:hover {
 			transform: scale(1.05);
 			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+			img {
+				transform: scale(1.1);
+			}
+	
+			.image-overlay {
+				transform: scale(1.1);
+				height: 37%;
+			}
+		}
+		
+		.service-image {
+			margin: -25px -25px 15px -25px;
+			overflow: hidden;
+			border-radius: $border-radius-lg $border-radius-lg 0 0;
+			height: 180px;
+			position: relative;
+			
+			
+			.image-overlay {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 27%;
+				background: linear-gradient(to top, rgba($bg-light, 0.9), transparent);
+				z-index: 1;
+				transition: height 0.25s ease;
+			}
+
+			.highlight-overlay {
+				background: linear-gradient(to top, rgba($bg-light, 0.9), transparent);
+			}
+
+			.premium-overlay {
+				background: linear-gradient(
+					to top,
+					rgba(mix($bg-light, $primary-color, 90%), 0.9),
+					transparent
+				);
+			}
+
+			.premium-badge {
+				position: absolute;
+				top: 10px;
+				left: 10px;
+				background-color: $secondary-color;
+				color: white;
+				padding: 5px 10px;
+				border-radius: $border-radius-sm;
+				font-size: 0.8em;
+				font-weight: bold;
+				box-shadow: $shadow-sm;
+				z-index: 2;
+			}
+
+			img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.5s ease;
+			}
+
+			
 		}
 
 		h3 {
@@ -321,6 +424,11 @@ const serviceModals = {
 		&.highlight {
 			border: 2px solid $primary-color;
 			transform: none;
+			padding: 23px;
+
+			.service-image {
+				margin: -23px -23px 15px -23px;
+			}
 
 			&:hover {
 				transform: scale(1.05);
@@ -346,6 +454,10 @@ const serviceModals = {
 		.service-card {
 			width: 100%;
 			max-width: 350px;
+
+			.service-image {
+				height: 200px;
+			}
 		}
 	}
 </style>

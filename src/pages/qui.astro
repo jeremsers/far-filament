@@ -1,0 +1,576 @@
+---
+import MainLayout from "../layouts/baselayout/MainLayout.astro";
+import { Image } from "astro:assets";
+import aboutPicture from "../images/about.jpg";
+---
+
+<MainLayout title="À propos de moi | Coach PNL et Hypnose">
+	<main>
+		<section class="hero-section">
+			<div class="hero-content">
+				<h1>Se libérer, se révéler, s'aligner</h1>
+				<p class="subtitle">Mon parcours et ma philosophie</p>
+			</div>
+		</section>
+
+		<section class="about-section">
+			<div class="container">
+				<div class="about-grid">
+					<div class="about-image">
+						<Image
+							src={aboutPicture}
+							alt="Coach PNL et praticienne en hypnose"
+							class="profile-img"
+						/>
+					</div>
+					<div class="about-content">
+						<h2>Mon parcours</h2>
+						<p>
+							Après vingt ans d'expérience en direction d'entreprise et management, un
+							besoin profond s'est imposé à moi : retrouver un équilibre, en accord
+							avec mon essence et mes valeurs. Comme beaucoup, je me suis interrogée : <em
+								>Qui suis-je réellement ? Suis-je à ma juste place ?</em
+							>
+						</p>
+						<p>
+							C'est dans cette quête que la Programmation Neuro-Linguistique (PNL) et
+							l'hypnose ont ouvert un nouvel horizon. Grâce à ces approches puissantes,
+							j'ai dépassé des croyances limitantes, révélé des ressources
+							insoupçonnées et trouvé un alignement profond. J'ai découvert que toute
+							transformation commence par une prise de conscience et un changement de
+							perception, permettant ainsi de se reconnecter à soi en toute
+							authenticité.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="mission-section">
+			<div class="container">
+				<h2>Mon accompagnement</h2>
+				<p class="section-intro">
+					Aujourd'hui, en tant que coach certifiée en PNL et praticienne en hypnose,
+					je vous accompagne avec bienveillance pour :
+				</p>
+
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-header">
+							<h3>Libérez-vous</h3>
+						</div>
+						<p>des schémas qui entravent votre épanouissement</p>
+					</div>
+
+					<div class="feature-card">
+						<div class="feature-header">
+							<h3>Révélez-vous</h3>
+						</div>
+						<p>
+							en retrouvant votre puissance intérieure et en renouant avec votre
+							essence
+						</p>
+					</div>
+
+					<div class="feature-card">
+						<div class="feature-header">
+							<h3>Alignez-vous</h3>
+						</div>
+						<p>avec ce qui fait véritablement sens pour vous</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="transformation-section">
+			<div class="container">
+				<div class="transformation-content">
+					<h2>Un accompagnement sur mesure</h2>
+					<p>
+						Si vous traversez une période de doute, d'épuisement ou d'inconfort face à
+						une situation qui ne vous correspond plus, il est peut-être temps
+						d'amorcer un changement. Qu'il s'agisse d'une relation toxique, d'un
+						burn-out ou simplement d'un besoin de clarté, la PNL offre une voie vers
+						une transformation en profondeur. En modifiant vos perceptions et en
+						activant vos ressources, vous pouvez créer une réalité alignée avec votre
+						être profond.
+					</p>
+					<p>
+						À travers un cadre bienveillant et personnalisé, vous apprendrez à
+						mobiliser vos ressources, à lever les blocages et à avancer avec
+						confiance. Cet accompagnement vous permettra de transformer vos croyances
+						et d'ouvrir la voie à une vie plus harmonieuse et alignée avec vos
+						aspirations profondes.
+					</p>
+					<p>
+						Lors de mes ateliers, vous évoluerez dans une atmosphère de partage et de
+						bienveillance, propice à la transformation. Chaque étape est un pas vers
+						un épanouissement plus grand, dans un espace où vous pourrez avancer à
+						votre rythme, en toute sécurité.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="services-section">
+			<div class="container">
+				<h2>Mes accompagnements</h2>
+				<p class="section-intro">
+					Prêt(e) à vous reconnecter à vous-même ? Croyez en votre potentiel, car
+					vous avez en vous les clés pour réécrire votre histoire et façonner la vie
+					qui vous ressemble.
+				</p>
+
+				<div class="services-grid">
+					<div class="service-card">
+						<h3>Se reconstruire après une relation toxique</h3>
+						<p>
+							Retrouvez votre confiance et votre autonomie après une relation qui vous
+							a fragilisé(e).
+						</p>
+					</div>
+
+					<div class="service-card">
+						<h3>S'épanouir dans un environnement professionnel équilibré</h3>
+						<p>
+							Développez des stratégies pour gérer le stress et trouver votre place
+							dans votre vie professionnelle.
+						</p>
+					</div>
+
+					<div class="service-card">
+						<h3>Libérer les blocages émotionnels</h3>
+						<p>
+							Identifiez et transformez les émotions qui vous limitent pour retrouver
+							l'harmonie intérieure.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-section">
+			<div class="container">
+				<h2>Commencez votre voyage de transformation</h2>
+				<p>
+					Envie d'en savoir plus ? Contactez-moi pour trouver ensemble
+					l'accompagnement qui vous correspond et entamer ce voyage vers une vie en
+					accord avec votre véritable essence.
+				</p>
+				<a href="/contact" class="cta-button">Prendre rendez-vous</a>
+			</div>
+		</section>
+	</main>
+</MainLayout>
+
+<style lang="scss">
+	main {
+		background-color: $bg-light;
+	}
+
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	.hero-section {
+		background: linear-gradient(
+				to right,
+				rgba($secondary-color, 0.95),
+				rgba($secondary-color, 0.8)
+			),
+			url("/images/pattern-bg.png");
+		background-size: cover;
+		background-position: center;
+		color: white;
+		padding: 100px 20px;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				45deg,
+				rgba($primary-color, 0.2) 0%,
+				transparent 70%
+			);
+			z-index: 1;
+		}
+
+		.hero-content {
+			position: relative;
+			z-index: 2;
+		}
+
+		h1 {
+			font-size: 3em;
+			margin-bottom: 20px;
+			position: relative;
+			display: inline-block;
+			color: white;
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 80px;
+				height: 2px;
+				background-color: rgba(white, 0.7);
+			}
+		}
+
+		.subtitle {
+			font-size: 1.5em;
+			max-width: 700px;
+			margin: 20px auto 0;
+			opacity: 0.9;
+		}
+	}
+
+	section {
+		padding: 80px 0;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		h2 {
+			color: $text-color;
+			font-size: 2.2em;
+			margin-bottom: 30px;
+			position: relative;
+			display: inline-block;
+
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 0;
+				width: 60px;
+				height: 3px;
+				background-color: $primary-color;
+				border-radius: 2px;
+			}
+		}
+
+		.section-intro {
+			font-size: 1.2em;
+			color: $text-light;
+			margin-bottom: 40px;
+			max-width: 800px;
+			text-align: center;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+
+	.about-section {
+		background: linear-gradient(
+			to right,
+			rgba($primary-color, 0.05),
+			rgba($secondary-color, 0.05)
+		);
+	}
+
+	.about-grid {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 60px;
+		align-items: center;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.profile-img {
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		border-radius: 20px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+		border: 3px solid rgba($primary-color, 0.1);
+	}
+
+	.about-content {
+		p {
+			font-size: 1.1em;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			color: $text-color;
+
+			em {
+				color: $secondary-color;
+				font-style: italic;
+			}
+		}
+	}
+
+	.mission-section {
+		background-color: $bg-light;
+		text-align: center;
+
+		h2:after {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.features-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-top: 40px;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+	}
+
+	.feature-card {
+		padding: 30px;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 15px rgba($primary-color, 0.08);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+		text-align: left;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 4px;
+			height: 100%;
+			background: $primary-color;
+			opacity: 0.5;
+		}
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px rgba($primary-color, 0.12);
+
+			&::before {
+				opacity: 1;
+			}
+
+			.feature-header h3 {
+				color: $primary-color;
+			}
+		}
+
+		.feature-header {
+			margin-bottom: 15px;
+
+			h3 {
+				font-size: 1.4em;
+				color: $secondary-color;
+				margin: 0;
+				transition: color 0.3s ease;
+			}
+		}
+
+		p {
+			color: $text-color;
+			font-size: 1.05em;
+			line-height: 1.5;
+			margin: 0;
+		}
+	}
+
+	.transformation-section {
+		background: linear-gradient(
+			to right,
+			rgba($primary-color, 0.05),
+			rgba($secondary-color, 0.05)
+		);
+	}
+
+	.transformation-content {
+		max-width: 800px;
+		margin: 0 auto;
+
+		p {
+			font-size: 1.1em;
+			line-height: 1.6;
+			margin-bottom: 20px;
+			color: $text-color;
+		}
+	}
+
+	.services-section {
+		background-color: white;
+		text-align: center;
+
+		h2:after {
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 30px;
+		margin-top: 40px;
+
+		@media (max-width: 768px) {
+			grid-template-columns: 1fr;
+			gap: 20px;
+		}
+	}
+
+	.service-card {
+		padding: 40px 30px;
+		background: linear-gradient(
+			135deg,
+			rgba($primary-color, 0.03),
+			rgba($secondary-color, 0.03)
+		);
+		border-radius: 12px;
+		transition: all 0.3s ease;
+		text-align: left;
+		border: 1px solid rgba($primary-color, 0.1);
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 10px 25px rgba($primary-color, 0.1);
+			border-color: rgba($primary-color, 0.3);
+		}
+
+		h3 {
+			font-size: 1.3em;
+			color: $secondary-color;
+			margin-bottom: 15px;
+		}
+
+		p {
+			color: $text-color;
+			font-size: 1.05em;
+			line-height: 1.5;
+		}
+	}
+
+	.cta-section {
+		background-color: $secondary-color;
+		background-image: linear-gradient(
+				120deg,
+				rgba($secondary-color, 0.97),
+				rgba($secondary-color, 0.9)
+			),
+			url("/images/pattern-bg.png");
+		background-size: cover;
+		background-position: center;
+		color: white;
+		text-align: center;
+		padding: 80px 20px;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(
+				to right,
+				rgba($primary-color, 0.1),
+				transparent
+			);
+			z-index: 1;
+		}
+
+		.container {
+			position: relative;
+			z-index: 2;
+		}
+
+		h2 {
+			color: white;
+			font-size: 2.2em;
+			margin-bottom: 20px;
+			position: relative;
+			display: inline-block;
+
+			&:after {
+				display: block;
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 2px;
+				background-color: rgba(white, 0.5);
+			}
+		}
+
+		p {
+			font-size: 1.2em;
+			max-width: 700px;
+			margin: 30px auto 40px;
+			opacity: 0.9;
+		}
+
+		.cta-button {
+			display: inline-block;
+			background-color: white;
+			color: $secondary-color;
+			padding: 15px 30px;
+			border-radius: 30px;
+			font-weight: 600;
+			font-size: 1.1em;
+			transition: all 0.3s ease;
+			text-decoration: none;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+			&:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+				background-color: white;
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		.hero-section {
+			padding: 60px 20px;
+
+			h1 {
+				font-size: 2.2em;
+			}
+
+			.subtitle {
+				font-size: 1.2em;
+			}
+		}
+
+		section {
+			padding: 50px 0;
+
+			h2 {
+				font-size: 1.8em;
+			}
+		}
+
+		.about-grid {
+			.about-image {
+				text-align: center;
+			}
+		}
+	}
+</style>

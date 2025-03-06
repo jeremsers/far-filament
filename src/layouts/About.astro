@@ -14,67 +14,66 @@ import aboutPicture from "../images/about.jpg";
 	<div class="about-container">
 		<div class="about-content">
 			<div class="text-content">
-				<p class="about-text">
-					<strong>20 ans d'expérience en direction d'entreprise</strong> m'ont menée à
-					la découverte de la PNL et de l'hypnose, des méthodes qui ont révolutionné ma
-					vision de la vie et du potentiel humain.
-				</p>
-
-				<p class="about-question">
-					« Suis-je à ma place ? Quel est le sens de ma vie ? »<br />
-					<span
-						>Ressentez-vous l'épuisement professionnel ou des difficultés dans vos
-						relations ?</span
-					>
-				</p>
-
-				<div class="about-features">
-					<p class="features-title">Je vous accompagne pour :</p>
-					<ul>
-						<li>
-							Clarifier vos objectifs professionnels et personnels et créer des
-							stratégies
-						</li>
-						<li>
-							Surmonter les blocages qui affectent vos performances au travail et vos
-							interactions sociales
-						</li>
-						<li>
-							Améliorer vos relations et votre communication, tant sur le plan
-							personnel que professionnel
-						</li>
-						<li>
-							Gérer le stress et l'équilibre émotionnel dans un environnement exigeant
-						</li>
-						<li>
-							Renforcer votre confiance en vous pour naviguer avec assurance dans vos
-							projets
-						</li>
-					</ul>
+				<div class="journey-block">
+					<p class="about-text">
+						<strong class="highlight-text">
+							De la direction d'entreprise au coaching PNL
+						</strong>
+						<br />
+						Après vingt ans d'expérience en management, j'ai découvert la puissance de
+						la PNL et de l'hypnose. Ces approches m'ont permis de dépasser mes limites
+						et de révéler mon potentiel. Aujourd'hui, je mets cette expertise à votre service.
+					</p>
 				</div>
 
-				<p class="about-conclusion">
-					<strong
-						>Je suis spécialisée dans l'accompagnement des personnes confrontées au
-						burn-out et aux relations toxiques,</strong
-					> afin de vous aider à retrouver votre bien-être et à rétablir un équilibre
-					essentiel dans votre vie.
-				</p>
+				<div class="mission-block">
+					<p class="about-text">
+						<strong class="highlight-text">Mon accompagnement</strong>
+					</p>
 
-				<p class="about-conclusion">
-					En tant que <strong>coach certifiée PNL et praticienne en hypnose</strong>,
-					je vous guide vers une existence alignée avec vos aspirations profondes.
-				</p>
+					<div class="about-features">
+						<div class="feature-card">
+							<div class="feature-header">
+								<h4>Libérez-vous</h4>
+							</div>
+							<p>des schémas qui entravent votre épanouissement</p>
+						</div>
+
+						<div class="feature-card">
+							<div class="feature-header">
+								<h4>Révélez-vous</h4>
+							</div>
+							<p>en retrouvant votre puissance intérieure</p>
+						</div>
+
+						<div class="feature-card">
+							<div class="feature-header">
+								<h4>Alignez-vous</h4>
+							</div>
+							<p>avec ce qui fait véritablement sens pour vous</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="transformation-block">
+					<p class="about-conclusion">
+						Burn-out, relation toxique ou besoin de clarté ? La PNL et l'hypnose
+						offrent une voie vers une transformation profonde. Ensemble, créons une
+						réalité alignée avec votre être profond.
+					</p>
+				</div>
 			</div>
 		</div>
-		<Image
-			src={aboutPicture}
-			alt="Coach PNL et praticienne en hypnose"
-			class="about-img"
-		/>
+		<a href="/qui">
+			<Image
+				src={aboutPicture}
+				alt="Coach PNL et praticienne en hypnose"
+				class="about-img"
+			/>
+		</a>
 	</div>
 	<a href="#contact" class="contact-btn">
-		Contactez-moi pour un premier entretien gratuit
+		Découvrez votre potentiel - Premier entretien gratuit
 	</a>
 </section>
 
@@ -164,38 +163,66 @@ import aboutPicture from "../images/about.jpg";
 	}
 
 	.about-features {
-		.features-title {
-			color: $secondary-color;
-			font-weight: 600;
+		margin-top: 30px;
+		display: grid;
+		grid-template-rows: repeat(3, 1fr);
+		gap: 20px;
+
+		@media (max-width: 768px) {
+			grid-template-rows: 1fr;
+			gap: 15px;
+		}
+	}
+
+	.feature-card {
+		padding: 25px;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 15px rgba($primary-color, 0.08);
+		transition: all 0.3s ease;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 4px;
+			height: 100%;
+			background: $primary-color;
+			opacity: 0.5;
+		}
+
+		&:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 20px rgba($primary-color, 0.12);
+
+			&::before {
+				opacity: 1;
+			}
+
+			.feature-header h4 {
+				color: $primary-color;
+			}
+		}
+
+		.feature-header {
 			margin-bottom: 12px;
+
+			h4 {
+				font-size: 1.2em;
+				color: $secondary-color;
+				margin: 0;
+				transition: color 0.3s ease;
+			}
 		}
 
-		ul {
-			list-style: none;
-			padding: 0;
-		}
-
-		ul li {
-			margin: 8px 0;
-			padding-left: 25px;
-			position: relative;
-			font-size: 1.05em;
-			line-height: 1.4;
-
-			&:before {
-				content: "✦";
-				color: $primary-color;
-				position: absolute;
-				left: 0;
-				top: 1px;
-				font-size: 0.9em;
-			}
-
-			&:hover {
-				color: $primary-color;
-				transform: translateX(5px);
-				transition: all 0.3s ease;
-			}
+		p {
+			color: $text-color;
+			font-size: 0.95em;
+			line-height: 1.5;
+			margin: 0;
 		}
 	}
 
