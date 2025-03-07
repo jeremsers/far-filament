@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import logo from "../images/logo.png";
 ---
 
-<header>
+<header class="header-alt">
 	<div class="left-group">
 		<button
 			class="back-button"
@@ -26,7 +26,7 @@ import logo from "../images/logo.png";
 			<span>Accueil</span>
 		</button>
 		<div class="logo">
-			<a href="/">
+			<a href="/" class="logo-link">
 				<Image src={logo} alt="logo" class="logo-img" />
 			</a>
 		</div>
@@ -40,10 +40,10 @@ import logo from "../images/logo.png";
 		<span class="hamburger"></span>
 	</button>
 	<nav id="main-nav">
-		<a href="/qui">À propos</a>
-		<a href="/#services">Accompagnements</a>
-		<a href="/events/all/1">Événements</a>
-		<a href="/blog/all/1">Blog</a>
+		<a href="/qui" class="nav-link"><span>À propos</span></a>
+		<a href="/#services" class="nav-link"><span>Accompagnements</span></a>
+		<a href="/events/all/1" class="nav-link"><span>Événements</span></a>
+		<a href="/blog/all/1" class="nav-link"><span>Blog</span></a>
 		<a href="https://calendly.com/votre-lien" target="_blank" class="btn cta-btn"
 			>Réserver un rendez-vous gratuit</a
 		>
@@ -53,8 +53,9 @@ import logo from "../images/logo.png";
 <script>
 	const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
 	const nav = document.querySelector("#main-nav");
-	const header = document.querySelector("header");
+	const header = document.querySelector(".header-alt");
 
+	// Toggle mobile menu
 	mobileMenuToggle?.addEventListener("click", () => {
 		const isExpanded = mobileMenuToggle.getAttribute("aria-expanded") === "true";
 		mobileMenuToggle.setAttribute(
@@ -87,7 +88,7 @@ import logo from "../images/logo.png";
 </script>
 
 <style lang="scss">
-	header {
+	.header-alt {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -96,6 +97,7 @@ import logo from "../images/logo.png";
 		height: clamp(60px, 10vh, 80px);
 		position: relative;
 		z-index: 1000;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 		&.nav-open {
 			background-color: $primary-color;
@@ -106,16 +108,29 @@ import logo from "../images/logo.png";
 		display: flex;
 		align-items: center;
 		height: 100%;
+		transition: all 0.3s ease;
 	}
 
 	.logo {
 		height: 100%;
 		z-index: 1001;
+		transition: all 0.3s ease;
+
+		&-link {
+			display: block;
+			height: 100%;
+			transition: transform 0.3s ease;
+
+			&:hover {
+				transform: scale(1.05);
+			}
+		}
 
 		&-img {
 			height: 100%;
 			width: auto;
 			object-fit: contain;
+			filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
 		}
 	}
 
@@ -129,18 +144,43 @@ import logo from "../images/logo.png";
 		font-size: clamp(0.9rem, 2vw, 1rem);
 		cursor: pointer;
 		padding: 8px 12px;
-		border-radius: 6px;
+		border-radius: 8px;
 		transition: all 0.3s ease;
-		margin-right: 10px;
+		margin-right: 15px;
 		z-index: 1001;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(255, 255, 255, 0.1);
+			transform: translateY(100%);
+			transition: transform 0.3s ease;
+			border-radius: 8px;
+			z-index: -1;
+		}
 
 		svg {
 			width: clamp(16px, 1.5vw, 20px);
 			height: auto;
+			transition: transform 0.3s ease;
 		}
 
 		&:hover {
-			background-color: rgba(255, 255, 255, 0.1);
+			color: white;
+
+			&::before {
+				transform: translateY(0);
+			}
+
+			svg {
+				transform: translateX(-3px);
+			}
 		}
 
 		@media (max-width: 768px) {
@@ -159,6 +199,11 @@ import logo from "../images/logo.png";
 		padding: 10px;
 		cursor: pointer;
 		z-index: 1001;
+		transition: transform 0.3s ease;
+
+		&:hover {
+			transform: scale(1.1);
+		}
 
 		.hamburger {
 			display: block;
@@ -211,14 +256,36 @@ import logo from "../images/logo.png";
 		align-items: center;
 		gap: clamp(15px, 2vw, 30px);
 
-		a {
+		.nav-link {
 			color: $text-white;
 			text-decoration: none;
 			font-size: clamp(0.9rem, 2vw, 1rem);
-			transition: color 0.3s ease;
+			transition: all 0.3s ease;
+			position: relative;
+			padding: 5px 0;
+
+			span {
+				position: relative;
+				z-index: 1;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 0;
+				height: 2px;
+				background-color: $secondary-color;
+				transition: width 0.3s ease;
+			}
 
 			&:hover {
-				color: rgba(255, 255, 255, 0.8);
+				color: $text-white;
+
+				&::after {
+					width: 100%;
+				}
 			}
 		}
 
@@ -227,15 +294,21 @@ import logo from "../images/logo.png";
 			background-color: $secondary-color;
 			color: $text-white;
 			padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 25px);
-			border-radius: 8px;
+			border-radius: 30px;
 			font-weight: 600;
 			transition: all 0.3s ease;
 			white-space: nowrap;
+			border: 2px solid transparent;
 
 			&:hover {
-				transform: translateY(-2px);
-				box-shadow: $shadow-md;
+				transform: translateY(-3px);
+				box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
 				background-color: darken($secondary-color, 5%);
+			}
+
+			&:active {
+				transform: translateY(-1px);
+				box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 			}
 		}
 	}
@@ -255,7 +328,7 @@ import logo from "../images/logo.png";
 			flex-direction: column;
 			justify-content: center;
 			padding: 80px 20px 20px;
-			transition: all 0.3s ease;
+			transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 			opacity: 0;
 			visibility: hidden;
 
@@ -265,14 +338,20 @@ import logo from "../images/logo.png";
 				visibility: visible;
 			}
 
-			a {
+			.nav-link {
 				font-size: 1.2rem;
 				padding: 15px;
 				width: 100%;
 				text-align: center;
+				margin: 5px 0;
 
-				&:not(.cta-btn):hover {
+				&::after {
+					display: none;
+				}
+
+				&:hover {
 					background-color: rgba(255, 255, 255, 0.1);
+					border-radius: 8px;
 				}
 			}
 
@@ -281,6 +360,7 @@ import logo from "../images/logo.png";
 				width: 100%;
 				max-width: 300px;
 				font-size: 0.8rem;
+				text-align: center;
 			}
 		}
 	}
