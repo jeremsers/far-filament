@@ -21,10 +21,6 @@ const {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap"
-			rel="stylesheet"
-		/>
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body>
@@ -35,7 +31,29 @@ const {
 		<Footer />
 
 		<style is:global lang="scss">
-			
+			@font-face {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 400;
+				font-display: swap;
+				src: url("/fonts/poppins-regular.woff2") format("woff2");
+			}
+
+			@font-face {
+				font-family: "Poppins";
+				font-style: normal;
+				font-weight: 600;
+				font-display: swap;
+				src: url("/fonts/poppins-semibold.woff2") format("woff2");
+			}
+
+			@font-face {
+				font-family: "Montserrat";
+				font-style: normal;
+				font-weight: 700;
+				font-display: swap;
+				src: url("/fonts/montserrat-bold.woff2") format("woff2");
+			}
 
 			* {
 				margin: 0;
@@ -60,17 +78,17 @@ const {
 				font-family: "Montserrat", sans-serif;
 				color: $text-color;
 			}
-			
+
 			a {
 				text-decoration: none;
 				color: inherit;
 			}
-			
+
 			img {
 				max-width: 100%;
 				height: auto;
 			}
-			
+
 			.container {
 				width: 90%;
 				max-width: 1200px;
@@ -110,4 +128,3 @@ const {
 		</style>
 	</body>
 </html>
-

@@ -4,10 +4,32 @@ import logo from "../images/logo.png";
 ---
 
 <header>
-	<div class="logo">
-		<a href="/">
-			<Image src={logo} alt="logo" class="logo-img" />
-		</a>
+	<div class="left-group">
+		<button
+			class="back-button"
+			aria-label="Accueil"
+			onclick="window.location.href='/'"
+		>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<path d="M19 12H5M12 19l-7-7 7-7"></path>
+			</svg>
+			<span>Accueil</span>
+		</button>
+		<div class="logo">
+			<a href="/">
+				<Image src={logo} alt="logo" class="logo-img" />
+			</a>
+		</div>
 	</div>
 	<button
 		class="mobile-menu-toggle"
@@ -80,6 +102,12 @@ import logo from "../images/logo.png";
 		}
 	}
 
+	.left-group {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
 	.logo {
 		height: 100%;
 		z-index: 1001;
@@ -88,6 +116,39 @@ import logo from "../images/logo.png";
 			height: 100%;
 			width: auto;
 			object-fit: contain;
+		}
+	}
+
+	.back-button {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		background: none;
+		border: none;
+		color: $text-white;
+		font-size: clamp(0.9rem, 2vw, 1rem);
+		cursor: pointer;
+		padding: 8px 12px;
+		border-radius: 6px;
+		transition: all 0.3s ease;
+		margin-right: 10px;
+		z-index: 1001;
+
+		svg {
+			width: clamp(16px, 1.5vw, 20px);
+			height: auto;
+		}
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.1);
+		}
+
+		@media (max-width: 768px) {
+			padding: 8px;
+
+			span {
+				display: none;
+			}
 		}
 	}
 
