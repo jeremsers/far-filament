@@ -48,23 +48,23 @@ import aboutPicture from "../images/about.jpg";
 
 		<section class="mission-section">
 			<div class="container">
-				<h2>Mon accompagnement</h2>
+				<h2>Ma philosophie d'accompagnement</h2>
 				<p class="section-intro">
 					Aujourd'hui, en tant que coach certifiée en PNL et praticienne en hypnose,
-					je vous accompagne avec bienveillance pour :
+					je vous guide sur un chemin de transformation où vous pourrez :
 				</p>
 
 				<div class="features-grid">
 					<div class="feature-card">
 						<div class="feature-header">
-							<h3>Libérez-vous</h3>
+							<h3>Vous Libérez</h3>
 						</div>
 						<p>des schémas qui entravent votre épanouissement</p>
 					</div>
 
 					<div class="feature-card">
 						<div class="feature-header">
-							<h3>Révélez-vous</h3>
+							<h3>Vous Révélez</h3>
 						</div>
 						<p>
 							en retrouvant votre puissance intérieure et en renouant avec votre
@@ -74,7 +74,7 @@ import aboutPicture from "../images/about.jpg";
 
 					<div class="feature-card">
 						<div class="feature-header">
-							<h3>Alignez-vous</h3>
+							<h3>Vous Alignez</h3>
 						</div>
 						<p>avec ce qui fait véritablement sens pour vous</p>
 					</div>
@@ -114,7 +114,7 @@ import aboutPicture from "../images/about.jpg";
 
 		<section class="services-section">
 			<div class="container">
-				<h2>Mes accompagnements</h2>
+				<h2>Mes chemins de transformation</h2>
 				<p class="section-intro">
 					Prêt(e) à vous reconnecter à vous-même ? Croyez en votre potentiel, car
 					vous avez en vous les clés pour réécrire votre histoire et façonner la vie
@@ -123,27 +123,33 @@ import aboutPicture from "../images/about.jpg";
 
 				<div class="services-grid">
 					<div class="service-card">
-						<h3>Se reconstruire après une relation toxique</h3>
-						<p>
-							Retrouvez votre confiance et votre autonomie après une relation qui vous
-							a fragilisé(e).
-						</p>
+						<div class="service-content">
+							<h3>Se reconstruire après une relation toxique</h3>
+							<p>
+								Retrouvez votre confiance et votre autonomie après une relation qui vous
+								a fragilisé(e).
+							</p>
+						</div>
 					</div>
 
 					<div class="service-card">
-						<h3>S'épanouir dans un environnement professionnel équilibré</h3>
-						<p>
-							Développez des stratégies pour gérer le stress et trouver votre place
-							dans votre vie professionnelle.
-						</p>
+						<div class="service-content">
+							<h3>S'épanouir dans un environnement professionnel équilibré</h3>
+							<p>
+								Développez des stratégies pour gérer le stress et trouver votre place
+								dans votre vie professionnelle.
+							</p>
+						</div>
 					</div>
 
 					<div class="service-card">
-						<h3>Libérer les blocages émotionnels</h3>
-						<p>
-							Identifiez et transformez les émotions qui vous limitent pour retrouver
-							l'harmonie intérieure.
-						</p>
+						<div class="service-content">
+							<h3>Libérer les blocages émotionnels</h3>
+							<p>
+								Identifiez et transformez les émotions qui vous limitent pour retrouver
+								l'harmonie intérieure.
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -157,7 +163,7 @@ import aboutPicture from "../images/about.jpg";
 					l'accompagnement qui vous correspond et entamer ce voyage vers une vie en
 					accord avec votre véritable essence.
 				</p>
-				<a href="/contact" class="cta-button">Prendre rendez-vous</a>
+				<a href="/#contact" class="cta-button">Prendre rendez-vous</a>
 			</div>
 		</section>
 	</main>
@@ -443,23 +449,68 @@ import aboutPicture from "../images/about.jpg";
 		transition: all 0.3s ease;
 		text-align: left;
 		border: 1px solid rgba($primary-color, 0.1);
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 3px;
+			background: linear-gradient(to right, $primary-color, $secondary-color);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
 
 		&:hover {
 			transform: translateY(-5px);
 			box-shadow: 0 10px 25px rgba($primary-color, 0.1);
 			border-color: rgba($primary-color, 0.3);
+
+			&::after {
+				opacity: 1;
+			}
+		}
+
+		.service-content {
+			height: 100%;
+			display: grid;
+			grid-template-rows: 1fr 1fr;
+			align-items: center;
 		}
 
 		h3 {
 			font-size: 1.3em;
 			color: $secondary-color;
 			margin-bottom: 15px;
+			position: relative;
+			padding-bottom: 12px;
+
+			&::after {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 40px;
+				height: 2px;
+				background-color: rgba($primary-color, 0.3);
+				transition: width 0.3s ease;
+			}
+		}
+
+		&:hover h3::after {
+			width: 60px;
+			background-color: rgba($primary-color, 0.7);
 		}
 
 		p {
 			color: $text-color;
 			font-size: 1.05em;
 			line-height: 1.5;
+			flex-grow: 1;
 		}
 	}
 

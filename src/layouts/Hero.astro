@@ -23,7 +23,7 @@ import heroBanner from "../images/main.jpg";
 			Écoutez cet appel du changement. Contactez-moi et entamez le voyage vers
 			votre pleine réalisation.
 		</p>
-		<a href="#contact" class="cta-btn">Le changement commence ici</a>
+		<a href="#about" class="cta-btn">Le changement commence ici</a>
 	</div>
 	<Image src={heroBanner} alt="Illustration Hero" class="hero-img" />
 </section>
@@ -143,33 +143,26 @@ import heroBanner from "../images/main.jpg";
 
 		.cta-btn {
 			display: inline-block;
-			background: linear-gradient(
-				45deg,
-				$secondary-color 0%,
-				adjust-hue($secondary-color, 15deg) 100%
-			);
-			color: $text-white;
-			padding: clamp(15px, 2vw + 10px, 20px) clamp(30px, 4vw + 20px, 48px);
-			text-decoration: none;
-			border-radius: 50px;
-			font-weight: bold;
-			font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
-			transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-			letter-spacing: 0.5px;
-			animation: fadeIn 1s ease-out 1.2s both;
-			border: 2px solid rgba(255, 255, 255, 0.1);
+		background-color: $secondary-color;
+		color: white;
+		padding: clamp(15px, 2vw + 5px, 20px) clamp(30px, 4vw + 10px, 48px);
+		margin-top: clamp(30px, 5vw + 10px, 60px);
+		border-radius: 30px;
+		font-weight: 600;
+		transition: all 0.3s ease-in-out;
+		align-self: center;
+		text-align: center;
+		position: relative;
+		z-index: 1;
+		letter-spacing: 0.5px;
+		box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
 
-			&:hover {
-				transform: translateY(-3px) scale(1.02);
-				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-				border-color: rgba(255, 255, 255, 0.2);
-				background: linear-gradient(135deg, $secondary-color, $primary-color);
-			}
-
-			&:active {
-				transform: translateY(-1px);
-			}
+		&:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 20px rgba($primary-color, 0.3);
+			background: linear-gradient(135deg, $secondary-color, $primary-color);
+			background-color: $primary-color;
+		}
 		}
 
 		.hero-img {

@@ -4,7 +4,7 @@ date: 2025-03-29T09:00:00Z
 prix: "300 CHF"
 lieu: "Bureau des Thérapies, Avenue des Alpes 70, 3ème étage, Montreux"
 tailleGroupe: 8
-image: "./img/hero3.jpg"
+image: "./img/toxic.jpg"
 type: "atelier"
 ---
 

@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/baselayout/MainLayout.astro";
 import { Image } from "astro:assets";
+import Picture from "astro/components/Picture.astro";
 
 // Génère les routes statiques pour tous les événements
 export async function getStaticPaths() {
@@ -35,7 +36,7 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 			{
 				entry.data.image && (
 					<div class="event-hero-image">
-						<Image
+						<Picture
 							src={entry.data.image}
 							alt={entry.data.title}
 							width={1000}
@@ -132,15 +133,16 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 
 		.event-hero-image {
 			width: 100%;
-			height: auto;
+			height: clamp(300px, 70vh, 700px);
 			border-radius: $border-radius-lg;
 			overflow: hidden;
 			margin-bottom: $spacing-lg;
 			box-shadow: $shadow-md;
+			object-fit: cover;
 
 			.hero-img {
 				width: 100%;
-				height: auto;
+				height: 100%;
 				object-fit: cover;
 			}
 		}

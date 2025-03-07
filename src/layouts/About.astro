@@ -20,9 +20,11 @@ import aboutPicture from "../images/about.jpg";
 							De la direction d'entreprise au coaching PNL
 						</strong>
 						<br />
-						Après vingt ans d'expérience en management, j'ai découvert la puissance de
-						la PNL et de l'hypnose. Ces approches m'ont permis de dépasser mes limites
-						et de révéler mon potentiel. Aujourd'hui, je mets cette expertise à votre service.
+						Après vingt ans en management, j'ai ressenti le besoin d'aller plus loin, de
+						comprendre ce qui motive réellement le changement et l'épanouissement. La découverte
+						de la Programmation Neuro-Linguistique (PNL) et de l'hypnose a été une révélation
+						: ces approches m'ont aidée à dépasser mes propres limites et à me reconnecter
+						à ce qui compte vraiment.
 					</p>
 				</div>
 
@@ -31,7 +33,16 @@ import aboutPicture from "../images/about.jpg";
 						<strong class="highlight-text">Mon accompagnement</strong>
 					</p>
 
-					<div class="about-features">
+					<p class="about-text coach-approach">
+						Aujourd'hui, en tant que coach PNL certifiée, j'associe mon expérience en
+						entreprise aux techniques puissantes de transformation personnelle pour
+						vous accompagner avec bienveillance dans vos défis, qu'ils soient
+						professionnels ou personnels. Mon parcours me permet de proposer une
+						approche pragmatique et humaine, où performance et alignement intérieur se
+						rejoignent pour vous aider à avancer avec confiance.
+					</p>
+
+					<!-- <div class="about-features">
 						<div class="feature-card">
 							<div class="feature-header">
 								<h4>Libérez-vous</h4>
@@ -52,7 +63,7 @@ import aboutPicture from "../images/about.jpg";
 							</div>
 							<p>avec ce qui fait véritablement sens pour vous</p>
 						</div>
-					</div>
+					</div> -->
 				</div>
 
 				<div class="transformation-block">
@@ -64,12 +75,15 @@ import aboutPicture from "../images/about.jpg";
 				</div>
 			</div>
 		</div>
-		<a href="/qui">
+		<a href="/qui" class="image-link">
 			<Image
 				src={aboutPicture}
 				alt="Coach PNL et praticienne en hypnose"
 				class="about-img"
 			/>
+			<div class="image-overlay">
+				<span>En savoir plus</span>
+			</div>
 		</a>
 	</div>
 	<a href="#contact" class="contact-btn">
@@ -79,17 +93,36 @@ import aboutPicture from "../images/about.jpg";
 
 <style lang="scss">
 	.section {
-		padding: 40px 20px;
+		padding: 60px 20px;
 		background-color: $bg-light;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		box-sizing: border-box;
+		position: relative;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: radial-gradient(
+				circle at 10% 30%,
+				rgba($primary-color, 0.03),
+				transparent 70%
+			);
+			z-index: 0;
+		}
 	}
 
 	.section-header {
 		text-align: center;
-		margin-bottom: 40px;
+		margin-bottom: 50px;
+		position: relative;
+		z-index: 1;
 
 		h2 {
 			color: $text-color;
@@ -128,6 +161,8 @@ import aboutPicture from "../images/about.jpg";
 		margin: 0 auto;
 		flex: 0 1 auto;
 		padding: 20px 0;
+		position: relative;
+		z-index: 1;
 	}
 
 	.about-content {
@@ -138,122 +173,127 @@ import aboutPicture from "../images/about.jpg";
 	.text-content {
 		display: flex;
 		flex-direction: column;
-		gap: 15px;
+		gap: 30px;
+	}
+
+	.journey-block,
+	.mission-block,
+	.transformation-block {
+		position: relative;
+		padding: 0 15px;
+		border-radius: 8px;
+		transition: all 0.3s ease;
+
+		&:hover {
+			background-color: rgba(255, 255, 255, 0.6);
+			box-shadow: 0 5px 15px rgba($primary-color, 0.05);
+		}
 	}
 
 	.about-text {
 		font-size: 1.1em;
-		line-height: 1.5;
+		line-height: 1.6;
+		text-align: justify;
+		position: relative;
 
 		strong {
 			color: $primary-color;
 			display: block;
-			margin-bottom: 8px;
+			margin-bottom: 12px;
+			text-align: left;
+			font-size: 1.2em;
+			letter-spacing: 0.5px;
 		}
 	}
 
-	.about-question {
-		font-size: 1.15em;
-		color: $secondary-color;
+	.coach-approach {
+		margin-top: 15px;
+		border-left: 3px solid rgba($primary-color, 0.3);
+		padding-left: 20px;
 		font-style: italic;
-		padding: 12px 20px;
-		border-left: 3px solid $primary-color;
-		background: linear-gradient(90deg, rgba($primary-color, 0.1), transparent);
-		border-radius: 0 8px 8px 0;
-	}
-
-	.about-features {
-		margin-top: 30px;
-		display: grid;
-		grid-template-rows: repeat(3, 1fr);
-		gap: 20px;
-
-		@media (max-width: 768px) {
-			grid-template-rows: 1fr;
-			gap: 15px;
-		}
-	}
-
-	.feature-card {
-		padding: 25px;
-		background: white;
-		border-radius: 12px;
-		box-shadow: 0 4px 15px rgba($primary-color, 0.08);
-		transition: all 0.3s ease;
+		color: $text-color;
 		position: relative;
-		overflow: hidden;
 
-		&::before {
+		&::after {
 			content: "";
 			position: absolute;
-			top: 0;
-			left: 0;
-			width: 4px;
-			height: 100%;
-			background: $primary-color;
-			opacity: 0.5;
-		}
-
-		&:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 8px 20px rgba($primary-color, 0.12);
-
-			&::before {
-				opacity: 1;
-			}
-
-			.feature-header h4 {
-				color: $primary-color;
-			}
-		}
-
-		.feature-header {
-			margin-bottom: 12px;
-
-			h4 {
-				font-size: 1.2em;
-				color: $secondary-color;
-				margin: 0;
-				transition: color 0.3s ease;
-			}
-		}
-
-		p {
-			color: $text-color;
-			font-size: 0.95em;
-			line-height: 1.5;
-			margin: 0;
+			top: -15px;
+			left: 10px;
+			font-size: 3em;
+			color: rgba($primary-color, 0.1);
+			font-family: serif;
 		}
 	}
 
 	.about-conclusion {
 		font-size: 1.1em;
-		line-height: 1.5;
-		padding: 15px 0;
+		line-height: 1.6;
+		padding: 20px 0;
 		border-top: 2px solid rgba($primary-color, 0.1);
-
-		strong {
-			color: $secondary-color;
-		}
+		text-align: justify;
+		font-weight: 500;
+		color: $primary-color;
 	}
 
 	.contact-btn {
 		display: inline-block;
 		background-color: $secondary-color;
 		color: white;
-		padding: 12px 25px;
-		margin-top: clamp(20px, 5vw + 10px, 50px);
-		border-radius: 25px;
+		padding: 14px 30px;
+		margin-top: clamp(30px, 5vw + 10px, 60px);
+		border-radius: 30px;
 		font-weight: 600;
 		transition: all 0.3s ease-in-out;
 		align-self: center;
 		text-align: center;
+		position: relative;
+		z-index: 1;
+		letter-spacing: 0.5px;
+		box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
 
 		&:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 5px 15px rgba($primary-color, 0.3);
+			transform: translateY(-3px);
+			box-shadow: 0 8px 20px rgba($primary-color, 0.3);
 			background: linear-gradient(135deg, $secondary-color, $primary-color);
-			background-color: $secondary-color;
+			background-color: $primary-color;
+		}
+	}
+
+	.image-link {
+		position: relative;
+		display: block;
+		border-radius: 20px;
+		overflow: hidden;
+
+		.image-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, rgba($primary-color, 0.8), transparent);
+			height: 30%;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			padding-bottom: 20px;
+			opacity: 0;
+			transition: all 0.3s ease;
+
+			span {
+				color: white;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				transform: translateY(20px);
+				transition: all 0.3s ease;
+			}
+		}
+
+		&:hover .image-overlay {
+			opacity: 1;
+
+			span {
+				transform: translateY(0);
+			}
 		}
 	}
 
@@ -262,25 +302,26 @@ import aboutPicture from "../images/about.jpg";
 		height: 500px;
 		object-fit: cover;
 		border-radius: 20px;
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		box-shadow: 0 8px 25px rgba($primary-color, 0.15);
 		border: 3px solid rgba($primary-color, 0.1);
-		transition: all 0.3s ease;
+		transition: all 0.4s ease;
+		filter: saturate(1.05);
 
 		&:hover {
 			transform: scale(1.02);
 			border-color: rgba($primary-color, 0.3);
-			box-shadow: 0 12px 25px rgba($primary-color, 0.2);
+			box-shadow: 0 12px 30px rgba($primary-color, 0.25);
 		}
 	}
 
 	@media (max-width: 1024px) {
 		.section {
-			padding: 20px;
+			padding: 40px 20px;
 		}
 
 		.about-container {
 			flex-direction: column-reverse;
-			gap: 30px;
+			gap: 40px;
 		}
 
 		.about-content {
@@ -292,17 +333,32 @@ import aboutPicture from "../images/about.jpg";
 			text-align: center;
 		}
 
+		.about-text,
+		.about-conclusion,
+		.feature-card p {
+			text-align: justify;
+		}
+
+		.about-text strong {
+			text-align: center;
+		}
+
+		.coach-approach {
+			padding: 15px 20px;
+			border-left: none;
+			border-top: 2px solid rgba($primary-color, 0.2);
+			border-bottom: 2px solid rgba($primary-color, 0.2);
+
+			&::after {
+				top: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
 		.about-img {
 			width: 300px;
 			height: 400px;
-		}
-
-		.about-features {
-			width: 100%;
-
-			ul li {
-				text-align: left;
-			}
 		}
 
 		.contact-btn {
