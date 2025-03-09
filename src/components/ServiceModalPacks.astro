@@ -30,6 +30,12 @@ const {
 } = Astro.props;
 
 import { Image } from "astro:assets";
+import packSessions from "../data/packSessions.json";
+
+// Extraire le type de pack à partir de l'ID du modal (modal-burnout -> burnout)
+const packType = modalId.replace("modal-", "");
+// Récupérer les sessions pour ce pack
+const sessions = packSessions[packType] || [];
 ---
 
 <div class="modal" id={modalId} aria-hidden="true">
@@ -65,14 +71,36 @@ import { Image } from "astro:assets";
 					<p>{description}</p>
 				</div>
 
-				<div class="features-grid">
-					<div class="features">
-						<h3>Cette séance inclut :</h3>
-						<ul>
-							{features.map((feature) => <li>{feature}</li>)}
-						</ul>
+				<div class="sessions-section">
+					<h3>
+						{
+							packType === "renaissance"
+								? "Les 6 étapes de votre transformation"
+								: packType === "burnout"
+									? "Les 6 étapes de votre transformation"
+									: packType === "essence"
+										? "Les 8 étapes de votre transformation"
+										: "Les étapes de votre accompagnement"
+						}
+					</h3>
+					<div class="sessions-container">
+						{
+							sessions.map((session, index) => (
+								<div class="session-card">
+									<div class="session-header">
+										<span class="session-number">{index + 1}</span>
+										<h4>{session.title}</h4>
+									</div>
+									<div class="session-content">
+										<p>{session.description}</p>
+									</div>
+								</div>
+							))
+						}
 					</div>
+				</div>
 
+				<div class="features-grid">
 					{
 						benefits.length > 0 && (
 							<div class="benefits">
@@ -99,6 +127,15 @@ import { Image } from "astro:assets";
 						</div>
 					)
 				}
+
+				<div class="co-construction">
+					<h3>Un accompagnement en co-construction</h3>
+					<p>
+						Chaque séance s'adapte à votre évolution. Vous êtes pleinement
+						acteur(trice) du processus et votre engagement est essentiel pour créer
+						des changements profonds et durables.
+					</p>
+				</div>
 			</div>
 
 			<div class="modal-actions">
@@ -191,7 +228,7 @@ import { Image } from "astro:assets";
 
 	.modal-image {
 		width: 100%;
-		height: 500px;
+		height: 800px;
 		position: relative;
 		overflow: hidden;
 
@@ -199,7 +236,7 @@ import { Image } from "astro:assets";
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			object-position: top;
+			object-position: center;
 		}
 
 		.image-overlay {
@@ -305,16 +342,76 @@ import { Image } from "astro:assets";
 				padding-block: 10px;
 			}
 
+			.sessions-section {
+				margin-top: 10px;
+
+				h3 {
+					color: $primary-color;
+					margin-bottom: 20px;
+					font-size: clamp(1.2em, 3vw, 1.4em);
+					text-align: center;
+				}
+
+				.sessions-container {
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+				}
+
+				.session-card {
+					background-color: rgba($primary-color, 0.05);
+					border-radius: $border-radius-md;
+					padding: 20px;
+					box-shadow: $shadow-sm;
+
+					.session-header {
+						display: flex;
+						align-items: center;
+						gap: 15px;
+						margin-bottom: 10px;
+
+						.session-number {
+							background-color: $secondary-color;
+							color: white;
+							width: 30px;
+							height: 30px;
+							border-radius: 50%;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							font-weight: bold;
+							flex-shrink: 0;
+						}
+
+						h4 {
+							margin: 0;
+							color: $primary-color;
+							font-size: 1.1em;
+						}
+					}
+
+					.session-content {
+						padding-left: 45px;
+
+						p {
+							margin: 0;
+							line-height: 1.5;
+							color: $text-color;
+						}
+					}
+				}
+			}
+
 			.features-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				grid-template-columns: 1fr;
 				gap: 30px;
 				margin-bottom: 20px;
 			}
 
-			.features,
 			.benefits,
-			.conditions {
+			.conditions,
+			.co-construction {
 				h3 {
 					color: $primary-color;
 					margin-bottom: 15px;
@@ -341,6 +438,17 @@ import { Image } from "astro:assets";
 							left: 0;
 						}
 					}
+				}
+			}
+
+			.co-construction {
+				background-color: rgba($secondary-color, 0.1);
+				padding: 20px;
+				border-radius: $border-radius-md;
+
+				p {
+					margin: 0;
+					line-height: 1.5;
 				}
 			}
 
@@ -420,6 +528,20 @@ import { Image } from "astro:assets";
 				.features-grid {
 					grid-template-columns: 1fr;
 					gap: 20px;
+				}
+
+				.sessions-section {
+					.session-card {
+						padding: 15px;
+
+						.session-header {
+							gap: 10px;
+						}
+
+						.session-content {
+							padding-left: 40px;
+						}
+					}
 				}
 			}
 		}

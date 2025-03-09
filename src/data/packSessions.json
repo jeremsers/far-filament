@@ -1,0 +1,88 @@
+{
+	"burnout": [
+		{
+			"title": "Clarification et définition de vos objectifs",
+			"description": "Nous commençons par un échange approfondi pour comprendre votre situation et identifier ce qui vous freine. Ensemble, nous définissons des objectifs clairs et adaptés à votre rythme, afin de poser les bases d'un vrai changement."
+		},
+		{
+			"title": "Reconnexion à vos priorités profondes",
+			"description": "Nous explorons ce qui est essentiel pour vous : vos valeurs, vos besoins et ce qui vous anime vraiment. Cette étape permet de retrouver du sens et de redéfinir un équilibre qui vous correspond."
+		},
+		{
+			"title": "Retrouver votre énergie et alléger votre mental",
+			"description": "Grâce à des outils concrets (PNL, respiration, visualisation), nous travaillons sur la gestion du stress et la récupération mentale et physique, pour vous aider à retrouver une énergie plus stable et apaisée."
+		},
+		{
+			"title": "Libération des schémas qui vous limitent",
+			"description": "Nous identifions ensemble les croyances et habitudes inconscientes qui vous épuisent. Pas à pas, vous apprenez à les transformer pour adopter des schémas plus alignés avec vos besoins et aspirations."
+		},
+		{
+			"title": "Se projeter et avancer vers un avenir qui vous ressemble",
+			"description": "Vous créez une vision claire de votre futur et mettez en place des actions concrètes pour aller vers ce qui vous épanouit. L'objectif est de retrouver un sentiment de maîtrise et de motivation."
+		},
+		{
+			"title": "Ancrage et mise en autonomie",
+			"description": "Nous consolidons les transformations en intégrant des habitudes durables. Vous repartez avec des outils concrets et une confiance renforcée, prêt(e) à avancer de façon plus sereine et alignée."
+		}
+	],
+	"renaissance": [
+		{
+			"title": "Comprendre et prendre du recul",
+			"description": "Identifier les mécanismes de la relation toxique et mettre en lumière ce qui vous a impacté. Nous explorons ensemble ces dynamiques pour vous permettre de voir plus clairement les schémas qui étaient à l'œuvre, sans jugement mais avec lucidité."
+		},
+		{
+			"title": "Se libérer des émotions bloquantes",
+			"description": "Apaiser la culpabilité, la peur et la colère pour retrouver un sentiment de paix intérieure. Des techniques de PNL vous aident à accueillir ces émotions difficiles et à les transformer pour retrouver votre liberté émotionnelle."
+		},
+		{
+			"title": "Renforcer votre confiance et votre estime",
+			"description": "(Re)construire une image positive de vous-même et apprendre à vous affirmer sereinement. Vous redécouvrez vos forces, vos qualités et votre valeur intrinsèque, indépendamment du regard de l'autre."
+		},
+		{
+			"title": "Se détacher des schémas répétitifs",
+			"description": "Briser les liens inconscients et reprendre votre autonomie émotionnelle. En prenant conscience de ces patterns qui peuvent vous attirer vers des relations similaires, vous pouvez les transformer et créer de nouveaux modèles plus sains."
+		},
+		{
+			"title": "Se projeter vers des relations saines",
+			"description": "Définir vos besoins, apprendre à poser des limites et attirer des relations équilibrées. Vous développez votre capacité à reconnaître les signes d'une relation nourrissante et à créer des connexions authentiques."
+		},
+		{
+			"title": "Ancrer les changements pour un nouveau départ",
+			"description": "Installer de nouvelles habitudes et renforcer votre sécurité intérieure pour avancer avec sérénité. Vous repartez avec des outils concrets pour maintenir votre équilibre et votre autonomie émotionnelle sur le long terme."
+		}
+	],
+	"essence": [
+		{
+			"title": "Exploration de votre situation actuelle",
+			"description": "Nous commençons par explorer votre situation actuelle et identifier ce qui vous empêche de vous sentir pleinement aligné(e). Cette première séance pose les bases de notre travail ensemble et définit vos objectifs de transformation."
+		},
+		{
+			"title": "Découverte de vos valeurs profondes",
+			"description": "Nous plongeons dans la découverte de vos valeurs profondes, celles qui constituent le socle de votre identité. Cette exploration vous permet de mieux comprendre ce qui est vraiment important pour vous et ce qui donne du sens à votre vie."
+		},
+		{
+			"title": "Identification et transformation des croyances limitantes",
+			"description": "Nous identifions les croyances limitantes qui vous empêchent d'incarner pleinement vos valeurs. Grâce à des techniques de PNL puissantes, nous commençons à transformer ces blocages en ressources."
+		},
+		{
+			"title": "Alignement entre vos actions et vos valeurs",
+			"description": "Nous travaillons sur l'alignement entre vos actions quotidiennes et vos valeurs profondes. Cette séance vous permet de créer plus de cohérence dans votre vie et de réduire les tensions intérieures."
+		},
+		{
+			"title": "Création d'une vision inspirante",
+			"description": "Nous explorons votre vision d'une vie pleinement alignée avec votre essence. Cette projection vous aide à clarifier vos aspirations et à définir des objectifs concrets pour les atteindre."
+		},
+		{
+			"title": "Élaboration d'un plan d'action concret",
+			"description": "Nous mettons en place un plan d'action concret pour incarner vos valeurs au quotidien. Cette séance vous donne des outils pratiques pour maintenir votre alignement même face aux défis."
+		},
+		{
+			"title": "Intégration des changements",
+			"description": "Nous travaillons sur l'intégration des changements dans votre vie. Cette séance vous aide à ancrer les nouvelles habitudes et à maintenir votre transformation sur le long terme."
+		},
+		{
+			"title": "Bilan et consolidation des acquis",
+			"description": "Nous faisons le bilan de votre parcours et consolidons vos acquis. Cette dernière séance vous prépare à poursuivre votre chemin en autonomie, avec confiance et clarté."
+		}
+	]
+}

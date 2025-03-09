@@ -1,5 +1,6 @@
 ---
 import ServiceModal from "../components/ServiceModal.astro";
+import ServiceModalPacks from "../components/ServiceModalPacks.astro";
 import { Image } from "astro:assets";
 import discover from "../images/discover.jpg";
 import premium from "../images/premium.png";
@@ -58,12 +59,14 @@ const serviceModals = {
 		description:
 			"Vous sentez que quelque chose manque dans votre vie, que vous n'êtes pas pleinement aligné avec vos aspirations profondes ? Ce pack est là pour vous accompagner dans un voyage intérieur puissant. Grâce à des outils de PNL et d'hypnose, vous allez découvrir la force intérieure qui sommeille en vous, dépasser vos croyances limitantes et rétablir une connexion profonde avec vos valeurs authentiques.",
 		features: [
-			"Outils puissants pour libérer vos blocages",
-			"Approche actionnable pour incarner vos valeurs",
-			"Révélation de vos valeurs profondes",
-			"Libération des schémas limitants",
-			"Création d'un plan d'action puissant",
-			"Transformation durable et profonde",
+			"1. Exploration de votre situation actuelle",
+			"2. Découverte de vos valeurs profondes",
+			"3. Identification et transformation des croyances limitantes",
+			"4. Alignement entre vos actions et vos valeurs",
+			"5. Création d'une vision inspirante",
+			"6. Élaboration d'un plan d'action concret",
+			"7. Intégration des changements",
+			"8. Bilan et consolidation des acquis",
 		],
 		conditions: [
 			"Pack valable sur une période de 3 mois (Non remboursable)",
@@ -81,31 +84,32 @@ const serviceModals = {
 		image: essenceImage,
 	},
 	burnout: {
-		title: 'Pack "Burn-out"',
+		title: "Pack PNL Burn-out – Reconnexion & Équilibre",
 		subtitle: "Retrouvez votre essence vitale",
 		duration: "6 séances de 1h30",
 		price: "1200 CHF",
 		description:
-			"Un programme conçu pour amorcer votre guérison du burn-out, retrouver votre énergie et redéfinir votre équilibre de vie. Vous avez donné sans compter... Et si, cette fois, vous vous accordiez enfin l'espace pour vous reconstruire ?",
+			'Un programme de 6 séances de 1h30, réparties sur 6 à 8 semaines, conçu pour amorcer votre guérison du burn-out, retrouver votre énergie et redéfinir votre équilibre de vie. "Vous avez donné sans compter… Et si, cette fois, vous vous accordiez enfin l\'espace pour vous reconstruire ?"',
 		features: [
-			"6 séances de coaching PNL personnalisées",
-			"Outils concrets pour la gestion du stress",
-			"Reconnexion à vos priorités profondes",
-			"Libération des schémas limitants",
-			"Projection vers un avenir qui vous ressemble",
-			"Ancrage et mise en autonomie",
+			"1. Clarification et définition de vos objectifs",
+			"2. Reconnexion à vos priorités profondes",
+			"3. Retrouver votre énergie et alléger votre mental",
+			"4. Libération des schémas qui vous limitent",
+			"5. Se projeter et avancer vers un avenir qui vous ressemble",
+			"6. Ancrage et mise en autonomie",
 		],
 		conditions: [
-			"Programme adaptable selon vos besoins",
-			"Engagement actif nécessaire pour co-créer les changements",
-			"Réparti sur 6 à 8 semaines",
+			"Programme réparti sur 6 à 8 semaines",
 			"Séances de 1h30 chacune",
+			"Programme adaptable selon vos besoins et objectifs",
 		],
 		benefits: [
-			"Retrouvez votre énergie et allégez votre mental",
-			"Reconnectez-vous à vos priorités profondes",
-			"Transformez les schémas qui vous épuisent",
-			"Créez un équilibre de vie qui vous correspond",
+			"Échange approfondi pour comprendre votre situation et identifier vos freins",
+			"Exploration de vos valeurs, besoins et ce qui vous anime vraiment",
+			"Outils concrets (PNL, respiration, visualisation) pour la gestion du stress",
+			"Transformation des croyances et habitudes inconscientes qui vous épuisent",
+			"Création d'une vision claire de votre futur et mise en place d'actions concrètes",
+			"Intégration d'habitudes durables et renforcement de votre confiance",
 		],
 		calendlyLink,
 		image: burnoutImage,
@@ -118,18 +122,17 @@ const serviceModals = {
 		description:
 			"Sortir d'une relation toxique est une étape clé pour se retrouver et avancer. Ce programme est conçu pour vous accompagner avec des outils puissants de PNL, dans un espace bienveillant et structurant. Nous avancerons ensemble, mais c'est avant tout votre engagement et votre force intérieure qui feront toute la différence. Et si, cette fois, vous vous choisissiez vraiment ?",
 		features: [
-			"Comprendre et prendre du recul sur les mécanismes toxiques",
-			"Se libérer des émotions bloquantes",
-			"Renforcer votre confiance et votre estime",
-			"Se détacher des schémas répétitifs",
-			"Se projeter vers des relations saines",
-			"Ancrer les changements pour un nouveau départ",
+			"1. Comprendre et prendre du recul",
+			"2. Se libérer des émotions bloquantes",
+			"3. Renforcer votre confiance et votre estime",
+			"4. Se détacher des schémas répétitifs",
+			"5. Se projeter vers des relations saines",
+			"6. Ancrer les changements pour un nouveau départ",
 		],
 		conditions: [
 			"6 séances individuelles de 1h30",
 			"Adaptées à votre rythme et à vos besoins",
 			"Espace bienveillant et confidentiel",
-			"Accompagnement en co-partenariat",
 		],
 		benefits: [
 			"Apaiser la culpabilité, la peur et la colère",
@@ -271,10 +274,10 @@ const serviceModals = {
 				<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
 				<p class="duration">8 séances sur 3 mois</p>
 				<ul>
-					<li>Outils PNL et hypnose pour libérer vos blocages</li>
-					<li>Révélation de vos valeurs profondes</li>
-					<li>Approche actionnable pour incarner vos valeurs</li>
-					<li>Transformation durable et profonde</li>
+					<li>Découverte de vos valeurs profondes</li>
+					<li>Transformation des croyances limitantes</li>
+					<li>Alignement entre vos actions et vos valeurs</li>
+					<li>Création d'un plan d'action concret</li>
 				</ul>
 				<button class="cta-btn" data-modal="modal-essence">En savoir plus</button>
 			</div>
@@ -289,14 +292,14 @@ const serviceModals = {
 					/>
 					<div class="image-overlay highlight-overlay"></div>
 				</div>
-				<h3>Pack "Burn-out"</h3>
+				<h3>Pack "Burn-out" – Reconnexion & Équilibre</h3>
 				<p class="subtitle">Retrouvez votre essence vitale</p>
 				<p class="duration">6 séances sur 6-8 semaines</p>
 				<ul>
-					<li>Retrouvez votre énergie et votre équilibre</li>
+					<li>Clarification et définition de vos objectifs</li>
 					<li>Reconnexion à vos priorités profondes</li>
-					<li>Libération des schémas limitants</li>
-					<li>Outils concrets pour la gestion du stress</li>
+					<li>Retrouver votre énergie et alléger votre mental</li>
+					<li>Libération des schémas qui vous limitent</li>
 				</ul>
 				<button class="cta-btn" data-modal="modal-burnout">En savoir plus</button>
 			</div>
@@ -315,10 +318,10 @@ const serviceModals = {
 				<p class="subtitle">Se reconstruire après une relation toxique</p>
 				<p class="duration">6 séances sur 6-8 semaines</p>
 				<ul>
-					<li>Libérez-vous des émotions bloquantes</li>
-					<li>Renforcez votre confiance et estime de soi</li>
-					<li>Détachez-vous des schémas répétitifs</li>
-					<li>Projetez-vous vers des relations saines</li>
+					<li>Comprendre et prendre du recul</li>
+					<li>Se libérer des émotions bloquantes</li>
+					<li>Renforcer votre confiance</li>
+					<li>Reprendre votre autonomie</li>
 				</ul>
 				<button class="cta-btn" data-modal="modal-renaissance"
 					>En savoir plus</button
@@ -330,9 +333,12 @@ const serviceModals = {
 	<!-- Service Modals -->
 	<ServiceModal modalId="modal-discovery" {...serviceModals.discovery} />
 	<ServiceModal modalId="modal-single" {...serviceModals.single} />
-	<ServiceModal modalId="modal-essence" {...serviceModals.essence} />
-	<ServiceModal modalId="modal-burnout" {...serviceModals.burnout} />
-	<ServiceModal modalId="modal-renaissance" {...serviceModals.renaissance} />
+	<ServiceModalPacks modalId="modal-essence" {...serviceModals.essence} />
+	<ServiceModalPacks modalId="modal-burnout" {...serviceModals.burnout} />
+	<ServiceModalPacks
+		modalId="modal-renaissance"
+		{...serviceModals.renaissance}
+	/>
 	<ServiceModal modalId="modal-premium" {...serviceModals.premium} />
 </section>
 
@@ -365,10 +371,9 @@ const serviceModals = {
 					border-radius: 2px;
 				}
 			}
-
 		}
 	}
-	
+
 	.section-subtitle {
 		color: $text-light;
 		font-size: clamp(1em, 3vw, 1.1em);
@@ -420,7 +425,7 @@ const serviceModals = {
 			transform 0.3s ease,
 			box-shadow 0.3s ease;
 		display: grid;
-		grid-template-rows: auto auto auto auto 1fr auto;
+		grid-template-rows: auto 0.5fr auto auto 1fr auto;
 		gap: 15px;
 		min-height: 600px;
 
