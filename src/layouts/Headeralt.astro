@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../images/logo.png";
+import logo from "../images/logo1.png";
 ---
 
 <header class="header-alt">
@@ -259,7 +259,7 @@ import logo from "../images/logo.png";
 		.nav-link {
 			color: $text-white;
 			text-decoration: none;
-			font-size: clamp(0.9rem, 2vw, 1rem);
+			font-size: clamp(0.85rem, 1.5vw, 1.1rem);
 			transition: all 0.3s ease;
 			position: relative;
 			padding: 5px 0;
@@ -296,6 +296,7 @@ import logo from "../images/logo.png";
 			padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 25px);
 			border-radius: 30px;
 			font-weight: 600;
+			font-size: clamp(0.85rem, 1.5vw, 1rem);
 			transition: all 0.3s ease;
 			white-space: nowrap;
 			border: 2px solid transparent;
@@ -339,7 +340,7 @@ import logo from "../images/logo.png";
 			}
 
 			.nav-link {
-				font-size: 1.2rem;
+				font-size: clamp(1.1rem, 4vw, 1.3rem);
 				padding: 15px;
 				width: 100%;
 				text-align: center;
@@ -359,7 +360,7 @@ import logo from "../images/logo.png";
 				margin-top: 20px;
 				width: 100%;
 				max-width: 300px;
-				font-size: 0.8rem;
+				font-size: clamp(0.9rem, 3vw, 1rem);
 				text-align: center;
 			}
 		}

@@ -5,11 +5,15 @@ import discover from "../images/discover.jpg";
 import premium from "../images/premium.png";
 import single from "../images/indiv2.jpg";
 import essence from "../images/essence.jpg";
+import burnout from "../images/burnout.avif";
+import renaissance from "../images/renaissance.jpg";
 // Vous pourrez remplacer ces images par des images spécifiques à chaque service
 const discoveryImage = discover;
 const singleImage = single;
 const essenceImage = essence;
 const premiumImage = premium;
+const burnoutImage = burnout;
+const renaissanceImage = renaissance;
 
 const calendlyLink = "https://calendly.com/votre-lien";
 
@@ -49,12 +53,11 @@ const serviceModals = {
 	essence: {
 		title: 'Pack "Essence de Vie"',
 		subtitle: "Osez Incarner qui vous êtes vraiment",
-		duration: "8 séances sur 3 mois",
+		duration: "8 séances de 1 heure",
 		price: "960 CHF",
 		description:
 			"Vous sentez que quelque chose manque dans votre vie, que vous n'êtes pas pleinement aligné avec vos aspirations profondes ? Ce pack est là pour vous accompagner dans un voyage intérieur puissant. Grâce à des outils de PNL et d'hypnose, vous allez découvrir la force intérieure qui sommeille en vous, dépasser vos croyances limitantes et rétablir une connexion profonde avec vos valeurs authentiques.",
 		features: [
-			"8 séances de coaching individuel personnalisées",
 			"Outils puissants pour libérer vos blocages",
 			"Approche actionnable pour incarner vos valeurs",
 			"Révélation de vos valeurs profondes",
@@ -76,6 +79,66 @@ const serviceModals = {
 		],
 		calendlyLink,
 		image: essenceImage,
+	},
+	burnout: {
+		title: 'Pack "Burn-out"',
+		subtitle: "Retrouvez votre essence vitale",
+		duration: "6 séances de 1h30",
+		price: "1200 CHF",
+		description:
+			"Un programme conçu pour amorcer votre guérison du burn-out, retrouver votre énergie et redéfinir votre équilibre de vie. Vous avez donné sans compter... Et si, cette fois, vous vous accordiez enfin l'espace pour vous reconstruire ?",
+		features: [
+			"6 séances de coaching PNL personnalisées",
+			"Outils concrets pour la gestion du stress",
+			"Reconnexion à vos priorités profondes",
+			"Libération des schémas limitants",
+			"Projection vers un avenir qui vous ressemble",
+			"Ancrage et mise en autonomie",
+		],
+		conditions: [
+			"Programme adaptable selon vos besoins",
+			"Engagement actif nécessaire pour co-créer les changements",
+			"Réparti sur 6 à 8 semaines",
+			"Séances de 1h30 chacune",
+		],
+		benefits: [
+			"Retrouvez votre énergie et allégez votre mental",
+			"Reconnectez-vous à vos priorités profondes",
+			"Transformez les schémas qui vous épuisent",
+			"Créez un équilibre de vie qui vous correspond",
+		],
+		calendlyLink,
+		image: burnoutImage,
+	},
+	renaissance: {
+		title: 'Pack "Renaissance"',
+		subtitle: "Se reconstruire après une relation toxique",
+		duration: "6 séances de 1h30",
+		price: "1200 CHF",
+		description:
+			"Sortir d'une relation toxique est une étape clé pour se retrouver et avancer. Ce programme est conçu pour vous accompagner avec des outils puissants de PNL, dans un espace bienveillant et structurant. Nous avancerons ensemble, mais c'est avant tout votre engagement et votre force intérieure qui feront toute la différence. Et si, cette fois, vous vous choisissiez vraiment ?",
+		features: [
+			"Comprendre et prendre du recul sur les mécanismes toxiques",
+			"Se libérer des émotions bloquantes",
+			"Renforcer votre confiance et votre estime",
+			"Se détacher des schémas répétitifs",
+			"Se projeter vers des relations saines",
+			"Ancrer les changements pour un nouveau départ",
+		],
+		conditions: [
+			"6 séances individuelles de 1h30",
+			"Adaptées à votre rythme et à vos besoins",
+			"Espace bienveillant et confidentiel",
+			"Accompagnement en co-partenariat",
+		],
+		benefits: [
+			"Apaiser la culpabilité, la peur et la colère",
+			"Reconstruire une image positive de vous-même",
+			"Briser les liens inconscients et reprendre votre autonomie",
+			"Définir vos besoins et poser des limites saines",
+		],
+		calendlyLink,
+		image: renaissanceImage,
 	},
 	premium: {
 		title: "Reconnexion à ton âme",
@@ -115,89 +178,152 @@ const serviceModals = {
 			Découvrez mes offres d'accompagnement personnalisé
 		</p>
 	</div>
-	<div class="services-container">
-		<div class="service-card">
-			<div class="service-image">
-				<Image
-					src={discoveryImage}
-					alt="Appel Découverte"
-					width={300}
-					height={200}
-				/>
-				<div class="image-overlay"></div>
-			</div>
-			<h3>Appel Découverte Gratuit</h3>
-			<p class="subtitle">Premier pas vers votre transformation</p>
-			<p class="duration">30 minutes</p>
-			<ul>
-				<li>Présentation de votre situation</li>
-				<li>Identification de vos objectifs</li>
-				<li>Explication de ma méthode</li>
-				<li>Questions/réponses</li>
-			</ul>
-			<button class="cta-btn" data-modal="modal-discovery">En savoir plus</button>
-		</div>
 
-		<div class="service-card">
-			<div class="service-image">
-				<Image src={singleImage} alt="Séance unique" width={300} height={200} />
-				<div class="image-overlay"></div>
+	<!-- Séances individuelles -->
+	<div class="service-category">
+		<h3 class="category-title">Séances individuelles</h3>
+		<p class="section-subtitle">
+			Des séances personnalisées pour répondre à vos besoins spécifiques
+		</p>
+		<div class="services-container">
+			<div class="service-card">
+				<div class="service-image">
+					<Image
+						src={discoveryImage}
+						alt="Appel Découverte"
+						width={300}
+						height={200}
+					/>
+					<div class="image-overlay"></div>
+				</div>
+				<h3>Appel Découverte Gratuit</h3>
+				<p class="subtitle">Premier pas vers votre transformation</p>
+				<p class="duration">30 minutes</p>
+				<ul>
+					<li>Présentation de votre situation</li>
+					<li>Identification de vos objectifs</li>
+					<li>Explication de ma méthode</li>
+					<li>Questions/réponses</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-discovery">En savoir plus</button>
 			</div>
-			<h3>Séance à la carte</h3>
-			<p class="subtitle">Votre première étape vers le changement</p>
-			<p class="duration">1 heure</p>
-			<ul>
-				<li>Séance individuelle sur-mesure</li>
-				<li>Combinaison PNL et hypnose</li>
-				<li>Outils concrets et applicables</li>
-				<li>Objectifs personnalisés</li>
-			</ul>
-			<button class="cta-btn" data-modal="modal-single">En savoir plus</button>
-		</div>
 
-		<div class="service-card highlight">
-			<div class="service-image">
-				<Image
-					src={essenceImage}
-					alt="Pack Essence de Vie"
-					width={300}
-					height={200}
-				/>
-				<div class="image-overlay highlight-overlay"></div>
+			<div class="service-card">
+				<div class="service-image">
+					<Image src={singleImage} alt="Séance unique" width={300} height={200} />
+					<div class="image-overlay"></div>
+				</div>
+				<h3>Séance à la carte</h3>
+				<p class="subtitle">Votre première étape vers le changement</p>
+				<p class="duration">1 heure</p>
+				<ul>
+					<li>Séance individuelle sur-mesure</li>
+					<li>Combinaison PNL et hypnose</li>
+					<li>Outils concrets et applicables</li>
+					<li>Objectifs personnalisés</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-single">En savoir plus</button>
 			</div>
-			<h3>Pack "Essence de Vie"</h3>
-			<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
-			<p class="duration">8 séances sur 3 mois</p>
-			<ul>
-				<li>8 séances de coaching individuel personnalisées</li>
-				<li>Outils PNL et hypnose pour libérer vos blocages</li>
-				<li>Approche actionnable pour incarner vos valeurs</li>
-				<li>Transformation durable et profonde</li>
-			</ul>
-			<button class="cta-btn" data-modal="modal-essence">En savoir plus</button>
-		</div>
 
-		<div class="service-card premium">
-			<div class="service-image">
-				<Image
-					src={premiumImage}
-					alt="Reconnexion à ton âme"
-					width={300}
-					height={200}
-				/>
-				<div class="image-overlay premium-overlay"></div>
-				<div class="premium-badge">Premium</div>
+			<div class="service-card premium">
+				<div class="service-image">
+					<Image
+						src={premiumImage}
+						alt="Reconnexion à ton âme"
+						width={300}
+						height={200}
+					/>
+					<div class="image-overlay premium-overlay"></div>
+					<div class="premium-badge">Premium</div>
+				</div>
+				<h3>Reconnexion à ton âme</h3>
+				<p class="subtitle">Un voyage sacré vers toi-même</p>
+				<p class="duration">2 heures 30 minutes</p>
+				<ul>
+					<li>Dialogue authentique et questionnements puissants</li>
+					<li>Libération des blocages avec la PNL</li>
+					<li>Méditation guidée pour une reconnexion intérieure</li>
+					<li>Uniquement en présentiel</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-premium">En savoir plus</button>
 			</div>
-			<h3>Reconnexion à ton âme</h3>
-			<p class="subtitle">Un voyage sacré vers toi-même</p>
-			<p class="duration">2 heures 30 minutes</p>
-			<ul>
-				<li>Dialogue authentique et questionnements puissants</li>
-				<li>Libération des blocages avec la PNL</li>
-				<li>Méditation guidée pour une reconnexion intérieure</li>
-				<li>Uniquement en présentiel</li>
-			</ul>
-			<button class="cta-btn" data-modal="modal-premium">En savoir plus</button>
+		</div>
+	</div>
+
+	<!-- Programmes d'accompagnement -->
+	<div class="service-category">
+		<h3 class="category-title">Programmes d'accompagnement</h3>
+		<p class="section-subtitle">
+			Des parcours structurés pour une transformation profonde et durable
+		</p>
+		<div class="services-container">
+			<div class="service-card highlight">
+				<div class="service-image">
+					<Image
+						src={essenceImage}
+						alt="Pack Essence de Vie"
+						width={300}
+						height={200}
+					/>
+					<div class="image-overlay highlight-overlay"></div>
+				</div>
+				<h3>Pack "Essence de Vie"</h3>
+				<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
+				<p class="duration">8 séances sur 3 mois</p>
+				<ul>
+					<li>Outils PNL et hypnose pour libérer vos blocages</li>
+					<li>Révélation de vos valeurs profondes</li>
+					<li>Approche actionnable pour incarner vos valeurs</li>
+					<li>Transformation durable et profonde</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-essence">En savoir plus</button>
+			</div>
+
+			<div class="service-card highlight">
+				<div class="service-image">
+					<Image
+						src={burnoutImage}
+						alt="Pack PNL Burn-out"
+						width={300}
+						height={200}
+					/>
+					<div class="image-overlay highlight-overlay"></div>
+				</div>
+				<h3>Pack "Burn-out"</h3>
+				<p class="subtitle">Retrouvez votre essence vitale</p>
+				<p class="duration">6 séances sur 6-8 semaines</p>
+				<ul>
+					<li>Retrouvez votre énergie et votre équilibre</li>
+					<li>Reconnexion à vos priorités profondes</li>
+					<li>Libération des schémas limitants</li>
+					<li>Outils concrets pour la gestion du stress</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-burnout">En savoir plus</button>
+			</div>
+
+			<div class="service-card highlight">
+				<div class="service-image">
+					<Image
+						src={renaissanceImage}
+						alt="Pack PNL Renaissance"
+						width={300}
+						height={200}
+					/>
+					<div class="image-overlay highlight-overlay"></div>
+				</div>
+				<h3>Pack "Renaissance"</h3>
+				<p class="subtitle">Se reconstruire après une relation toxique</p>
+				<p class="duration">6 séances sur 6-8 semaines</p>
+				<ul>
+					<li>Libérez-vous des émotions bloquantes</li>
+					<li>Renforcez votre confiance et estime de soi</li>
+					<li>Détachez-vous des schémas répétitifs</li>
+					<li>Projetez-vous vers des relations saines</li>
+				</ul>
+				<button class="cta-btn" data-modal="modal-renaissance"
+					>En savoir plus</button
+				>
+			</div>
 		</div>
 	</div>
 
@@ -205,6 +331,8 @@ const serviceModals = {
 	<ServiceModal modalId="modal-discovery" {...serviceModals.discovery} />
 	<ServiceModal modalId="modal-single" {...serviceModals.single} />
 	<ServiceModal modalId="modal-essence" {...serviceModals.essence} />
+	<ServiceModal modalId="modal-burnout" {...serviceModals.burnout} />
+	<ServiceModal modalId="modal-renaissance" {...serviceModals.renaissance} />
 	<ServiceModal modalId="modal-premium" {...serviceModals.premium} />
 </section>
 
@@ -238,11 +366,37 @@ const serviceModals = {
 				}
 			}
 
-			.section-subtitle {
-				color: $text-light;
-				font-size: clamp(1em, 3vw, 1.1em);
-				max-width: 600px;
-				margin: 0 auto;
+		}
+	}
+	
+	.section-subtitle {
+		color: $text-light;
+		font-size: clamp(1em, 3vw, 1.1em);
+		margin: auto;
+		text-align: center;
+	}
+	.service-category {
+		margin-bottom: 60px;
+
+		.category-title {
+			text-align: center;
+			color: $text-color;
+			font-size: clamp(1.2em, 4vw, 1.8em);
+			margin-bottom: 30px;
+			position: relative;
+			display: inline-block;
+			width: 100%;
+
+			&:after {
+				content: "";
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 40px;
+				height: 2px;
+				background-color: $secondary-color;
+				border-radius: 2px;
 			}
 		}
 	}
@@ -270,28 +424,26 @@ const serviceModals = {
 		gap: 15px;
 		min-height: 600px;
 
-		
 		&:hover {
 			transform: scale(1.05);
 			box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 			img {
 				transform: scale(1.1);
 			}
-	
+
 			.image-overlay {
 				transform: scale(1.1);
 				height: 37%;
 			}
 		}
-		
+
 		.service-image {
 			margin: -25px -25px 15px -25px;
 			overflow: hidden;
 			border-radius: $border-radius-lg $border-radius-lg 0 0;
 			height: 180px;
 			position: relative;
-			
-			
+
 			.image-overlay {
 				position: absolute;
 				bottom: 0;
@@ -335,8 +487,6 @@ const serviceModals = {
 				object-fit: cover;
 				transition: transform 0.5s ease;
 			}
-
-			
 		}
 
 		h3 {

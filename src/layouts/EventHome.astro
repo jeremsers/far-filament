@@ -24,9 +24,13 @@ const formatDate = (date: Date) => {
 	<div class="container">
 		<div class="section-header">
 			<h2>Événements à venir</h2>
-			<p class="section-subtitle">
-				Découvrez nos prochains ateliers, conférences et retraites
+			<p class="section-subtitle">Chaque mois, je propose deux ateliers de 8 heures, ou une conférence, ou une
+				retraite, en lien direct avec les thématiques des packs que je propose. Ces
+				événements sont conçus pour vous offrir des outils pratiques et un
+				accompagnement approfondi dans votre évolution personnelle.
+			
 			</p>
+			
 		</div>
 
 		<div class="event-cards">
@@ -123,6 +127,31 @@ const formatDate = (date: Date) => {
 		max-width: 800px;
 		margin-left: auto;
 		margin-right: auto;
+		margin-top: $spacing-md;
+	}
+
+	.section-description {
+		text-align: center;
+		color: $text-light;
+		margin-bottom: $spacing-xl;
+		font-size: 1.1rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.6;
+		font-style: italic;
+		padding: 0 $spacing-md;
+		position: relative;
+
+		&:before,
+		&:after {
+			content: "";
+			display: block;
+			width: 40px;
+			height: 2px;
+			background-color: rgba($primary-color, 0.4);
+			margin: $spacing-md auto;
+		}
 	}
 
 	.event-cards {
