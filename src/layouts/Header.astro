@@ -71,7 +71,7 @@ import logo from "../images/logo1.png";
 		justify-content: space-between;
 		align-items: center;
 		padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 30px);
-		background-color: $bg-color;
+		background-color: $primary-color;
 		height: clamp(60px, 10vh, 80px);
 		position: relative;
 		z-index: 1000;
@@ -178,7 +178,7 @@ import logo from "../images/logo1.png";
 		gap: clamp(15px, 2vw, 30px);
 
 		.nav-link {
-			color: $text-color;
+			color: $text-white;
 			text-decoration: none;
 			font-size: clamp(0.85rem, 1.5vw, 1.1rem);
 			transition: all 0.3s ease;
@@ -212,7 +212,7 @@ import logo from "../images/logo1.png";
 
 		.cta-btn {
 			display: inline-block;
-			background-color: $primary-color;
+			background-color: $secondary-color;
 			color: $text-white;
 			padding: clamp(8px, 1.5vw, 12px) clamp(15px, 2vw, 25px);
 			border-radius: 30px;
@@ -225,7 +225,7 @@ import logo from "../images/logo1.png";
 			&:hover {
 				transform: translateY(-3px);
 				box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2);
-				background-color: darken($primary-color, 5%);
+				background-color: darken($secondary-color, 5%);
 			}
 
 			&:active {
