@@ -3,40 +3,44 @@ import Layoutalt from "../layouts/baselayout/Layoutalt.astro";
 ---
 
 <Layoutalt
-	title="Mentions légales - Plaisir d'essence"
+	title="Mentions légales - Essence et conscience"
 	description="Mentions légales et informations juridiques concernant le site de coaching PNL."
 >
-	<section class="legal-section">
+	<section class="privacy-section">
 		<div class="container">
 			<h1>Mentions légales</h1>
 
-			<div class="legal-content">
+			<div class="privacy-content">
+				<p class="last-update">Dernière mise à jour : 10 Mars 2025</p>
+
 				<h2>Éditeur du site</h2>
-				<p>Le site [Nom de votre site] est édité par :</p>
+				<p>Le site www.essence-et-conscience.ch est édité par :</p>
 				<ul>
 					<li>
-						<strong>Nom/Raison sociale :</strong> [Votre nom ou raison sociale]
+						<strong>Nom/Raison sociale :</strong> Essence et conscience
 					</li>
 					<li>
-						<strong>Statut juridique :</strong> [Auto-entrepreneur, SARL, etc.]
+						<strong>Statut juridique :</strong> Entreprise individuelle
 					</li>
-					<li><strong>Adresse :</strong> [Votre adresse professionnelle]</li>
-					<li><strong>Email :</strong> [Votre email professionnel]</li>
-					<li><strong>Téléphone :</strong> [Votre numéro professionnel]</li>
 					<li>
-						<strong>IDE/CHE :</strong> [Votre numéro d'identification des entreprises]
+						<strong>Adresse :</strong> Bureau des thérapies, Avenue des Alpes 70, 1820
+						Montreux, Suisse
 					</li>
+					<li><strong>Email :</strong> contact@essence-et-conscience.ch</li>
+					<li><strong>Téléphone :</strong> +41 00 00 00 00</li>
 				</ul>
 
 				<h2>Responsable de la publication</h2>
-				<p>[Votre nom], [Votre fonction]</p>
+				<p>Essence et conscience, Coach PNL</p>
 
 				<h2>Hébergement</h2>
 				<p>Ce site est hébergé par :</p>
 				<ul>
-					<li><strong>Nom :</strong> [Nom de l'hébergeur]</li>
-					<li><strong>Adresse :</strong> [Adresse de l'hébergeur]</li>
-					<li><strong>Téléphone :</strong> [Téléphone de l'hébergeur]</li>
+					<li><strong>Nom :</strong> Infomaniak</li>
+					<li>
+						<strong>Adresse :</strong> Rue Eugène-Marziano 25, 1227 Les Acacias, Suisse
+					</li>
+					<li><strong>Téléphone :</strong> +41 22 820 35 44</li>
 				</ul>
 
 				<h2>Propriété intellectuelle</h2>
@@ -48,125 +52,105 @@ import Layoutalt from "../layouts/baselayout/Layoutalt.astro";
 				</p>
 				<p>
 					La reproduction de tout ou partie de ce site sur un support électronique ou
-					autre est formellement interdite sauf autorisation expresse de [Votre
-					nom/raison sociale].
+					papier est formellement interdite sauf autorisation expresse de l'éditeur.
+				</p>
+
+				<h2>Liens hypertextes</h2>
+				<p>
+					Les liens hypertextes mis en place dans le cadre du présent site internet
+					en direction d'autres ressources présentes sur le réseau internet ne
+					sauraient engager la responsabilité de l'éditeur.
+				</p>
+				<p>
+					De même, l'éditeur ne peut être tenu responsable de l'ensemble des
+					informations, contenus et services accessibles via ces liens.
 				</p>
 
 				<h2>Protection des données personnelles</h2>
 				<p>
-					Conformément à la Loi fédérale sur la protection des données (LPD) du 25
-					septembre 2020 (entrée en vigueur le 1er septembre 2023), vous disposez
-					d'un droit d'accès, de rectification, d'effacement, de limitation et
-					d'opposition au traitement de vos données personnelles. Pour exercer ces
-					droits, vous pouvez nous contacter à l'adresse email suivante : [Votre
-					email].
-				</p>
-				<p>
-					Pour plus d'informations sur la façon dont nous traitons vos données,
-					veuillez consulter notre <a href="/confidentialite"
-						>Politique de confidentialité</a
+					Les informations recueillies sur ce site sont traitées conformément à notre
+					politique de confidentialité, accessible à l'adresse suivante : <a
+						href="/confidentialite">Politique de confidentialité</a
 					>.
-				</p>
-
-
-				<h2>Liens hypertextes</h2>
-				<p>
-					Ce site peut contenir des liens vers d'autres sites. [Votre nom/raison
-					sociale] n'est pas responsable du contenu de ces sites et ne peut être tenu
-					responsable des dommages ou préjudices pouvant résulter de l'utilisation de
-					ces liens.
 				</p>
 
 				<h2>Droit applicable et juridiction compétente</h2>
 				<p>
 					Les présentes mentions légales sont soumises au droit suisse. En cas de
-					litige, les tribunaux suisses du canton de [Votre canton] seront seuls
-					compétents.
+					litige, les tribunaux suisses seront seuls compétents.
 				</p>
-
-				<h2>Règlement des litiges</h2>
-				<p>
-					En cas de litige, une solution amiable sera recherchée avant toute action
-					judiciaire. Vous pouvez adresser une réclamation écrite à [Votre email].
-				</p>
-
-				<h2>Crédits</h2>
-				<p>Conception et développement : [Nom du développeur/agence]</p>
-				<p>Photographies : [Crédits photos]</p>
 			</div>
 		</div>
 	</section>
-</Layoutalt>
 
-<style lang="scss">
-	.legal-section {
-		padding: 80px 0;
+	<style>
+		.privacy-section {
+			padding: 60px 0;
+			min-height: 100vh;
+			background-color: #f9f9f9;
+		}
+
+		.container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 0 20px;
+		}
 
 		h1 {
 			font-size: 2.5rem;
-			margin-bottom: 2rem;
-			color: $primary-color;
+			color: #333;
+			margin-bottom: 30px;
 			text-align: center;
 		}
 
-		.legal-content {
+		h2 {
+			font-size: 1.5rem;
+			color: #555;
+			margin-top: 30px;
+			margin-bottom: 15px;
+			border-bottom: 1px solid #ddd;
+			padding-bottom: 8px;
+		}
+
+		.privacy-content {
 			background-color: white;
-			padding: 2rem;
+			padding: 30px;
 			border-radius: 8px;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-
-			h2 {
-				color: $secondary-color;
-				font-size: 1.5rem;
-				margin: 2rem 0 1rem;
-				padding-bottom: 0.5rem;
-				border-bottom: 1px solid $border-color;
-
-				&:first-child {
-					margin-top: 0;
-				}
-			}
-
-			p,
-			ul {
-				margin-bottom: 1rem;
-				color: $text-color;
-			}
-
-			ul {
-				padding-left: 1.5rem;
-
-				li {
-					margin-bottom: 0.5rem;
-				}
-			}
-
-			a {
-				color: $primary-color;
-				text-decoration: underline;
-
-				&:hover {
-					color: darken($primary-color, 10%);
-				}
-			}
+			box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 		}
-	}
 
-	@media (max-width: 768px) {
-		.legal-section {
-			padding: 40px 0;
-
-			h1 {
-				font-size: 2rem;
-			}
-
-			.legal-content {
-				padding: 1.5rem;
-
-				h2 {
-					font-size: 1.3rem;
-				}
-			}
+		p,
+		ul,
+		li {
+			line-height: 1.6;
+			color: #444;
 		}
-	}
-</style>
+
+		ul {
+			margin-left: 20px;
+			margin-bottom: 20px;
+		}
+
+		strong {
+			color: #333;
+		}
+
+		.last-update {
+			font-style: italic;
+			margin-bottom: 30px;
+			text-align: right;
+			color: #777;
+		}
+
+		a {
+			color: #0066cc;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		a:hover {
+			color: #004080;
+			text-decoration: underline;
+		}
+	</style>
+</Layoutalt>
