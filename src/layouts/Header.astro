@@ -1,12 +1,14 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../images/logo1.png";
+import logo from "../images/logo4.png";
+import logomobile from "../images/logo3.png";
 ---
 
 <header class="header-main">
 	<div class="logo">
 		<a href="/" class="logo-link">
 			<Image src={logo} alt="logo" class="logo-img" />
+			<Image src={logomobile} alt="logo" class="logo-img-mobile" />
 		</a>
 	</div>
 	<button
@@ -78,7 +80,7 @@ import logo from "../images/logo1.png";
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 		&.nav-open {
-			background-color: $primary-color;
+			background-color: $bg-color;
 		}
 	}
 
@@ -100,15 +102,37 @@ import logo from "../images/logo1.png";
 			height: 150%;
 			width: auto;
 			object-fit: contain;
-			filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-			border-radius: 12px;
 			position: absolute;
 			left: -10px;
 			top: -10px;
-			transition: transform 0.3s ease;
+			transition: transform 0.4s ease;
+			display: block;
+
+			@media (max-width: 768px) {
+				display: none;
+			}
 
 			&:hover {
-				transform: scale(1.05);
+				transform: translateY(-5px);
+			}
+		}
+
+		&-img-mobile {
+			height: 150%;
+			width: auto;
+			object-fit: contain;
+			position: absolute;
+			left: -10px;
+			top: -10px;
+			transition: transform 0.4s ease;
+			display: none;
+
+			@media (max-width: 768px) {
+				display: block;
+			}
+
+			&:hover {
+				transform: translateY(-5px);
 			}
 		}
 	}
@@ -130,7 +154,7 @@ import logo from "../images/logo1.png";
 			display: block;
 			width: 24px;
 			height: 2px;
-			background-color: $text-white;
+			background-color: $text-color;
 			position: relative;
 			transition: all 0.3s ease;
 			left: 0;
@@ -142,7 +166,7 @@ import logo from "../images/logo1.png";
 				position: absolute;
 				width: 24px;
 				height: 2px;
-				background-color: $text-white;
+				background-color: $text-color;
 				transition: all 0.3s ease;
 				left: 0;
 				transform-origin: center;
@@ -239,14 +263,16 @@ import logo from "../images/logo1.png";
 		.mobile-menu-toggle {
 			display: block;
 		}
-
+		.header-main {
+			background-color: $bg-color;
+		}
 		nav {
 			position: fixed;
 			top: 0;
 			right: -100%;
 			width: 100%;
 			height: 100vh;
-			background-color: $primary-color;
+			background-color: $bg-color;
 			flex-direction: column;
 			justify-content: center;
 			padding: 80px 20px 20px;
@@ -266,6 +292,7 @@ import logo from "../images/logo1.png";
 				width: 100%;
 				text-align: center;
 				margin: 5px 0;
+				color: $text-color;
 
 				&::after {
 					display: none;

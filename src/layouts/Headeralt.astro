@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../images/logo1.png";
+import logo from "../images/logo2.png";
+import logomobile from "../images/logo3.png";
 ---
 
 <header class="header-alt">
@@ -28,6 +29,7 @@ import logo from "../images/logo1.png";
 		<div class="logo">
 			<a href="/" class="logo-link">
 				<Image src={logo} alt="logo" class="logo-img" />
+				<Image src={logomobile} alt="logo" class="logo-img-mobile" />
 			</a>
 		</div>
 	</div>
@@ -130,7 +132,22 @@ import logo from "../images/logo1.png";
 			height: 100%;
 			width: auto;
 			object-fit: contain;
-			filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+			display: block;
+
+			@media (max-width: 720px) {
+				display: none;
+			}
+		}
+
+		&-img-mobile {
+			height: 100%;
+			width: auto;
+			object-fit: contain;
+			display: none;
+
+			@media (max-width: 720px) {
+				display: block;
+			}
 		}
 	}
 
