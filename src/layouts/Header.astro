@@ -59,7 +59,8 @@ import logomobile from "../images/logo3.png";
 	// Close menu when clicking on a link
 	nav?.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement;
-		if (target.tagName === "A") {
+		// Check if the target is a link or is inside a link
+		if (target.tagName === "A" || target.closest("a")) {
 			nav.classList.remove("active");
 			mobileMenuToggle?.setAttribute("aria-expanded", "false");
 			header?.classList.remove("nav-open");
