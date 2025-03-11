@@ -17,7 +17,8 @@ const burnoutImage = burnout;
 const renaissanceImage = renaissance;
 
 const calendlyLink = "https://calendly.com/votre-lien";
-const calendlyLinkDiscovery = "https://calendly.com/laurence-blondeau-essence-et-conscience/30min";
+const calendlyLinkDiscovery =
+	"https://calendly.com/laurence-blondeau-essence-et-conscience/30min";
 
 const serviceModals = {
 	discovery: {
@@ -257,9 +258,49 @@ const serviceModals = {
 	<!-- Programmes d'accompagnement -->
 	<div class="service-category">
 		<h3 class="category-title">Programmes d'accompagnement</h3>
-		<p class="section-subtitle">
-			Des parcours structurés pour une transformation profonde et durable
-		</p>
+		<div class="subtitle-wrapper">
+			<p class="section-subtitle">
+				Des parcours structurés pour une transformation profonde et durable
+			</p>
+			<span class="info-container">
+				<button
+					class="info-button"
+					id="info-button"
+					aria-label="Plus d'informations"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						width="20"
+						height="20"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<circle cx="12" cy="12" r="10"></circle>
+						<line x1="12" y1="8" x2="12" y2="12"></line>
+						<line x1="12" y1="16" x2="12.01" y2="16"></line>
+					</svg>
+				</button>
+				<div class="info-tooltip" id="info-tooltip">
+					<div class="tooltip-content">
+						<h4>Comment réserver un programme d'accompagnement ?</h4>
+						<p>
+							Pour vous assurer de choisir le programme qui correspond parfaitement à
+							vos besoins, tous nos packs d'accompagnement nécessitent un appel
+							découverte gratuit de 30 minutes au préalable. Cet échange nous permettra
+							de faire connaissance, d'évaluer votre situation et de confirmer que le
+							programme choisi est adapté à vos objectifs.
+						</p>
+						<a href={calendlyLinkDiscovery} target="_blank" class="info-btn"
+							>Réserver mon appel découverte gratuit</a
+						>
+					</div>
+				</div>
+			</span>
+		</div>
 		<div class="services-container">
 			<div class="service-card highlight">
 				<div class="service-image">
@@ -352,6 +393,9 @@ const serviceModals = {
 		.section-header {
 			text-align: center;
 			margin-bottom: 50px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
 
 			h2 {
 				color: $text-color;
@@ -375,12 +419,136 @@ const serviceModals = {
 		}
 	}
 
+	.service-category {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
 	.section-subtitle {
 		color: $text-light;
 		font-size: clamp(1em, 3vw, 1.1em);
-		margin: auto;
+		margin: 0 auto;
 		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
 	}
+
+	.subtitle-wrapper {
+		margin-bottom: 20px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.info-container {
+		position: relative;
+		display: inline-block;
+		margin-left: 5px;
+		vertical-align: middle;
+	}
+
+	.info-button {
+		background: none;
+		border: none;
+		padding: 0;
+		cursor: pointer;
+		z-index: 1001;
+		color: $primary-color;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.2s ease;
+		width: 20px;
+		height: 20px;
+		vertical-align: middle;
+
+		&:hover {
+			transform: scale(1.2);
+		}
+	}
+
+	.info-tooltip {
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		margin-top: 10px;
+		width: 350px;
+		background-color: white;
+		border-radius: $border-radius-md;
+		box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+		padding: 0;
+		z-index: 100;
+		display: none;
+
+		&:before {
+			content: "";
+			position: absolute;
+			top: -8px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 0;
+			height: 0;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 8px solid white;
+		}
+
+		.tooltip-content {
+			padding: 20px;
+
+			h4 {
+				color: $primary-color;
+				margin: 0 0 10px 0;
+				font-size: 1.1em;
+			}
+
+			p {
+				margin: 0 0 15px 0;
+				font-size: 0.9em;
+				line-height: 1.5;
+				color: $text-color;
+				text-align: justify;
+			}
+
+			.info-btn {
+				display: inline-block;
+				padding: 8px 15px;
+				background-color: $secondary-color;
+				color: white;
+				text-decoration: none;
+				border-radius: $border-radius-sm;
+				font-size: 0.9em;
+				transition: all 0.3s ease;
+
+				&:hover {
+					background-color: darken($secondary-color, 10%);
+					transform: scale(1.05);
+				}
+			}
+		}
+	}
+
+	@media (max-width: $mobile) {
+		.info-tooltip {
+			width: 280px;
+			left: auto;
+			right: -20px;
+			transform: none;
+
+			&:before {
+				left: auto;
+				right: 20px;
+			}
+		}
+	}
+
 	.service-category {
 		margin-bottom: 60px;
 
@@ -615,5 +783,63 @@ const serviceModals = {
 				height: 200px;
 			}
 		}
+		.subtitle-wrapper {
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
 	}
 </style>
+
+<script>
+	// Gestion de l'infobulle
+	document.addEventListener("DOMContentLoaded", () => {
+		const infoButton = document.getElementById("info-button");
+		const infoTooltip = document.getElementById("info-tooltip");
+
+		if (infoButton && infoTooltip) {
+			let isTooltipVisible = false;
+
+			// Afficher/masquer l'infobulle au clic sur le bouton
+			infoButton.addEventListener("click", (e) => {
+				e.preventDefault();
+				e.stopPropagation();
+				isTooltipVisible = !isTooltipVisible;
+				infoTooltip.style.display = isTooltipVisible ? "block" : "none";
+			});
+
+			// Afficher l'infobulle au survol
+			/* infoButton.addEventListener("mouseenter", () => {
+				infoTooltip.style.display = "block";
+				isTooltipVisible = true;
+			}); */
+
+			// Empêcher la fermeture de l'infobulle lors d'un clic à l'intérieur
+			infoTooltip.addEventListener("click", (e) => {
+				e.stopPropagation();
+			});
+
+			// Fermer l'infobulle lors d'un clic à l'extérieur
+			document.addEventListener("click", (e) => {
+				const target = e.target as Node;
+				if (
+					!infoButton.contains(target) &&
+					!infoTooltip.contains(target) &&
+					isTooltipVisible
+				) {
+					infoTooltip.style.display = "none";
+					isTooltipVisible = false;
+				}
+			});
+
+			// S'assurer que l'infobulle reste visible quand on la survole
+			/* infoTooltip.addEventListener("mouseenter", () => {
+				infoTooltip.style.display = "block";
+				isTooltipVisible = true;
+			}); */
+
+			// S'assurer que l'infobulle est cachée au chargement
+			infoTooltip.style.display = "none";
+		}
+	});
+</script>
