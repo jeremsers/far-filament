@@ -13,6 +13,7 @@ interface Event {
 		tailleGroupe: number;
 		image?: any;
 		type: string;
+		lien: string;
 	};
 	body: string;
 }
@@ -170,7 +171,9 @@ const getTypeTitle = (type: string) => {
 										<a href={`/events/${event.slug}`} class="btn-details">
 											Voir les détails
 										</a>
-										<button class="btn-register">S'inscrire</button>
+										<a class="btn-register" href={event.data.lien} target="_blank">
+											S'inscrire
+										</a>
 									</div>
 								</div>
 							</a>
