@@ -32,10 +32,6 @@ const {
 import { Image } from "astro:assets";
 import packSessions from "../data/packSessions.json";
 
-// Lien pour le rendez-vous découverte
-const calendlyLinkDiscovery =
-	"https://calendly.com/laurence-blondeau-essence-et-conscience/30min";
-
 // Extraire le type de pack à partir de l'ID du modal (modal-burnout -> burnout)
 const packType = modalId.replace("modal-", "");
 // Récupérer les sessions pour ce pack
@@ -140,45 +136,12 @@ const sessions = packSessions[packType] || [];
 						des changements profonds et durables.
 					</p>
 				</div>
-
-				<div class="discovery-required">
-					<div class="discovery-icon">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 24 24"
-							width="24"
-							height="24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-						>
-							<circle cx="12" cy="12" r="10"></circle>
-							<line x1="12" y1="8" x2="12" y2="12"></line>
-							<line x1="12" y1="16" x2="12.01" y2="16"></line>
-						</svg>
-					</div>
-					<div class="discovery-content">
-						<h3>Étape préalable requise</h3>
-						<p>
-							Pour réserver ce pack, un appel découverte gratuit de 30 minutes est
-							nécessaire. Cet appel nous permettra de faire connaissance, d'évaluer vos
-							besoins et de confirmer que ce programme est adapté à votre situation.
-						</p>
-					</div>
-				</div>
 			</div>
 
 			<div class="modal-actions">
-				<a
-					href={calendlyLinkDiscovery}
-					target="_blank"
-					class="cta-btn discovery-btn"
+				<a href={calendlyLink} target="_blank" class="cta-btn"
+					>Réserver maintenant</a
 				>
-					Prendre un rendez-vous découverte gratuit
-				</a>
-				<p class="action-note">Étape préalable requise avant de réserver ce pack</p>
 			</div>
 		</div>
 	</div>
@@ -494,35 +457,6 @@ const sessions = packSessions[packType] || [];
 				padding-top: 20px;
 				margin-bottom: 20px;
 			}
-
-			.discovery-required {
-				display: flex;
-				background-color: rgba($primary-color, 0.1);
-				padding: 20px;
-				border-radius: $border-radius-md;
-				margin-top: 20px;
-				gap: 15px;
-				align-items: flex-start;
-
-				.discovery-icon {
-					flex-shrink: 0;
-					color: $primary-color;
-					margin-top: 3px;
-				}
-
-				.discovery-content {
-					h3 {
-						color: $primary-color;
-						margin: 0 0 10px 0;
-						font-size: clamp(1.1em, 3vw, 1.2em);
-					}
-
-					p {
-						margin: 0;
-						line-height: 1.5;
-					}
-				}
-			}
 		}
 	}
 
@@ -537,13 +471,6 @@ const sessions = packSessions[packType] || [];
 		z-index: 2;
 		border-radius: 0 0 $border-radius-lg $border-radius-lg;
 
-		.action-note {
-			margin-top: 10px;
-			font-size: 0.9em;
-			color: $text-light;
-			font-style: italic;
-		}
-
 		.cta-btn {
 			display: inline-block;
 			padding: clamp(12px, 3vw, 15px) clamp(25px, 5vw, 40px);
@@ -553,19 +480,11 @@ const sessions = packSessions[packType] || [];
 			border-radius: $border-radius-md;
 			font-size: clamp(1em, 2.5vw, 1.1em);
 			transition: all 0.3s ease;
-			width: min(100%, 500px);
+			width: min(100%, 300px);
 
 			&:hover {
 				background-color: $hover-color-alt;
 				transform: scale(1.05);
-			}
-		}
-
-		.discovery-btn {
-			background-color: $secondary-color !important;
-
-			&:hover {
-				background-color: darken($secondary-color, 10%) !important;
 			}
 		}
 	}
