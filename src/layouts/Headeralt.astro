@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../images/logo2.png";
-import logomobile from "../images/logo3.png";
+import logo from "../images/logo5.png";
+import logomobile from "../images/logo5.png";
 ---
 
 <header class="header-alt">
@@ -115,9 +115,11 @@ import logomobile from "../images/logo3.png";
 
 	.logo {
 		
-		width: 143px;
+		height:	100%;
+		width: 150px;
 		z-index: 1001;
 		transition: all 0.3s ease;
+		position: relative;
 		
 
 		&-link {
@@ -131,10 +133,13 @@ import logomobile from "../images/logo3.png";
 		}
 
 		&-img {
-			height: 100%;
-			width: auto;
 			object-fit: contain;
+			left: -10px;
+			top: -10px;
+			transition: transform 0.4s ease;
 			display: block;
+			position: absolute;
+			overflow: hidden;
 
 			@media (max-width: 720px) {
 				display: none;
@@ -142,9 +147,13 @@ import logomobile from "../images/logo3.png";
 		}
 
 		&-img-mobile {
-			height: 100%;
+			height: 150%;
 			width: auto;
 			object-fit: contain;
+			position: absolute;
+			left: -10px;
+			top: -10px;
+			transition: transform 0.4s ease;
 			display: none;
 
 			@media (max-width: 720px) {
