@@ -6,9 +6,7 @@ import aboutPicture from "../images/about.jpg";
 <section class="section" id="about">
 	<div class="section-header">
 		<h2>Transformez votre vie</h2>
-		<p class="section-subtitle">
-			grâce au coaching PNL
-		</p>
+		<p class="section-subtitle">grâce au coaching PNL</p>
 	</div>
 
 	<div class="about-container">
@@ -78,12 +76,13 @@ import aboutPicture from "../images/about.jpg";
 		<a href="/qui" class="image-link">
 			<Image
 				src={aboutPicture}
-				alt="Coach PNL et praticienne en hypnose"
+				alt="Laurence Blondeau, Coach PNL certifiée"
 				class="about-img"
 			/>
 			<div class="image-overlay">
 				<span>En savoir plus</span>
 			</div>
+			<p class="image-caption">Laurence Blondeau, Coach PNL certifiée</p>
 		</a>
 	</div>
 	<a href="#contact" class="contact-btn">
@@ -183,8 +182,6 @@ import aboutPicture from "../images/about.jpg";
 		padding: 0 15px;
 		border-radius: 8px;
 		transition: all 0.3s ease;
-
-		
 	}
 
 	.about-text {
@@ -262,9 +259,17 @@ import aboutPicture from "../images/about.jpg";
 		border-radius: 20px;
 		overflow: hidden;
 
+		.image-caption {
+			text-align: center;
+			margin-top: 10px;
+			font-style: italic;
+			color: $text-light;
+			font-size: 0.9em;
+		}
+
 		.image-overlay {
 			position: absolute;
-			bottom: 0;
+			bottom: 38px;
 			left: 0;
 			right: 0;
 			background: linear-gradient(to top, rgba($primary-color, 0.8), transparent);
@@ -275,6 +280,7 @@ import aboutPicture from "../images/about.jpg";
 			padding-bottom: 20px;
 			opacity: 0;
 			transition: all 0.3s ease;
+			border-radius: 15px;
 
 			span {
 				color: white;
@@ -282,6 +288,7 @@ import aboutPicture from "../images/about.jpg";
 				letter-spacing: 0.5px;
 				transform: translateY(20px);
 				transition: all 0.3s ease;
+				z-index: 1000;
 			}
 		}
 
