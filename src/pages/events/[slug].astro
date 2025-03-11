@@ -100,7 +100,9 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 			<div class="registration-card">
 				<h2>Réservez votre place</h2>
 				<p class="price-highlight">{entry.data.prix}</p>
-				<button class="btn-register">S'inscrire maintenant</button>
+				<a class="btn-register" href={entry.data.lien} target="_blank">
+					S'inscrire maintenant
+				</a>
 				<p class="registration-note">
 					L'inscription est confirmée après paiement.
 				</p>
@@ -285,6 +287,7 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 				cursor: pointer;
 				transition: background-color $transition-speed $transition-timing;
 				margin-bottom: $spacing-md;
+				display: inline-block;
 
 				&:hover {
 					background-color: darken($primary-color, 10%);

@@ -3,7 +3,7 @@ import ServiceModal from "../components/ServiceModal.astro";
 import ServiceModalPacks from "../components/ServiceModalPacks.astro";
 import { Image } from "astro:assets";
 import discover from "../images/discover.avif";
-import premium from "../images/premium.avif";
+import reconnexion from "../images/premium.avif";
 import single from "../images/indiv2.avif";
 import essence from "../images/essence.avif";
 import burnout from "../images/burnout.avif";
@@ -12,12 +12,16 @@ import renaissance from "../images/renaissance.avif";
 const discoveryImage = discover;
 const singleImage = single;
 const essenceImage = essence;
-const premiumImage = premium;
+const reconnexionImage = reconnexion;
 const burnoutImage = burnout;
 const renaissanceImage = renaissance;
 
-const calendlyLink = "https://calendly.com/votre-lien";
-const calendlyLinkDiscovery = "https://calendly.com/laurence-blondeau-essence-et-conscience/30min";
+const discoverylink = "https://essence-conscience-decouverte.youcanbook.me";
+const singlelink = "https://essence-conscience-a-la-carte.youcanbook.me";
+const essencelink = "https://essence-conscience-essence-de-vie.youcanbook.me";
+const burnoutlink = "https://essence-conscience-burnout.youcanbook.me";
+const renaissancelink = "https://essence-conscience-renaissance.youcanbook.me";
+const reconnexionlink = "https://essence-conscience-reconnexion.youcanbook.me";
 
 const serviceModals = {
 	discovery: {
@@ -33,7 +37,7 @@ const serviceModals = {
 			"Explication de ma méthode",
 			"Questions/réponses",
 		],
-		calendlyLink: calendlyLinkDiscovery,
+		calendlyLink: discoverylink,
 		image: discoveryImage,
 	},
 	single: {
@@ -49,7 +53,7 @@ const serviceModals = {
 			"Outils concrets et applicables",
 			"Objectifs personnalisés",
 		],
-		calendlyLink,
+		calendlyLink: singlelink,
 		image: singleImage,
 	},
 	essence: {
@@ -81,7 +85,7 @@ const serviceModals = {
 			"Travaillez sur les croyances et les peurs qui vous empêchent d'avancer",
 			"Mettez en place des stratégies concrètes pour réaliser vos rêves",
 		],
-		calendlyLink,
+		calendlyLink: essencelink,
 		image: essenceImage,
 	},
 	burnout: {
@@ -112,7 +116,7 @@ const serviceModals = {
 			"Création d'une vision claire de votre futur et mise en place d'actions concrètes",
 			"Intégration d'habitudes durables et renforcement de votre confiance",
 		],
-		calendlyLink,
+		calendlyLink: burnoutlink,
 		image: burnoutImage,
 	},
 	renaissance: {
@@ -141,7 +145,7 @@ const serviceModals = {
 			"Briser les liens inconscients et reprendre votre autonomie",
 			"Définir vos besoins et poser des limites saines",
 		],
-		calendlyLink,
+		calendlyLink: renaissancelink,
 		image: renaissanceImage,
 	},
 	premium: {
@@ -168,8 +172,8 @@ const serviceModals = {
 			"Sensation de clarté et de légèreté",
 			"Reconnexion à ta voie intérieure",
 		],
-		calendlyLink,
-		image: premiumImage,
+		calendlyLink: reconnexionlink,
+		image: reconnexionImage,
 		isPremium: true,
 	},
 };
@@ -232,7 +236,7 @@ const serviceModals = {
 			<div class="service-card premium">
 				<div class="service-image">
 					<Image
-						src={premiumImage}
+						src={reconnexionImage}
 						alt="Reconnexion à ton âme"
 						width={300}
 						height={200}

@@ -6,6 +6,7 @@ lieu: "Bureau des Thérapies, Avenue des Alpes 70, 3ème étage, Montreux"
 tailleGroupe: 8
 image: "./img/toxic.jpg"
 type: "atelier"
+lien: 'https://essence-conscience-atelier-relation-toxique.youcanbook.me'
 ---
 
 **Transformez votre expérience en force**  

@@ -24,6 +24,7 @@ const eventsCollection = defineCollection({
 			tailleGroupe: z.number(),
 			image: image(),
 			type: z.enum(["atelier", "conference", "retraite"]).default("atelier"),
+      lien: z.string(),
 		}),
 });
 
