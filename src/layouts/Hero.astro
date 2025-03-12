@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import heroBanner from "../images/main.avif";
+import heroBanner from "../images/main1.avif";
 ---
 
 <section class="hero" id="hero">
@@ -26,7 +26,7 @@ import heroBanner from "../images/main.avif";
 		</p>
 		<a href="#about" class="cta-btn">Le changement commence ici</a>
 	</div>
-	<Image src={heroBanner} alt="Illustration Hero" class="hero-img" />
+	<Image src={heroBanner} alt="Illustration Hero" class="hero-img" height={2280} width={1574} decoding="async" loading="lazy"/>
 </section>
 
 <style lang="scss">
