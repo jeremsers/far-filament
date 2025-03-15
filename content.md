@@ -1,19 +1,11 @@
-Les 6 étapes de votre transformation :
+“Soyez maître de votre destin, le capitaine de votre âme.” – William Ernest Henley
 
-1️⃣ Comprendre et prendre du recul
-Identifier les mécanismes de la relation toxique et mettre en lumière ce qui vous a impacté.
+Le burn-out et les relations toxiques, bien que distinctes, partagent un point commun : elles vous épuisent, vous font douter de vous-même et vous éloignent de votre véritable essence.
 
-2️⃣ Se libérer des émotions bloquantes
-Apaiser la culpabilité, la peur et la colère pour retrouver un sentiment de paix intérieure.
+Et si vous choisissiez de vous affranchir de ces entraves ? De vous libérer des schémas destructeurs, qu’ils soient ancrés dans des relations épuisantes ou des situations qui vous désalignent. Derrière la fatigue et les blessures, votre potentiel intérieur attend d’être réveillé. Il est temps de briser ce cycle et de retrouver votre liberté.
 
-3️⃣ Renforcer votre confiance et votre estime
-(Re)construire une image positive de vous-même et apprendre à vous affirmer sereinement.
+✔ Qui êtes-vous réellement, au-delà des blessures et des habitudes qui vous limitent ?
+✔ Êtes-vous prêt(e) à vous en libérer pour révéler votre véritable potentiel ?
+✔ Êtes-vous prêt(e) à vous aligner avec vos valeurs profondes et à vivre en harmonie avec elles ?
 
-4️⃣ Se détacher des schémas répétitifs
-Briser les liens inconscients et reprendre votre autonomie émotionnelle.
-
-5️⃣ Se projeter vers des relations saines
-Définir vos besoins, apprendre à poser des limites et attirer des relations équilibrées.
-
-6️⃣ Ancrer les changements pour un nouveau départ
-Installer de nouvelles habitudes et renforcer votre sécurité intérieure pour avancer avec sérénité.
+Reprogrammez-vous. Le changement commence ici.
