@@ -1,4 +1,4 @@
-import type { APIRoute } from "astro";
+import type { APIContext } from "astro";
 import fs from "fs/promises";
 import path from "path";
 
@@ -8,34 +8,46 @@ interface StrapiImage {
 }
 
 interface BlogPost {
-	title: string;
-	description: string;
-	content: string;
-	pubDate: string;
-	author: string;
-	image: StrapiImage;
-	category: {
-		data: {
-			attributes: {
-				name: string;
+	attributes: {
+		title: string;
+		description: string;
+		content: string;
+		pubDate: string;
+		author: string;
+		image: {
+			data: {
+				attributes: StrapiImage;
 			};
 		};
+		category: {
+			data: {
+				attributes: {
+					name: string;
+				};
+			};
+		};
+		slug: string;
+		Tags: string[];
 	};
-	slug: string;
-	Tags: string[];
 }
 
 interface Event {
-	title: string;
-	content: string;
-	date: string;
-	price: string;
-	location: string;
-	groupSize: number;
-	type: "Atelier" | "Conférence" | "Retraite";
-	bookingLink: string;
-	slug: string;
-	image: StrapiImage;
+	attributes: {
+		title: string;
+		content: string;
+		date: string;
+		price: string;
+		location: string;
+		groupSize: number;
+		type: "Atelier" | "Conférence" | "Retraite";
+		bookingLink: string;
+		slug: string;
+		image: {
+			data: {
+				attributes: StrapiImage;
+			};
+		};
+	};
 }
 
 async function downloadImage(
@@ -62,19 +74,20 @@ async function downloadImage(
 }
 
 async function processImage(
-	image: StrapiImage | undefined,
+	image: { data: { attributes: StrapiImage } } | undefined,
 	type: string,
 	slug: string
 ): Promise<string | undefined> {
-	if (!image?.url) return undefined;
+	if (!image?.data?.attributes?.url) return undefined;
 
 	try {
-		const imageExtension = path.extname(new URL(image.url).pathname) || ".jpg";
+		const imageUrl = image.data.attributes.url;
+		const imageExtension = path.extname(new URL(imageUrl).pathname) || ".jpg";
 		const imageName = `${slug}${imageExtension}`;
 		const imageDir = path.join(process.cwd(), "src", "content", type, "img");
 		const imagePath = path.join(imageDir, imageName);
 
-		await downloadImage(image.url, imagePath);
+		await downloadImage(imageUrl, imagePath);
 
 		// Return the relative path for the frontmatter
 		return `./img/${imageName}`;
@@ -85,50 +98,61 @@ async function processImage(
 }
 
 const convertBlogToMarkdown = async (post: BlogPost): Promise<string> => {
-	const imageRelativePath = await processImage(post.image, "blog", post.slug);
+	const imageRelativePath = await processImage(
+		post.attributes.image,
+		"blog",
+		post.attributes.slug
+	);
 
 	const frontmatter = `---
-title: "${post.title}"
-description: "${post.description}"
-pubDate: ${post.pubDate}
-author: "${post.author}"
+title: "${post.attributes.title}"
+description: "${post.attributes.description}"
+pubDate: ${post.attributes.pubDate}
+author: "${post.attributes.author}"
 image: "${imageRelativePath || ""}"
-category: "${post.category.data.attributes.name}"
-tags: ${JSON.stringify(post.Tags || [])}
+category: "${post.attributes.category?.data?.attributes?.name || ""}"
+tags: ${JSON.stringify(post.attributes.Tags || [])}
 ---
 
-${post.content}`;
+${post.attributes.content}`;
 
 	return frontmatter;
 };
 
 const convertEventToMarkdown = async (event: Event): Promise<string> => {
 	const imageRelativePath = await processImage(
-		event.image,
+		event.attributes.image,
 		"events",
-		event.slug
+		event.attributes.slug
 	);
 
 	// Convert type to lowercase for consistency with existing files
-	const eventType = event.type.toLowerCase();
+	const eventType = event.attributes.type.toLowerCase();
 
 	const frontmatter = `---
-title: "${event.title}"
-date: ${event.date}
-prix: "${event.price}"
-lieu: "${event.location}"
-tailleGroupe: ${event.groupSize}
+title: "${event.attributes.title}"
+date: ${event.attributes.date}
+prix: "${event.attributes.price}"
+lieu: "${event.attributes.location}"
+tailleGroupe: ${event.attributes.groupSize}
 image: "${imageRelativePath || ""}"
 type: "${eventType}"
-lien: '${event.bookingLink}'
+lien: '${event.attributes.bookingLink}'
 ---
 
-${event.content}`;
+${event.attributes.content}`;
 
 	return frontmatter;
 };
 
-export const POST: APIRoute = async ({ request }) => {
+export async function POST({ request }: APIContext) {
+	// Add CORS headers
+	const headers = new Headers({
+		"Access-Control-Allow-Origin": "https://far-filament-back.vercel.app",
+		"Access-Control-Allow-Methods": "POST",
+		"Access-Control-Allow-Headers": "Content-Type",
+	});
+
 	try {
 		const data = await request.json();
 		const { type, content } = data;
@@ -136,6 +160,7 @@ export const POST: APIRoute = async ({ request }) => {
 		if (!type || !content) {
 			return new Response(JSON.stringify({ error: "Missing type or content" }), {
 				status: 400,
+				headers,
 			});
 		}
 
@@ -149,7 +174,7 @@ export const POST: APIRoute = async ({ request }) => {
 				"src",
 				"content",
 				"blog",
-				`${content.slug}.md`
+				`${content.attributes.slug}.md`
 			);
 		} else if (type === "event") {
 			markdownContent = await convertEventToMarkdown(content as Event);
@@ -158,11 +183,12 @@ export const POST: APIRoute = async ({ request }) => {
 				"src",
 				"content",
 				"events",
-				`${content.slug}.md`
+				`${content.attributes.slug}.md`
 			);
 		} else {
 			return new Response(JSON.stringify({ error: "Invalid content type" }), {
 				status: 400,
+				headers,
 			});
 		}
 
@@ -170,11 +196,25 @@ export const POST: APIRoute = async ({ request }) => {
 
 		return new Response(JSON.stringify({ success: true }), {
 			status: 200,
+			headers,
 		});
 	} catch (error) {
 		console.error("Error processing webhook:", error);
 		return new Response(JSON.stringify({ error: "Internal server error" }), {
 			status: 500,
+			headers,
 		});
 	}
-};
+}
+
+// Handle preflight requests
+export function OPTIONS() {
+	return new Response(null, {
+		status: 204,
+		headers: {
+			"Access-Control-Allow-Origin": "https://far-filament-back.vercel.app",
+			"Access-Control-Allow-Methods": "POST",
+			"Access-Control-Allow-Headers": "Content-Type",
+		},
+	});
+}
