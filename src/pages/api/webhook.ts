@@ -148,7 +148,7 @@ ${event.attributes.content}`;
 export async function POST({ request }: APIContext) {
 	// Add CORS headers
 	const headers = new Headers({
-		"Access-Control-Allow-Origin": "https://far-filament-back.vercel.app",
+		"Access-Control-Allow-Origin": "https://far-filament-back.onrender.com",
 		"Access-Control-Allow-Methods": "POST",
 		"Access-Control-Allow-Headers": "Content-Type",
 	});
@@ -212,7 +212,7 @@ export function OPTIONS() {
 	return new Response(null, {
 		status: 204,
 		headers: {
-			"Access-Control-Allow-Origin": "https://far-filament-back.vercel.app",
+			"Access-Control-Allow-Origin": "https://far-filament-back.onrender.com",
 			"Access-Control-Allow-Methods": "POST",
 			"Access-Control-Allow-Headers": "Content-Type",
 		},
