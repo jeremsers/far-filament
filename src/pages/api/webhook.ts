@@ -32,8 +32,8 @@ title: ${entry.title}
 pubDate: ${entry.pubDate}
 description: ${entry.description}
 author: ${entry.author}
-category: ${entry.category}
-tags: ${entry.tags}
+category: ${entry.category[0]}
+tags: ${entry.Tags}
 ---
 
 ${entry.content}
