@@ -22,7 +22,13 @@ const formatDate = (date: Date) => {
 
 <a href={url} class="preview-article">
 	<div class="preview-image">
-		<Image src={image} alt={title} />
+		<Image
+			src={image}
+			alt={title}
+			width={900}
+			height={900}
+			style="object-fit: cover"
+		/>
 	</div>
 	<div class="preview-content">
 		<span class="preview-category">{category}</span>
