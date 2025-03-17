@@ -26,7 +26,6 @@ export const POST: APIRoute = async ({ request }) => {
 			return new Response("No entry data", { status: 400 });
 		}
 
-
 		// Create markdown content for blog posts
 		if (payload.model === "blog") {
 			const markdownContent = `---
@@ -65,7 +64,7 @@ ${entry.content}`;
 					repo: import.meta.env.GITHUB_REPO,
 					path: `src/content/${payload.model}/${entry.slug}.md`,
 				});
-				const sha = filequery.data.sha;
+				const sha = (filequery.data as { sha: string }).sha;
 				// Update the file in the repository
 				const response = await octokit.repos.createOrUpdateFileContents({
 					owner: import.meta.env.GITHUB_OWNER,
@@ -90,7 +89,7 @@ ${entry.content}`;
 					repo: import.meta.env.GITHUB_REPO,
 					path: `src/content/${payload.model}/${entry.slug}.md`,
 				});
-				const sha = filequery.data.sha;
+				const sha = (filequery.data as { sha: string }).sha;
 				// Delete the file in the repository
 				const response = await octokit.repos.deleteFile({
 					owner: import.meta.env.GITHUB_OWNER,
