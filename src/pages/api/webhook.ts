@@ -25,26 +25,21 @@ export const POST: APIRoute = async ({ request }) => {
 		if (!entry) {
 			return new Response("No entry data", { status: 400 });
 		}
-		const tagArray: string[] = [];
-		entry.Tags.forEach((tag: any) => {
-			tagArray.push(tag);
-		});
-		console.log(entry);
+
 
 		// Create markdown content for blog posts
 		if (payload.model === "blog") {
 			const markdownContent = `---
-		title: ${entry.title}
-		pubDate: ${entry.pubDate}
-		description: ${entry.description}
-		author: ${entry.author}
-		category: ${payload.entry.category.name}
-		tags: ${tagArray}
-		image: ${payload.entry.image.url}
-		---
-		
-		${entry.content}
-		`;
+title: ${entry.title}
+pubDate: ${entry.pubDate}
+description: ${entry.description}
+author: ${entry.author}
+category: ${payload.entry.category.name}
+tags: [${entry.tags}]
+image: ${payload.entry.image.url}
+---
+
+${entry.content}`;
 
 			if (payload.event === "entry.create") {
 				// Create a new file in the repository
