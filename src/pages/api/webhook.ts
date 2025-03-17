@@ -7,7 +7,7 @@ const octokit = new Octokit({
 	auth: import.meta.env.GITHUB_TOKEN,
 });
 
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
 	try {
 		const payload = await request.json();
 
