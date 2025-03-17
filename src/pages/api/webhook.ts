@@ -17,9 +17,9 @@ export const POST: APIRoute = async ({ request }) => {
 		console.log("Expected signature:", import.meta.env.STRAPI_WEBHOOK_SECRET);
 		if (
 			!strapiSignature ||
-			strapiSignature !== import.meta.env.STRAPI_WEBHOOK_SECRET.toString()
+			strapiSignature !== import.meta.env.STRAPI_WEBHOOK_SECRET
 		) {
-			return new Response("Unauthorized" + " " + strapiSignature, { status: 401 });
+			return new Response("Unauthorized" + " " + strapiSignature + " " + import.meta.env.STRAPI_WEBHOOK_SECRET, { status: 401 });
 		}
 
 		// Extract the content from the Strapi payload
