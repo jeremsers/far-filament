@@ -43,7 +43,7 @@ ${entry.content}
 		const response = await octokit.repos.createOrUpdateFileContents({
 			owner: import.meta.env.GITHUB_OWNER,
 			repo: import.meta.env.GITHUB_REPO,
-			path: `/src/content/blog/${entry.slug}.md`,
+			path: `src/content/blog/${entry.slug}.md`,
 			message: `Add/Update content: ${entry.title}`,
 			content: Buffer.from(markdownContent).toString("base64"),
 		});
