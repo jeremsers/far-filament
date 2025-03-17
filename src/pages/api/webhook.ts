@@ -11,19 +11,13 @@ export const POST: APIRoute = async ({ request }) => {
 	try {
 		const payload = await request.json();
 
-		// Debug all headers
-		const headers = Object.fromEntries(request.headers.entries());
-		console.log("All received headers:", headers);
-
 		// Verify the webhook signature from Strapi
 		const strapiSignature = request.headers.get("secret");
-		console.log("Received signature:", strapiSignature);
-		console.log("Expected signature:", import.meta.env.STRAPI_WEBHOOK_SECRET);
 		if (!strapiSignature) {
-			return new Response("No Authorization header received", { status: 401 });
+			return new Response("No secret header received", { status: 401 });
 		}
 		if (strapiSignature !== import.meta.env.STRAPI_WEBHOOK_SECRET) {
-			return new Response("Invalid Authorization header", { status: 401 });
+			return new Response("Invalid secret header", { status: 401 });
 		}
 
 		// Extract the content from the Strapi payload
