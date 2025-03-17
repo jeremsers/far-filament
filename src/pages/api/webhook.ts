@@ -45,75 +45,78 @@ export const POST: APIRoute = async ({ request }) => {
 		
 		${entry.content}
 		`;
-		
-		if (payload.event === "entry.created") {
-			// Create a new file in the repository
-			const response = await octokit.repos.createOrUpdateFileContents({
-				owner: import.meta.env.GITHUB_OWNER,
-				repo: import.meta.env.GITHUB_REPO,
-				path: `src/content/${payload.model}/${entry.slug}.md`,
-				message: `Add/Update content: ${entry.title}`,
-				content: Buffer.from(markdownContent).toString("base64"),
-			});
 
-			return new Response(JSON.stringify(response.data), {
-				status: 200,
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
+			if (payload.event === "entry.create") {
+				// Create a new file in the repository
+				const response = await octokit.repos.createOrUpdateFileContents({
+					owner: import.meta.env.GITHUB_OWNER,
+					repo: import.meta.env.GITHUB_REPO,
+					path: `src/content/${payload.model}/${entry.slug}.md`,
+					message: `Add/Update content: ${entry.title}`,
+					content: Buffer.from(markdownContent).toString("base64"),
+				});
+
+				return new Response(JSON.stringify(response.data), {
+					status: 200,
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+			}
+			if (payload.event === "entry.update") {
+				// Fetch the existing file's sha in the repository
+				const filequery = await octokit.repos.getContent({
+					owner: import.meta.env.GITHUB_OWNER,
+					repo: import.meta.env.GITHUB_REPO,
+					path: `src/content/${payload.model}/${entry.slug}.md`,
+				});
+				const sha = filequery.data.sha;
+				// Update the file in the repository
+				const response = await octokit.repos.createOrUpdateFileContents({
+					owner: import.meta.env.GITHUB_OWNER,
+					repo: import.meta.env.GITHUB_REPO,
+					path: `src/content/${payload.model}/${entry.slug}.md`,
+					message: `Update content: ${entry.title}`,
+					sha: sha,
+					content: Buffer.from(markdownContent).toString("base64"),
+				});
+
+				return new Response(JSON.stringify(response.data), {
+					status: 200,
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+			}
+			if (payload.event === "entry.delete") {
+				// Fetch the existing file's sha in the repository
+				const filequery = await octokit.repos.getContent({
+					owner: import.meta.env.GITHUB_OWNER,
+					repo: import.meta.env.GITHUB_REPO,
+					path: `src/content/${payload.model}/${entry.slug}.md`,
+				});
+				const sha = filequery.data.sha;
+				// Delete the file in the repository
+				const response = await octokit.repos.deleteFile({
+					owner: import.meta.env.GITHUB_OWNER,
+					repo: import.meta.env.GITHUB_REPO,
+					path: `src/content/${payload.model}/${entry.slug}.md`,
+					message: `Delete content: ${entry.title}`,
+					sha: sha,
+				});
+
+				return new Response(JSON.stringify(response.data), {
+					status: 200,
+					headers: {
+						"Content-Type": "application/json",
+					},
+				});
+			}
 		}
-		if (payload.event === "entry.updated") {
-			// Fetch the existing file's sha in the repository
-			const filequery = await octokit.repos.getContent({
-				owner: import.meta.env.GITHUB_OWNER,
-				repo: import.meta.env.GITHUB_REPO,
-				path: `src/content/${payload.model}/${entry.slug}.md`,
-			});
-			const sha = filequery.data.sha;
-			// Update the file in the repository
-			const response = await octokit.repos.createOrUpdateFileContents({
-				owner: import.meta.env.GITHUB_OWNER,
-				repo: import.meta.env.GITHUB_REPO,
-				path: `src/content/${payload.model}/${entry.slug}.md`,
-				message: `Update content: ${entry.title}`,
-				sha: sha,
-				content: Buffer.from(markdownContent).toString("base64"),
-			});
-
-			return new Response(JSON.stringify(response.data), {
-				status: 200,
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
-		}
-		if (payload.event === "entry.deleted") {
-			// Fetch the existing file's sha in the repository
-			const filequery = await octokit.repos.getContent({
-				owner: import.meta.env.GITHUB_OWNER,
-				repo: import.meta.env.GITHUB_REPO,
-				path: `src/content/${payload.model}/${entry.slug}.md`,
-			});
-			const sha = filequery.data.sha;
-			// Delete the file in the repository
-			const response = await octokit.repos.deleteFileContents({
-				owner: import.meta.env.GITHUB_OWNER,
-				repo: import.meta.env.GITHUB_REPO,
-				path: `src/content/${payload.model}/${entry.slug}.md`,
-				message: `Delete content: ${entry.title}`,
-				sha: sha,
-			});
-
-			return new Response(JSON.stringify(response.data), {
-				status: 200,
-				headers: {
-					"Content-Type": "application/json",
-				},
-			});
-		}
-	}
-
+		return new Response(JSON.stringify({ message: "Model not supported" }), {
+			status: 400,
+			headers: { "Content-Type": "application/json" },
+		});
 	} catch (error) {
 		console.error("Webhook error:", error);
 		return new Response(JSON.stringify({ error: "Internal Server Error" }), {

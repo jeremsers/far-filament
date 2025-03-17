@@ -45,7 +45,12 @@ const similarPosts = allPosts
 				{
 					entry.data.image && (
 						<div class="post-image">
-							<Image src={entry.data.image} alt={entry.data.title} />
+							<Image
+								src={entry.data.image}
+								alt={entry.data.title}
+								width={1000}
+								height={1000}
+							/>
 						</div>
 					)
 				}

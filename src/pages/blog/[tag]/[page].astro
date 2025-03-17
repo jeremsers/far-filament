@@ -106,7 +106,12 @@ const formatDate = (date: Date) => {
 						<a href={`/blog/${post.slug}`} class="card-link">
 							{post.data.image && (
 								<div class="card-image">
-									<Image src={post.data.image} alt={post.data.title} />
+									<Image
+										src={post.data.image}
+										alt={post.data.title}
+										width={1000}
+										height={1000}
+									/>
 								</div>
 							)}
 							<div class="card-content">
