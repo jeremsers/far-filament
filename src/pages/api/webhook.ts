@@ -16,7 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
 		console.log("All received headers:", headers);
 
 		// Verify the webhook signature from Strapi
-		const strapiSignature = request.headers.get("Authorization");
+		const strapiSignature = request.headers.get("secret");
 		console.log("Received signature:", strapiSignature);
 		console.log("Expected signature:", import.meta.env.STRAPI_WEBHOOK_SECRET);
 		if (!strapiSignature) {
