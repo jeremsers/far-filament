@@ -21,4 +21,4 @@ La PNL offre des stratégies puissantes pour améliorer nos capacités d'apprent
 3. **La modélisation**
    Reproduisez les stratégies des apprenants performants.
 
-Apprendre devient plus facile quand on comprend comment notre cerveau fonctionne. 
+Apprendre devient plus facile quand on comprend comment notre cerveau fonctionne.
