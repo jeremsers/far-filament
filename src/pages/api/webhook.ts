@@ -13,8 +13,8 @@ export const POST: APIRoute = async ({ request }) => {
 
 		// Verify the webhook signature from Strapi
 		const strapiSignature = request.headers.get("Authorization");
-		if (!strapiSignature || strapiSignature !== import.meta.env.STRAPI_WEBHOOK_SECRET) {
-			return new Response("Unauthorized", { status: 401 });
+		if (!strapiSignature || strapiSignature !== import.meta.env.STRAPI_WEBHOOK_SECRET.toString()) {
+			return new Response("Unauthorized" +' '+ strapiSignature, { status: 401 });
 		}
 
 		// Extract the content from the Strapi payload
