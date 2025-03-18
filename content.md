@@ -1,11 +1,9 @@
 “Soyez maître de votre destin, le capitaine de votre âme.” – William Ernest Henley
 
-Le burn-out et les relations toxiques, bien que distinctes, partagent un point commun : elles vous épuisent, vous font douter de vous-même et vous éloignent de votre véritable essence.
+Le burn-out et les relations toxiques, bien que différents, partagent un impact profond sur votre équilibre. Ils épuisent votre énergie, affaiblissent votre confiance en vous et perturbent vos capacités cognitives, limitant votre clarté mentale et vos prises de décision.
 
-Et si vous choisissiez de vous affranchir de ces entraves ? De vous libérer des schémas destructeurs, qu’ils soient ancrés dans des relations épuisantes ou des situations qui vous désalignent. Derrière la fatigue et les blessures, votre potentiel intérieur attend d’être réveillé. Il est temps de briser ce cycle et de retrouver votre liberté.
+Rompre avec ces schémas ne se fait pas simplement en en prenant conscience. Il faut aller plus loin, identifier ces mécanismes invisibles et les transformer. Je vous accompagne dans ce processus en utilisant la PNL, avec des outils puissants pour reconnaître et reprogrammer ces schémas, afin d’ajuster vos réactions face à des situations stressantes, qu’elles soient personnelles ou professionnelles.
 
-✔ Qui êtes-vous réellement, au-delà des blessures et des habitudes qui vous limitent ?
-✔ Êtes-vous prêt(e) à vous en libérer pour révéler votre véritable potentiel ?
-✔ Êtes-vous prêt(e) à vous aligner avec vos valeurs profondes et à vivre en harmonie avec elles ?
+Vous pouvez retrouver, dès maintenant, confiance, alignement et sérénité. Brisez les chaînes de votre prison mentale et reprenez le pouvoir sur votre vie. Il est temps de réécrire votre histoire.
 
-Reprogrammez-vous. Le changement commence ici.
+Le changement commence ici.
