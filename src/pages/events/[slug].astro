@@ -17,13 +17,16 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 
 // Formatage de la date
-const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
-	hour: "2-digit",
-	minute: "2-digit",
-});
+const formattedDate =
+	typeof entry.data.date === "string"
+		? entry.data.date
+		: new Date(entry.data.date).toLocaleDateString("fr-FR", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+				hour: "2-digit",
+				minute: "2-digit",
+			});
 ---
 
 <BaseLayout
@@ -48,19 +51,25 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 			}
 			<div class="event-meta">
 				<div class="event-date">
-					<span class="icon">📅</span>
-					<time datetime={entry.data.date.toISOString()}>{formattedDate}</time>
+					<span class="icon"><i class="fas fa-calendar-alt"></i></span>
+					<time
+						datetime={typeof entry.data.date === "string"
+							? entry.data.date
+							: entry.data.date.toISOString()}
+					>
+						{formattedDate}
+					</time>
 				</div>
 				<div class="event-location">
-					<span class="icon">📍</span>
+					<span class="icon"><i class="fas fa-map-marker-alt"></i></span>
 					<span>{entry.data.lieu}</span>
 				</div>
 				<div class="event-price">
-					<span class="icon">💰</span>
+					<span class="icon"><i class="fas fa-money-bill-wave"></i></span>
 					<span>{entry.data.prix}</span>
 				</div>
 				<div class="event-group-size">
-					<span class="icon">👥</span>
+					<span class="icon"><i class="fas fa-users"></i></span>
 					<span>{entry.data.tailleGroupe} participants maximum</span>
 				</div>
 			</div>
@@ -74,25 +83,29 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 				</div>
 			</div>
 
-			<div class="event-additional-info">
-				<h2>Informations pratiques</h2>
-				<div class="info-card">
-					<h3>Ce qui est inclus</h3>
-					<ul>
-						<li>Formation aux techniques d'ancrages</li>
-						<li>Certificat de participation</li>
-						<li>Pauses café et rafraîchissements</li>
-					</ul>
-				</div>
+			{
+				entry.data.type === "atelier" && (
+					<div class="event-additional-info">
+						<h2>Informations pratiques</h2>
+						<div class="info-card">
+							<h3>Ce qui est inclus</h3>
+							<ul>
+								<li>Formation aux techniques d'ancrages</li>
+								<li>Certificat de participation</li>
+								<li>Pauses café et rafraîchissements</li>
+							</ul>
+						</div>
 
-				<div class="info-card">
-					<h3>Prérequis</h3>
-					<p>
-						Aucune connaissance préalable en PNL n'est requise pour cet événement.
-						Tous les niveaux sont bienvenus.
-					</p>
-				</div>
-			</div>
+						<div class="info-card">
+							<h3>Prérequis</h3>
+							<p>
+								Aucune connaissance préalable en PNL n'est requise pour cet événement.
+								Tous les niveaux sont bienvenus.
+							</p>
+						</div>
+					</div>
+				)
+			}
 		</div>
 
 		<div class="event-registration">
@@ -102,9 +115,7 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString("fr-FR", {
 				<a class="btn-register" href={entry.data.lien} target="_blank">
 					S'inscrire maintenant
 				</a>
-				<p class="registration-note">
-					L'inscription est confirmée après paiement.
-				</p>
+				<p class="registration-note">L'inscription est confirmée après paiement.</p>
 			</div>
 		</div>
 

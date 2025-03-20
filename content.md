@@ -1,9 +1,20 @@
-“Soyez maître de votre destin, le capitaine de votre âme.” – William Ernest Henley
+Révélez votre potentiel grâce à la synergie entre numérologie et coaching PNL
 
-Le burn-out et les relations toxiques, bien que différents, partagent un impact profond sur votre équilibre. Ils épuisent votre énergie, affaiblissent votre confiance en vous et perturbent vos capacités cognitives, limitant votre clarté mentale et vos prises de décision.
+Plongez au cœur de vous-même pour activer les ressources qui résident déjà en vous. Ce parcours unique de 3 heures vous permet  de lever les blocages et d’accéder à votre plein potentiel.
 
-Rompre avec ces schémas ne se fait pas simplement en en prenant conscience. Il faut aller plus loin, identifier ces mécanismes invisibles et les transformer. Je vous accompagne dans ce processus en utilisant la PNL, avec des outils puissants pour reconnaître et reprogrammer ces schémas, afin d’ajuster vos réactions face à des situations stressantes, qu’elles soient personnelles ou professionnelles.
+Votre transformation en trois étapes :
 
-Vous pouvez retrouver, dès maintenant, confiance, alignement et sérénité. Brisez les chaînes de votre prison mentale et reprenez le pouvoir sur votre vie. Il est temps de réécrire votre histoire.
+🔹 Exploration Numérologique – Avec Claude Pidoux
+Les chiffres dévoilent les aspects profonds de votre mission de vie, vos forces naturelles et les défis à surmonter. Une véritable boussole pour mieux comprendre votre parcours intérieur.
 
-Le changement commence ici.
+🔹 Coaching PNL pour l’Éveil Intérieur – Avec Laurence Blondeau
+Intégrez ces révélations grâce aux techniques de la PNL. Libérez-vous des schémas limitants et alignez vos pensées et émotions avec votre vérité profonde.
+
+🔹 Fusion des Approches pour une Transformation Authentique
+L’alliance de la numérologie et du coaching PNL vous permet d’accéder à la richesse de vos ressources intérieures et de révéler la puissance qui sommeille en vous.
+
+Détails Pratiques :
+
+📅 Disponibilités : Jeudi et vendredi.
+⏳ Durée : 3 heures 
+💰 Investissement : CHF 400.

@@ -2,21 +2,48 @@
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
-// Récupérer tous les événements et les trier par date (du plus récent au plus ancien)
+// Récupérer tous les événements et les trier
 const events = await getCollection("events");
 const recentEvents = events
-	.sort(
-		(a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-	)
+	.sort((a, b) => {
+		// First, sort by type (sessions first)
+		if (a.data.type === "session" && b.data.type !== "session") return -1;
+		if (a.data.type !== "session" && b.data.type === "session") return 1;
+
+		// Then, sort by date for non-session events (newest first)
+		if (a.data.type !== "session" && b.data.type !== "session") {
+			return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
+		}
+
+		// If both are sessions, maintain their current order
+		return 0;
+	})
 	.slice(0, 3); // Prendre les 3 plus récents
 
 // Formatage de la date
-const formatDate = (date: Date) => {
+const formatDate = (date: Date | string) => {
+	if (typeof date === "string") return date;
 	return new Date(date).toLocaleDateString("fr-FR", {
 		year: "numeric",
 		month: "long",
 		day: "numeric",
 	});
+};
+
+// Fonction pour obtenir le titre du type d'événement
+const getTypeTitle = (type: string) => {
+	switch (type) {
+		case "atelier":
+			return "Ateliers";
+		case "conference":
+			return "Conférences";
+		case "retraite":
+			return "Retraites";
+		case "session":
+			return "Sessions";
+		default:
+			return "Tous les événements";
+	}
 };
 ---
 
@@ -24,13 +51,12 @@ const formatDate = (date: Date) => {
 	<div class="container">
 		<div class="section-header">
 			<h2>Événements à venir</h2>
-			<p class="section-subtitle">Chaque mois, je propose deux ateliers de 8 heures, ou une conférence, ou une
+			<p class="section-subtitle">
+				Chaque mois, je propose deux ateliers de 8 heures, ou une conférence, ou une
 				retraite, en lien direct avec les thématiques des packs que je propose. Ces
 				événements sont conçus pour vous offrir des outils pratiques et un
 				accompagnement approfondi dans votre évolution personnelle.
-			
 			</p>
-			
 		</div>
 
 		<div class="event-cards">
@@ -52,18 +78,30 @@ const formatDate = (date: Date) => {
 							<h3>{event.data.title}</h3>
 							<div class="event-meta">
 								<div class="event-date">
-									<span class="icon">📅</span>
-									<time datetime={event.data.date.toISOString()}>
+									<span class="icon">
+										<i class="fas fa-calendar-alt" />
+									</span>
+									<time
+										datetime={
+											typeof event.data.date === "string"
+												? event.data.date
+												: event.data.date.toISOString()
+										}
+									>
 										{formatDate(event.data.date)}
 									</time>
 								</div>
 								<div class="event-location">
-									<span class="icon">📍</span>
+									<span class="icon">
+										<i class="fas fa-map-marker-alt" />
+									</span>
 									<span>{event.data.lieu}</span>
 								</div>
 							</div>
 							<div class="event-footer">
-								<span class="event-price">{event.data.prix}</span>
+								<span class="event-price">
+									<i class="fas fa-money-bill-wave" /> {event.data.prix}
+								</span>
 								<a href={`/events/${event.slug}`} class="btn-details">
 									En savoir plus
 								</a>
@@ -221,6 +259,8 @@ const formatDate = (date: Date) => {
 
 			.icon {
 				margin-right: $spacing-xs;
+				color: $primary-color;
+				font-size: 1.2em;
 			}
 		}
 	}
@@ -234,6 +274,13 @@ const formatDate = (date: Date) => {
 			font-weight: bold;
 			color: $secondary-color;
 			font-size: 1.1rem;
+			display: flex;
+			align-items: center;
+			gap: $spacing-xs;
+
+			i {
+				color: $primary-color;
+			}
 		}
 
 		.btn-details {
