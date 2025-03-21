@@ -18,8 +18,9 @@ Votre transformation en trois étapes :
 🔹 Exploration Numérologique – Avec Claude Pidoux (1h30)
 Les chiffres dévoilent les aspects profonds de votre mission de vie, vos forces naturelles et les défis à surmonter. Une véritable boussole pour mieux comprendre votre parcours intérieur.
 
+🔹 Fusion des Approches pour une Transformation Authentique
+L'alliance de la numérologie et du coaching PNL vous permet d'accéder à la richesse de vos ressources intérieures et de révéler la puissance qui sommeille en vous.
+
 🔹 Coaching PNL pour l'Éveil Intérieur – Avec Laurence Blondeau (1h30)
 Intégrez ces révélations grâce aux techniques de la PNL. Libérez-vous des schémas limitants et alignez vos pensées et émotions avec votre vérité profonde.
 
-🔹 Fusion des Approches pour une Transformation Authentique
-L'alliance de la numérologie et du coaching PNL vous permet d'accéder à la richesse de vos ressources intérieures et de révéler la puissance qui sommeille en vous.
