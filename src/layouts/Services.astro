@@ -58,20 +58,20 @@ const serviceModals = {
 	},
 	essence: {
 		title: 'Pack "Essence de Vie"',
-		subtitle: "Osez Incarner qui vous êtes vraiment",
-		duration: "8 séances de 1 heure",
+		subtitle: "Les 8 étapes de votre transformation intérieure",
+		duration: "8 séances sur 3 mois",
 		price: "960 CHF",
 		description:
-			"Vous sentez que quelque chose manque dans votre vie, que vous n'êtes pas pleinement aligné avec vos aspirations profondes ? Ce pack est là pour vous accompagner dans un voyage intérieur puissant. Grâce à des outils de PNL et d'hypnose, vous allez découvrir la force intérieure qui sommeille en vous, dépasser vos croyances limitantes et rétablir une connexion profonde avec vos valeurs authentiques.",
+			"Et si le vrai point de départ, c'était vous ? Ce pack vous invite à faire une pause, à écouter ce qui résonne en vous, à revenir à votre essence. En explorant vos valeurs, vos croyances et vos aspirations profondes, vous amorcez un chemin de reconnexion, de clarté et d'alignement.",
 		features: [
-			"1. Exploration de votre situation actuelle",
-			"2. Découverte de vos valeurs profondes",
-			"3. Identification et transformation des croyances limitantes",
-			"4. Alignement entre vos actions et vos valeurs",
-			"5. Création d'une vision inspirante",
-			"6. Élaboration d'un plan d'action concret",
-			"7. Intégration des changements",
-			"8. Bilan et consolidation des acquis",
+			"1. Explorer où vous en êtes",
+			"2. Redécouvrir vos valeurs profondes",
+			"3. Libérer les croyances qui vous freinent",
+			"4. Aligner vos actions avec qui vous êtes vraiment",
+			"5. Créer une vision qui vous inspire",
+			"6. Mettre en place des actions concrètes",
+			"7. Intégrer le changement",
+			"8. Célébrer, faire le point et poursuivre en conscience",
 		],
 		conditions: [
 			"Pack valable sur une période de 3 mois (Non remboursable)",
@@ -80,10 +80,10 @@ const serviceModals = {
 			"Ajustable selon votre progression",
 		],
 		benefits: [
-			"Clarifiez ce qui compte vraiment pour vous",
-			"Alignez vos actions avec vos valeurs",
-			"Travaillez sur les croyances et les peurs qui vous empêchent d'avancer",
-			"Mettez en place des stratégies concrètes pour réaliser vos rêves",
+			"Faire une pause pour écouter ce qui résonne en vous",
+			"Explorer vos valeurs, croyances et aspirations profondes",
+			"Amorcer un chemin de reconnexion et d'alignement",
+			"Retrouver clarté et confiance en vous",
 		],
 		calendlyLink: essencelink,
 		image: essenceImage,
@@ -121,11 +121,11 @@ const serviceModals = {
 	},
 	renaissance: {
 		title: 'Pack "Renaissance"',
-		subtitle: "Se reconstruire après une relation toxique",
+		subtitle: "Se reconstruire après un schéma toxique",
 		duration: "6 séances de 1h30",
 		price: "1200 CHF",
 		description:
-			"Sortir d'une relation toxique est une étape clé pour se retrouver et avancer. Ce programme est conçu pour vous accompagner avec des outils puissants de PNL, dans un espace bienveillant et structurant. Nous avancerons ensemble, mais c'est avant tout votre engagement et votre force intérieure qui feront toute la différence. Et si, cette fois, vous vous choisissiez vraiment ?",
+			"Sortir d'un schéma toxique est une étape clé pour se retrouver et avancer. Ce programme est conçu pour vous accompagner avec des outils puissants de PNL, dans un espace bienveillant et structurant. Nous avancerons ensemble, mais c'est avant tout votre engagement et votre force intérieure qui feront toute la différence. Et si, cette fois, vous vous choisissiez vraiment ?",
 		features: [
 			"1. Comprendre et prendre du recul",
 			"2. Se libérer des émotions bloquantes",
@@ -275,14 +275,14 @@ const serviceModals = {
 					/>
 					<div class="image-overlay highlight-overlay"></div>
 				</div>
-				<h3>Pack "Essence de Vie"</h3>
-				<p class="subtitle">Osez Incarner qui vous êtes vraiment</p>
+				<h3>Revenir à soi</br>Pack "Essence de Vie"</h3>
+				<p class="subtitle">Les 8 étapes de votre transformation intérieure</p>
 				<p class="duration">8 séances sur 3 mois</p>
 				<ul>
-					<li>Découverte de vos valeurs profondes</li>
-					<li>Transformation des croyances limitantes</li>
-					<li>Alignement entre vos actions et vos valeurs</li>
-					<li>Création d'un plan d'action concret</li>
+					<li>Explorer où vous en êtes</li>
+					<li>Redécouvrir vos valeurs profondes</li>
+					<li>Libérer les croyances qui vous freinent</li>
+					<li>Aligner vos actions avec qui vous êtes vraiment</li>
 				</ul>
 				<button class="cta-btn" data-modal="modal-essence">En savoir plus</button>
 			</div>
@@ -320,7 +320,7 @@ const serviceModals = {
 					<div class="image-overlay highlight-overlay"></div>
 				</div>
 				<h3>Pack "Renaissance"</h3>
-				<p class="subtitle">Se reconstruire après une relation toxique</p>
+				<p class="subtitle">Se reconstruire après un schéma toxique</p>
 				<p class="duration">6 séances sur 6-8 semaines</p>
 				<ul>
 					<li>Comprendre et prendre du recul</li>
@@ -470,11 +470,7 @@ const serviceModals = {
 			}
 
 			.premium-overlay {
-				background: linear-gradient(
-					to top,
-					rgba(mix($bg-light, $primary-color, 90%), 0.9),
-					transparent
-				);
+				box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 			}
 
 			.premium-badge {
@@ -596,11 +592,14 @@ const serviceModals = {
 		}
 
 		&.premium {
-			background: linear-gradient(
-				to bottom right,
-				$bg-light,
-				rgba($primary-color, 0.1)
-			);
+			background-color: $bg-light;
+			box-shadow: 0 0 20px 3px rgba(255, 255, 255, 1);
+			position: relative;
+			z-index: 1;
+
+			&:hover {
+				box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+			}
 		}
 	}
 

@@ -6,42 +6,20 @@ import heroBanner from "../images/main1.avif";
 <section class="hero" id="hero">
 	<div class="hero-content">
 		<div class="section-header">
-			<h1>Reprenez le pouvoir sur votre vie</h1>
+			<h1>Brisez les chaînes de votre prison mentale</h1>
 			<p class="quote">
-				"<strong>Soyez maître de votre destin, le capitaine de votre âme.</strong>"
-				– William Ernest Henley
+				"<strong>Le voyage de mille lieues commence par un pas. – Lao Tseu </strong>
 			</p>
 			<p class="section-subtitle">
-				Le <strong>burn-out</strong> et les <strong>relations toxiques</strong>,
-				bien que différents, partagent un impact profond sur votre <strong
-					>équilibre</strong
-				>. Ils <strong>épuisent</strong> votre énergie,
-				<strong>affaiblissent</strong> votre confiance en vous et <strong
-					>perturbent</strong
-				> vos capacités cognitives, limitant votre
-				<strong>clarté mentale</strong> et vos prises de décision.
-				<br /><br />
-				Rompre avec ces <strong>schémas</strong> ne se fait pas simplement en en prenant
-				conscience. Il faut aller plus loin,
-				<strong>identifier</strong> ces mécanismes invisibles et les <strong
-					>transformer</strong
-				>. Je vous accompagne dans ce processus en utilisant la PNL, avec des outils
-				puissants pour reconnaître et <strong>reprogrammer</strong> ces schémas, afin
-				d'ajuster vos réactions face à des situations stressantes, qu'elles soient personnelles
-				ou professionnelles.
+				Revenir à soi, c'est <strong>éveiller</strong> votre <strong>force intérieure</strong> et <strong>puiser</strong> dans vos <strong>ressources profondes</strong> pour <strong>briser</strong> les <strong>schémas toxiques</strong>, <strong>surmonter</strong> le <strong>burn-out</strong> et <strong>libérer</strong> votre esprit grâce à l'hypnose. Même lorsque le chemin semble long et difficile, chaque petit pas vous rapproche de la <strong>transformation</strong>. Vous portez en vous tout le <strong>potentiel</strong> nécessaire pour <strong>réécrire</strong> votre histoire.
 			</p>
+			<p class="hero-description">
+				<strong>Reprenez le pouvoir sur votre vie.</strong> À travers la PNL et l'hypnose, je vous accompagne sur le chemin de la <strong>liberté</strong>, pour vous <strong>reconnecter</strong> à votre <strong>essence profonde</strong>.
+			</p>
+			<a href="https://essence-conscience-decouverte.youcanbook.me" class="cta-btn"
+				><strong>Le changement commence ici</strong>.</a
+			>
 		</div>
-		<p class="hero-description">
-			Vous pouvez retrouver, dès maintenant, <strong>confiance</strong>, <strong
-				>alignement</strong
-			> et <strong>sérénité</strong>.<br />
-			Brisez les chaînes de votre <strong>prison mentale</strong> et reprenez le
-			<strong>pouvoir</strong> sur votre vie.<br />
-			Il est temps de <strong>réécrire</strong> votre histoire.
-		</p>
-		<a href="#about" class="cta-btn"
-			><strong>Le changement commence ici</strong>.</a
-		>
 	</div>
 	<Image
 		src={heroBanner}
@@ -52,240 +30,240 @@ import heroBanner from "../images/main1.avif";
 		decoding="async"
 		loading="lazy"
 	/>
-</section>
 
-<style lang="scss">
-	.hero {
-		position: relative;
-		min-height: 90vh;
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-
-		.hero-content {
+	<style lang="scss">
+		.hero {
 			position: relative;
-			z-index: 2;
-			width: 100%;
-			margin: 0 auto;
-			padding: 40px;
-			text-align: center;
-			text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-			animation: fadeIn 1s ease-out;
+			min-height: 90vh;
+			display: flex;
+			align-items: center;
+			overflow: hidden;
+
+			.hero-content {
+				position: relative;
+				z-index: 2;
+				width: 100%;
+				margin: 0 auto;
+				padding: 40px;
+				text-align: center;
+				text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+				animation: fadeIn 1s ease-out;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 130%;
+					height: 150%;
+					transform: translate(-50%, -50%);
+					background: radial-gradient(
+						circle,
+						rgba(0, 0, 0, 0.4) 0%,
+						rgba(0, 0, 0, 0) 70%
+					);
+					z-index: -1;
+				}
+			}
+
+			.section-header {
+				margin-bottom: 30px;
+
+				h1 {
+					color: $text-white;
+					font-size: clamp(1.5rem, 5vw + 1rem, 4rem);
+					margin-bottom: 25px;
+					font-weight: 800;
+					line-height: 1.1;
+					position: relative;
+					display: inline-block;
+					text-shadow:
+						2px 2px 8px rgba(0, 0, 0, 0.3),
+						0 0 60px rgba(0, 0, 0, 0.3);
+					letter-spacing: -0.02em;
+					animation: slideDown 0.8s ease-out;
+
+					&:after {
+						content: "";
+						position: absolute;
+						bottom: -12px;
+						left: 50%;
+						transform: translateX(-50%);
+						width: 120px;
+						height: 4px;
+						background: linear-gradient(
+							90deg,
+							rgba(255, 255, 255, 0.8) 0%,
+							rgba(255, 255, 255, 1) 50%,
+							rgba(255, 255, 255, 0.8) 100%
+						);
+						border-radius: 2px;
+						animation: expandWidth 1s ease-out;
+					}
+				}
+
+				.section-subtitle {
+					font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+					max-width: 800px;
+					margin: 35px auto;
+					color: $text-white;
+					text-align: justify;
+					line-height: 1.6;
+					text-shadow:
+						1px 1px 3px rgba(0, 0, 0, 0.3),
+						0 0 40px rgba(0, 0, 0, 0.2);
+					font-weight: 500;
+					animation: fadeIn 1s ease-out 0.3s both;
+				}
+			}
+
+			.quote {
+				font-style: italic;
+				font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.4rem);
+				color: darken($text-white, 5%);
+				margin: 25px 0;
+				font-weight: 500;
+				opacity: 0.95;
+				text-shadow:
+					1px 1px 3px rgba(0, 0, 0, 0.3),
+					0 0 40px rgba(0, 0, 0, 0.2);
+				animation: fadeIn 1s ease-out 0.6s both;
+			}
+
+			.hero-description {
+				font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
+				line-height: 1.7;
+				margin: 0 auto 45px;
+				color: $text-white;
+				max-width: 800px;
+				font-weight: 500;
+				text-align: center;
+				text-shadow:
+					1px 1px 3px rgba(0, 0, 0, 0.3),
+					0 0 40px rgba(0, 0, 0, 0.2);
+				animation: fadeIn 1s ease-out 0.9s both;
+			}
+
+			.cta-btn {
+				display: inline-block;
+				background-color: $secondary-color;
+				color: white;
+				padding: clamp(15px, 2vw + 5px, 20px) clamp(30px, 4vw + 10px, 48px);
+				margin-top: clamp(30px, 5vw + 10px, 60px);
+				border-radius: 30px;
+				font-weight: 600;
+				transition: all 0.3s ease-in-out;
+				align-self: center;
+				text-align: center;
+				position: relative;
+				z-index: 1;
+				letter-spacing: 0.5px;
+				box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
+
+				&:hover {
+					transform: translateY(-3px);
+					box-shadow: 0 8px 20px rgba($primary-color, 0.3);
+					background: linear-gradient(135deg, $secondary-color, $primary-color);
+					background-color: $primary-color;
+				}
+			}
+
+			.hero-img {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				z-index: 1;
+				opacity: 0.7;
+				animation: zoomIn 20s ease-out infinite alternate;
+			}
 
 			&::before {
 				content: "";
 				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 130%;
-				height: 150%;
-				transform: translate(-50%, -50%);
-				background: radial-gradient(
-					circle,
-					rgba(0, 0, 0, 0.4) 0%,
-					rgba(0, 0, 0, 0) 70%
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: linear-gradient(
+					180deg,
+					rgba(0, 0, 0, 0.7) 0%,
+					rgba(0, 0, 0, 0.4) 25%,
+					rgba(0, 0, 0, 0.4) 75%,
+					rgba(0, 0, 0, 0.7) 100%
 				);
-				z-index: -1;
+				z-index: 1;
+			}
+
+			// Add a top gradient for better text contrast at the top
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 30vh;
+				background: linear-gradient(
+					to bottom,
+					rgba(0, 0, 0, 0.6) 0%,
+					rgba(0, 0, 0, 0) 100%
+				);
+				z-index: 1;
 			}
 		}
 
-		.section-header {
-			margin-bottom: 30px;
+		@keyframes fadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-			h1 {
-				color: $text-white;
-				font-size: clamp(1.5rem, 5vw + 1rem, 4rem);
-				margin-bottom: 25px;
-				font-weight: 800;
-				line-height: 1.1;
-				position: relative;
-				display: inline-block;
-				text-shadow:
-					2px 2px 8px rgba(0, 0, 0, 0.3),
-					0 0 60px rgba(0, 0, 0, 0.3);
-				letter-spacing: -0.02em;
-				animation: slideDown 0.8s ease-out;
+		@keyframes slideDown {
+			from {
+				opacity: 0;
+				transform: translateY(-30px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
 
-				&:after {
-					content: "";
-					position: absolute;
-					bottom: -12px;
-					left: 50%;
-					transform: translateX(-50%);
-					width: 120px;
-					height: 4px;
-					background: linear-gradient(
-						90deg,
-						rgba(255, 255, 255, 0.8) 0%,
-						rgba(255, 255, 255, 1) 50%,
-						rgba(255, 255, 255, 0.8) 100%
-					);
-					border-radius: 2px;
-					animation: expandWidth 1s ease-out;
+		@keyframes expandWidth {
+			from {
+				width: 0;
+			}
+			to {
+				width: 120px;
+			}
+		}
+
+		@keyframes zoomIn {
+			from {
+				transform: scale(1);
+			}
+			to {
+				transform: scale(1.1);
+			}
+		}
+
+		@media (max-width: $mobile) {
+			.hero {
+				height: 100%;
+				min-height: 100vh;
+
+				.hero-content {
+					padding: 25px;
+					margin: 0 15px;
 				}
 			}
-
-			.section-subtitle {
-				font-size: clamp(1.1rem, 2vw + 0.5rem, 1.5rem);
-				max-width: 800px;
-				margin: 35px auto;
-				color: $text-white;
-				text-align: justify;
-				line-height: 1.6;
-				text-shadow:
-					1px 1px 3px rgba(0, 0, 0, 0.3),
-					0 0 40px rgba(0, 0, 0, 0.2);
-				font-weight: 500;
-				animation: fadeIn 1s ease-out 0.3s both;
-			}
 		}
-
-		.quote {
-			font-style: italic;
-			font-size: clamp(1.1rem, 1.5vw + 0.5rem, 1.4rem);
-			color: darken($text-white, 5%);
-			margin: 25px 0;
-			font-weight: 500;
-			opacity: 0.95;
-			text-shadow:
-				1px 1px 3px rgba(0, 0, 0, 0.3),
-				0 0 40px rgba(0, 0, 0, 0.2);
-			animation: fadeIn 1s ease-out 0.6s both;
-		}
-
-		.hero-description {
-			font-size: clamp(1rem, 1.5vw + 0.5rem, 1.3rem);
-			line-height: 1.7;
-			margin: 0 auto 45px;
-			color: $text-white;
-			max-width: 800px;
-			font-weight: 500;
-			text-align: center;
-			text-shadow:
-				1px 1px 3px rgba(0, 0, 0, 0.3),
-				0 0 40px rgba(0, 0, 0, 0.2);
-			animation: fadeIn 1s ease-out 0.9s both;
-		}
-
-		.cta-btn {
-			display: inline-block;
-			background-color: $secondary-color;
-			color: white;
-			padding: clamp(15px, 2vw + 5px, 20px) clamp(30px, 4vw + 10px, 48px);
-			margin-top: clamp(30px, 5vw + 10px, 60px);
-			border-radius: 30px;
-			font-weight: 600;
-			transition: all 0.3s ease-in-out;
-			align-self: center;
-			text-align: center;
-			position: relative;
-			z-index: 1;
-			letter-spacing: 0.5px;
-			box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
-
-			&:hover {
-				transform: translateY(-3px);
-				box-shadow: 0 8px 20px rgba($primary-color, 0.3);
-				background: linear-gradient(135deg, $secondary-color, $primary-color);
-				background-color: $primary-color;
-			}
-		}
-
-		.hero-img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			object-fit: cover;
-			z-index: 1;
-			opacity: 0.7;
-			animation: zoomIn 20s ease-out infinite alternate;
-		}
-
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(
-				180deg,
-				rgba(0, 0, 0, 0.7) 0%,
-				rgba(0, 0, 0, 0.4) 25%,
-				rgba(0, 0, 0, 0.4) 75%,
-				rgba(0, 0, 0, 0.7) 100%
-			);
-			z-index: 1;
-		}
-
-		// Add a top gradient for better text contrast at the top
-		&::after {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 30vh;
-			background: linear-gradient(
-				to bottom,
-				rgba(0, 0, 0, 0.6) 0%,
-				rgba(0, 0, 0, 0) 100%
-			);
-			z-index: 1;
-		}
-	}
-
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes slideDown {
-		from {
-			opacity: 0;
-			transform: translateY(-30px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	@keyframes expandWidth {
-		from {
-			width: 0;
-		}
-		to {
-			width: 120px;
-		}
-	}
-
-	@keyframes zoomIn {
-		from {
-			transform: scale(1);
-		}
-		to {
-			transform: scale(1.1);
-		}
-	}
-
-	@media (max-width: $mobile) {
-		.hero {
-			height: 100%;
-			min-height: 100vh;
-
-			.hero-content {
-				padding: 25px;
-				margin: 0 15px;
-			}
-		}
-	}
-</style>
+	</style>
+</section>
