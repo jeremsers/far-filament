@@ -34,7 +34,7 @@ pubDate: ${entry.pubDate}
 description: ${entry.description}
 author: ${entry.author}
 category: ${payload.entry.category.name}
-tags: [${entry.tags}]
+tags: ${entry.tags?.length ? `[${entry.tags}]` : `[]`}
 image: ${payload.entry.image.url}
 ---
 
