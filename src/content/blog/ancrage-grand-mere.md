@@ -1,5 +1,5 @@
 ---
-title: "L'ancrage en PNL : les leçons de ma grand-mère"
+title: "L'ancrage en PNL : une leçon d’enfance que je transmets aujourd’hui"
 description: "Découvrez comment la technique d'ancrage en PNL peut transformer votre vie intérieure, à travers une histoire personnelle touchante."
 pubDate: 2024-03-20
 author: "Laurence Blondeau"
