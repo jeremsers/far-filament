@@ -82,7 +82,7 @@ const similarPosts = allPosts
 
 			<div class="post-footer">
 				<div class="share-buttons">
-					<h3>Partager cet article</h3>
+					<h4>Partager cet article</h4>
 					<div class="social-share">
 						<a
 							href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=${Astro.url}`}
@@ -114,7 +114,7 @@ const similarPosts = allPosts
 		</article>
 		<aside class="article-sidebar">
 			<div class="similar-articles">
-				<h3>Articles similaires</h3>
+				<h4>Articles similaires</h4>
 				<div class="similar-articles-container">
 					{
 						similarPosts.map((post) => (
@@ -151,7 +151,7 @@ const similarPosts = allPosts
 			top: $spacing-xl;
 			width: 300px;
 
-			h3 {
+			h4 {
 				color: $text-color;
 				font-size: 1.3em;
 				margin-bottom: $spacing-lg;
@@ -299,6 +299,13 @@ const similarPosts = allPosts
 					background-color: $primary-color;
 					border-radius: 2px;
 				}
+			}
+
+			:global(h3) {
+				color: $text-color;
+				font-size: 1.2em;
+				margin: 40px 0 20px;
+				position: relative;
 			}
 
 			:global(p) {
