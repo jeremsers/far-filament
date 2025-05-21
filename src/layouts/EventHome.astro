@@ -7,16 +7,16 @@ const events = await getCollection("events");
 const recentEvents = events
 	.sort((a, b) => {
 		// First, sort by type (sessions first)
-		if (a.data.type === "session" && b.data.type !== "session") return -1;
-		if (a.data.type !== "session" && b.data.type === "session") return 1;
+		if (a.data.type === "session" && b.data.type !== "session") return 1;
+		if (a.data.type !== "session" && b.data.type === "session") return -1;
 
 		// Then, sort by date for non-session events (newest first)
 		if (a.data.type !== "session" && b.data.type !== "session") {
 			return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 		}
 
-		// If both are sessions, maintain their current order
-		return 0;
+		// If both are sessions, reverse their current order
+		return -1;
 	})
 	.slice(0, 3); // Prendre les 3 plus récents
 
