@@ -20,16 +20,24 @@ Et si vous veniez vous reconnecter à qui vous êtes profondément – avec clar
 De mon côté, je vous propose une approche fondée sur l’écoute sensible et l’ancrage profond, dans un espace sécurisant et inspirant.
 Un moment pour déposer ce qui freine, se reconnecter à sa puissance intérieure et faire émerger une parole authentique, ancrée dans qui vous êtes et dans ce que vous portez de plus essentiel.
 
-⸻
+---
+<br/>
 
-Les objectifs de l’atelier :
+## Les objectifs de l’atelier : 
+<br/>
 
 ✔ Identifier vos compétences clés
+
 ✔ Retrouver la motivation après un refus
+
 ✔ Gérer vos entretiens avec plus d’assurance
+
 ✔ Clarifier vos valeurs professionnelles et personnelles
+
 ✔ Reprendre confiance en vos compétences
 
-⸻
+<br/>
 
-Parce que ce que vous êtes vaut bien plus qu’un CV.
+---
+
+**Parce que ce que vous êtes vaut bien plus qu’un CV.**
