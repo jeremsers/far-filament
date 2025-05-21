@@ -1,16 +1,16 @@
 ---
-title: "Atelier : Exprime ton Essence Authentique"
+title: "Atelier : Ce que tu es vaut plus qu'un CV"
 date: 2025-06-07T07:00:00Z
 prix: "200 CHF"
 lieu: "Bureau des Thérapies, Avenue des Alpes 70, 3ème étage, Montreux"
 tailleGroupe: 8
 image: "./img/atelier-cv.avif"
 type: "session"
-lien: "https://essence-conscience-atelier-essence-authentique.youcanbook.me/"
+lien: "https://essence-conscience-atelier-cv.youcanbook.me/"
 ---
 
 Tu as du mal à **poser les mots justes sur ton parcours** et à te présenter sans te sentir enfermée dans une étiquette ?
-✨ Sens-tu que ton essence véritable va bien au-delà d'une simple description ?
+✨ Et si tu osais te présenter autrement ? Avec authenticité, clarté et puissance. 
 
 Je t'invite à un atelier pour te reconnecter à toi et **parler de toi avec ancrage et fluidité**.
 Un moment privilégié pour faire émerger ce que tu veux vraiment transmettre, avec clarté et authenticité.
