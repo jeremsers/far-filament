@@ -4,7 +4,7 @@ date: "Dimanche 7 décembre, de 9h30 à 12h30"
 prix: "120 CHF" 
 lieu: "Bureau des Thérapies, Avenue des Alpes 70, 3ème étage, Montreux" 
 tailleGroupe: 6 
-image: "./img/atelier-ame.avif" 
+image: "./img/atelier-ame.jpg" 
 type: "atelier" 
 lien: "https://essence-conscience-atelier-ame.youcanbook.me/"
 ---
