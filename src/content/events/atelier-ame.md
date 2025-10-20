@@ -9,22 +9,22 @@ type: "atelier"
 lien: "https://essence-conscience-atelier-ame.youcanbook.me/"
 ---
 
-Je t'invite à un atelier de reconnexion, un espace sacré où l’on peut déposer les masques, où l’on laisse les artifices à la porte du monde. C'est un moment de vérité et de présence que nous allons partager, de cœur à cœur, pour simplement accueillir ce qui est.
+Un espace où l’on dépose les masques,
+où l’on laisse les artifices à la porte du monde.
+Un moment de vérité et de présence,
+de cœur à cœur,
+entre l’humain, la Terre et la lumière du Ciel.
 
-Cet atelier est une douce invitation à revenir à l'intérieur, à reprendre ton souffle, et à te souvenir de la beauté d'être simplement toi, dans toute ta lumière.
+Cet atelier est une invitation à revenir à l’essentiel,
+à se laisser traverser par la vie,
+et à se souvenir de la beauté d’être simplement soi.
 
-Ce voyage intérieur, nous le ferons ensemble, pas à pas :
+Déroulement 🌙  </br>
+• Une présentation pour poser le cercle et l’intention du moment.</br>
+• Un exercice de synchronisation pour harmoniser les énergies et s’ancrer dans le corps.</br>
+• Une méditation guidée pour ouvrir la connexion à ton âme, à la Terre et au Ciel.</br>
+• Un temps d’échange pour déposer, partager et intégrer.</br>
+• Et pour conclure, un ancrage de l’état de sérénité à l’aide d’un outil de PNL, afin de permettre à cette paix intérieure de rester vivante en toi.
 
-🔹 Poser une intention pour ouvrir ce cercle de douceur et d'écoute.
-
-🔹 Trouver notre ancrage avec un exercice de synchronisation pour harmoniser nos énergies et nous relier à notre corps.
-
-🔹 Partir en méditation guidée, un temps d'écoute intérieure pour ouvrir la connexion à ton âme, à la Terre nourricière et à la lumière du Ciel.
-
-🔹 Prendre un temps d'échange pour déposer ton ressenti, partager ce qui vibre en toi et intégrer cette transformation.
-
-🔹 Conclure par un ancrage de sérénité grâce à un outil de PNL, afin que cette paix intérieure reste vivante et accessible pour toi au quotidien.
-
-Un cheminement profond et enveloppant, pour retrouver la résonance de ton âme. 💫
-
-Si cela résonne en toi, tu peux t'inscrire pour ce moment de partage ici.
+Un voyage intérieur, doux et profond,
+sous l’étoile de ton âme. 💫
