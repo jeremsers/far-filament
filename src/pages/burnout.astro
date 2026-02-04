@@ -122,30 +122,39 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		<div class="container">
 			<div class="qualif-grid">
 				<div class="qualif-box yes">
-					<h3>✅ Ce programme est pour vous si...</h3>
+					<h3>Cet accompagnement est pour vous si...</h3>
 					<ul>
 						<li>
-							Vous êtes un professionnel engagé qui veut retrouver son efficacité sans
-							sacrifier sa santé.
+							Vous souhaitez retrouver votre <strong>énergie et votre sérénité</strong> au
+							travail, sans sacrifier votre vie personnelle.
 						</li>
 						<li>
-							Vous êtes prêt(e) à faire des exercices concrets entre les séances.
+							Vous êtes prêt(e) à explorer de <strong>nouveaux réflexes mentaux</strong
+							> pour ne plus vous laisser envahir par le stress.
 						</li>
-						<li>Vous cherchez des outils pratiques, pas juste une écoute passive.</li>
+						<li>
+							Vous cherchez une <strong>boîte à outils concrète</strong> pour agir, plutôt
+							qu'une simple écoute passive.
+						</li>
 					</ul>
 				</div>
 
 				<div class="qualif-box no">
-					<h3>❌ Ce n'est PAS pour vous si...</h3>
+					<h3>Ce n'est probablement PAS pour vous si...</h3>
 					<ul>
 						<li>
-							Vous cherchez une "pilule magique" sans rien changer à vos habitudes.
+							Vous attendez une solution miracle qui ne nécessiterait <strong
+								>aucun ajustement</strong
+							> de vos habitudes actuelles.
 						</li>
 						<li>
-							Vous voulez uniquement un arrêt maladie de complaisance (je ne suis pas
-							médecin).
+							Votre demande est <strong>purement médicale ou administrative</strong> (prolongation
+							d'arrêt, médicaments). Je ne suis pas médecin.
 						</li>
-						<li>Vous n'êtes pas prêt à investir sur vous-même.</li>
+						<li>
+							Vous pensez que le problème vient uniquement de l'extérieur et n'êtes pas
+							prêt(e) à entamer un <strong>travail sur vous-même</strong>.
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -198,7 +207,10 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 					>
 				</div>
 
-				<a href="TON_LIEN_STRIPE_ICI" class="btn btn-secondary">
+				<a
+					href="https://buy.stripe.com/00w14o4Pj77W0Ah85O9AA00"
+					class="btn btn-secondary"
+				>
 					🔒 Télécharger le Kit + Réserver (97 CHF)
 				</a>
 			</div>
@@ -224,32 +236,101 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 			<div class="faq">
 				<h3>Questions Fréquentes</h3>
 				<details>
-					<summary>Est-ce remboursé par les assurances (ASCA/RME) ?</summary>
+					<summary>Je me sens vide d'énergie, vais-je tenir le coup ?</summary>
 					<p>
-						Oui, je suis agréé ASCA. Vérifiez simplement auprès de votre assurance
-						complémentaire si la thérapie brève est couverte dans votre contrat.
+						Rassurez-vous : le programme est conçu pour vous redonner de l'énergie,
+						pas pour vous en prendre. Nous avancerons à votre rythme. Si vous êtes en
+						arrêt ou très fatigué(e), nous commencerons par des techniques de
+						ressourcement très douces avant d'envisager toute action.
 					</p>
 				</details>
 				<details>
-					<summary>Je suis en arrêt maladie, puis-je suivre le programme ?</summary>
+					<summary>Je suis épuisé(e) ou en arrêt, est-ce le bon moment ?</summary>
 					<p>
-						Absolument. C'est même le meilleur moment. Nous travaillerons à
-						reconstruire votre énergie pour que le retour se fasse à vos conditions,
-						pas celles de la peur.
+						C'est souvent le moment idéal. Contrairement à une idée reçue, cet
+						accompagnement ne vous demandera pas d'effort surhumain. Nous utiliserons
+						justement ce temps pour restaurer vos ressources intérieures, à votre
+						rythme, afin d'envisager la suite avec sérénité.
 					</p>
 				</details>
+
 				<details>
-					<summary>Quelle différence entre le Kit à 97.- et le Programme ?</summary>
+					<summary>En quoi est-ce différent d'une thérapie classique ?</summary>
 					<p>
-						Le Kit est une "trousse de secours" pour soulager les symptômes immédiats.
-						Le Programme est une "chirurgie" pour traiter la cause profonde et éviter
-						la rechute.
+						Mon approche est orientée "solutions". Nous n'allons pas passer des mois à
+						analyser le "pourquoi" du passé, mais nous concentrer sur le "comment"
+						aller mieux maintenant. Vous repartirez de chaque séance avec des outils
+						concrets à appliquer au quotidien.
+					</p>
+				</details>
+
+				<details>
+					<summary>Dois-je commencer par le Kit ou l'Accompagnement ?</summary>
+					<p>
+						Cela dépend de votre urgence. Le <strong>Kit</strong> est conçu pour un apaisement
+						immédiat (retrouver le sommeil, calmer une crise). L'<strong
+							>Accompagnement</strong
+						> est un travail de fond sur plusieurs semaines pour transformer durablement
+						vos mécanismes et éviter la rechute.
 					</p>
 				</details>
 			</div>
 		</div>
 	</section>
 </LandingLayout>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		// FAQ Details Logic
+		const detailsElements = document.querySelectorAll(".faq details");
+		detailsElements.forEach((details) => {
+			details.addEventListener("click", (e) => {
+				// @ts-ignore
+				if (e.target.tagName !== "SUMMARY" && e.target === details) {
+					e.preventDefault();
+					if (details.hasAttribute("open")) {
+						details.removeAttribute("open");
+					} else {
+						details.setAttribute("open", "");
+					}
+				}
+			});
+		});
+
+		// Qualification List Alignment Logic
+		const alignListItems = () => {
+			const boxes = document.querySelectorAll(".qualif-box");
+			if (boxes.length < 2) return;
+
+			const lists = Array.from(boxes).map((box) => box.querySelectorAll("ul li"));
+			// Reset heights
+			lists.forEach((list) =>
+				list.forEach((li) => ((li as HTMLElement).style.height = "auto")),
+			);
+
+			const maxLength = Math.max(...lists.map((l) => l.length));
+
+			for (let i = 0; i < maxLength; i++) {
+				let maxH = 0;
+				// Find max height for this index
+				lists.forEach((list) => {
+					if (list[i] && (list[i] as HTMLElement).offsetHeight > maxH) {
+						maxH = (list[i] as HTMLElement).offsetHeight;
+					}
+				});
+				// Apply max height
+				lists.forEach((list) => {
+					if (list[i]) {
+						(list[i] as HTMLElement).style.height = `${maxH}px`;
+					}
+				});
+			}
+		};
+
+		alignListItems();
+		window.addEventListener("resize", alignListItems);
+	});
+</script>
 
 <style lang="scss">
 	@import "../assets/style/variables.scss";
@@ -580,6 +661,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				display: flex;
 				align-items: center;
 				gap: 10px;
+				min-height: 3.5rem; /* Ensure lists start at same level */
 			}
 
 			ul {
@@ -609,6 +691,9 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						color: $primary-color;
 						width: 40px;
 						height: 40px;
+						min-width: 40px; /* Prevent shrinking */
+						min-height: 40px; /* Prevent shrinking */
+						flex-shrink: 0; /* Prevent shrinking */
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -644,6 +729,9 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						color: $secondary-color;
 						width: 40px;
 						height: 40px;
+						min-width: 40px; /* Prevent shrinking */
+						min-height: 40px; /* Prevent shrinking */
+						flex-shrink: 0; /* Prevent shrinking */
 						display: flex;
 						align-items: center;
 						justify-content: center;

@@ -133,30 +133,41 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		<div class="container">
 			<div class="qualif-grid">
 				<div class="qualif-box yes">
-					<h3>✅ C'est pour vous si...</h3>
+					<h3>Cet accompagnement est pour vous si...</h3>
 					<ul>
-						<li>Vous êtes décidé(e) à tourner la page, même si c'est dur.</li>
-						<li>Vous voulez récupérer votre dignité et votre sommeil.</li>
 						<li>
-							Vous comprenez que votre bonheur ne doit plus dépendre de quelqu'un
-							d'autre.
+							Vous sentez qu'il est temps de <strong>vous reconstruire</strong>, même
+							si vous ne savez pas encore par où commencer.
+						</li>
+						<li>
+							Vous aspirez à retrouver la <strong>paix intérieure</strong> et des nuits reposantes,
+							loin des pensées obsédantes.
+						</li>
+						<li>
+							Vous êtes prêt(e) à entamer un chemin pour <strong
+								>retrouver votre propre valeur</strong
+							>, indépendamment du regard de l'autre.
 						</li>
 					</ul>
 				</div>
 
 				<div class="qualif-box no">
-					<h3>❌ Ce n'est PAS pour vous si...</h3>
+					<h3>Ce n'est probablement PAS pour vous si...</h3>
 					<ul>
 						<li>
-							Vous cherchez des techniques de manipulation pour récupérer votre ex (je
-							ne fais pas ça).
+							Votre objectif unique est d'utiliser des stratégies pour <strong
+								>faire revenir l'autre</strong
+							> (ma méthode vise votre autonomie, pas le contrôle de l'ex).
 						</li>
 						<li>
-							Vous voulez juste une épaule pour pleurer sans rien changer à vos
-							actions.
+							Vous cherchez uniquement un espace de parole libre, sans être prêt(e) à <strong
+								>mettre en place des actions</strong
+							> concrètes entre les séances.
 						</li>
 						<li>
-							Vous n'êtes pas prêt(e) à couper le contact (no contact) temporairement.
+							Vous n'êtes pas encore prêt(e) à <strong
+								>poser des limites protectrices</strong
+							> (comme réduire les contacts) pour préserver votre cœur.
 						</li>
 					</ul>
 				</div>
@@ -212,7 +223,10 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 					>
 				</div>
 
-				<a href="TON_LIEN_STRIPE_ICI" class="btn btn-secondary">
+				<a
+					href="https://buy.stripe.com/5kQ8wQa9Dbocer771K9AA01"
+					class="btn btn-secondary"
+				>
 					🔒 Télécharger l'Audio + Réserver (97 CHF)
 				</a>
 			</div>
@@ -237,33 +251,108 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 
 			<div class="faq">
 				<h3>Questions Fréquentes</h3>
+
 				<details>
-					<summary>Est-ce que je vais l'oublier complètement ?</summary>
+					<summary>Est-ce que le but est d'effacer mes souvenirs ?</summary>
 					<p>
-						Non, ce n'est pas une amnésie. Mais le souvenir deviendra neutre. Vous
-						pourrez y penser sans avoir mal au ventre. C'est ça, la guérison.
+						Pas du tout. Votre histoire fait partie de vous et il ne s'agit pas de
+						créer une amnésie. L'objectif de la PNL est de "désactiver" la douleur
+						liée au souvenir. Vous pourrez repenser aux bons moments avec une
+						nostalgie douce, mais sans avoir cette sensation de déchirement dans la
+						poitrine. Le souvenir reste, la souffrance part.
 					</p>
 				</details>
+
 				<details>
-					<summary>Cela fonctionne-t-il pour les divorces longs ?</summary>
+					<summary>Cela fonctionne-t-il même après 20 ans de vie commune ?</summary>
 					<p>
-						Oui. Les mécanismes du cerveau face à la perte sont les mêmes, que la
-						relation ait duré 6 mois ou 20 ans. Nous adapterons simplement le travail
-						sur l'identité.
+						Oui. Que la relation ait duré 6 mois ou 20 ans, le mécanisme de deuil et
+						de perte d'identité est similaire. Pour une relation longue, nous mettrons
+						simplement un accent particulier sur la "reconstruction de soi" :
+						redécouvrir qui vous êtes en tant qu'individu, en dehors du couple.
 					</p>
 				</details>
+
 				<details>
-					<summary>Et si je craque et que je le/la rappelle ?</summary>
+					<summary>Et si je craque et que je le/la recontacte ?</summary>
 					<p>
-						C'est humain. Le programme inclut des outils d'urgence pour gérer ces
-						pulsions et ne pas culpabiliser si une rechute arrive. On remonte en selle
-						tout de suite.
+						Soyez bienveillant(e) avec vous-même, c'est un processus humain, pas
+						linéaire. Le programme inclut des outils d'urgence pour gérer ces
+						pulsions, mais si une "rechute" arrive, nous ne la verrons pas comme un
+						échec. Nous l'utiliserons pour comprendre ce qui a déclenché le besoin et
+						renforcer vos protections pour la fois suivante.
+					</p>
+				</details>
+
+				<details>
+					<summary
+						>On dit qu'il faut laisser faire le temps, pourquoi se faire aider ?</summary
+					>
+					<p>
+						Le temps apaise, c'est vrai, mais il peut parfois "mal" cicatriser les
+						blessures (peurs, perte de confiance, cynisme). L'accompagnement permet
+						une cicatrisation propre et active. Au lieu de subir votre peine pendant
+						des mois, vous devenez acteur de votre reconstruction pour retrouver votre
+						joie de vivre beaucoup plus rapidement.
 					</p>
 				</details>
 			</div>
 		</div>
 	</section>
 </LandingLayout>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		// FAQ Details Logic
+		const detailsElements = document.querySelectorAll(".faq details");
+		detailsElements.forEach((details) => {
+			details.addEventListener("click", (e) => {
+				// @ts-ignore
+				if (e.target.tagName !== "SUMMARY" && e.target === details) {
+					e.preventDefault();
+					if (details.hasAttribute("open")) {
+						details.removeAttribute("open");
+					} else {
+						details.setAttribute("open", "");
+					}
+				}
+			});
+		});
+
+		// Qualification List Alignment Logic
+		const alignListItems = () => {
+			const boxes = document.querySelectorAll(".qualif-box");
+			if (boxes.length < 2) return;
+
+			const lists = Array.from(boxes).map((box) => box.querySelectorAll("ul li"));
+			// Reset heights
+			lists.forEach((list) =>
+				list.forEach((li) => ((li as HTMLElement).style.height = "auto")),
+			);
+
+			const maxLength = Math.max(...lists.map((l) => l.length));
+
+			for (let i = 0; i < maxLength; i++) {
+				let maxH = 0;
+				// Find max height for this index
+				lists.forEach((list) => {
+					if (list[i] && (list[i] as HTMLElement).offsetHeight > maxH) {
+						maxH = (list[i] as HTMLElement).offsetHeight;
+					}
+				});
+				// Apply max height
+				lists.forEach((list) => {
+					if (list[i]) {
+						(list[i] as HTMLElement).style.height = `${maxH}px`;
+					}
+				});
+			}
+		};
+
+		alignListItems();
+		window.addEventListener("resize", alignListItems);
+	});
+</script>
 
 <style lang="scss">
 	@import "../assets/style/variables.scss";
@@ -596,6 +685,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				display: flex;
 				align-items: center;
 				gap: 10px;
+				min-height: 3.5rem; /* Ensure lists start at same level */
 			}
 
 			ul {
@@ -625,6 +715,9 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						color: $primary-color;
 						width: 40px;
 						height: 40px;
+						min-width: 40px; /* Prevent shrinking */
+						min-height: 40px; /* Prevent shrinking */
+						flex-shrink: 0; /* Prevent shrinking */
 						display: flex;
 						align-items: center;
 						justify-content: center;
@@ -660,6 +753,9 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						color: $secondary-color;
 						width: 40px;
 						height: 40px;
+						min-width: 40px; /* Prevent shrinking */
+						min-height: 40px; /* Prevent shrinking */
+						flex-shrink: 0; /* Prevent shrinking */
 						display: flex;
 						align-items: center;
 						justify-content: center;

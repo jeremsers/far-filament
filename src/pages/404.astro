@@ -1,0 +1,100 @@
+---
+import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
+---
+
+<LandingLayout
+	title="Page introuvable - 404"
+	description="La page que vous recherchez n'existe pas."
+>
+	<div class="error-container">
+		<div class="content">
+			<h1 class="error-code">404</h1>
+			<h2 class="error-title">Oups ! Page introuvable</h2>
+			<p class="error-description">
+				Il semblerait que vous ayez pris un chemin de traverse. Cette page n'existe
+				pas ou a été déplacée.
+			</p>
+			<a href="/" class="btn-home">
+				<i class="fa-solid fa-house"></i> Retour à l'accueil
+			</a>
+		</div>
+	</div>
+</LandingLayout>
+
+<style lang="scss">
+	@import "../assets/style/variables.scss";
+
+	.error-container {
+		flex: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+		text-align: center;
+		background-color: $bg-color;
+		min-height: 60vh; /* Ensure it takes up space even if content is small */
+	}
+
+	.content {
+		max-width: 600px;
+		animation: fadeIn 0.8s ease-out;
+	}
+
+	.error-code {
+		font-size: clamp(6rem, 15vw, 10rem);
+		font-weight: 700;
+		color: $primary-color;
+		line-height: 1;
+		margin-bottom: 0.5rem;
+		opacity: 0.8;
+	}
+
+	.error-title {
+		font-size: clamp(1.5rem, 4vw, 2.5rem);
+		color: $text-color;
+		margin-bottom: 1.5rem;
+		font-weight: 600;
+	}
+
+	.error-description {
+		font-size: 1.1rem;
+		color: $text-light;
+		margin-bottom: 2.5rem;
+		line-height: 1.6;
+	}
+
+	.btn-home {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background-color: $secondary-color;
+		color: $text-white;
+		padding: 1rem 2rem;
+		border-radius: $border-radius-full;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all $transition-speed $transition-timing;
+		box-shadow: $shadow-md;
+
+		&:hover {
+			background-color: $hover-color-alt;
+			transform: translateY(-2px);
+			box-shadow: $shadow-lg;
+		}
+
+		i {
+			font-size: 1.1em;
+		}
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
