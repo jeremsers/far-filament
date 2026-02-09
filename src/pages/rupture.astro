@@ -468,12 +468,18 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 	.hero-section {
 		position: relative;
 		padding: 8rem 1rem 6rem;
-		background-image:
-			linear-gradient(135deg, rgba($primary-color, 0.9), rgba($bg-dark, 0.8)),
-			url("https://placehold.co/1200x600/333/999?text=Hero+Rupture");
-		background-size: cover;
-		background-position: center;
+		background:
+			linear-gradient(135deg, rgba($primary-color, 0.9), rgba($bg-light, 0.8));
 		color: $text-white;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba($bg-dark, 0.1);
+		}
 
 		.container {
 			position: relative;
