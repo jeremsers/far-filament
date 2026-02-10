@@ -1,5 +1,7 @@
 ---
 import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
+import qui from "../images/qui.avif";
+import { Image } from "astro:assets";
 ---
 
 <LandingLayout>
@@ -9,7 +11,9 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				La boule au ventre du lundi matin ne devrait pas être votre normalité
 			</h1>
 			<p class="subtitle">
-				Ne laissez pas votre carrière consumer votre santé mentale. Un accompagnement profond pour traverser cette période, retrouver de la clarté intérieure et avancer sans tout plaquer.
+				Ne laissez pas votre carrière consumer votre santé mentale. Un
+				accompagnement profond pour traverser cette période, retrouver de la clarté
+				intérieure et avancer sans tout plaquer.
 			</p>
 			<a href="#offer" class="btn btn-primary">Je veux sortir du brouillard</a>
 		</div>
@@ -21,9 +25,12 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 			<p class="symptoms-desc">Ce n’est pas une faiblesse. C’est un signal.</p>
 			<ul class="symptoms-list">
 				<li>Vous vous réveillez fatigué(e), même après 9h de sommeil.</li>
-				<li>Vous pleurez sans raison apparente (dans la voiture, sous la douche).</li>
 				<li>
-					Vous relisez 3 fois le même email sans parvenir à le comprendre (brouillard mental).
+					Vous pleurez sans raison apparente (dans la voiture, sous la douche).
+				</li>
+				<li>
+					Vous relisez 3 fois le même email sans parvenir à le comprendre (brouillard
+					mental).
 				</li>
 				<li>Vous devenez plus cynique ou plus agressif(ve) avec vos proches.</li>
 				<li>Vous avez l'impression d'être piégé(e) dans un tunnel sans fin.</li>
@@ -35,54 +42,64 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		<div class="container">
 			<h2>Le Programme "Renaissance Pro"</h2>
 			<p class="offer-desc">
-				Ce programme n’est pas une thérapie au sens classique.
-C’est un accompagnement structuré pour comprendre, traverser et transformer les mécanismes d’épuisement. Il s’adresse aux personnes qui ne veulent plus “tenir”,
-mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
-			</p>
-
-			<ul class="benefits-list">
-				<li>
-					<strong>Lecture des schémas inconscients :</strong> Identifier les automatismes mentaux et émotionnels qui vous ont conduit à l’épuisement.
-				</li>
-				<li>
-					<strong>Régulation du stress et des états de tension :</strong> Apprendre à apaiser les montées d’angoisse et retrouver un état intérieur plus stable et plus clair.
-				</li>
-				<li>
-					<strong>Stratégies de protection personnelle :</strong> Mettre en place des limites justes, sans culpabilité, sans conflit, et sans se durcir.
-				</li>
-				<li>
-					<strong>Reconstruction Identitaire :</strong> Se reconnecter à qui vous êtes en dehors de votre rôle professionnel, de vos performances et de vos obligations.
-				</li>
-				<li>
-					<strong>Présence et soutien entre les séances :</strong> Un cadre sécurisant pour ne pas traverser cette période seul(e), et rester soutenu(e) dans les moments sensibles.
-				</li>
-			</ul>
-
-			<div class="offer-action-wrapper">
-				<div class="price-container">
-					<span class="price-strike">Valeur réelle : 2'400 CHF</span>
-					<span class="price-real">Investissement : 1'200 CHF</span>
-					<p> 👉 Un engagement pour vous-même, posé, conscient, et respectueux de votre rythme. </p>
-				</div>
-				
-				<a href="URL_YOUCANBOOKME" class="btn btn-primary btn-large"
-				>Réserver mon Audit Stratégique Offert</a
-				>
-			</div>
-			<p style="font-size: 0.9rem; margin-top: 1rem; color: #666;">
-				*Entretien de 15 min sans engagement pour vérifier si je peux vous aider.
-			</p>
-			<p style="font-size: 0.9rem; margin-top: 1rem; color: #666;">
-				(Cet accompagnement s’inscrit dans une démarche de soutien et peut venir en complément, lorsque nécessaire, d’un suivi psychologique ou médical.)
+				Ce programme n’est pas une thérapie au sens classique. C’est un
+				accompagnement structuré pour comprendre, traverser et transformer les
+				mécanismes d’épuisement. Il s’adresse aux personnes qui ne veulent plus
+				“tenir”, mais se retrouver, sans s’effondrer et sans tout plaquer.
 			</p>
 		</div>
+
+		<ul class="benefits-list">
+			<li>
+				<strong>Lecture des schémas inconscients :</strong> Identifier les automatismes
+				mentaux et émotionnels qui vous ont conduit à l’épuisement.
+			</li>
+			<li>
+				<strong>Régulation du stress et des états de tension :</strong> Apprendre à apaiser
+				les montées d’angoisse et retrouver un état intérieur plus stable et plus clair.
+			</li>
+			<li>
+				<strong>Stratégies de protection personnelle :</strong> Mettre en place des limites
+				justes, sans culpabilité, sans conflit, et sans se durcir.
+			</li>
+			<li>
+				<strong>Reconstruction Identitaire :</strong> Se reconnecter à qui vous êtes en
+				dehors de votre rôle professionnel, de vos performances et de vos obligations.
+			</li>
+			<li>
+				<strong>Présence et soutien entre les séances :</strong> Un cadre sécurisant pour
+				ne pas traverser cette période seul(e), et rester soutenu(e) dans les moments
+				sensibles.
+			</li>
+		</ul>
+
+		<div class="offer-action-wrapper">
+			<div class="price-container">
+				<span class="price-strike">Valeur réelle : 2'400 CHF</span>
+				<span class="price-real">Investissement : 1'200 CHF</span>
+				<p>
+					👉 Un engagement pour vous-même, posé, conscient, et respectueux de votre
+					rythme.
+				</p>
+			</div>
+
+			<a href="URL_YOUCANBOOKME" class="btn btn-primary btn-large"
+				>Réserver mon Audit Stratégique Offert</a
+			>
+		</div>
+		<p class="offer-note">
+			*Entretien de 15 min sans engagement pour vérifier si je peux vous aider.
+		</p>
+		<p class="offer-note">
+			(Cet accompagnement s’inscrit dans une démarche de soutien et peut venir en
+			complément, lorsque nécessaire, d’un suivi psychologique ou médical.)
+		</p>
 	</section>
+
 	<section class="process-section">
 		<div class="container">
 			<h2>Comment se déroule l’accompagnement ?</h2>
-			<p class="section-intro">
-				Un cadre clair et structuré, en trois étapes.
-			</p>
+			<p class="section-intro">Un cadre clair et structuré, en trois étapes.</p>
 
 			<div class="steps-grid">
 				<div class="step-card">
@@ -90,7 +107,9 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 					<h3>Stabilisation et apaisement</h3>
 					<p class="step-duration"><strong>(Séances 1 à 3)</strong></p>
 					<p>
-						L’accompagnement vise à faire redescendre la pression et à réguler le stress, l’angoisse et la surcharge mentale, afin de retrouver un minimum de sécurité intérieure et de repos.
+						L’accompagnement vise à faire redescendre la pression et à réguler le
+						stress, l’angoisse et la surcharge mentale, afin de retrouver un minimum
+						de sécurité intérieure et de repos.
 					</p>
 				</div>
 
@@ -99,7 +118,9 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 					<h3>Compréhension et transformation des mécanismes</h3>
 					<p class="step-duration"><strong>(Séances 4 à 6)</strong></p>
 					<p>
-						Les schémas inconscients qui ont conduit à l’épuisement sont identifiés, puis transformés vers des modes de fonctionnement plus respectueux des limites personnelles.
+						Les schémas inconscients qui ont conduit à l’épuisement sont identifiés,
+						puis transformés vers des modes de fonctionnement plus respectueux des
+						limites personnelles.
 					</p>
 				</div>
 
@@ -108,7 +129,9 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 					<h3>Intégration et projection</h3>
 					<p class="step-duration"><strong>(Séances 7 à 8)</strong></p>
 					<p>
-						Les changements sont consolidés et la suite est préparée — retour au travail ou nouvelle étape — avec des repères clairs pour éviter de retomber dans les anciens automatismes.
+						Les changements sont consolidés et la suite est préparée — retour au
+						travail ou nouvelle étape — avec des repères clairs pour éviter de
+						retomber dans les anciens automatismes.
 					</p>
 				</div>
 			</div>
@@ -121,16 +144,21 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 					<h3>Cet accompagnement est pour vous si...</h3>
 					<ul>
 						<li>
-							Vous souhaitez <strong>retrouver de l’énergie et de la sérénité</strong> dans votre vie professionnelle, sans sacrifier votre vie personnelle.
+							Vous souhaitez <strong>retrouver de l’énergie et de la sérénité</strong> dans
+							votre vie professionnelle, sans sacrifier votre vie personnelle.
 						</li>
 						<li>
-							Vous êtes prêt(e) à <strong>interroger vos modes de fonctionnement</strong>, et à explorer de nouveaux réflexes face au stress et à la pression.
+							Vous êtes prêt(e) à <strong
+								>interroger vos modes de fonctionnement</strong
+							>, et à explorer de nouveaux réflexes face au stress et à la pression.
 						</li>
 						<li>
-							Vous cherchez un <strong>cadre structuré et des outils concrets</strong>, au-delà d’une simple écoute ou d’un soulagement ponctuel.
+							Vous cherchez un <strong>cadre structuré et des outils concrets</strong>,
+							au-delà d’une simple écoute ou d’un soulagement ponctuel.
 						</li>
 						<li>
-							Vous ressentez le besoin d’un <strong>accompagnement profond</strong>, qui s’inscrit dans la durée et respecte votre rythme.
+							Vous ressentez le besoin d’un <strong>accompagnement profond</strong>,
+							qui s’inscrit dans la durée et respecte votre rythme.
 						</li>
 					</ul>
 				</div>
@@ -139,16 +167,22 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 					<h3>Ce n'est probablement PAS pour vous si...</h3>
 					<ul>
 						<li>
-							Vous attendez une <strong>solution rapide ou miracle</strong>, sans implication personnelle.
+							Vous attendez une <strong>solution rapide ou miracle</strong>, sans
+							implication personnelle.
 						</li>
 						<li>
-							Vous souhaitez <strong>uniquement analyser le "pourquoi"</strong> de votre passé, sans être disposé(e) à agir sur le "comment" aller mieux aujourd'hui.
+							Vous souhaitez <strong>uniquement analyser le "pourquoi"</strong> de votre
+							passé, sans être disposé(e) à agir sur le "comment" aller mieux aujourd'hui.
 						</li>
 						<li>
-							Votre demande relève exclusivement d’un <strong>suivi médical, administratif ou thérapeutique</strong>, qui nécessite un autre type de prise en charge.
+							Votre demande relève exclusivement d’un <strong
+								>suivi médical, administratif ou thérapeutique</strong
+							>, qui nécessite un autre type de prise en charge.
 						</li>
 						<li>
-							Vous considérez que la situation <strong>dépend uniquement de facteurs extérieurs</strong> et n’êtes pas prêt(e) à vous engager dans un travail sur vous-même.
+							Vous considérez que la situation <strong
+								>dépend uniquement de facteurs extérieurs</strong
+							> et n’êtes pas prêt(e) à vous engager dans un travail sur vous-même.
 						</li>
 					</ul>
 				</div>
@@ -168,25 +202,29 @@ mais se retrouver, sans s’effondrer et sans tout plaquer.</p>
 		<div class="tripwire-card">
 			<div class="tripwire-image">
 				<div class="img-placeholder">
-					<span style="font-size: 3rem;">📦</span>
+					<span style="font-size: clamp(2.5rem, 10vw, 3rem);">📦</span>
 				</div>
 			</div>
 			<div class="tripwire-content">
 				<h3>Le Kit de Soutien Immédiat</h3>
 				<p>
-					Un premier appui, pensé pour les moments de surcharge,
-sans engagement dans un accompagnement long.
+					Un premier appui, pensé pour les moments de surcharge, sans engagement dans
+					un accompagnement long.
 				</p>
 
 				<ul style="list-style: none; padding: 0; margin-bottom: 1rem; color: #555;">
 					<li>
-						🎧 <strong>Audio guidé (12 min) :</strong> Pour apaiser la surcharge mentale et retrouver un peu de calme intérieur.
+						🎧 <strong>Audio guidé (12 min) :</strong> Pour apaiser la surcharge mentale
+						et retrouver un peu de calme intérieur.
 					</li>
 					<li>
-						📄 <strong>Guide PDF :</strong> Avec des repères simples pour apporter un cadre rassurant dans les moments de surcharge.
+						📄 <strong>Guide PDF :</strong> Avec des repères simples pour apporter un cadre
+						rassurant dans les moments de surcharge.
 					</li>
 					<li>
-						🤝 <strong>Une séance individuelle de triage (45 min) :</strong> Un espace pour faire le point, poser ce qui est trop confus, et ne pas rester seul(e) face à l’intensité.
+						🤝 <strong>Une séance individuelle de triage (45 min) :</strong> Un espace pour
+						faire le point, poser ce qui est trop confus, et ne pas rester seul(e) face
+						à l’intensité.
 					</li>
 				</ul>
 
@@ -198,7 +236,10 @@ sans engagement dans un accompagnement long.
 						>(Au lieu de 180 CHF)</span
 					>
 				</div>
-<p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;"> 👉 Un soutien ponctuel, posé, pour traverser une période difficile avec plus de sécurité. </p>
+				<p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
+					👉 Un soutien ponctuel, posé, pour traverser une période difficile avec
+					plus de sécurité.
+				</p>
 				<!-- <a
 					 href="https://buy.stripe.com/9B6fZiftXcsgfvbdq89AA02"
 					class="btn btn-secondary"
@@ -212,10 +253,12 @@ sans engagement dans un accompagnement long.
 	<section class="trust-section">
 		<div class="container">
 			<div class="bio">
-				<img
-					src="/images/portrait-therapeute.jpg"
+				<Image
+					src={qui}
 					alt="Portrait"
-					style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover;"
+					width={100}
+					height={100}
+					style="border-radius: 50%; margin-bottom: 1rem; object-fit: cover;object-position: top;"
 				/>
 				<h3>Qui suis-je ?</h3>
 				<p>
@@ -269,703 +312,719 @@ sans engagement dans un accompagnement long.
 			</div>
 		</div>
 	</section>
-</LandingLayout>
 
-<script>
-	document.addEventListener("DOMContentLoaded", () => {
-		// FAQ Details Logic
-		const detailsElements = document.querySelectorAll(".faq details");
-		detailsElements.forEach((details) => {
-			details.addEventListener("click", (e) => {
-				// @ts-ignore
-				if (e.target.tagName !== "SUMMARY" && e.target === details) {
-					e.preventDefault();
-					if (details.hasAttribute("open")) {
-						details.removeAttribute("open");
-					} else {
-						details.setAttribute("open", "");
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			// FAQ Details Logic
+			const detailsElements = document.querySelectorAll(".faq details");
+			detailsElements.forEach((details) => {
+				details.addEventListener("click", (e) => {
+					// @ts-ignore
+					if (e.target.tagName !== "SUMMARY" && e.target === details) {
+						e.preventDefault();
+						if (details.hasAttribute("open")) {
+							details.removeAttribute("open");
+						} else {
+							details.setAttribute("open", "");
+						}
 					}
+				});
+			});
+
+			// Qualification List Alignment Logic
+			const alignListItems = () => {
+				const boxes = document.querySelectorAll(".qualif-box");
+				if (boxes.length < 2) return;
+
+				const lists = Array.from(boxes).map((box) => box.querySelectorAll("ul li"));
+				// Reset heights
+				lists.forEach((list) =>
+					list.forEach((li) => ((li as HTMLElement).style.height = "auto")),
+				);
+
+				const maxLength = Math.max(...lists.map((l) => l.length));
+
+				for (let i = 0; i < maxLength; i++) {
+					let maxH = 0;
+					// Find max height for this index
+					lists.forEach((list) => {
+						if (list[i] && (list[i] as HTMLElement).offsetHeight > maxH) {
+							maxH = (list[i] as HTMLElement).offsetHeight;
+						}
+					});
+					// Apply max height
+					lists.forEach((list) => {
+						if (list[i]) {
+							(list[i] as HTMLElement).style.height = `${maxH}px`;
+						}
+					});
 				}
-			});
+			};
+
+			// Step Card Titles Alignment
+			const alignStepTitles = () => {
+				const titles = document.querySelectorAll(".step-card h3");
+				if (titles.length === 0) return;
+
+				// Reset
+				titles.forEach((t) => ((t as HTMLElement).style.height = "auto"));
+
+				let maxHeight = 0;
+				titles.forEach((t) => {
+					const h = (t as HTMLElement).offsetHeight;
+					if (h > maxHeight) maxHeight = h;
+				});
+
+				titles.forEach((t) => ((t as HTMLElement).style.height = `${maxHeight}px`));
+			};
+
+			const runAlignments = () => {
+				alignListItems();
+				alignStepTitles();
+			};
+
+			runAlignments();
+			window.addEventListener("resize", runAlignments);
+			window.addEventListener("load", runAlignments);
 		});
+	</script>
 
-		// Qualification List Alignment Logic
-		const alignListItems = () => {
-			const boxes = document.querySelectorAll(".qualif-box");
-			if (boxes.length < 2) return;
+	<style lang="scss">
+		@import "../assets/style/variables.scss";
 
-			const lists = Array.from(boxes).map((box) => box.querySelectorAll("ul li"));
-			// Reset heights
-			lists.forEach((list) =>
-				list.forEach((li) => ((li as HTMLElement).style.height = "auto")),
-			);
-
-			const maxLength = Math.max(...lists.map((l) => l.length));
-
-			for (let i = 0; i < maxLength; i++) {
-				let maxH = 0;
-				// Find max height for this index
-				lists.forEach((list) => {
-					if (list[i] && (list[i] as HTMLElement).offsetHeight > maxH) {
-						maxH = (list[i] as HTMLElement).offsetHeight;
-					}
-				});
-				// Apply max height
-				lists.forEach((list) => {
-					if (list[i]) {
-						(list[i] as HTMLElement).style.height = `${maxH}px`;
-					}
-				});
-			}
-		};
-
-		// Step Card Titles Alignment
-		const alignStepTitles = () => {
-			const titles = document.querySelectorAll(".step-card h3");
-			if (titles.length === 0) return;
-
-			// Reset
-			titles.forEach((t) => ((t as HTMLElement).style.height = "auto"));
-
-			let maxHeight = 0;
-			titles.forEach((t) => {
-				const h = (t as HTMLElement).offsetHeight;
-				if (h > maxHeight) maxHeight = h;
-			});
-
-			titles.forEach((t) => ((t as HTMLElement).style.height = `${maxHeight}px`));
-		};
-
-		const runAlignments = () => {
-			alignListItems();
-			alignStepTitles();
-		};
-
-		runAlignments();
-		window.addEventListener("resize", runAlignments);
-		window.addEventListener("load", runAlignments);
-	});
-</script>
-
-<style lang="scss">
-	@import "../assets/style/variables.scss";
-
-	/* Local overrides */
-	$color-pack-bg: #fff;
-	$color-warning-bg: #fff4e5;
-	$box-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
-
-	.container {
-		max-width: $tablet;
-		margin: 0 auto;
-		padding: 0 $spacing-md;
-		text-align: center;
-	}
-
-	/* Typography & Buttons */
-	h1,
-	h2,
-	h3 {
-		color: $text-color;
-		font-family: "Montserrat", sans-serif;
-	}
-
-	p,
-	li {
-		font-family: "Poppins", sans-serif;
-		color: lighten($text-color, 15%);
-		line-height: 1.8;
-	}
-
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		text-decoration: none;
-		border-radius: $border-radius-full;
-		font-weight: 600;
-		font-family: "Poppins", sans-serif;
-		transition: all 0.3s ease;
-		cursor: pointer;
-		letter-spacing: 0.5px;
-
-		&:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-		}
-	}
-
-	.btn-primary {
-		background-color: $secondary-color;
-		color: $text-white;
-		padding: 1rem 2.5rem;
-		font-size: 1.1rem;
-		border: none;
-		box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
-
-		&.btn-large {
-			font-size: 1.25rem;
-			padding: 1.4rem 3rem;
-			width: 100%;
-			max-width: 400px;
-		}
-
-		&:hover {
-			background-color: darken($secondary-color, 5%);
-		}
-	}
-
-	.btn-secondary {
-		background-color: transparent;
-		color: $primary-color;
-		border: 2px solid $primary-color;
-		padding: 0.8rem 2rem;
-
-		&:hover {
-			background-color: $primary-color;
-			color: $text-white;
-		}
-	}
-
-	/* Hero Section */
-	.hero-section {
-		position: relative;
-		padding: 8rem 1rem 6rem;
-		background:
-			linear-gradient(135deg, rgba($primary-color, 0.9), rgba($bg-light, 0.8));
-		color: $text-white;
-		&::before {
-			content: "";
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba($bg-dark, 0.1);
-		}
+		/* Local overrides */
+		$color-pack-bg: #fff;
+		$color-warning-bg: #fff4e5;
+		$box-shadow-card: 0 10px 30px rgba(0, 0, 0, 0.05);
 
 		.container {
-			position: relative;
-			z-index: 2;
-			max-width: 800px;
-		}
-
-		h1 {
-			font-size: clamp(2rem, 5vw, 3rem);
-			margin-bottom: 1.5rem;
-			line-height: 1.2;
-			color: $text-white;
-			text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-		}
-
-		.subtitle {
-			font-size: clamp(1.1rem, 3vw, 1.4rem);
-			margin-bottom: 3rem;
-			color: rgba(255, 255, 255, 0.9);
-			font-weight: 400;
-		}
-	}
-
-	/* Symptoms Section */
-	.symptoms-section {
-		background-color: $bg-light;
-		padding: $spacing-xxl 1rem;
-
-		h2 {
-			margin-bottom: 1.5rem;
-			font-size: 2rem;
-		}
-		.symptoms-desc{
-			margin-bottom: 2rem;
-			font-weight: 500;
-		}
-		.symptoms-list {
-			list-style: none;
-			padding: 0;
-			text-align: left;
-			display: flex;
-			flex-direction: column;
-			gap: 1.5rem;
-			max-width: 800px;
+			max-width: $tablet;
 			margin: 0 auto;
-
-			li {
-				position: relative;
-				font-size: 1.2rem;
-				padding-left: 2.5rem;
-				color: $text-color;
-				line-height: 1.6;
-
-				&::before {
-					content: "✖";
-					position: absolute;
-					left: 0;
-					top: 2px;
-					color: #e74c3c;
-					font-weight: bold;
-					font-size: 1.2rem;
-				}
-			}
-		}
-	}
-
-	/* Offer Pack Section */
-	.offer-pack {
-		background: linear-gradient(to bottom, $bg-light, $bg-color);
-		padding: 5rem 1rem;
-
-		h2 {
-			font-size: 2.2rem;
-			margin-bottom: 1rem;
-			color: $primary-color;
-		}
-
-		.offer-desc {
-			font-style: italic;
-			margin-bottom: 3rem;
-			font-size: 1.1rem;
-			max-width: 700px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.benefits-list {
-			list-style: none;
-			padding: 0;
-			margin-bottom: 3rem;
-			text-align: left;
-			max-width: 700px;
-			margin: 0 auto 3rem auto;
-
-			li {
-				margin-bottom: 1.5rem;
-				font-size: 1.1rem;
-				padding-left: 2rem;
-				position: relative;
-
-				&::before {
-					content: "✓";
-					position: absolute;
-					left: 0;
-					color: $primary-color;
-					font-weight: bold;
-					font-size: 1.3rem;
-				}
-
-				strong {
-					color: $text-color;
-					font-weight: 600;
-				}
-			}
-		}
-
-		.offer-action-wrapper {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			gap: 2rem;
-			margin-bottom: 2rem;
-
-			@media (min-width: $tablet) {
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-			}
-		}
-
-		.price-container {
-			margin-bottom: 0;
-			background: white;
-			display: inline-block;
-			padding: 1.5rem 3rem;
-			border-radius: $border-radius-lg;
-			box-shadow: $box-shadow-card;
-			border: 1px solid rgba($primary-color, 0.1);
-
-			.price-strike {
-				display: block;
-				text-decoration: line-through;
-				color: $text-grey;
-				font-size: 1rem;
-				margin-bottom: 0.5rem;
-			}
-
-			.price-real {
-				display: block;
-				font-size: 2rem;
-				font-weight: 700;
-				color: $primary-color;
-				letter-spacing: -0.5px;
-			}
-		}
-	}
-	/* Process Section */
-	.process-section {
-		padding: 5rem 1rem;
-		background-color: $bg-color;
-
-		h2 {
-			margin-bottom: 1rem;
-			color: $text-color;
-		}
-		.section-intro {
+			padding: 0 $spacing-md;
 			text-align: center;
-			margin-bottom: 3rem;
-			color: $text-light;
 		}
 
-		.steps-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 2rem;
-
-			@media (min-width: 768px) {
-				grid-template-columns: repeat(3, 1fr);
-			}
-		}
-
-		.step-card {
-			text-align: center;
-			padding: 2rem;
-			border: 1px solid $border-color;
-			border-radius: 8px;
-			background: $bg-light;
-			position: relative;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-start;
-			height: 100%;
-
-			.step-number {
-				background-color: $secondary-color;
-				color: #fff;
-				width: 40px;
-				height: 40px;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-weight: bold;
-				font-size: 1.2rem;
-				margin: 0 auto 1.5rem;
-			}
-			.step-duration {
-				font-size: 0.95rem;
-				margin-bottom: 1rem;
-			}
-			h3 {
-				font-size: 1.2rem;
-				margin-bottom: 1rem;
-			}
-			p {
-				font-size: 0.95rem;
-				line-height: 1.6;
-			}
-		}
-	}
-
-	/* Qualification Section */
-	.qualification-section {
-		padding: 5rem 1rem;
-		background: linear-gradient(to bottom, $bg-color, $bg-light);
-		.qualif-grid {
-			display: grid;
-			grid-template-columns: 1fr;
-			gap: 2rem;
-
-			@media (min-width: 768px) {
-				grid-template-columns: 1fr 1fr;
-			}
-		}
-
-		.qualif-box {
-			padding: 3rem 2.5rem;
-			border-radius: 20px;
-			position: relative;
-			text-align: left;
-			transition: all 0.3s ease;
-
-			h3 {
-				margin-bottom: 2rem;
-				font-size: 1.4rem;
-				font-weight: 700;
-				display: flex;
-				align-items: center;
-				gap: 10px;
-				min-height: 3.5rem; /* Ensure lists start at same level */
-			}
-
-			ul {
-				list-style: none;
-				padding: 0;
-				li {
-					margin-bottom: 1.2rem;
-					position: relative;
-					padding-left: 2rem;
-					font-size: 1.05rem;
-				}
-			}
-
-			/* Yes Box Design */
-			&.yes {
-				background: rgba($primary-color, 0.1);
-				border: 1px solid rgba($primary-color, 0.3);
-				color: $primary-color;
-
-				h3 {
-					color: $primary-color;
-					&::before {
-						content: "\f00c"; /* Check Icon */
-						font-family: "Font Awesome 6 Free";
-						font-weight: 900;
-						background: $bg-light;
-						color: $primary-color;
-						width: 40px;
-						height: 40px;
-						min-width: 40px; /* Prevent shrinking */
-						min-height: 40px; /* Prevent shrinking */
-						flex-shrink: 0; /* Prevent shrinking */
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						border-radius: 50%;
-						font-size: 1.2rem;
-						box-shadow: 0 4px 10px rgba($primary-color, 0.1);
-						border: 2px solid $primary-color;
-					}
-				}
-
-				li::before {
-					content: "✓";
-					color: $primary-color;
-					position: absolute;
-					left: 0;
-					font-weight: 900;
-				}
-			}
-
-			/* No Box Design */
-			&.no {
-				background: rgba($secondary-color, 0.1);
-				color: $secondary-color-alt;
-				border: 1px solid rgba($secondary-color, 0.3);
-
-				h3 {
-					color: $secondary-color;
-					&::before {
-						content: "\f00d"; /* Cross Icon */
-						font-family: "Font Awesome 6 Free";
-						font-weight: 900;
-						background: $bg-light;
-						color: $secondary-color;
-						width: 40px;
-						height: 40px;
-						min-width: 40px; /* Prevent shrinking */
-						min-height: 40px; /* Prevent shrinking */
-						flex-shrink: 0; /* Prevent shrinking */
-						display: flex;
-						align-items: center;
-						justify-content: center;
-						border-radius: 50%;
-						font-size: 1.2rem;
-						box-shadow: 0 4px 10px rgba($secondary-color, 0.1);
-						border: 2px solid $secondary-color;
-					}
-				}
-
-				li {
-					opacity: 0.9;
-				}
-
-				li::before {
-					content: "✕";
-					color: $secondary-color;
-					position: absolute;
-					left: 0;
-					font-weight: 900;
-				}
-			}
-		}
-	}
-	/* Pivot Section */
-	.pivot-separator {
-		padding: 4rem 1rem;
-		text-align: center;
-		background-color: $bg-light;
-
-		.divider {
-			height: 3px;
-			width: 80px;
-			background: linear-gradient(to right, transparent, $text-grey, transparent);
-			margin: 0 auto 3rem;
-		}
-
+		/* Typography & Buttons */
+		h1,
+		h2,
 		h3 {
-			font-size: 1.5rem;
-			margin-bottom: 0.8rem;
+			color: $text-color;
+			font-family: "Montserrat", sans-serif;
 		}
-	}
 
-	/* Tripwire Section */
-	.offer-tripwire {
-		padding: 5rem 1rem;
-		background-color: $bg-light;
-		display: flex;
-		justify-content: center;
+		p,
+		li {
+			font-family: "Poppins", sans-serif;
+			color: lighten($text-color, 15%);
+			line-height: 1.8;
+		}
 
-		.tripwire-card {
-			background: white;
-			border: 1px solid rgba(0, 0, 0, 0.05);
-			padding: 3rem;
-			border-radius: $border-radius-lg;
-			box-shadow: $box-shadow-card;
-			max-width: 900px;
-			width: 100%;
-			display: flex;
-			flex-direction: column;
-			gap: 3rem;
+		.btn {
+			display: inline-flex;
 			align-items: center;
-			position: relative;
-			overflow: hidden;
+			justify-content: center;
+			text-decoration: none;
+			border-radius: $border-radius-full;
+			font-weight: 600;
+			font-family: "Poppins", sans-serif;
+			transition: all 0.3s ease;
+			cursor: pointer;
+			letter-spacing: 0.5px;
 
+			&:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+			}
+		}
+
+		.btn-primary {
+			background-color: $secondary-color;
+			color: $text-white;
+			padding: 1rem 2.5rem;
+			font-size: clamp(1rem, 2.5vw, 1.1rem);
+			border: none;
+			box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
+
+			&.btn-large {
+				font-size: clamp(1.1rem, 3vw, 1.25rem);
+				padding: 1.4rem 3rem;
+				width: 100%;
+				max-width: 400px;
+			}
+
+			&:hover {
+				background-color: darken($secondary-color, 5%);
+			}
+		}
+
+		.btn-secondary {
+			background-color: transparent;
+			color: $primary-color;
+			border: 2px solid $primary-color;
+			padding: 0.8rem 2rem;
+
+			&:hover {
+				background-color: $primary-color;
+				color: $text-white;
+			}
+		}
+
+		/* Hero Section */
+		.hero-section {
+			position: relative;
+			padding: 8rem 1rem 6rem;
+			background: linear-gradient(
+				135deg,
+				rgba($primary-color, 0.9),
+				rgba($bg-light, 0.8)
+			);
+			color: $text-white;
 			&::before {
 				content: "";
 				position: absolute;
 				top: 0;
 				left: 0;
 				width: 100%;
-				height: 6px;
-				background: repeating-linear-gradient(
-					45deg,
-					$secondary-color,
-					$secondary-color 10px,
-					white 10px,
-					white 20px
-				);
+				height: 100%;
+				background: rgba($bg-dark, 0.1);
 			}
 
-			@media (min-width: $mobile) {
-				flex-direction: row;
-				text-align: left;
+			.container {
+				position: relative;
+				z-index: 2;
+				max-width: 800px;
 			}
-		}
 
-		.tripwire-image {
-			flex: 0 0 250px;
+			h1 {
+				font-size: clamp(1.5rem, 6vw, 3rem);
+				margin-bottom: 1.5rem;
+				line-height: 1.2;
+				color: $text-white;
+				text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+			}
 
-			.img-placeholder {
-				width: 100%;
-				height: 250px;
-				background-color: $bg-color;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				border-radius: $border-radius-md;
-				font-size: 4rem;
+			.subtitle {
+				font-size: clamp(1rem, 3vw, 1.4rem);
+				margin-bottom: 3rem;
+				color: rgba(255, 255, 255, 0.9);
+				font-weight: 400;
 			}
 		}
 
-		.tripwire-content {
-			flex: 1;
-			display: flex;
-			flex-direction: column;
-			gap: 1.2rem;
+		/* Symptoms Section */
+		.symptoms-section {
+			background-color: $bg-light;
+			padding: $spacing-xxl 1rem;
 
-			h3 {
-				font-size: 1.8rem;
-				color: $primary-color;
-				margin: 0;
+			h2 {
+				margin-bottom: 1.5rem;
+				font-size: clamp(1.3rem, 5vw, 2rem);
 			}
-
-			p {
-				margin: 0;
-			}
-
-			.tripwire-price {
-				font-size: 2rem;
-				font-weight: bold;
-				color: $secondary-color;
-			}
-		}
-	}
-
-	/* Trust Section */
-	.trust-section {
-		padding: 5rem 1rem;
-		background: linear-gradient(to bottom, $bg-light, $bg-color);
-
-		.bio {
-			margin-bottom: 4rem;
-			max-width: 600px;
-			margin-left: auto;
-			margin-right: auto;
-
-			h3 {
-				margin-bottom: 1rem;
-			}
-			p {
-				font-size: 1.1rem;
-			}
-		}
-
-		.faq {
-			max-width: 800px;
-			margin: 0 auto;
-
-			h3 {
+			.symptoms-desc {
 				margin-bottom: 2rem;
+				font-weight: 500;
+			}
+			.symptoms-list {
+				list-style: none;
+				padding: 0;
+				text-align: left;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5rem;
+				max-width: 800px;
+				margin: 0 auto;
+
+				li {
+					position: relative;
+					font-size: clamp(1rem, 3vw, 1.2rem);
+					padding-left: 2.5rem;
+					color: $text-color;
+					line-height: 1.6;
+
+					&::before {
+						content: "✖";
+						position: absolute;
+						left: 0;
+						top: 2px;
+						color: #e74c3c;
+						font-weight: bold;
+						font-size: clamp(1rem, 3vw, 1.2rem);
+					}
+				}
+			}
+		}
+
+		/* Offer Pack Section */
+		.offer-pack {
+			background: linear-gradient(to bottom, $bg-light, $bg-color);
+			padding: 5rem 1rem;
+
+			h2 {
+				font-size: clamp(1.4rem, 5vw, 2.2rem);
+				margin-bottom: 1rem;
+				color: $primary-color;
+			}
+
+			.offer-desc {
+				font-style: italic;
+				margin-bottom: 3rem;
+				font-size: clamp(1rem, 3vw, 1.1rem);
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.benefits-list {
+				list-style: none;
+				padding: 0;
+				margin-bottom: 3rem;
+				text-align: left;
+				max-width: 700px;
+				margin: 0 auto 3rem auto;
+
+				li {
+					margin-bottom: 1.5rem;
+					font-size: clamp(1rem, 3vw, 1.1rem);
+					padding-left: 2rem;
+					position: relative;
+
+					&::before {
+						content: "✓";
+						position: absolute;
+						left: 0;
+						color: $primary-color;
+						font-weight: bold;
+						font-size: clamp(1.1rem, 3vw, 1.3rem);
+					}
+
+					strong {
+						color: $text-color;
+						font-weight: 600;
+					}
+				}
+			}
+
+			.offer-action-wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 2rem;
+				margin-bottom: 2rem;
+
+				@media (min-width: $tablet) {
+					flex-direction: row;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+
+			.offer-note {
+				font-size: 0.9rem;
+				color: $text-grey;
+				margin-bottom: 0.5rem;
 				text-align: center;
 			}
 
-			details {
-				background-color: #fff;
-				padding: 1.5rem;
-				border: 1px solid $border-color;
-				border-radius: $border-radius-md;
-				margin-bottom: 1rem;
-				text-align: left;
-				cursor: pointer;
-				transition: all 0.2s ease;
+			.price-container {
+				margin-bottom: 0;
+				background: white;
+				display: inline-block;
+				padding: clamp(1rem, 5vw, 1.5rem) clamp(1rem, 5vw, 3rem);
+				border-radius: $border-radius-lg;
+				box-shadow: $box-shadow-card;
+				border: 1px solid rgba($primary-color, 0.1);
+				max-width: 100%;
+				box-sizing: border-box;
 
-				&:hover {
-					border-color: $primary-color;
+				.price-strike {
+					display: block;
+					text-decoration: line-through;
+					color: $text-grey;
+					font-size: clamp(0.9rem, 2vw, 1rem);
+					margin-bottom: 0.5rem;
 				}
 
-				summary {
-					font-weight: 600;
-					font-family: "Poppins", sans-serif;
-					list-style: none; /* Hide default arrow */
-					position: relative;
-					padding-right: 30px;
-					color: $text-color;
-
-					&::-webkit-details-marker {
-						display: none;
-					}
-
-					&::after {
-						content: "+";
-						position: absolute;
-						right: 0;
-						font-weight: bold;
-						color: $primary-color;
-						font-size: 1.5rem;
-						line-height: 1;
-						top: -4px;
-					}
-				}
-
-				&[open] summary::after {
-					content: "-";
-				}
-
-				p {
-					margin-top: 1rem;
-					color: $text-light;
-					padding-top: 1rem;
-					border-top: 1px dashed $border-color;
+				.price-real {
+					display: block;
+					font-size: clamp(1.3rem, 5vw, 2rem);
+					font-weight: 700;
+					color: $primary-color;
+					letter-spacing: -0.5px;
 				}
 			}
 		}
-	}
-</style>
+		/* Process Section */
+		.process-section {
+			padding: 5rem 1rem;
+			background-color: $bg-color;
+
+			h2 {
+				margin-bottom: 1rem;
+				color: $text-color;
+			}
+			.section-intro {
+				text-align: center;
+				margin-bottom: 3rem;
+				color: $text-light;
+			}
+
+			.steps-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2rem;
+
+				@media (min-width: 768px) {
+					grid-template-columns: repeat(3, 1fr);
+				}
+			}
+
+			.step-card {
+				text-align: center;
+				padding: 2rem;
+				border: 1px solid $border-color;
+				border-radius: 8px;
+				background: $bg-light;
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				height: 100%;
+
+				.step-number {
+					background-color: $secondary-color;
+					color: #fff;
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-weight: bold;
+					font-size: clamp(1rem, 3vw, 1.2rem);
+					margin: 0 auto 1.5rem;
+				}
+				.step-duration {
+					font-size: 0.95rem;
+					margin-bottom: 1rem;
+				}
+				h3 {
+					font-size: clamp(1rem, 3vw, 1.2rem);
+					margin-bottom: 1rem;
+				}
+				p {
+					font-size: 0.95rem;
+					line-height: 1.6;
+				}
+			}
+		}
+
+		/* Qualification Section */
+		.qualification-section {
+			padding: 5rem 1rem;
+			background: linear-gradient(to bottom, $bg-color, $bg-light);
+			.qualif-grid {
+				display: grid;
+				grid-template-columns: 1fr;
+				gap: 2rem;
+
+				@media (min-width: 768px) {
+					grid-template-columns: 1fr 1fr;
+				}
+			}
+
+			.qualif-box {
+				padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 5vw, 2.5rem);
+				box-sizing: border-box;
+				width: 100%;
+				max-width: 100%;
+				min-width: 0; /* Prevents grid blowout */
+				border-radius: 20px;
+				position: relative;
+				text-align: left;
+				transition: all 0.3s ease;
+
+				h3 {
+					margin-bottom: 2rem;
+					font-size: clamp(1rem, 4vw, 1.4rem);
+					font-weight: 700;
+					display: flex;
+					align-items: center;
+					gap: 10px;
+					min-height: 3.5rem; /* Ensure lists start at same level */
+				}
+
+				ul {
+					list-style: none;
+					padding: 0;
+					li {
+						margin-bottom: 1.2rem;
+						position: relative;
+						padding-left: 2rem;
+						font-size: clamp(0.95rem, 3vw, 1.05rem);
+					}
+				}
+
+				/* Yes Box Design */
+				&.yes {
+					background: rgba($primary-color, 0.1);
+					border: 1px solid rgba($primary-color, 0.3);
+					color: $primary-color;
+
+					h3 {
+						color: $primary-color;
+						&::before {
+							content: "\f00c"; /* Check Icon */
+							font-family: "Font Awesome 6 Free";
+							font-weight: 900;
+							background: $bg-light;
+							color: $primary-color;
+							width: 40px;
+							height: 40px;
+							min-width: 40px; /* Prevent shrinking */
+							min-height: 40px; /* Prevent shrinking */
+							flex-shrink: 0; /* Prevent shrinking */
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-radius: 50%;
+							font-size: clamp(1rem, 3vw, 1.2rem);
+							box-shadow: 0 4px 10px rgba($primary-color, 0.1);
+							border: 2px solid $primary-color;
+						}
+					}
+
+					li::before {
+						content: "✓";
+						color: $primary-color;
+						position: absolute;
+						left: 0;
+						font-weight: 900;
+					}
+				}
+
+				/* No Box Design */
+				&.no {
+					background: rgba($secondary-color, 0.1);
+					color: $secondary-color-alt;
+					border: 1px solid rgba($secondary-color, 0.3);
+
+					h3 {
+						color: $secondary-color;
+						&::before {
+							content: "\f00d"; /* Cross Icon */
+							font-family: "Font Awesome 6 Free";
+							font-weight: 900;
+							background: $bg-light;
+							color: $secondary-color;
+							width: 40px;
+							height: 40px;
+							min-width: 40px; /* Prevent shrinking */
+							min-height: 40px; /* Prevent shrinking */
+							flex-shrink: 0; /* Prevent shrinking */
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							border-radius: 50%;
+							font-size: clamp(1rem, 3vw, 1.2rem);
+							box-shadow: 0 4px 10px rgba($secondary-color, 0.1);
+							border: 2px solid $secondary-color;
+						}
+					}
+
+					li {
+						opacity: 0.9;
+					}
+
+					li::before {
+						content: "✕";
+						color: $secondary-color;
+						position: absolute;
+						left: 0;
+						font-weight: 900;
+					}
+				}
+			}
+		}
+		/* Pivot Section */
+		.pivot-separator {
+			padding: 4rem 1rem;
+			text-align: center;
+			background-color: $bg-light;
+
+			.divider {
+				height: 3px;
+				width: 80px;
+				background: linear-gradient(to right, transparent, $text-grey, transparent);
+				margin: 0 auto 3rem;
+			}
+
+			h3 {
+				font-size: clamp(1.2rem, 4vw, 1.5rem);
+				margin-bottom: 0.8rem;
+			}
+		}
+
+		/* Tripwire Section */
+		.offer-tripwire {
+			padding: 5rem 1rem;
+			background-color: $bg-light;
+			display: flex;
+			justify-content: center;
+
+			.tripwire-card {
+				background: white;
+				border: 1px solid rgba(0, 0, 0, 0.05);
+				padding: clamp(1.5rem, 5vw, 3rem);
+				border-radius: $border-radius-lg;
+				box-shadow: $box-shadow-card;
+				max-width: 900px;
+				width: 100%;
+				display: flex;
+				flex-direction: column;
+				gap: 3rem;
+				align-items: center;
+				position: relative;
+				overflow: hidden;
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 6px;
+					background: repeating-linear-gradient(
+						45deg,
+						$secondary-color,
+						$secondary-color 10px,
+						white 10px,
+						white 20px
+					);
+				}
+
+				@media (min-width: $mobile) {
+					flex-direction: row;
+					text-align: left;
+				}
+			}
+
+			.tripwire-image {
+				flex: 0 0 250px;
+
+				.img-placeholder {
+					width: 100%;
+					height: 250px;
+					background-color: $bg-color;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					border-radius: $border-radius-md;
+					font-size: clamp(3rem, 10vw, 4rem);
+				}
+			}
+
+			.tripwire-content {
+				flex: 1;
+				display: flex;
+				flex-direction: column;
+				gap: 1.2rem;
+
+				h3 {
+					font-size: clamp(1.2rem, 4vw, 1.8rem);
+					color: $primary-color;
+					margin: 0;
+				}
+
+				p {
+					margin: 0;
+				}
+
+				.tripwire-price {
+					font-size: clamp(1.4rem, 5vw, 2rem);
+					font-weight: bold;
+					color: $secondary-color;
+				}
+			}
+		}
+
+		/* Trust Section */
+		.trust-section {
+			padding: 5rem 1rem;
+			background: linear-gradient(to bottom, $bg-light, $bg-color);
+
+			.bio {
+				margin-bottom: 4rem;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+
+				h3 {
+					margin-bottom: 1rem;
+				}
+				p {
+					font-size: clamp(1rem, 3vw, 1.1rem);
+				}
+			}
+
+			.faq {
+				max-width: 800px;
+				margin: 0 auto;
+
+				h3 {
+					margin-bottom: 2rem;
+					text-align: center;
+				}
+
+				details {
+					background-color: #fff;
+					padding: 1.5rem;
+					border: 1px solid $border-color;
+					border-radius: $border-radius-md;
+					margin-bottom: 1rem;
+					text-align: left;
+					cursor: pointer;
+					transition: all 0.2s ease;
+
+					&:hover {
+						border-color: $primary-color;
+					}
+
+					summary {
+						font-weight: 600;
+						font-family: "Poppins", sans-serif;
+						list-style: none; /* Hide default arrow */
+						position: relative;
+						padding-right: 30px;
+						color: $text-color;
+
+						&::-webkit-details-marker {
+							display: none;
+						}
+
+						&::after {
+							content: "+";
+							position: absolute;
+							right: 0;
+							font-weight: bold;
+							color: $primary-color;
+							font-size: clamp(1.2rem, 5vw, 1.5rem);
+							line-height: 1;
+							top: -4px;
+						}
+					}
+
+					&[open] summary::after {
+						content: "-";
+					}
+
+					p {
+						margin-top: 1rem;
+						color: $text-light;
+						padding-top: 1rem;
+						border-top: 1px dashed $border-color;
+					}
+				}
+			}
+		}
+	</style>
+</LandingLayout>

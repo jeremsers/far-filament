@@ -71,7 +71,7 @@ import aboutPicture from "../images/about.avif";
 <style lang="scss">
 	.section {
 		padding: 60px 20px;
-		background-color: $bg-light;
+		background: linear-gradient(to bottom, $bg-light 80%, $bg-color);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -79,7 +79,7 @@ import aboutPicture from "../images/about.avif";
 		position: relative;
 		overflow: hidden;
 
-		&::before {
+		/* &::before {
 			content: "";
 			position: absolute;
 			top: 0;
@@ -92,7 +92,7 @@ import aboutPicture from "../images/about.avif";
 				transparent 70%
 			);
 			z-index: 0;
-		}
+		} */
 	}
 
 	.section-header {

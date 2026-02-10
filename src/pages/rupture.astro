@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
+import qui from "../images/qui.avif";
 ---
 
 <LandingLayout>
@@ -216,7 +218,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		<div class="tripwire-card">
 			<div class="tripwire-image">
 				<div class="img-placeholder">
-					<span style="font-size: 3rem;">📦</span>
+					<span style="font-size: clamp(2.5rem, 10vw, 3rem);">📦</span>
 				</div>
 			</div>
 			<div class="tripwire-content">
@@ -266,10 +268,12 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		<div class="container">
 			<div class="bio">
 				<!-- Using existing placeholder image or same as burnout -->
-				<img
-					src="/images/portrait-therapeute.jpg"
+				<Image
+					src={qui}
 					alt="Portrait"
-					style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 1rem; object-fit: cover;"
+					width={100}
+					height={100}
+					style="border-radius: 50%; margin-bottom: 1rem; object-fit: cover;object-position: top;"
 				/>
 				<h3>Qui suis-je ?</h3>
 				<p>
@@ -436,12 +440,12 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		background-color: $secondary-color;
 		color: $text-white;
 		padding: 1rem 2.5rem;
-		font-size: 1.1rem;
+		font-size: clamp(1rem, 2.5vw, 1.1rem);
 		border: none;
 		box-shadow: 0 4px 15px rgba($secondary-color, 0.3);
 
 		&.btn-large {
-			font-size: 1.25rem;
+			font-size: clamp(1.1rem, 3vw, 1.25rem);
 			padding: 1.4rem 3rem;
 			width: 100%;
 			max-width: 400px;
@@ -468,8 +472,11 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 	.hero-section {
 		position: relative;
 		padding: 8rem 1rem 6rem;
-		background:
-			linear-gradient(135deg, rgba($primary-color, 0.9), rgba($bg-light, 0.8));
+		background: linear-gradient(
+			135deg,
+			rgba($primary-color, 0.9),
+			rgba($bg-light, 0.8)
+		);
 		color: $text-white;
 		&::before {
 			content: "";
@@ -488,7 +495,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		}
 
 		h1 {
-			font-size: clamp(2rem, 5vw, 3rem);
+			font-size: clamp(1.5rem, 6vw, 3rem);
 			margin-bottom: 1.5rem;
 			line-height: 1.2;
 			color: $text-white;
@@ -496,7 +503,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		}
 
 		.subtitle {
-			font-size: clamp(1.1rem, 3vw, 1.4rem);
+			font-size: clamp(1rem, 3vw, 1.4rem);
 			margin-bottom: 3rem;
 			color: rgba(255, 255, 255, 0.9);
 			font-weight: 400;
@@ -510,7 +517,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 
 		h2 {
 			margin-bottom: 3rem;
-			font-size: 2rem;
+			font-size: clamp(1.3rem, 5vw, 2rem);
 		}
 
 		.symptoms-list {
@@ -525,7 +532,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 
 			li {
 				position: relative;
-				font-size: 1.2rem;
+				font-size: clamp(1rem, 3vw, 1.2rem);
 				padding-left: 2.5rem;
 				color: $text-color;
 				line-height: 1.6;
@@ -537,7 +544,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 					top: 2px;
 					color: #e74c3c;
 					font-weight: bold;
-					font-size: 1.2rem;
+					font-size: clamp(1rem, 3vw, 1.2rem);
 				}
 			}
 		}
@@ -549,7 +556,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		padding: 5rem 1rem;
 
 		h2 {
-			font-size: 2.2rem;
+			font-size: clamp(1.4rem, 5vw, 2.2rem);
 			margin-bottom: 1rem;
 			color: $primary-color;
 		}
@@ -557,7 +564,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		.offer-desc {
 			font-style: italic;
 			margin-bottom: 3rem;
-			font-size: 1.1rem;
+			font-size: clamp(1rem, 3vw, 1.1rem);
 			max-width: 700px;
 			margin-left: auto;
 			margin-right: auto;
@@ -573,7 +580,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 
 			li {
 				margin-bottom: 1.5rem;
-				font-size: 1.1rem;
+				font-size: clamp(1rem, 3vw, 1.1rem);
 				padding-left: 2rem;
 				position: relative;
 
@@ -583,7 +590,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 					left: 0;
 					color: $primary-color;
 					font-weight: bold;
-					font-size: 1.3rem;
+					font-size: clamp(1.1rem, 3vw, 1.3rem);
 				}
 
 				strong {
@@ -611,22 +618,24 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 			margin-bottom: 0;
 			background: white;
 			display: inline-block;
-			padding: 1.5rem 3rem;
+			padding: clamp(1rem, 5vw, 1.5rem) clamp(1rem, 5vw, 3rem);
 			border-radius: $border-radius-lg;
 			box-shadow: $box-shadow-card;
 			border: 1px solid rgba($primary-color, 0.1);
+			max-width: 100%;
+			box-sizing: border-box;
 
 			.price-strike {
 				display: block;
 				text-decoration: line-through;
 				color: $text-grey;
-				font-size: 1rem;
+				font-size: clamp(0.9rem, 2vw, 1rem);
 				margin-bottom: 0.5rem;
 			}
 
 			.price-real {
 				display: block;
-				font-size: 2rem;
+				font-size: clamp(1.3rem, 5vw, 2rem);
 				font-weight: 700;
 				color: $primary-color;
 				letter-spacing: -0.5px;
@@ -677,12 +686,12 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				align-items: center;
 				justify-content: center;
 				font-weight: bold;
-				font-size: 1.2rem;
+				font-size: clamp(1rem, 3vw, 1.2rem);
 				margin: 0 auto 1.5rem;
 			}
 
 			h3 {
-				font-size: 1.2rem;
+				font-size: clamp(1rem, 3vw, 1.2rem);
 				margin-bottom: 0.2rem;
 			}
 			.step-subtitle {
@@ -715,7 +724,11 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		}
 
 		.qualif-box {
-			padding: 3rem 2.5rem;
+			padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 5vw, 2.5rem);
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0; /* Prevents grid blowout */
 			border-radius: 20px;
 			position: relative;
 			text-align: left;
@@ -723,7 +736,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 
 			h3 {
 				margin-bottom: 2rem;
-				font-size: 1.4rem;
+				font-size: clamp(1rem, 4vw, 1.4rem);
 				font-weight: 700;
 				display: flex;
 				align-items: center;
@@ -738,7 +751,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 					margin-bottom: 1.2rem;
 					position: relative;
 					padding-left: 2rem;
-					font-size: 1.05rem;
+					font-size: clamp(0.95rem, 3vw, 1.05rem);
 				}
 			}
 
@@ -765,7 +778,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						align-items: center;
 						justify-content: center;
 						border-radius: 50%;
-						font-size: 1.2rem;
+						font-size: clamp(1rem, 3vw, 1.2rem);
 						box-shadow: 0 4px 10px rgba($primary-color, 0.1);
 						border: 2px solid $primary-color;
 					}
@@ -803,7 +816,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						align-items: center;
 						justify-content: center;
 						border-radius: 50%;
-						font-size: 1.2rem;
+						font-size: clamp(1rem, 3vw, 1.2rem);
 						box-shadow: 0 4px 10px rgba($secondary-color, 0.1);
 						border: 2px solid $secondary-color;
 					}
@@ -838,7 +851,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		}
 
 		h3 {
-			font-size: 1.5rem;
+			font-size: clamp(1.2rem, 4vw, 1.5rem);
 			margin-bottom: 0.8rem;
 		}
 	}
@@ -853,7 +866,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 		.tripwire-card {
 			background: white;
 			border: 1px solid rgba(0, 0, 0, 0.05);
-			padding: 3rem;
+			padding: clamp(1.5rem, 5vw, 3rem);
 			border-radius: $border-radius-lg;
 			box-shadow: $box-shadow-card;
 			max-width: 900px;
@@ -898,7 +911,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				align-items: center;
 				justify-content: center;
 				border-radius: $border-radius-md;
-				font-size: 4rem;
+				font-size: clamp(3rem, 10vw, 4rem);
 			}
 		}
 
@@ -909,7 +922,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 			gap: 1.2rem;
 
 			h3 {
-				font-size: 1.8rem;
+				font-size: clamp(1.2rem, 4vw, 1.8rem);
 				color: $primary-color;
 				margin: 0;
 			}
@@ -919,7 +932,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 			}
 
 			.tripwire-price {
-				font-size: 2rem;
+				font-size: clamp(1.4rem, 5vw, 2rem);
 				font-weight: bold;
 				color: $secondary-color;
 			}
@@ -941,7 +954,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 				margin-bottom: 1rem;
 			}
 			p {
-				font-size: 1.1rem;
+				font-size: clamp(1rem, 3vw, 1.1rem);
 			}
 		}
 
@@ -986,7 +999,7 @@ import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 						right: 0;
 						font-weight: bold;
 						color: $primary-color;
-						font-size: 1.5rem;
+						font-size: clamp(1.2rem, 5vw, 1.5rem);
 						line-height: 1;
 						top: -4px;
 					}

@@ -8,8 +8,10 @@ interface Props {
 	description?: string;
 }
 
-const { title = "Essence et conscience", description = "Accompagnement intensif" } =
-	Astro.props;
+const {
+	title = "Essence et conscience",
+	description = "Accompagnement intensif",
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -73,7 +75,9 @@ const { title = "Essence et conscience", description = "Accompagnement intensif"
 
 		<footer class="lp-footer">
 			<div class="footer-content">
-				<p>&copy; {new Date().getFullYear()} Essence et conscience. Tous droits réservés.</p>
+				<p>
+					&copy; {new Date().getFullYear()} Essence et conscience. Tous droits réservés.
+				</p>
 				<div class="legal-links">
 					<a href="/mentions-legales">Mentions Légales</a>
 					/
@@ -118,11 +122,15 @@ const { title = "Essence et conscience", description = "Accompagnement intensif"
 				scroll-behavior: smooth;
 			}
 
+			html,
 			body {
 				font-family: "Poppins", sans-serif;
 				background-color: $bg-color;
 				color: $text-color;
 				line-height: 1.6;
+				overflow-x: hidden;
+				width: 100%;
+				max-width: 100%;
 			}
 
 			h1,
@@ -201,6 +209,9 @@ const { title = "Essence et conscience", description = "Accompagnement intensif"
 				min-height: 80vh;
 				display: flex;
 				flex-direction: column;
+				width: 100%;
+				max-width: 100%;
+				overflow-x: hidden;
 			}
 
 			.lp-footer {

@@ -61,7 +61,7 @@ import contactImage from "../images/contact.avif";
 		display: flex;
 		flex-direction: column;
 		padding: 60px 20px;
-		background-color: $bg-color;
+		background: linear-gradient(to bottom, $bg-light 70%, $bg-color 95%);
 
 		.section-header {
 			text-align: center;
@@ -140,6 +140,8 @@ import contactImage from "../images/contact.avif";
 				background-color: $bg-light;
 				border-radius: 10px;
 				transition: transform 0.3s ease;
+				border: 2px solid $border-color;
+				box-shadow: $shadow-md;
 
 				&:hover {
 					transform: translateX(10px);
