@@ -1,19 +1,26 @@
 ---
+import { Image } from "astro:assets";
+import burnoutImg from "../images/burnout-dispatch.avif";
+import ruptureImg from "../images/rupture-dispatch.avif";
+
 
 ---
 
 <section class="dispatcher-section" id="dispatcher">
 	<div class="dispatcher-header">
-		<h2>Comment puis-je vous aider aujourd'hui ?</h2>
-		<p>Choisissez le parcours qui correspond à votre besoin du moment.</p>
+		<h2>Quel accompagnement vous appelle ?</h2>
+		<p>
+			Choisissez le parcours qui correspond à votre situation et qui deviendra
+			votre point de départ.
+		</p>
 	</div>
 
 	<div class="dispatcher-grid">
 		<!-- Carte BURNOUT (Pro) -->
 		<a href="/burnout" class="dispatch-card burnout">
 			<div class="card-image">
-				<img
-					src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000"
+				<Image
+					src={burnoutImg}
 					alt="Bureau Zen et Nature"
 				/>
 				<div class="overlay"></div>
@@ -32,8 +39,8 @@
 		<!-- Carte RUPTURE (Perso) -->
 		<a href="/rupture" class="dispatch-card rupture">
 			<div class="card-image">
-				<img
-					src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?auto=format&fit=crop&q=80&w=1000"
+				<Image
+					src={ruptureImg}
 					alt="Ambiance Cosy et Cocon"
 				/>
 				<div class="overlay"></div>
@@ -52,8 +59,6 @@
 </section>
 
 <style lang="scss">
-	
-
 	.dispatcher-section {
 		background: linear-gradient(to bottom, $bg-color 80%, $bg-light);
 		padding: 80px 20px;
@@ -70,20 +75,18 @@
 			h2 {
 				font-family: "Montserrat", serif;
 				color: $text-color;
-				font-size: 2.5rem;
+				font-size: clamp(1.5rem, 5vw, 3rem);
 				margin-bottom: 15px;
 				line-height: 1.2;
 
-				@media (max-width: $mobile) {
-					font-size: 2rem;
-				}
+				
 			}
 
 			p {
 				font-family: "Poppins", sans-serif;
 				color: $text-light;
 				font-weight: 300;
-				font-size: 1.1rem;
+				font-size: clamp(0.8rem, 1vw + 0.5rem, 1.3rem);
 				max-width: 600px;
 				margin: 0 auto;
 			}

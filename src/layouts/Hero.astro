@@ -22,11 +22,11 @@ import heroBanner from "../images/main2.avif";
 			<div class="values">
 				<span>✦ Cadre sécurisant</span>
 				<span>✦ Outils concrets</span>
-				<span>✦ Changement durable</span>
+				<span>✦ Un espace confidentiel et sans jugement</span>
 			</div>
 
 			<!-- Le CTA pointe vers le Dispatcher juste en dessous -->
-			<a href="#dispatcher" class="cta-btn">Trouver ma solution 👇</a>
+			<a href="#dispatcher" class="cta-btn">Trouver ma voie 👇</a>
 		</div>
 	</div>
 	<Image
@@ -132,7 +132,7 @@ import heroBanner from "../images/main2.avif";
 					animation: fadeIn 1s ease-out 0.7s both;
 
 					span {
-						font-size: 1.1rem;
+						font-size: clamp(0.8rem, 1vw + 0.5rem, 1.3rem);
 						color: var(--secondary-color, #e0c9a6);
 						font-weight: 500;
 						display: flex;
@@ -254,11 +254,6 @@ import heroBanner from "../images/main2.avif";
 			.hero {
 				height: 100%;
 				min-height: 100vh;
-
-				.hero-content {
-					padding: 25px;
-					margin: 0 15px;
-				}
 			}
 		}
 	</style>
