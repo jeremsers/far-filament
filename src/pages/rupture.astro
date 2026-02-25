@@ -102,12 +102,16 @@ import tripwireRupture from "../images/rupture-tripwire-card.avif";
 				</div>
 
 				<a href="URL_YOUCANBOOKME" class="btn btn-primary btn-large"
-					>Réserver mon Bilan de Reconstruction Offert</a
-				>
+				>Réserver un échange préalable Offert</a
+			>
 			</div>
-			<p style="font-size: 0.9rem; margin-top: 1rem; color: #666;">
+			<p class="offer-note">
 				*Entretien de 20 min sans engagement pour vérifier si je peux vous
 				accompagner.
+			</p>
+			<p class="offer-note">
+				(Cet accompagnement s’inscrit dans une démarche de soutien et peut venir en
+				complément, lorsque nécessaire, d’un suivi psychologique ou médical.)
 			</p>
 		</div>
 	</section>
@@ -272,10 +276,7 @@ import tripwireRupture from "../images/rupture-tripwire-card.avif";
 				>
 					<span class="tripwire-price">160 CHF</span>
 				</div>
-				<a
-					href="#offer"
-					class="btn btn-secondary"
-				>
+				<a href="#offer" class="btn btn-secondary">
 					🔒 Télécharger le kit + Réserver (160 CHF)
 				</a>
 				<p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
@@ -453,6 +454,7 @@ import tripwireRupture from "../images/rupture-tripwire-card.avif";
 		transition: all 0.3s ease;
 		cursor: pointer;
 		letter-spacing: 0.5px;
+		text-align: center;
 
 		&:hover {
 			transform: translateY(-2px);
@@ -636,6 +638,12 @@ import tripwireRupture from "../images/rupture-tripwire-card.avif";
 				justify-content: center;
 				align-items: center;
 			}
+		}
+		.offer-note {
+			font-size: 0.9rem;
+			color: $text-grey;
+			margin-bottom: 0.5rem;
+			text-align: center;
 		}
 
 		.price-container {
