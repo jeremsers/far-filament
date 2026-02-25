@@ -20,6 +20,21 @@ const ogImage = image || "/images/default-blog-image.jpg";
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
+		<!-- Initial consent -->
+		<script is:inline>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("consent", "default", {
+				ad_storage: "denied",
+				ad_user_data: "denied",
+				ad_personalization: "denied",
+				analytics_storage: "denied",
+				wait_for_update: 500,
+			});
+		</script>
+		<!-- End Initial consent -->
 		<!-- Axeptio -->
 		<script is:inline>
 			window.axeptioSettings = {
@@ -58,7 +73,7 @@ const ogImage = image || "/images/default-blog-image.jpg";
 			})(window, document, "script", "dataLayer", "GTM-WMWP677Q");
 		</script>
 		<!-- End Google Tag Manager -->
-		
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
 			{title} | Essence et Conscience - Coaching PNL et Développement Personnel
