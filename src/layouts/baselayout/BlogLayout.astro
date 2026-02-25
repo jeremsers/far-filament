@@ -20,22 +20,8 @@ const ogImage = image || "/images/default-blog-image.jpg";
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
-		<!-- Google Tag Manager -->
-		<script>
-			(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != "dataLayer" ? "&l=" + l : "";
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-WMWP677Q");
-		</script>
-		<!-- End Google Tag Manager -->
 		<!-- Axeptio -->
-		<script>
+		<script is:inline>
 			window.axeptioSettings = {
 				clientId: "699ef2ccbd813aff599ea925",
 				cookiesVersion: "58ffbee9-c557-4e4a-a8e4-4b7406855661",
@@ -58,6 +44,21 @@ const ogImage = image || "/images/default-blog-image.jpg";
 			})(document, "script");
 		</script>
 		<!-- End Axeptio -->
+		<!-- Google Tag Manager -->
+		<script is:inline>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != "dataLayer" ? "&l=" + l : "";
+				j.async = true;
+				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, "script", "dataLayer", "GTM-WMWP677Q");
+		</script>
+		<!-- End Google Tag Manager -->
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
 			{title} | Essence et Conscience - Coaching PNL et Développement Personnel
