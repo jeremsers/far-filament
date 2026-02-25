@@ -18,10 +18,22 @@ const {
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
+		<!-- Initial consent -->
 		<script is:inline>
-window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('consent', 'default', {'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied', 'analytics_storage': 'denied', 'wait_for_update': 500});
-</script>
-		 <!-- Axeptio -->
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("consent", "default", {
+				ad_storage: "denied",
+				ad_user_data: "denied",
+				ad_personalization: "denied",
+				analytics_storage: "denied",
+				wait_for_update: 500,
+			});
+		</script>
+		<!-- End Initial consent -->
+		<!-- Axeptio -->
 		<script is:inline>
 			window.axeptioSettings = {
 				clientId: "699ef2ccbd813aff599ea925",
@@ -83,7 +95,7 @@ window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(argume
 				style="display:none;visibility:hidden"></iframe></noscript
 		>
 		<!-- End Google Tag Manager (noscript) -->
-		
+
 		<header class="header-main">
 			<div class="logo">
 				<a href="/" class="logo-link">
