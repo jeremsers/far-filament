@@ -2,6 +2,7 @@
 import LandingLayout from "../layouts/baselayout/LandingLayout.astro";
 import qui from "../images/qui.avif";
 import { Image } from "astro:assets";
+import tripwireBurnout from "../images/burnout-tripwire-card.avif";
 ---
 
 <LandingLayout>
@@ -201,9 +202,11 @@ import { Image } from "astro:assets";
 	<section class="offer-tripwire">
 		<div class="tripwire-card">
 			<div class="tripwire-image">
-				<div class="img-placeholder">
-					<span style="font-size: clamp(2.5rem, 10vw, 3rem);">📦</span>
-				</div>
+				<Image
+					src={tripwireBurnout}
+					alt="Kit de Soutien Immédiat"
+					class="tripwire-img"
+				/>
 			</div>
 			<div class="tripwire-content">
 				<h3>Le Kit de Soutien Immédiat</h3>
@@ -251,16 +254,16 @@ import { Image } from "astro:assets";
 				>
 					<span class="tripwire-price">160 CHF</span>
 				</div>
+				<a
+					 href="#offer"
+					class="btn btn-secondary"
+				>
+					🔒 Télécharger le Kit + Réserver (160 CHF)
+				</a>
 				<p style="font-size: 0.9rem; color: #555; margin-bottom: 1rem;">
 					👉 Un soutien ponctuel, posé, pour traverser une période difficile avec
 					plus de sécurité.
 				</p>
-				<!-- <a
-					 href="https://buy.stripe.com/9B6fZiftXcsgfvbdq89AA02"
-					class="btn btn-secondary"
-				>
-					🔒 Télécharger le Kit + Réserver (160 CHF)
-				</a> -->
 			</div>
 		</div>
 	</section>
@@ -890,15 +893,13 @@ import { Image } from "astro:assets";
 			.tripwire-card {
 				background: white;
 				border: 1px solid rgba(0, 0, 0, 0.05);
-				padding: clamp(1.5rem, 5vw, 3rem);
 				border-radius: $border-radius-lg;
 				box-shadow: $box-shadow-card;
 				max-width: 900px;
 				width: 100%;
 				display: flex;
 				flex-direction: column;
-				gap: 3rem;
-				align-items: center;
+				align-items: stretch;
 				position: relative;
 				overflow: hidden;
 
@@ -916,6 +917,7 @@ import { Image } from "astro:assets";
 						white 10px,
 						white 20px
 					);
+					z-index: 10;
 				}
 
 				@media (min-width: $mobile) {
@@ -926,16 +928,15 @@ import { Image } from "astro:assets";
 
 			.tripwire-image {
 				flex: 0 0 250px;
+				position: relative;
 
-				.img-placeholder {
+				.tripwire-img {
 					width: 100%;
-					height: 250px;
-					background-color: $bg-color;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					border-radius: $border-radius-md;
-					font-size: clamp(3rem, 10vw, 4rem);
+					height: 100%;
+					object-fit: cover;
+					position: absolute;
+					top: 0;
+					left: 0;
 				}
 			}
 
@@ -944,6 +945,7 @@ import { Image } from "astro:assets";
 				display: flex;
 				flex-direction: column;
 				gap: 1.2rem;
+				padding: clamp(1.5rem, 5vw, 3rem);
 
 				h3 {
 					font-size: clamp(1.2rem, 4vw, 1.8rem);

@@ -1,0 +1,465 @@
+---
+import CocoonLayout from "../../layouts/CocoonLayout.astro";
+
+// Metadata
+const title = "Votre commande est validée - Espace Cocon";
+const description =
+	"Accédez à vos outils de récupération et réservez votre séance de coaching.";
+---
+
+<CocoonLayout title={title} description={description} noindex={true}>
+	<!-- COCOON HERO -->
+	<section class="cocoon-hero">
+		<div class="hero-inner">
+			<h1>Votre commande est validée !</h1>
+			<p class="subtitle">Voici vos outils de récupération.</p>
+		</div>
+	</section>
+
+	<!-- RESERVATION SECTION -->
+	<section class="reservation">
+		<div class="priority-card">
+			<div class="badge">ÉTAPE 1 : ACTION REQUISE</div>
+			<div class="card-content">
+				<div class="icon-wrapper">
+					<i class="fa-regular fa-calendar-check"></i>
+				</div>
+				<div class="text-content">
+					<h2>Réservez votre séance de coaching en visio<br />(60 min)</h2>
+					<p>
+						Un espace pour faire le point, déposer ce qui est trop confus, retrouver
+						de la clarté et ne pas rester seul(e) face à l'intensité.
+					</p>
+				</div>
+				<div class="action-wrapper">
+					<a
+						href="https://essence-conscience-decouverte.youcanbook.me"
+						target="_blank"
+						class="cta-pill"
+						>Choisir mon horaire <i class="fa-solid fa-arrow-right"></i></a
+					>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- TOOLS GRID -->
+	<section class="tools-section">
+		<h3 class="section-title">Vos Soins Audio & Guides</h3>
+
+		<div class="tools-grid">
+			<!-- Tool 1: Audio Sas de Décompression -->
+			<div class="tool-card">
+				<div class="tool-icon audio">
+					<span>🎧</span>
+				</div>
+				<div class="tool-info">
+					<h4>Sas de Décompression</h4>
+					<span class="meta">MP3 - 10 min</span>
+				</div>
+				<p class="tool-desc">
+					Votre rituel sonore pour couper le cordon avec le travail et ne plus
+					ramener le stress à la maison.
+				</p>
+				<a href="#" class="btn-download" download
+					>Télécharger <i class="fa-solid fa-download"></i></a
+				>
+			</div>
+
+			<!-- Tool 2: Hypnose Nuit Réparatrice -->
+			<div class="tool-card">
+				<div class="tool-icon audio">
+					<span>🎧</span>
+				</div>
+				<div class="tool-info">
+					<h4>Hypnose "Nuit Réparatrice"</h4>
+					<span class="meta">MP3 - 20 min</span>
+				</div>
+				<p class="tool-desc">
+					Une séance guidée pour éteindre le "hamster mental" et réactiver votre
+					récupération profonde.
+				</p>
+				<a href="#" class="btn-download" download
+					>Télécharger <i class="fa-solid fa-download"></i></a
+				>
+			</div>
+
+			<!-- Tool 3: Guide SOS Somatique -->
+			<div class="tool-card">
+				<div class="tool-icon guide">
+					<span>📄</span>
+				</div>
+				<div class="tool-info">
+					<h4>Guide "SOS Somatique"</h4>
+					<span class="meta">PDF - Guide pratique</span>
+				</div>
+				<p class="tool-desc">
+					Des techniques discrètes (Respiration, Ancrage...) pour calmer une crise
+					d'angoisse au bureau sans que personne ne le voie.
+				</p>
+				<a href="#" class="btn-download" download
+					>Télécharger <i class="fa-solid fa-download"></i></a
+				>
+			</div>
+
+			<!-- Tool 4: Dossier Poser ses Limites -->
+			<div class="tool-card">
+				<div class="tool-icon guide">
+					<span>🛡️</span>
+				</div>
+				<div class="tool-info">
+					<h4>Dossier "Poser ses Limites"</h4>
+					<span class="meta">PDF - Scripts & méthodes</span>
+				</div>
+				<p class="tool-desc">
+					Les scripts pour dire "Non" à une surcharge ou une intrusion sans
+					culpabiliser.
+				</p>
+				<a href="#" class="btn-download" download
+					>Télécharger <i class="fa-solid fa-download"></i></a
+				>
+			</div>
+
+			<!-- Tool 5: Journal de Régulation -->
+			<div class="tool-card">
+				<div class="tool-icon workbook">
+					<span>📘</span>
+				</div>
+				<div class="tool-info">
+					<h4>Le Journal de Régulation</h4>
+					<span class="meta">PDF - Workbook J+7</span>
+				</div>
+				<p class="tool-desc">
+					Un cahier pour suivre votre niveau d'énergie (batterie) et valider votre
+					repos sans effort mental.
+				</p>
+				<a href="#" class="btn-download" download
+					>Télécharger <i class="fa-solid fa-download"></i></a
+				>
+			</div>
+		</div>
+
+		<div class="security-msg">
+			<i class="fa-solid fa-circle-info"></i>
+			<p>
+				Conseil : Téléchargez ces fichiers sur votre ordinateur maintenant pour les
+				conserver à vie.
+			</p>
+		</div>
+	</section>
+</CocoonLayout>
+
+<style lang="scss">
+	@import "../../assets/style/variables.scss";
+	$font-script: "Caveat", cursive;
+
+	section {
+		padding: 0 $spacing-md;
+		box-sizing: border-box;
+	}
+	// ── Cocoon Hero ──
+	.cocoon-hero {
+		background-color: $bg-light;
+		padding: 3rem 0 2.5rem;
+		text-align: center;
+
+		.hero-inner {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 0 $spacing-md;
+		}
+
+		h1 {
+			font-size: clamp(1.5rem, 4vw, 2rem);
+			margin: 0 0 0.5rem 0;
+			font-weight: 700;
+			color: $text-color;
+		}
+
+		.subtitle {
+			font-family: $font-script;
+			color: $secondary-color-alt;
+			font-size: clamp(1.2rem, 3vw, 1.6rem);
+			margin: 0;
+			font-weight: 500;
+		}
+	}
+
+	// ── Reservation Section ──
+	.reservation {
+		background: linear-gradient(to bottom, $bg-light 0%, $bg-color 100%);
+		padding-top: 2.5rem;
+		padding-bottom: 2rem;
+		display: flex;
+		justify-content: center;
+	}
+
+	// ── Priority Card ──
+	.priority-card {
+		background: $bg-light;
+		border-left: 4px solid $secondary-color;
+		border-radius: $border-radius-md;
+		position: relative;
+		padding: 2rem 2rem 2rem 2.5rem;
+		max-width: 900px;
+		width: 100%;
+		box-shadow: $shadow-md;
+
+		@media (max-width: $mobile) {
+			padding: 1.5rem 1rem 1.5rem 1.25rem;
+		}
+
+		.badge {
+			position: absolute;
+			top: -12px;
+			left: 20px;
+			background-color: $secondary-color;
+			color: $text-white;
+			font-size: clamp(0.6rem, 2vw, 0.7rem);
+			font-weight: 700;
+			padding: 4px 14px;
+			border-radius: $border-radius-full;
+			text-transform: uppercase;
+			letter-spacing: 0.5px;
+			box-shadow: 0 2px 8px rgba($secondary-color, 0.25);
+		}
+
+		.card-content {
+			display: flex;
+			align-items: center;
+			gap: 1.5rem;
+			margin-top: 0.5rem;
+
+			@media (max-width: $mobile) {
+				flex-direction: column;
+				text-align: center;
+			}
+		}
+
+		.cta-pill {
+			background-color: $secondary-color;
+			color: $text-white;
+			padding: 0.75rem 1.5rem;
+			border-radius: $border-radius-full;
+			text-decoration: none;
+			font-weight: 700;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			transition:
+				transform $transition-speed $transition-timing,
+				background-color $transition-speed $transition-timing;
+			box-shadow: 0 4px 15px rgba($secondary-color, 0.25);
+
+			&:hover {
+				background-color: $hover-color-alt;
+				transform: translateY(-2px);
+			}
+		}
+
+		.icon-wrapper {
+			font-size: 28px;
+			color: $secondary-color;
+			flex-shrink: 0;
+			width: 56px;
+			height: 56px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: rgba($secondary-color, 0.1);
+			border-radius: 50%;
+		}
+
+		.text-content {
+			flex: 1;
+
+			h2 {
+				font-size: clamp(0.95rem, 3vw, 1.15rem);
+				margin: 0 0 0.4rem 0;
+				color: $text-color;
+				font-weight: 700;
+			}
+
+			p {
+				margin: 0;
+				color: $text-light;
+				font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+				line-height: 1.5;
+			}
+		}
+	}
+
+	// ── Tools Section ──
+	.tools-section {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 0 auto;
+		background-color: $bg-color;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+
+		.section-title {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: clamp(1.1rem, 4vw, 1.4rem);
+			text-align: center;
+			margin-bottom: 2rem;
+			color: $text-color;
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			font-weight: 700;
+
+			&::after {
+				content: "";
+				display: block;
+				width: 50px;
+				height: 3px;
+				background-color: $primary-color;
+				margin: 0.5rem auto 0;
+				border-radius: 2px;
+			}
+		}
+
+		.tools-grid {
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+			max-width: 900px;
+			width: 100%;
+		}
+
+		.tool-card {
+			background-color: $bg-light;
+			border-radius: $border-radius-md;
+			padding: 1.25rem 1.5rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1rem;
+			min-height: 110px;
+			box-shadow: $shadow-sm;
+			transition:
+				transform $transition-speed $transition-timing,
+				box-shadow $transition-speed $transition-timing;
+			border-left: 3px solid transparent;
+
+			&:hover {
+				transform: translateY(-2px);
+				box-shadow: $shadow-lg;
+				border-left-color: $primary-color;
+			}
+
+			@media (max-width: $mobile) {
+				flex-direction: column;
+				text-align: center;
+			}
+
+			.tool-icon {
+				width: 48px;
+				height: 48px;
+				border-radius: $border-radius-md;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 1.4rem;
+				flex-shrink: 0;
+
+				&.audio {
+					background-color: rgba($primary-color, 0.1);
+				}
+				&.guide {
+					background-color: rgba($text-color, 0.06);
+				}
+				&.workbook {
+					background-color: rgba($secondary-color, 0.1);
+				}
+			}
+
+			.tool-info {
+				flex: 1;
+				min-width: 0;
+
+				h4 {
+					margin: 0;
+					font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+					font-weight: 700;
+					color: $text-color;
+				}
+
+				.meta {
+					font-size: 0.75rem;
+					color: $text-light;
+					display: block;
+					margin-top: 2px;
+				}
+			}
+
+			.tool-desc {
+				flex: 2;
+				margin: 0;
+				font-size: clamp(0.75rem, 2vw, 0.82rem);
+				color: $text-light;
+				line-height: 1.5;
+
+				@media (max-width: $mobile) {
+					flex: unset;
+				}
+			}
+
+			.btn-download {
+				background-color: $primary-color;
+				color: $text-white;
+				text-decoration: none;
+				padding: 10px 20px;
+				border-radius: $border-radius-full;
+				font-weight: 600;
+				font-size: clamp(0.75rem, 2.5vw, 0.85rem);
+				transition:
+					background-color $transition-speed $transition-timing,
+					transform $transition-speed $transition-timing;
+				white-space: nowrap;
+				display: inline-flex;
+				align-items: center;
+				gap: 6px;
+				flex-shrink: 0;
+				margin-left: auto;
+
+				@media (max-width: $mobile) {
+					margin-left: 0;
+				}
+
+				&:hover {
+					background-color: $hover-color;
+					transform: translateY(-1px);
+				}
+			}
+		}
+	}
+	.security-msg {
+		display: inline-flex;
+		gap: $spacing-sm;
+		background-color: $bg-light;
+		border-left: 3px solid $secondary-color;
+		padding: 1rem 1.25rem;
+		border-radius: $border-radius-sm;
+		margin-top: 4rem;
+		margin-bottom: 1.5rem;
+		align-self: center;
+
+		i {
+			color: $secondary-color;
+			font-size: 1.1rem;
+			flex-shrink: 0;
+		}
+
+		p {
+			margin: 0;
+			font-size: 0.85rem;
+			color: rgba($text-color, 0.85);
+			text-align: left;
+		}
+	}
+</style>
