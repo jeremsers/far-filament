@@ -17,7 +17,15 @@ export default defineConfig({
         },
     },
     site: "https://www.essence-et-conscience.ch",
-    integrations: [sitemap()],
+    integrations: [sitemap({
+        filter: (page) =>
+            page !== 'https://www.essence-et-conscience.ch/dl/pack-rupture-j49fd8/' &&
+            page !== 'https://www.essence-et-conscience.ch/dl/pack-burnout-s0q81k3/' &&
+            page !== 'https://www.essence-et-conscience.ch/merci-pack-rupture/' &&
+            page !== 'https://www.essence-et-conscience.ch/merci-pack-burnout/' &&
+            page !== 'https://www.essence-et-conscience.ch/merci-rupture/' &&
+            page !== 'https://www.essence-et-conscience.ch/merci-burnout/',
+    })],
     output: "static",
     adapter: vercel(),
 });
