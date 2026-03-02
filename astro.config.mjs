@@ -23,8 +23,8 @@ export default defineConfig({
             page !== 'https://www.essence-et-conscience.ch/dl/pack-burnout-s0q81k3/' &&
             page !== 'https://www.essence-et-conscience.ch/merci-pack-rupture/' &&
             page !== 'https://www.essence-et-conscience.ch/merci-pack-burnout/' &&
-            page !== 'https://www.essence-et-conscience.ch/merci-rupture/' &&
-            page !== 'https://www.essence-et-conscience.ch/merci-burnout/',
+            page !== 'https://www.essence-et-conscience.ch/merci-appel-rupture/' &&
+            page !== 'https://www.essence-et-conscience.ch/merci-appel-burnout/',
     })],
     output: "static",
     adapter: vercel(),
