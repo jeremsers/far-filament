@@ -21,11 +21,28 @@ import logomobile from "../images/logo5.avif";
 	</button>
 	<nav id="main-nav">
 		<a href="/qui" class="nav-link"><span>À propos</span></a>
-		<a href="/#dispatcher" class="nav-link"><span>Accompagnements</span></a>
+		<div class="nav-item has-dropdown">
+			<button class="nav-link dropdown-toggle" aria-expanded="false">
+				<span>Accompagnements</span>
+				<svg class="chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+			</button>
+			<div class="dropdown-menu">
+				<a href="/burnout" class="dropdown-link">Burnout & Carrière</a>
+				<a href="/rupture" class="dropdown-link">Rupture & Deuil</a>
+			</div>
+		</div>
+		<div class="nav-item has-dropdown">
+			<button class="nav-link dropdown-toggle" aria-expanded="false">
+				<span>Packs de soutien</span>
+				<svg class="chevron" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+			</button>
+			<div class="dropdown-menu">
+				<a href="/pack-burnout" class="dropdown-link">Pack Burnout</a>
+				<a href="/pack-rupture" class="dropdown-link">Pack Rupture</a>
+			</div>
+		</div>
 		<a href="/blog/all/1" class="nav-link"><span>Blog</span></a>
-		<a href="/#dispatcher" class="btn cta-btn"
-			>Choisir mon parcours</a
-		>
+		<a href="/#dispatcher" class="btn cta-btn">Choisir mon parcours</a>
 	</nav>
 </header>
 
@@ -55,14 +72,43 @@ import logomobile from "../images/logo5.avif";
 		}
 	});
 
-	// Close menu when clicking on a link
+	// Dropdown functionality for mobile
+	const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+	dropdownToggles.forEach(toggle => {
+		toggle.addEventListener("click", (e) => {
+			e.preventDefault();
+			const parent = toggle.closest(".has-dropdown");
+			
+			// Close other open dropdowns
+			document.querySelectorAll(".has-dropdown.open").forEach(dropdown => {
+				if (dropdown !== parent) {
+					dropdown.classList.remove("open");
+					dropdown.querySelector(".dropdown-toggle")?.setAttribute("aria-expanded", "false");
+				}
+			});
+
+			const isOpen = parent?.classList.toggle("open");
+			toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+		});
+	});
+
+	// Close menu when clicking on a standard link
 	nav?.addEventListener("click", (e) => {
 		const target = e.target as HTMLElement;
+		// Do not close if clicking on a dropdown toggle
+		if (target.closest(".dropdown-toggle")) return;
+
 		// Check if the target is a link or is inside a link
 		if (target.tagName === "A" || target.closest("a")) {
 			nav.classList.remove("active");
 			mobileMenuToggle?.setAttribute("aria-expanded", "false");
 			header?.classList.remove("nav-open");
+			
+			// Close all dropdowns
+			document.querySelectorAll(".has-dropdown.open").forEach(dropdown => {
+				dropdown.classList.remove("open");
+				dropdown.querySelector(".dropdown-toggle")?.setAttribute("aria-expanded", "false");
+			});
 		}
 	});
 </script>
@@ -232,6 +278,68 @@ import logomobile from "../images/logo5.avif";
 			}
 		}
 
+		.nav-item {
+			position: relative;
+			display: flex;
+			align-items: center;
+
+			.dropdown-toggle {
+				background: none;
+				border: none;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				font-family: inherit;
+				
+				.chevron {
+					transition: transform 0.3s ease;
+				}
+			}
+
+			.dropdown-menu {
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				transform: translateX(-50%) translateY(10px);
+				background-color: $bg-color;
+				border-radius: 8px;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+				padding: 10px 0;
+				min-width: 200px;
+				opacity: 0;
+				visibility: hidden;
+				transition: all 0.3s ease;
+				z-index: 100;
+				display: flex;
+				flex-direction: column;
+
+				.dropdown-link {
+					padding: 10px 20px;
+					color: $text-color;
+					text-decoration: none;
+					font-size: 0.95rem;
+					transition: background-color 0.2s ease, color 0.2s ease;
+					text-align: center;
+					
+					&:hover {
+						background-color: rgba(255,255,255,0.1);
+						color: $text-white;
+					}
+				}
+			}
+
+			&:hover .dropdown-menu {
+				opacity: 1;
+				visibility: visible;
+				transform: translateX(-50%) translateY(0);
+			}
+
+			&:hover .chevron {
+				transform: rotate(180deg);
+			}
+		}
+
 		.cta-btn {
 			display: inline-block;
 			background-color: $primary-color;
@@ -299,6 +407,48 @@ import logomobile from "../images/logo5.avif";
 				&:hover {
 					background-color: rgba(255, 255, 255, 0.1);
 					border-radius: 8px;
+				}
+			}
+
+			.nav-item {
+				width: 100%;
+				flex-direction: column;
+				
+				.dropdown-toggle {
+					width: 100%;
+					justify-content: center;
+					padding: 15px;
+					font-size: clamp(1.1rem, 4vw, 1.3rem);
+					margin: 5px 0;
+					
+					&[aria-expanded="true"] .chevron {
+						transform: rotate(180deg);
+					}
+				}
+
+				.dropdown-menu {
+					position: static;
+					transform: none;
+					box-shadow: none;
+					background-color: rgba(0,0,0,0.05);
+					width: 100%;
+					display: none;
+					opacity: 1;
+					visibility: visible;
+					padding: 0;
+					
+					.dropdown-link {
+						padding: 12px 20px;
+						font-size: 1rem;
+					}
+				}
+
+				&.open .dropdown-menu {
+					display: flex;
+				}
+
+				&:hover .dropdown-menu {
+					transform: none;
 				}
 			}
 

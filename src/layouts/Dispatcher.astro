@@ -31,7 +31,8 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					Retrouvez du sens, de l'énergie et un équilibre durable dans votre vie
 					professionnelle.
 				</p>
-				<div class="fake-button">Découvrir le programme</div>
+				<div class="fake-button">Découvrir le programme complet</div>
+				<button type="button" class="fake-button" onclick="window.location.href='/pack-burnout'; event.preventDefault(); event.stopPropagation();">Découvrir le pack de soutien</button>
 			</div>
 		</a>
 
@@ -48,17 +49,19 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					Traversez cette épreuve avec douceur pour vous reconstruire et avancer
 					sereinement.
 				</p>
-				<div class="fake-button">Découvrir l'accompagnement</div>
+				<div class="fake-button">Découvrir l'accompagnement complet</div>
+				<button type="button" class="fake-button" onclick="window.location.href='/pack-rupture'; event.preventDefault(); event.stopPropagation();">Découvrir le pack de soutien</button>
 			</div>
 		</a>
 	</div>
 
 	<div class="generic-rdv-section">
-		<h3>Vous avez un besoin spécifique ?</h3>
+		<h3>Vous avez un besoin spécifique ou ponctuel ?</h3>
 		<p>
-			Réservez un entretien gratuit de 20mn pour que nous puissions en discuter
+			Vous traversez une période de doute, vous faites face à une situation bloquante ou vous ressentez simplement le besoin de faire le point ? La séance individuelle à la carte (60 min) vous offre un espace d'écoute privilégié et des clés concrètes pour avancer, sans vous engager dans un accompagnement sur le long terme.<br><br>
+			<strong>Tarif de la séance : 160 CHF</strong>
 		</p>
-		<a href="https://essence-conscience-entretien-decouverte.youcanbook.me" target="_blank" class="btn-generic-rdv">Réserver un entretien</a>
+		<a href="https://essence-conscience-seance-a-la-carte.youcanbook.me" target="_blank" class="btn-generic-rdv">Réserver ma séance à la carte</a>
 	</div>
 </section>
 
@@ -223,6 +226,11 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					text-transform: uppercase;
 					font-size: 0.9rem;
 					letter-spacing: 1px;
+					cursor: pointer;
+					font-family: inherit;
+				}
+				button.fake-button {
+					margin-top: 1rem;
 				}
 			}
 
@@ -241,11 +249,9 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					border-color: $primary-color;
 				}
 
-				&:hover {
-					.fake-button {
-						background-color: $primary-color;
-						color: $text-white;
-					}
+				.fake-button:hover {
+					background-color: $primary-color;
+					color: $text-white;
 				}
 			}
 
@@ -264,11 +270,9 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					border-color: $secondary-color;
 				}
 
-				&:hover {
-					.fake-button {
-						background-color: $secondary-color;
-						color: $text-white;
-					}
+				.fake-button:hover {
+					background-color: $secondary-color;
+					color: $text-white;
 				}
 			}
 		}
