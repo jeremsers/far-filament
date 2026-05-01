@@ -2,27 +2,26 @@
 import { Image } from "astro:assets";
 import burnoutImg from "../images/burnout-dispatch.avif";
 import ruptureImg from "../images/rupture-dispatch.avif";
-
-
 ---
 
 <section class="dispatcher-section" id="dispatcher">
 	<div class="dispatcher-header">
 		<h2>Quel accompagnement vous appelle ?</h2>
 		<p>
-			Choisissez le parcours qui correspond à votre situation et qui deviendra votre point de départ.<br />
-			<strong>Des options de soutien immédiat sont également disponibles à l’intérieur de chaque parcours si vous avez besoin d’un appui rapide.
-			</strong></p>
+			Choisissez le parcours qui correspond à votre situation et qui deviendra
+			votre point de départ.<br />
+			<strong
+				>Des options de soutien immédiat sont également disponibles à l’intérieur de
+				chaque parcours si vous avez besoin d’un appui rapide.
+			</strong>
+		</p>
 	</div>
 
 	<div class="dispatcher-grid">
 		<!-- Carte BURNOUT (Pro) -->
 		<a href="/burnout" class="dispatch-card burnout">
 			<div class="card-image">
-				<Image
-					src={burnoutImg}
-					alt="Bureau Zen et Nature"
-				/>
+				<Image src={burnoutImg} alt="Bureau Zen et Nature" />
 				<div class="overlay"></div>
 			</div>
 			<div class="card-content">
@@ -39,10 +38,7 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 		<!-- Carte RUPTURE (Perso) -->
 		<a href="/rupture" class="dispatch-card rupture">
 			<div class="card-image">
-				<Image
-					src={ruptureImg}
-					alt="Ambiance Cosy et Cocon"
-				/>
+				<Image src={ruptureImg} alt="Ambiance Cosy et Cocon" />
 				<div class="overlay"></div>
 			</div>
 			<div class="card-content">
@@ -55,6 +51,14 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 				<div class="fake-button">Découvrir l'accompagnement</div>
 			</div>
 		</a>
+	</div>
+
+	<div class="generic-rdv-section">
+		<h3>Vous avez un besoin spécifique ?</h3>
+		<p>
+			Réservez un entretien gratuit de 20mn pour que nous puissions en discuter
+		</p>
+		<a href="https://essence-conscience-entretien-decouverte.youcanbook.me" target="_blank" class="btn-generic-rdv">Réserver un entretien</a>
 	</div>
 </section>
 
@@ -78,8 +82,18 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 				font-size: clamp(1.5rem, 5vw, 3rem);
 				margin-bottom: 30px;
 				line-height: 1.2;
-
-				
+				position: relative;
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: clamp(40px, 8vw, 60px);
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
 			}
 
 			p {
@@ -183,6 +197,7 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 					color: $text-color;
 					font-size: 1.8rem;
 					margin: 0 0 15px 0;
+					
 				}
 
 				p {
@@ -254,6 +269,64 @@ import ruptureImg from "../images/rupture-dispatch.avif";
 						background-color: $secondary-color;
 						color: $text-white;
 					}
+				}
+			}
+		}
+
+		.generic-rdv-section {
+			text-align: center;
+			margin-top: 80px;
+			max-width: 800px;
+			margin-left: auto;
+			margin-right: auto;
+
+			h3 {
+				font-family: "Montserrat", serif;
+				color: $text-color;
+				font-size: clamp(1.2rem, 3vw, 1.8rem);
+				margin: 0 0 30px 0;
+				font-weight: 700;
+				position: relative;
+				&:after {
+					content: "";
+					position: absolute;
+					bottom: -10px;
+					left: 50%;
+					transform: translateX(-50%);
+					width: clamp(40px, 8vw, 60px);
+					height: 3px;
+					background-color: #6b8e23;
+					border-radius: 2px;
+				}
+			}
+
+			p {
+				font-family: "Poppins", sans-serif;
+				color: $text-light;
+				font-size: clamp(1rem, 1.5vw, 1.2rem);
+				margin: 0 0 30px 0;
+				line-height: 1.6;
+			}
+
+			.btn-generic-rdv {
+				display: inline-block;
+				padding: 14px 35px;
+				background-color: $secondary-color;
+				color: white;
+				text-decoration: none;
+				border-radius: 50px;
+				font-weight: 600;
+				font-family: "Poppins", sans-serif;
+				transition: all 0.3s ease;
+				text-transform: uppercase;
+				font-size: 0.9rem;
+				letter-spacing: 1px;
+				box-shadow: 0 4px 15px rgba($secondary-color, 0.2);
+
+				&:hover {
+					transform: translateY(-3px);
+					box-shadow: 0 8px 25px rgba($secondary-color, 0.3);
+					background-color: darken($secondary-color, 5%);
 				}
 			}
 		}

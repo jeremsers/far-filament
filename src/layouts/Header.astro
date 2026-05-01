@@ -72,7 +72,7 @@ import logomobile from "../images/logo5.avif";
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		padding: clamp(10px, 2vw, 15px) clamp(15px, 3vw, 30px);
+		padding: 0 clamp(15px, 3vw, 30px);
 		background-color: $bg-color;
 		height: clamp(60px, 10vh, 80px);
 		position: relative;
@@ -85,43 +85,43 @@ import logomobile from "../images/logo5.avif";
 	}
 	
 	.logo {
-		height:	100%;
-		width: 150px;
+		height:	90%;
+		width: 280px;
 		z-index: 1001;
 		transition: all 0.3s ease;
 		position: relative;
-		
+		display: flex;
+		align-items: center;
 
 		&-link {
-			display: block;
+			display: flex;
+			align-items: center;
 			height: 100%;
+			width: 100%;
 		}
 
 		&-img {
+			height: 100%;
+			width: 100%;
 			object-fit: contain;
-			left: -10px;
-			top: -10px;
+			object-position: left center;
 			transition: transform 0.4s ease;
 			display: block;
-			position: absolute;
-			overflow: hidden;
 
 			@media (max-width: 768px) {
 				display: none;
 			}
 
 			&:hover {
-				transform: translateY(-5px);
+				transform: translateY(-2px);
 			}
 		}
 
 		&-img-mobile {
-			height: 150%;
+			height: 100%;
 			width: auto;
 			object-fit: contain;
-			position: absolute;
-			left: -10px;
-			top: -10px;
+			object-position: left center;
 			transition: transform 0.4s ease;
 			display: none;
 
@@ -130,7 +130,7 @@ import logomobile from "../images/logo5.avif";
 			}
 
 			&:hover {
-				transform: translateY(-5px);
+				transform: translateY(-2px);
 			}
 		}
 	}
